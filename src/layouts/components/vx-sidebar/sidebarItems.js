@@ -22,14 +22,26 @@
 export default [
   {
     url: "/",
-    name: "Home",
+    name: "Dashboard",
     slug: "home",
     icon: "HomeIcon",
   },
   {
-    url: "/page2",
-    name: "Page 2",
-    slug: "page2",
+    url: "/pkh",
+    name: "Phiếu Kiểm Hỏng",
+    slug: "pkh",
     icon: "FileIcon",
   },
+  {
+    url: "/pdh",
+    name: "Phiếu Đặt Hàng",
+    slug: "pdh",
+    icon: "FileIcon",
+  },
+  {
+    url: "/pcntp",
+    name: "Phiếu Công Nhận Thành Phẩm",
+    slug: "pcntp",
+    icon: "FileIcon",
+  }
 ]
