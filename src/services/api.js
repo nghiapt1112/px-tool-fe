@@ -10,6 +10,10 @@ const instance = axios.create({
   }
 });
 
+if (localStorage.getItem('access_token')) {
+  axios.defaults.headers.common['Authorization'] = `bearer ${localStorage.getItem('access_token')}`;
+}
+
 // Add a request interceptor
 instance.interceptors.request.use(function (config) {
   // Do something before request is sent
@@ -25,6 +29,7 @@ instance.interceptors.response.use(function (response) {
   // Do something with response data
   return response;
 }, function (error) {
+  console.log('Error', error)
   if (error.response) {
     const { response: { data } } = error;
     return Promise.reject(data.message || 'A server error occurred. Please contact the administrator.');
@@ -33,7 +38,7 @@ instance.interceptors.response.use(function (response) {
 });
 
 export const setToken = (token) => {
-  axios.defaults.headers.common['Authorization'] = token;
+  axios.defaults.headers.common['Authorization'] = `bearer ${token}`;
 }
 
 export default instance;

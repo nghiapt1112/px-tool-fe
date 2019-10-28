@@ -1,6 +1,6 @@
 import api from './api'
 
 export const getList = () => {
-  return api.get('/dashboard')
+  return api.get('/dashboard/receiver')
 }
 

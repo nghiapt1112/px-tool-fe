@@ -297,9 +297,17 @@
       onSubmit () {
         const data = Object.assign({}, this.PDHData);
         this.pdhSaveData(data).then(() => {
-
-        }).catch(()=> {
-          this.showError = true;
+          this.$vs.notify({
+            color: 'success',
+            title: 'Lưu Phiếu Đặt Hàng',
+            text: `Lưu Phiếu Đặt Hàng thành công.`
+          })
+        }).catch((e)=> {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Lưu Phiếu Đặt Hàng',
+            text: `Lưu Phiếu Đặt Hàng thất bại. ${e}`
+          })
         })
       },
       openDeleteConfirm() {

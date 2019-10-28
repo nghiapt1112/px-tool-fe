@@ -12,7 +12,7 @@
         </tr>
 
         <tbody>
-        <tr :key="indextr" v-for="(tr, indextr) in works">
+        <tr :key="indextr" v-for="(tr, indextr) in CVCTData">
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.ma }}
@@ -31,7 +31,7 @@
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <vs-button class="mr-4" size="small" @click="onDetailClick(tr.id, tr.type)">Chi tiết</vs-button>
+            <vs-button class="mr-4" size="small" @click="onDetailClick(tr.requestId, tr.type)">Chi tiết</vs-button>
             <vs-button class="mr-4" size="small" color="danger" @click="openDeleteConfirm">Hủy</vs-button>
           </td>
 
@@ -61,51 +61,7 @@
     data () {
       return {
         MAP_TYPES,
-        MAP_STATUS,
-        works: [
-          {
-            id: 1,
-            ma: 'KEY-01',
-            type: 'KIEM_HONG',
-            noiDung: 'Tóm tắt nội dung abc abc abc',
-            trangThai: 'DANG_CHO_DUYET'
-          },
-          {
-            id: 2,
-            ma: 'KEY-02',
-            type: 'DAT_HANG',
-            noiDung: 'Tóm tắt nội dung abc abc abc',
-            trangThai: 'DANG_CHO_DUYET'
-          },
-          {
-            id: 3,
-            ma: 'KEY-03',
-            type: 'CONG_NHAN_THANH_PHAM',
-            noiDung: 'Tóm tắt nội dung abc abc abc',
-            trangThai: 'DANG_CHO_DUYET'
-          },
-          {
-            id: 4,
-            ma: 'KEY-04',
-            type: 'PHUONG_AN',
-            noiDung: 'Tóm tắt nội dung abc abc abc',
-            trangThai: 'DANG_CHO_DUYET'
-          },
-          {
-            id: 5,
-            ma: 'KEY-05',
-            type: 'KIEM_HONG',
-            noiDung: 'Tóm tắt nội dung abc abc abc',
-            trangThai: 'DANG_CHO_DUYET'
-          },
-          {
-            id: 6,
-            ma: 'KEY-06',
-            type: 'KIEM_HONG',
-            noiDung: 'Tóm tắt nội dung abc abc abc',
-            trangThai: 'DANG_CHO_DUYET'
-          },
-        ]
+        MAP_STATUS
       }
     },
     computed: {
@@ -178,7 +134,7 @@
         width: 100px;
       }
 
-      &:nth-child(4) {
+      &:nth-child(5) {
         width: 200px;
       }
     }

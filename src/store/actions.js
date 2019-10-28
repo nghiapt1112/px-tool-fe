@@ -56,6 +56,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       auth.login(userName, password).then(res => {
         const { data: { access_token } } = res;
+        localStorage.setItem('access_token', access_token)
         setToken(access_token);
         resolve(res)
       }).catch(e => {
