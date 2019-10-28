@@ -6,35 +6,57 @@
         <tr>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"><strong>Nhà máy
             A41</strong></td>
-          <th colspan="7" class="p-2 border border-solid d-theme-border-grey-light text-center">Phiếu đặt hàng</th>
+          <th colspan="7" class="p-2 border border-solid d-theme-border-grey-light text-center">PHIẾU ĐẶT HÀNG</th>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">Mẫu số : 3VT2001</td>
         </tr>
         <tr>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">Phòng vật tư</th>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Số:</th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Phòng vật tư</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Số:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx" style="width: 150px"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('so', $event.target.value)"
+              :value="PDHData.so"/>
+          </td>
+          <th colspan="6" class="p-2 border border-solid d-theme-border-grey-light"></th>
+        </tr>
+        <tr>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Đơn vị yêu cầu:</th>
+          <td class="p-2 border border-solid d-theme-border-grey-light">
+            <v-select
+              size="small"
+              label="name"
+              :value="PDHData.donViYeuCau"
+              :reduce="t => t.name"
+              @input="changeData('toSX', $event)"
+              :options="PDHComboboxData.to_san_xuat"></v-select>
+          </td>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Phân xưởng</th>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
+            <v-select
+              size="small"
+              label="name"
+              :value="PDHData.phanXuong"
+              :reduce="t => t.name"
+              @input="changeData('phanXuong', $event)"
+              :options="PDHComboboxData.phan_xuong"></v-select>
           </td>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
         <tr>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Đơn vị yêu cầu:</th>
-          <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-input
+              style="width: 100%"
+              size="small"
+              class="inputx"
+              @change="changeData('noiDung', $event.target.value)"
+              :value="PDHData.noiDung"/>
           </td>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Phân xưởng</th>
-          <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
-          </td>
-          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
-        </tr>
-        <tr>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
-          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
-          </td>
+          <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         </tbody>
 
@@ -61,50 +83,106 @@
 
         <tbody>
         <tr
-          v-for="(tr, indextr) in listDevices"
+          v-for="(tr, indextr) in PDHData.phieuDatHangDetails"
           :key="indextr"
         >
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
             {{indextr + 1}}
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.tenPhuKien"
+              @change="changeDetailItem(indextr, 'tenPhuKien', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.tenVatTuKyThuat"
+              @change="changeDetailItem(indextr, 'tenVatTuKyThuat', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.kiMaHieu"
+              @change="changeDetailItem(indextr, 'kiMaHieu', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <vs-input size="small" class="inputx" style="width: 150px"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.dvt"
+              @change="changeDetailItem(indextr, 'dvt', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-right">
-            <vs-input size="small" class="inputx" style="width: 50px"/>
+            <vs-input
+              style="width: 85px"
+              size="small"
+              class="inputx"
+              :value="tr.sl"
+              @change="changeDetailItem(indextr, 'sl', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <v-select
+              style="width: 220px"
+              size="small"
+              label="name"
+              :value="tr.mucDichSuDung"
+              :reduce="t => t.name"
+              @input="changeData('mucDichSuDung', $event)"
+              :options="PDHComboboxData.ten_vktbkt"></v-select>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.phuongPhapKhacPhuc"
+              @change="changeDetailItem(indextr, 'phuongPhapKhacPhuc', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.soPhieuDatHang"
+              @change="changeDetailItem(indextr, 'soPhieuDatHang', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.nguoiThucHien"
+              @change="changeDetailItem(indextr, 'nguoiThucHien', $event.target.value)"/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="10" class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-button
+              color="success"
+              size="small"
+              icon-pack="feather"
+              icon="icon-plus"
+              @click="addDetail"
+            ></vs-button>
           </td>
         </tr>
         </tbody>
-
         <tbody>
         <tr>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light italic">
+            {{PDHData.ngayThangNamTPKTHK || ' Ngày ... tháng ... năm ...'}}
+          </td>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light italic">
+            {{PDHData.ngayThangNamTPVatTu || ' Ngày ... tháng ... năm ...'}}
+          </td>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light italic">
+            {{PDHData.ngayThangNamNguoiDatHang || ' Ngày ... tháng ... năm ...'}}
+          </td>
           <td class="p-2 border border-solid d-theme-border-grey-light italic"></td>
         </tr>
         <tr>
@@ -117,28 +195,46 @@
           <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
         <tr>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-upload></vs-upload>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <td  class="p-2 border border-solid d-theme-border-grey-light">
+            <v-select
+              size="small"
+              label="name"
+              :value="PDHData.noiNhan"
+              :reduce="t => t.name"
+              @input="changeData('noiNhan', $event)"
+              :options="PDHComboboxData.noi_nhan"></v-select>
+          </td>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <span class="text-warning">Chờ phê duyệt</span>
           </th>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-upload></vs-upload>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <span class="text-danger">Không phê duyệt</span>
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-upload></vs-upload>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <span class="text-success">Đã phê duyệt</span>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
         </tbody>
       </table>
     </div>
+    <vs-button
+      class="mr-4 float-right mt-3"
+      color="danger"
+      icon-pack="feather"
+      icon="icon-trash"
+      @click="openDeleteConfirm"></vs-button>
+    <vs-button class="mr-4 mt-3" @click="onSubmit">Lưu</vs-button>
+    <vs-button class="mt-3" type="border" color="warning">Reset</vs-button>
   </vx-card>
 </template>
 
 <script>
   import vSelect from 'vue-select'
+  import { mapGetters, mapActions } from 'vuex';
 
   export default {
     components: {
@@ -170,6 +266,59 @@
         ]
       }
     },
+    computed: {
+      ...mapGetters([
+        'PDHData',
+        'PDHComboboxData'
+      ]),
+    },
+    methods: {
+      ...mapActions([
+        'pdhUpdateData',
+        'pdhSaveData'
+      ]),
+      changeData (fieldName, value) {
+        const data = Object.assign({}, this.PDHData);
+        data[fieldName] = value;
+        this.pdhUpdateData(data);
+      },
+      changeDetailItem (index, fieldName, value) {
+        const item = Object.assign({}, this.PDHData.phieuDatHangDetails[index]);
+        const phieuDatHang = Object.assign([], this.PDHData.phieuDatHangDetails);
+        item[fieldName] = value;
+        phieuDatHang[index] = item;
+        this.changeData('phieuDatHangDetails', phieuDatHang);
+      },
+      addDetail () {
+        const phieuDatHang = Object.assign([], this.PDHData.phieuDatHangDetails);
+        phieuDatHang.push({})
+        this.changeData('phieuDatHangDetails', phieuDatHang);
+      },
+      onSubmit () {
+        const data = Object.assign({}, this.PDHData);
+        this.pdhSaveData(data).then(() => {
+
+        }).catch(()=> {
+          this.showError = true;
+        })
+      },
+      openDeleteConfirm() {
+        this.$vs.dialog({
+          type: 'confirm',
+          color: 'danger',
+          title: `Xác nhận xóa`,
+          text: 'Bạn có chắc muốn xóa Phiếu Đặt Hàng này?',
+          accept: this.acceptDelete
+        })
+      },
+      acceptDelete() {
+        this.$vs.notify({
+          color: 'danger',
+          title: 'Xóa Phiếu Đặt Hàng',
+          text: 'Xóa Phiếu Đặt Hàng thất bại.'
+        })
+      },
+    }
   }
 </script>
 
@@ -180,6 +329,14 @@
   }
 
   .invoice__table--content {
-    /*width: auto;*/
+    td {
+      &:nth-child(1), &:nth-child(6) {
+        min-width: 100px;
+      }
+
+      /*&:nth-child(2) {*/
+      /*  min-width: 190px;*/
+      /*}*/
+    }
   }
 </style>

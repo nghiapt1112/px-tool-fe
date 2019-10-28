@@ -5,8 +5,8 @@
         <tbody>
         <tr>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"><strong>Nhà máy A41</strong></td>
-          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center">Phiếu Công Nhận Thành
-            Phẩm
+          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center">
+            PHIẾU CÔNG NHẬN THÀNH PHẨM
           </th>
         </tr>
         <tr>
@@ -129,16 +129,22 @@
         <tr>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-upload></vs-upload>
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-upload></vs-upload>
           </th>
         </tr>
         </tbody>
       </table>
     </div>
+    <vs-button
+      class="mr-4 float-right mt-3"
+      color="danger"
+      icon-pack="feather"
+      icon="icon-trash"
+      @click="openDeleteConfirm"></vs-button>
+    <vs-button class="mr-4 mt-3" @click="onSubmit">Lưu</vs-button>
+    <vs-button class="mt-3" type="border" color="warning">Reset</vs-button>
   </vx-card>
 </template>
 
@@ -185,8 +191,10 @@
   }
 
   .invoice__table--content {
-    td:first-child {
-      min-width: 250px;
-    }
+   td {
+     &:nth-child(1) {
+       min-width: 200px;
+     }
+   }
   }
 </style>

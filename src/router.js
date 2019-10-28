@@ -46,6 +46,11 @@ const router = new Router({
             component: () => import('./views/Home.vue')
           },
           {
+            path: '/cvct',
+            name: 'cvct',
+            component: () => import('./views/CVCT.vue')
+          },
+          {
             path: '/pkh',
             name: 'pkh',
             component: () => import('./views/PKH.vue')
@@ -59,6 +64,11 @@ const router = new Router({
             path: '/pcntp',
             name: 'pcntp',
             component: () => import('./views/PCNTP.vue')
+          },
+          {
+            path: '/pa',
+            name: 'pa',
+            component: () => import('./views/PA.vue')
           },
         ],
       },

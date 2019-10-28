@@ -27,6 +27,18 @@ export default [
     icon: "HomeIcon",
   },
   {
+    url: "/cvct",
+    name: "Công Việc Cần Xử Lý",
+    slug: "cvct",
+    icon: "FileIcon",
+  },
+  {
+    url: "/pa",
+    name: "Phương án",
+    slug: "pa",
+    icon: "FileIcon",
+  },
+  {
     url: "/pkh",
     name: "Phiếu Kiểm Hỏng",
     slug: "pkh",

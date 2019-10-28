@@ -2,50 +2,71 @@
   <vx-card title="Phiếu Kiểm Hỏng">
     <div class="table--container">
       <table class="invoice__table--content border-collapse">
-        <!--        <colgroup>-->
-        <!--          <col width="5%">-->
-        <!--          <col width="10%">-->
-        <!--          <col width="15%">-->
-        <!--          <col width="10%">-->
-        <!--          <col width="10%">-->
-        <!--          <col width="10%">-->
-        <!--          <col width="10%">-->
-        <!--          <col width="10%">-->
-        <!--          <col width="10%">-->
-        <!--        </colgroup>-->
         <tbody>
         <tr>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center" colspan="3"><strong>Nhà máy
             A41</strong></td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Tên VKTBKT:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select size="small" style="width: 150px"></v-select>
+            <v-select
+              size="small"
+              label="name"
+              :value="PKHData.tenVKTBKT"
+              :reduce="t => t.name"
+              @input="changeData('tenVKTBKT', $event)"
+              :options="PKHComboboxData.ten_vktbkt"></v-select>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Số hiệu:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('soHieu', $event.target.value)"
+              :value="PKHData.soHieu"/>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Tờ số:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <vs-input-number size="small" value="1"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('toSo', $event.target.value)"
+              :value="PKHData.toSo"/>
           </td>
         </tr>
         <tr>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Phẩn xưởng:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select size="small"></v-select>
+            <v-select
+              size="small"
+              label="name"
+              :value="PKHData.phanXuong"
+              :reduce="t => t.name"
+              @input="changeData('phanXuong', $event)"
+              :options="PKHComboboxData.phan_xuong"></v-select>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nguồn vào:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx" style="width: 150px"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('nguonVao', $event.target.value)"
+              :value="PKHData.nguonVao"/>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Số XX:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('soXX', $event.target.value)"
+              :value="PKHData.soXX"/>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Số tờ:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <vs-input-number size="small" value="2"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('soTo', $event.target.value)"
+              :value="PKHData.soTo"/>
           </td>
         </tr>
         </tbody>
@@ -53,19 +74,24 @@
         <tr>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Tổ sx:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select size="small"></v-select>
+            <v-select
+              size="small"
+              label="name"
+              :value="PKHData.toSX"
+              :reduce="t => t.name"
+              @input="changeData('toSX', $event)"
+              :options="PKHComboboxData.to_san_xuat"></v-select>
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light">Công đoạn: KIỂM HỎNG CHI TIẾT</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light">Công đoạn: <span class="text-uppercase">{{this.PKHData.congDoan}}</span>
+          </td>
           <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         </tbody>
-
         <tbody>
         <tr>
           <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light">&nbsp;</td>
         </tr>
         </tbody>
-
         <tbody>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TT</th>
@@ -79,47 +105,91 @@
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Người kiểm hỏng</th>
         </tr>
         </tbody>
-
         <tbody>
         <tr
-          v-for="(tr, indextr) in listDevices"
+          v-for="(tr, indextr) in PKHData.kiemHongDetails"
           :key="indextr"
         >
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
             {{indextr + 1}}
           </td>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.tenPhuKien"
+              @change="changeDetailItem(indextr, 'tenPhuKien', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.tenLinhKien"
+              @change="changeDetailItem(indextr, 'tenLinhKien', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <vs-input size="small" class="inputx"  style="width: 150px"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.kyHieu"
+              @change="changeDetailItem(indextr, 'kyHieu', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-right">
-            <vs-input size="small" class="inputx" style="width: 50px"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              style="width: 85px"
+              :value="tr.sl"
+              @change="changeDetailItem(indextr, 'sl', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.dangHuHong"
+              @change="changeDetailItem(indextr, 'dangHuHong', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.phuongPhapKhacPhuc"
+              @change="changeDetailItem(indextr, 'phuongPhapKhacPhuc', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.nguoiKiemHong"
+              @change="changeDetailItem(indextr, 'nguoiKiemHong', $event.target.value)"/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-button
+              color="success"
+              size="small"
+              icon-pack="feather"
+              icon="icon-plus"
+              @click="addDetail"
+            ></vs-button>
           </td>
         </tr>
         </tbody>
-
         <tbody>
         <tr>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light italic">
+            {{PKHData.ngayThangNamQuanDoc || ' Ngày ... tháng ... năm ...'}}
+          </td>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light italic">
+            {{PKHData.ngayThangNamTroLyKT || ' Ngày ... tháng ... năm ...'}}
+          </td>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light italic">
+            {{PKHData.ngayThangNamToTruong || ' Ngày ... tháng ... năm ...'}}
+          </td>
         </tr>
         <tr>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -130,27 +200,72 @@
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TỔ TRƯỞNG</th>
         </tr>
         <tr>
-          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-upload></vs-upload>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
+            <v-select
+              size="small"
+              label="name"
+              :value="PKHData.noiNhan"
+              :reduce="t => t.name"
+              @input="changeData('noiNhan', $event)"
+              :options="PKHComboboxData.noi_nhan"></v-select>
+          </td>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <span class="text-warning">Chờ phê duyệt</span>
           </th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-upload></vs-upload>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <span class="text-success">Đã phê duyệt</span>
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-upload></vs-upload>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <span class="text-danger">Không phê duyệt</span>
+          </th>
+        </tr>
+        <tr>
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+            Ý kiến giám đốc
+          </th>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
+            <ul style="display: flex; flex-direction: row">
+              <li>
+                <vs-checkbox icon-pack="feather" icon="icon-check" class="input-inline">Nhất trí</vs-checkbox>
+              </li>
+              <li>
+                <vs-checkbox icon-pack="feather" icon="icon-x" color="danger" class="input-inline">Không nhất trí
+                </vs-checkbox>
+              </li>
+            </ul>
+            <vs-textarea
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('ykienGiamDoc', $event.target.value)"/>
+          </td>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
           </th>
         </tr>
         </tbody>
       </table>
     </div>
+    <vs-button
+      class="mr-4 float-right mt-3"
+      color="danger"
+      icon-pack="feather"
+      icon="icon-trash"
+      @click="openDeleteConfirm"></vs-button>
+    <vs-button class="mr-4 mt-3" @click="onSubmit">Lưu</vs-button>
+    <vs-button class="mt-3" type="border" color="warning">Reset</vs-button>
+
+    <vs-popup class="holamundo" title="Có lỗi xảy ra" :active.sync="showError">
+      <p class="text-danger">{{pkhError}}</p>
+    </vs-popup>
   </vx-card>
 </template>
 
 <script>
   import vSelect from 'vue-select'
+  import { mapActions, mapGetters } from 'vuex';
 
   export default {
     components: {
@@ -158,30 +273,68 @@
     },
     data () {
       return {
-        listDevices: [
-          {
-            id: 1,
-            name: "Vạn điện từ 445",
-            detail: "Vỏ thân van",
-            code: "3345ty53",
-            amount: 1,
-            error: "Hỏng ren",
-            method: "Bằng mắt",
-            person: null,
-          },
-          {
-            id: 1,
-            name: "Vạn điện từ 445",
-            detail: "Vỏ thân van",
-            code: "3345ty53",
-            amount: 1,
-            error: "Hỏng ren",
-            method: "Bằng mắt",
-            person: null,
-          }
-        ]
+        showError: false
       }
     },
+    computed: {
+      ...mapGetters([
+        'PKHScreenData',
+        'PKHData',
+        'PKHComboboxData'
+      ]),
+      pkhError: {
+        get () {
+          return this.PKHScreenData.error
+        }
+      }
+    },
+    methods: {
+      ...mapActions([
+        'pkhUpdateData',
+        'pkhSaveData'
+      ]),
+      changeData (fieldName, value) {
+        const data = Object.assign({}, this.PKHData);
+        data[fieldName] = value;
+        this.pkhUpdateData(data);
+      },
+      changeDetailItem (index, fieldName, value) {
+        const item = Object.assign({}, this.PKHData.kiemHongDetails[index]);
+        const kiemHong = Object.assign([], this.PKHData.kiemHongDetails);
+        item[fieldName] = value;
+        kiemHong[index] = item;
+        this.changeData('kiemHongDetails', kiemHong);
+      },
+      addDetail () {
+        const kiemHong = Object.assign([], this.PKHData.kiemHongDetails);
+        kiemHong.push({})
+        this.changeData('kiemHongDetails', kiemHong);
+      },
+      onSubmit () {
+        const data = Object.assign({}, this.PKHData);
+        this.pkhSaveData(data).then(() => {
+
+        }).catch(()=> {
+          this.showError = true;
+        })
+      },
+      openDeleteConfirm() {
+        this.$vs.dialog({
+          type: 'confirm',
+          color: 'danger',
+          title: `Xác nhận xóa`,
+          text: 'Bạn có chắc muốn xóa Phiếu Kiểm Hỏng này?',
+          accept: this.acceptDelete
+        })
+      },
+      acceptDelete() {
+        this.$vs.notify({
+          color: 'danger',
+          title: 'Xóa Phiếu Kiểm Hỏng',
+          text: 'Xóa Phiếu Kiểm Hỏng thất bại.'
+        })
+      },
+    }
   }
 </script>
 
@@ -192,6 +345,18 @@
   }
 
   .invoice__table--content {
-    /*width: auto;*/
+    td {
+      &:nth-child(1), &:nth-child(5) {
+        min-width: 100px;
+      }
+
+      /*&:nth-child(2) {*/
+      /*  min-width: 190px;*/
+      /*}*/
+    }
+  }
+
+  .text-uppercase {
+    text-transform: uppercase;
   }
 </style>

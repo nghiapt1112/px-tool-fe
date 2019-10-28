@@ -1,18 +1,15 @@
-/*=========================================================================================
-  File Name: getters.js
-  Description: Vuex Store - getters
-  ----------------------------------------------------------------------------------------
-  Item Name: Vuesax Admin - VueJS Dashboard Admin Template
-  Author: Pixinvent
-  Author URL: http://www.themeforest.net/user/pixinvent
-==========================================================================================*/
-
-
 const getters = {
-
-	// COMPONENT
-		// vx-autosuggest
-	// starredPages: state => state.navbarSearchAndPinList.data.filter((page) => page.highlightAction),
+  AUTHScreenData: (state) => state.auth,
+  // CVCT
+  CVCTScreenData: (state) => state.cvct,
+  CVCTData: (state) => state.cvct.data,
+  // PKH
+  PKHScreenData: (state) => state.pkh,
+  PKHData: (state) => state.pkh.data,
+  PKHComboboxData: (state) => state.pkh.comboboxData,
+  // PDH
+  PDHData: (state) => state.pdh.data,
+  PDHComboboxData: (state) => state.pdh.comboboxData,
 }
 
 export default getters
