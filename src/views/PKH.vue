@@ -205,10 +205,9 @@
             <v-select
               size="small"
               label="name"
-              :value="PKHData.noiNhan"
               :reduce="t => t.name"
               @input="changeData('noiNhan', $event)"
-              :options="PKHComboboxData.noi_nhan"></v-select>
+              :options="PKHComboboxData.chuyen"></v-select>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <span class="text-warning">Chờ phê duyệt</span>
@@ -273,14 +272,15 @@
     },
     data () {
       return {
-        showError: false
+        showError: false,
       }
     },
     computed: {
       ...mapGetters([
         'PKHScreenData',
         'PKHData',
-        'PKHComboboxData'
+        'PKHComboboxData',
+        'RequestId'
       ]),
       pkhError: {
         get () {
@@ -288,10 +288,14 @@
         }
       }
     },
+    mounted () {
+      this.RequestId && this.pkhGetById(this.RequestId);
+    },
     methods: {
       ...mapActions([
         'pkhUpdateData',
-        'pkhSaveData'
+        'pkhSaveData',
+        'pkhGetById'
       ]),
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PKHData);
@@ -314,24 +318,17 @@
         const data = Object.assign({}, this.PKHData);
         this.pkhSaveData(data).then(() => {
 
-        }).catch(()=> {
+        }).catch(() => {
           this.showError = true;
         })
       },
-      openDeleteConfirm() {
+      openDeleteConfirm () {
         this.$vs.dialog({
           type: 'confirm',
           color: 'danger',
           title: `Xác nhận xóa`,
           text: 'Bạn có chắc muốn xóa Phiếu Kiểm Hỏng này?',
           accept: this.acceptDelete
-        })
-      },
-      acceptDelete() {
-        this.$vs.notify({
-          color: 'danger',
-          title: 'Xóa Phiếu Kiểm Hỏng',
-          text: 'Xóa Phiếu Kiểm Hỏng thất bại.'
         })
       },
     }

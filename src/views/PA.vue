@@ -24,7 +24,7 @@
               size="small"
               class="inputx"
               @change="changeData('toSo', $event.target.value)"
-              :value="PDHData.toSo"/>
+              :value="PAData.toSo"/>
           </td>
         </tr>
         <tr>
@@ -39,7 +39,7 @@
               size="small"
               class="inputx"
               @change="changeData('maSo', $event.target.value)"
-              :value="PDHData.maSo"/>
+              :value="PAData.maSo"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             Số tờ
@@ -49,12 +49,12 @@
               size="small"
               class="inputx"
               @change="changeData('soTo', $event.target.value)"
-              :value="PDHData.soTo"/>
+              :value="PAData.soTo"/>
           </td>
         </tr>
         <tr>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center italic">
-            {{PDHData.ngayThangNamPheDuyet || ' Ngày ... tháng ... năm ...'}}
+            {{PAData.ngayThangNamPheDuyet || ' Ngày ... tháng ... năm ...'}}
           </td>
           <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">
             Sản phẩm (công việc):
@@ -64,7 +64,7 @@
               size="small"
               class="inputx"
               @change="changeData('sanPham', $event.target.value)"
-              :value="PDHData.sanPham"/>
+              :value="PAData.sanPham"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             PĐH
@@ -74,7 +74,7 @@
               size="small"
               class="inputx"
               @change="changeData('pdh', $event.target.value)"
-              :value="PDHData.pdh"/>
+              :value="PAData.pdh"/>
           </td>
         </tr>
         <tr>
@@ -89,7 +89,7 @@
               size="small"
               class="inputx"
               @change="changeData('noiDung', $event.target.value)"
-              :value="PDHData.noiDung"/>
+              :value="PAData.noiDung"/>
           </th>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
@@ -103,7 +103,7 @@
               size="small"
               class="inputx"
               @change="changeData('nguonKinhPhi', $event.target.value)"
-              :value="PDHData.nguonKinhPhi"/>
+              :value="PAData.nguonKinhPhi"/>
           </th>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
@@ -124,7 +124,7 @@
         </tbody>
         <tbody>
         <tr
-          v-for="(tr, indextr) in PDHData.phieuDatHangDetails"
+          v-for="(tr, indextr) in PAData.dinhMucLaoDongs"
           :key="indextr"
         >
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">1</td>
@@ -161,6 +161,17 @@
               @change="changeDetailItem(indextr, 'ghiChu', $event.target.value)"/>
           </td>
         </tr>
+        <tr>
+          <td colspan="14" class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-button
+              color="success"
+              size="small"
+              icon-pack="feather"
+              icon="icon-plus"
+              @click="addDinhMucLaoDong"
+            ></vs-button>
+          </td>
+        </tr>
         </tbody>
         <tbody>
         <tr>
@@ -191,7 +202,7 @@
         </tbody>
         <tbody>
         <tr
-          v-for="(tr, indextr) in PDHData.phieuDatHangDetails"
+          v-for="(tr, indextr) in PAData.dinhMucVatTus"
           :key="indextr"
         >
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">1</td>
@@ -306,7 +317,7 @@
               size="small"
               icon-pack="feather"
               icon="icon-plus"
-              @click="addDetail"
+              @click="addDinhMucVatTu"
             ></vs-button>
           </td>
         </tr>
@@ -322,48 +333,57 @@
         </tr>
         <tr>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Tiền lương (tiền công)</th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Tiền lương (tiền công)
+          </th>
           <td colspan="12" class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning"></td>
         </tr>
         </tbody>
         <tbody>
-          <tr>
-            <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light italic">
-              {{PDHData.ngayThangNamTPKTHK || ' Ngày ... tháng ... năm ...'}}
-            </td>
-            <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light italic">
-              {{PDHData.ngayThangNamTPKEHOACH || ' Ngày ... tháng ... năm ...'}}
-            </td>
-            <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light italic">
-              {{PDHData.ngayThangNamtpVatTu || ' Ngày ... tháng ... năm ...'}}
-            </td>
-            <td colspan="3"  class="p-2 border border-solid d-theme-border-grey-light italic">
-              {{PDHData.ngayThangNamNguoiLap || ' Ngày ... tháng ... năm ...'}}
-            </td>
-            <td class="p-2 border border-solid d-theme-border-grey-light italic"></td>
-          </tr>
-          <tr>
-            <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KTHK</th>
-            <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KẾ HOẠCH</th>
-            <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. VẬT TƯ</th>
-            <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI LẬP</th>
-            <th class="p-2 border border-solid d-theme-border-grey-light italic"></th>
-          </tr>
-          <tr>
-            <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">
-              <span class="text-warning">Chờ phê duyệt</span>
-            </th>
-            <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">
-              <span class="text-danger">Không phê duyệt</span>
-            </th>
-            <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">
-              <span class="text-success">Đã phê duyệt</span>
-            </th>
-            <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
-              <span class="text-success">Đã phê duyệt</span>
-            </th>
-            <th class="p-2 border border-solid d-theme-border-grey-light"></th>
-          </tr>
+        <tr>
+          <td class="p-2 border border-solid d-theme-border-grey-light italic">Nơi nhận</td>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light italic">
+            <v-select
+              size="small"
+              label="name"
+              :reduce="t => t.name"
+              @input="changeData('noiNhan', $event)"
+              :options="PAComboboxData.chuyen"></v-select>
+          </td>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light italic">
+            {{PAData.ngayThangNamTPKTHK || ' Ngày ... tháng ... năm ...'}}
+          </td>
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light italic">
+            {{PAData.ngayThangNamTPKEHOACH || ' Ngày ... tháng ... năm ...'}}
+          </td>
+          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light italic">
+            {{PAData.ngayThangNamtpVatTu || ' Ngày ... tháng ... năm ...'}}
+          </td>
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light italic">
+            {{PAData.ngayThangNamNguoiLap || ' Ngày ... tháng ... năm ...'}}
+          </td>
+        </tr>
+        <tr>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light italic"></th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KTHK</th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KẾ HOẠCH</th>
+          <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. VẬT TƯ</th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI LẬP</th>
+        </tr>
+        <tr>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <span class="text-warning">Chờ phê duyệt</span>
+          </th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <span class="text-danger">Không phê duyệt</span>
+          </th>
+          <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <span class="text-success">Đã phê duyệt</span>
+          </th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <span class="text-success">Đã phê duyệt</span>
+          </th>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -380,7 +400,7 @@
 
 <script>
   import vSelect from 'vue-select'
-  import { mapGetters, mapActions } from 'vuex';
+  import { mapActions, mapGetters } from 'vuex';
 
   export default {
     components: {
@@ -414,41 +434,59 @@
     },
     computed: {
       ...mapGetters([
-        'PDHData',
-        'PDHComboboxData'
+        'PAData',
+        'PAComboboxData',
+        'RequestId'
       ]),
+    },
+    mounted () {
+      this.RequestId && this.paGetById(this.RequestId);
     },
     methods: {
       ...mapActions([
-        'pdhUpdateData',
-        'pdhSaveData'
+        'paUpdateData',
+        'paSaveData',
+        'paGetById'
       ]),
       changeData (fieldName, value) {
-        const data = Object.assign({}, this.PDHData);
+        const data = Object.assign({}, this.PAData);
         data[fieldName] = value;
-        this.pdhUpdateData(data);
+        this.paUpdateData(data);
       },
       changeDetailItem (index, fieldName, value) {
-        const item = Object.assign({}, this.PDHData.phieuDatHangDetails[index]);
-        const phieuDatHang = Object.assign([], this.PDHData.phieuDatHangDetails);
+        const item = Object.assign({}, this.PAData.phieuDatHangDetails[index]);
+        const phieuDatHang = Object.assign([], this.PAData.phieuDatHangDetails);
         item[fieldName] = value;
         phieuDatHang[index] = item;
         this.changeData('phieuDatHangDetails', phieuDatHang);
       },
-      addDetail () {
-        const phieuDatHang = Object.assign([], this.PDHData.phieuDatHangDetails);
-        phieuDatHang.push({})
-        this.changeData('phieuDatHangDetails', phieuDatHang);
+      addDinhMucLaoDong () {
+        const list = Object.assign([], this.PAData.dinhMucLaoDongs);
+        list.push({})
+        this.changeData('dinhMucLaoDongs', list);
+      },
+      addDinhMucVatTu () {
+        const list = Object.assign([], this.PAData.dinhMucVatTus);
+        list.push({})
+        this.changeData('dinhMucVatTus', list);
       },
       onSubmit () {
-        const data = Object.assign({}, this.PDHData);
-        this.pdhSaveData(data).then(() => {
-
-        }).catch(()=> {
-          this.showError = true;
+        const data = Object.assign({}, this.PAData);
+        this.paSaveData(data).then(() => {
+          this.$vs.notify({
+            color: 'success',
+            title: 'Lưu Phương Án',
+            text: `Lưu Phương Án thành công.`
+          })
+        }).catch(() => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Lưu Phương Án',
+            text: `Lưu Phương Án thất bại. ${e}`
+          })
         })
       },
-      openDeleteConfirm() {
+      openDeleteConfirm () {
         this.$vs.dialog({
           type: 'confirm',
           color: 'danger',
@@ -457,7 +495,7 @@
           accept: this.acceptDelete
         })
       },
-      acceptDelete() {
+      acceptDelete () {
         this.$vs.notify({
           color: 'danger',
           title: 'Xóa Phiếu Định Mức Lao Động - Vật Tư',
@@ -475,6 +513,8 @@
   }
 
   .invoice__table--content {
+    min-width: 1268px;
+
     td {
 
       &:nth-child(1) {

@@ -75,8 +75,10 @@
     methods: {
       ...mapActions([
         'cvctGetList',
+        'cvctUpdateRequestId'
       ]),
       onDetailClick (id, type) {
+        this.cvctUpdateRequestId(id)
         switch (type) {
           case 'DAT_HANG': {
             // this.$router.push(`/pdh/${id}`);

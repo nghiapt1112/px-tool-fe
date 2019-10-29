@@ -90,6 +90,26 @@ const mutations = {
   },
 
   // ////////////////////////////////////////////
+  // DASHBOARD
+  // ////////////////////////////////////////////
+
+  DASHBOARD_GET_LIST (state) {
+    state.dashboard.error = null;
+    state.dashboard.loading = true;
+  },
+
+  DASHBOARD_GET_LIST_SUCCESS (state, payload) {
+    state.dashboard.error = null;
+    state.dashboard.loading = false;
+    state.dashboard.data = payload
+  },
+
+  DASHBOARD_GET_LIST_FAILURE (state, e) {
+    state.dashboard.error = e;
+    state.dashboard.loading = false;
+  },
+
+  // ////////////////////////////////////////////
   // CVCT
   // ////////////////////////////////////////////
 
@@ -107,6 +127,10 @@ const mutations = {
   CVCT_GET_LIST_FAILURE (state, e) {
     state.cvct.error = e;
     state.cvct.loading = false;
+  },
+
+  CVCT_UPDATE_REQUEST_ID (state, requestId) {
+    state.requestId = requestId
   },
 
   // ////////////////////////////////////////////
@@ -131,6 +155,22 @@ const mutations = {
     state.pkh.error = error;
   },
 
+  PKH_GET_BY_ID (state) {
+    state.pkh.error = null;
+    state.pkh.loading = true;
+  },
+
+  PKH_GET_BY_ID_SUCCESS (state, payload) {
+    state.pkh.error = null;
+    state.pkh.loading = false;
+    state.pkh.data = payload
+  },
+
+  PKH_GET_BY_ID_FAILURE (state, e) {
+    state.pkh.error = e;
+    state.pkh.loading = false;
+  },
+
   // ////////////////////////////////////////////
   // PDH
   // ////////////////////////////////////////////
@@ -151,6 +191,98 @@ const mutations = {
   PDH_SAVE_DATA_FAILURE (state, error) {
     state.pdh.isLoading = false;
     state.pdh.error = error;
+  },
+
+  PDH_GET_BY_ID (state) {
+    state.pdh.error = null;
+    state.pdh.loading = true;
+  },
+
+  PDH_GET_BY_ID_SUCCESS (state, payload) {
+    state.pdh.error = null;
+    state.pdh.loading = false;
+    state.pdh.data = payload
+  },
+
+  PDH_GET_BY_ID_FAILURE (state, e) {
+    state.pdh.error = e;
+    state.pdh.loading = false;
+  },
+
+  // ////////////////////////////////////////////
+  // PA
+  // ////////////////////////////////////////////
+
+
+  PA_UPDATE_DATA (state, data) {
+    state.pa.data = data;
+  },
+
+  PA_SAVE_DATA (state) {
+    state.pa.isLoading = true;
+  },
+
+  PA_SAVE_DATA_SUCCESS (state) {
+    state.pa.isLoading = false;
+  },
+
+  PA_SAVE_DATA_FAILURE (state, error) {
+    state.pa.isLoading = false;
+    state.pa.error = error;
+  },
+
+  PA_GET_BY_ID (state) {
+    state.pa.error = null;
+    state.pa.loading = true;
+  },
+
+  PA_GET_BY_ID_SUCCESS (state, payload) {
+    state.pa.error = null;
+    state.pa.loading = false;
+    state.pa.data = payload
+  },
+
+  PA_GET_BY_ID_FAILURE (state, e) {
+    state.pa.error = e;
+    state.pa.loading = false;
+  },
+
+  // ////////////////////////////////////////////
+  // PCNTP
+  // ////////////////////////////////////////////
+
+
+  PCNTP_UPDATE_DATA (state, data) {
+    state.pcntp.data = data;
+  },
+
+  PCNTP_SAVE_DATA (state) {
+    state.pcntp.isLoading = true;
+  },
+
+  PCNTP_SAVE_DATA_SUCCESS (state) {
+    state.pcntp.isLoading = false;
+  },
+
+  PCNTP_SAVE_DATA_FAILURE (state, error) {
+    state.pcntp.isLoading = false;
+    state.pcntp.error = error;
+  },
+
+  PCNTPA_GET_BY_ID (state) {
+    state.pcntp.error = null;
+    state.pcntp.loading = true;
+  },
+
+  PCNTP_GET_BY_ID_SUCCESS (state, payload) {
+    state.pcntp.error = null;
+    state.pcntp.loading = false;
+    state.pcntp.data = payload
+  },
+
+  PCNTP_GET_BY_ID_FAILURE (state, e) {
+    state.pcntp.error = e;
+    state.pcntp.loading = false;
   },
 }
 

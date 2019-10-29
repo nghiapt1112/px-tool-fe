@@ -1,16 +1,16 @@
 import api from './api'
 
 export const getList = () => {
-  return api.get('/pdh')
+  return api.get('/cntp')
 }
 export const getById = (requestId) => {
-  return api.get(`/pdh/${requestId}`)
+  return api.get(`/cntp/${requestId}`)
 }
 export const create = (payload) => {
-  return api.post('/pdh', payload)
+  return api.post('/cntp', payload)
 }
 
 export const update = (payload) => {
-  return api.put('/pdh', payload)
+  return api.put('/cntp', payload)
 }
 

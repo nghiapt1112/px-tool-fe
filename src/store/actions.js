@@ -1,7 +1,10 @@
 import * as auth from '../services/auth';
 import * as pkh from '../services/pkh';
 import * as pdh from '../services/pdh';
+import * as pa from '../services/pa';
+import * as pcntp from '../services/pcntp';
 import * as cvct from '../services/cvct';
+import * as dashboard from '../services/dashboard';
 import { setToken } from '../services/api';
 
 const actions = {
@@ -67,8 +70,30 @@ const actions = {
   },
 
   // ////////////////////////////////////////////
+  // DASHBOARD
+  // ////////////////////////////////////////////
+
+  dashboardGetList ({ commit }) {
+    commit('DASHBOARD_GET_LIST')
+    return new Promise((resolve, reject) => {
+      dashboard.getList().then(res => {
+        const { data } = res;
+        commit('DASHBOARD_GET_LIST_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('DASHBOARD_GET_LIST_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
+  // ////////////////////////////////////////////
   // CVCT
   // ////////////////////////////////////////////
+
+  cvctUpdateRequestId ({ commit }, requestId) {
+    commit('CVCT_UPDATE_REQUEST_ID', requestId)
+  },
 
   cvctGetList ({ commit }) {
     commit('CVCT_GET_LIST')
@@ -103,6 +128,19 @@ const actions = {
       })
     })
   },
+  pkhGetById ({ commit }, requestId) {
+    commit('PKH_GET_BY_ID')
+    return new Promise((resolve, reject) => {
+      pkh.getById(requestId).then(res => {
+        const { data } = res;
+        commit('PKH_GET_BY_ID_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('PKH_GET_BY_ID_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
 
   // ////////////////////////////////////////////
   // PDH
@@ -119,6 +157,85 @@ const actions = {
         resolve(res)
       }).catch(e => {
         commit('PDH_SAVE_DATA_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
+  pdhGetById ({ commit }, requestId) {
+    commit('PDH_GET_BY_ID')
+    return new Promise((resolve, reject) => {
+      pdh.getById(requestId).then(res => {
+        const { data } = res;
+        commit('PDH_GET_BY_ID_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('PDH_GET_BY_ID_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
+  // ////////////////////////////////////////////
+  // PA
+  // ////////////////////////////////////////////
+
+  paUpdateData ({ commit }, data) {
+    commit('PA_UPDATE_DATA', data)
+  },
+  paSaveData ({ commit }, data) {
+    commit('PA_SAVE_DATA', data);
+    return new Promise((resolve, reject) => {
+      pa.create(data).then(res => {
+        commit('PA_SAVE_DATA_SUCCESS')
+        resolve(res)
+      }).catch(e => {
+        commit('PA_SAVE_DATA_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+  paGetById ({ commit }, requestId) {
+    commit('PA_GET_BY_ID')
+    return new Promise((resolve, reject) => {
+      pa.getById(requestId).then(res => {
+        const { data } = res;
+        commit('PA_GET_BY_ID_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('PA_GET_BY_ID_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+  // ////////////////////////////////////////////
+  // PCNTP
+  // ////////////////////////////////////////////
+
+  pcntpUpdateData ({ commit }, data) {
+    commit('PCNTP_UPDATE_DATA', data)
+  },
+  pcntpSaveData ({ commit }, data) {
+    commit('PCNTP_SAVE_DATA', data);
+    return new Promise((resolve, reject) => {
+      pcntp.create(data).then(res => {
+        commit('PCNTP_SAVE_DATA_SUCCESS')
+        resolve(res)
+      }).catch(e => {
+        commit('PCNTP_SAVE_DATA_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+  pcntpGetById ({ commit }, requestId) {
+    commit('PCNTP_GET_BY_ID')
+    return new Promise((resolve, reject) => {
+      pcntp.getById(requestId).then(res => {
+        const { data } = res;
+        commit('PCNTP_GET_BY_ID_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('PCNTP_GET_BY_ID_FAILURE', e)
         reject(e)
       })
     })

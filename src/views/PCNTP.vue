@@ -12,49 +12,85 @@
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Tên sản phẩm:</th>
           <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('tenSanPham', $event.target.value)"
+              :value="PCNTPData.tenSanPham"/>
           </td>
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung:</th>
           <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('noiDung', $event.target.value)"
+              :value="PCNTPData.noiDung"/>
           </td>
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Số PA:</th>
           <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select size="small"></v-select>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('soPa', $event.target.value)"
+              :value="PCNTPData.soPa"/>
           </td>
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Đơn vị thực hiện:</th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('donViThucHien', $event.target.value)"
+              :value="PCNTPData.donViThucHien"/>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Tổ:</th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('to', $event.target.value)"
+              :value="PCNTPData.to"/>
           </td>
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Đơn vị đặt hàng:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('donViDatHang', $event.target.value)"
+              :value="PCNTPData.donViDatHang"/>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Số lượng:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('soLuong', $event.target.value)"
+              :value="PCNTPData.soLuong"/>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">ĐVT:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('dvt', $event.target.value)"
+              :value="PCNTPData.dvt"/>
           </td>
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Số nghiệm thu được:</th>
           <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('soNghiemThuDuoc', $event.target.value)"
+              :value="PCNTPData.soNghiemThuDuoc"/>
           </td>
         </tr>
         </tbody>
@@ -76,20 +112,48 @@
 
         <tbody>
         <tr
-          v-for="(tr, indextr) in listDevices"
+          v-for="(tr, indextr) in PCNTPData.noiDungThucHiens"
           :key="indextr"
         >
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx" style="width: 100%;"/>
+            <vs-input
+              style="width: 100%"
+              size="small"
+              class="inputx"
+              :value="tr.noiDung"
+              @change="changeDetailItem(indextr, 'noiDung', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.ketQua"
+              @change="changeDetailItem(indextr, 'ketQua', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-right">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.nguoiLam"
+              @change="changeDetailItem(indextr, 'nguoiLam', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.nghiemThu"
+              @change="changeDetailItem(indextr, 'nghiemThu', $event.target.value)"/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="6" class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-button
+              color="success"
+              size="small"
+              icon-pack="feather"
+              icon="icon-plus"
+              @click="addDetail"
+            ></vs-button>
           </td>
         </tr>
         </tbody>
@@ -149,37 +213,77 @@
 
 <script>
   import vSelect from 'vue-select'
-
+  import { mapActions, mapGetters } from 'vuex';
   export default {
     components: {
       'v-select': vSelect,
     },
-    data () {
-      return {
-        listDevices: [
-          {
-            id: 1,
-            name: "Vạn điện từ 445",
-            detail: "Vỏ thân van",
-            code: "3345ty53",
-            amount: 1,
-            error: "Hỏng ren",
-            method: "Bằng mắt",
-            person: null,
-          },
-          {
-            id: 1,
-            name: "Vạn điện từ 445",
-            detail: "Vỏ thân van",
-            code: "3345ty53",
-            amount: 1,
-            error: "Hỏng ren",
-            method: "Bằng mắt",
-            person: null,
-          }
-        ]
-      }
+    computed: {
+      ...mapGetters([
+        'PCNTPData',
+        'PCNTPComboboxData',
+        'RequestId'
+      ]),
     },
+    mounted () {
+      this.RequestId && this.pcntpGetById(this.RequestId);
+    },
+    methods: {
+      ...mapActions([
+        'pcntpUpdateData',
+        'pcntpSaveData',
+        'pcntpGetById'
+      ]),
+      changeData (fieldName, value) {
+        const data = Object.assign({}, this.PCNTPData);
+        data[fieldName] = value;
+        this.pcntpUpdateData(data);
+      },
+      changeDetailItem (index, fieldName, value) {
+        const item = Object.assign({}, this.PCNTPData.noiDungThucHiens[index]);
+        const phieuDatHang = Object.assign([], this.PCNTPData.noiDungThucHiens);
+        item[fieldName] = value;
+        phieuDatHang[index] = item;
+        this.changeData('noiDungThucHiens', phieuDatHang);
+      },
+      addDetail () {
+        const list = Object.assign([], this.PCNTPData.noiDungThucHiens);
+        list.push({})
+        this.changeData('noiDungThucHiens', list);
+      },
+      onSubmit () {
+        const data = Object.assign({}, this.PCNTPData);
+        this.pcntpSaveData(data).then(() => {
+          this.$vs.notify({
+            color: 'success',
+            title: 'Lưu Phiếu Công Nhận Thành Phẩm',
+            text: `Lưu Phiếu Công Nhận Thành Phẩm thành công.`
+          })
+        }).catch((e) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Lưu Phiếu Công Nhận Thành Phẩm',
+            text: `Lưu Phiếu Công Nhận Thành Phẩm thất bại. ${e}`
+          })
+        })
+      },
+      openDeleteConfirm () {
+        this.$vs.dialog({
+          type: 'confirm',
+          color: 'danger',
+          title: `Xác nhận xóa`,
+          text: 'Bạn có chắc muốn xóa Phiếu Công Nhận Thành Phẩm này?',
+          accept: this.acceptDelete
+        })
+      },
+      acceptDelete () {
+        this.$vs.notify({
+          color: 'danger',
+          title: 'Xóa Phiếu Công Nhận Thành Phẩm',
+          text: 'Xóa Phiếu Công Nhận Thành Phẩm thất bại.'
+        })
+      },
+    }
   }
 </script>
 

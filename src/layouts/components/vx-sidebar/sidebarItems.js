@@ -33,12 +33,6 @@ export default [
     icon: "FileIcon",
   },
   {
-    url: "/pa",
-    name: "Phương án",
-    slug: "pa",
-    icon: "FileIcon",
-  },
-  {
     url: "/pkh",
     name: "Phiếu Kiểm Hỏng",
     slug: "pkh",
@@ -48,6 +42,12 @@ export default [
     url: "/pdh",
     name: "Phiếu Đặt Hàng",
     slug: "pdh",
+    icon: "FileIcon",
+  },
+  {
+    url: "/pa",
+    name: "Phương án",
+    slug: "pa",
     icon: "FileIcon",
   },
   {

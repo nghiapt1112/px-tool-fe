@@ -171,11 +171,20 @@
         </tbody>
         <tbody>
         <tr>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
+            <v-select
+              size="small"
+              label="name"
+              :value="PDHData.noiNhan"
+              :reduce="t => t.name"
+              @input="changeData('noiNhan', $event)"
+              :options="PDHComboboxData.chuyen"></v-select>
+          </td>
           <td class="p-2 border border-solid d-theme-border-grey-light italic">
             {{PDHData.ngayThangNamTPKTHK || ' Ngày ... tháng ... năm ...'}}
           </td>
-          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
           <td class="p-2 border border-solid d-theme-border-grey-light italic">
             {{PDHData.ngayThangNamTPVatTu || ' Ngày ... tháng ... năm ...'}}
           </td>
@@ -186,29 +195,20 @@
           <td class="p-2 border border-solid d-theme-border-grey-light italic"></td>
         </tr>
         <tr>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP KTHK</th>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP KTHK</th>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP VẬT TƯ</th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI ĐẶT HÀNG</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
         <tr>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
-          <td  class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select
-              size="small"
-              label="name"
-              :value="PDHData.noiNhan"
-              :reduce="t => t.name"
-              @input="changeData('noiNhan', $event)"
-              :options="PDHComboboxData.noi_nhan"></v-select>
-          </td>
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <span class="text-warning">Chờ phê duyệt</span>
           </th>
-          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <span class="text-danger">Không phê duyệt</span>
           </th>
@@ -234,7 +234,7 @@
 
 <script>
   import vSelect from 'vue-select'
-  import { mapGetters, mapActions } from 'vuex';
+  import { mapActions, mapGetters } from 'vuex';
 
   export default {
     components: {
@@ -269,13 +269,18 @@
     computed: {
       ...mapGetters([
         'PDHData',
-        'PDHComboboxData'
+        'PDHComboboxData',
+        'RequestId'
       ]),
+    },
+    mounted () {
+      this.RequestId && this.pdhGetById(this.RequestId);
     },
     methods: {
       ...mapActions([
         'pdhUpdateData',
-        'pdhSaveData'
+        'pdhSaveData',
+        'pdhGetById'
       ]),
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PDHData);
@@ -302,7 +307,7 @@
             title: 'Lưu Phiếu Đặt Hàng',
             text: `Lưu Phiếu Đặt Hàng thành công.`
           })
-        }).catch((e)=> {
+        }).catch((e) => {
           this.$vs.notify({
             color: 'danger',
             title: 'Lưu Phiếu Đặt Hàng',
@@ -310,7 +315,7 @@
           })
         })
       },
-      openDeleteConfirm() {
+      openDeleteConfirm () {
         this.$vs.dialog({
           type: 'confirm',
           color: 'danger',
@@ -319,7 +324,7 @@
           accept: this.acceptDelete
         })
       },
-      acceptDelete() {
+      acceptDelete () {
         this.$vs.notify({
           color: 'danger',
           title: 'Xóa Phiếu Đặt Hàng',
@@ -337,6 +342,8 @@
   }
 
   .invoice__table--content {
+    min-width: 1268px;
+
     td {
       &:nth-child(1), &:nth-child(6) {
         min-width: 100px;
