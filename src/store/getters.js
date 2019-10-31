@@ -2,6 +2,7 @@ const getters = {
   AUTHScreenData: (state) => state.auth,
   // Common
   RequestId: (state) => state.requestId,
+  AppActiveUser: (state) => state.AppActiveUser,
   // DASHBOARD
   DASHBOARDScreenData: (state) => state.dashboard,
   DASHBOARDData: (state) => state.dashboard.data,

@@ -30,7 +30,7 @@ export default [
     url: "/cvct",
     name: "Công Việc Cần Xử Lý",
     slug: "cvct",
-    icon: "FileIcon",
+    icon: "CheckSquareIcon",
   },
   {
     url: "/pkh",

@@ -1,4 +1,5 @@
 import * as auth from '../services/auth';
+import * as user from '../services/user';
 import * as pkh from '../services/pkh';
 import * as pdh from '../services/pdh';
 import * as pa from '../services/pa';
@@ -64,6 +65,25 @@ const actions = {
         resolve(res)
       }).catch(e => {
         commit('AUTH_LOGIN_ERROR', e)
+        reject(e)
+      })
+    })
+  },
+
+  // ////////////////////////////////////////////
+  // PROFILE
+  // ////////////////////////////////////////////
+
+  getUserProfile ({ commit }) {
+    commit('PROFILE_GET_USER_INFO')
+    return new Promise((resolve, reject) => {
+      user.getUserInfo().then(res => {
+        const { data } = res;
+        commit('PROFILE_GET_USER_INFO_SUCCESS', data);
+        console.log('getUserInfo', data)
+        resolve(res)
+      }).catch(e => {
+        commit('PROFILE_GET_USER_INFO_FAILURE', e)
         reject(e)
       })
     })

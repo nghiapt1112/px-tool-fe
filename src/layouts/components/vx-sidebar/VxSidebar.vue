@@ -13,7 +13,7 @@
     <div class="parentx">
         <vs-sidebar v-hammer:swipe.left="onSwipeLeft" ref="mainSidebar" :parent="parent" :hiddenBackground="clickNotClose" :reduce="reduce" default-index="-1" class="sidebarx main-menu-sidebar items-no-padding" v-model="isSidebarActive" :click-not-close="clickNotClose" :reduce-not-rebound="reduceNotRebound">
             <div @mouseenter="sidebarMouseEntered" @mouseleave="sidebarMouseLeave">
-                <div class="header-sidebar flex items-end justify-between" slot="header">
+                <div class="header-sidebar flex items-center justify-between" slot="header">
                     <div class="logo flex items-center">
                         <img :src="logo" alt="logo" class="w-10 mr-4" v-if="logo">
                         <span class="logo-text" v-show="isMouseEnter || !reduce" v-if="title">{{ title }}</span>

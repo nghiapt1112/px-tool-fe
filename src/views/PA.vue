@@ -127,7 +127,14 @@
           v-for="(tr, indextr) in PAData.dinhMucLaoDongs"
           :key="indextr"
         >
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center">1</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light text-center relative">
+            {{indextr + 1}}
+            <div
+              @click="deleteDinhMucLaoDong(indextr)"
+              class="custom-btn-delete bg-danger"
+            >x
+            </div>
+          </td>
           <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               style="width: 100%"
@@ -205,7 +212,14 @@
           v-for="(tr, indextr) in PAData.dinhMucVatTus"
           :key="indextr"
         >
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center">1</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light text-center relative">
+            {{indextr + 1}}
+            <div
+              @click="deleteDinhMucVatTu(indextr)"
+              class="custom-btn-delete bg-danger"
+            >x
+            </div>
+          </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               style="width: 120px"
@@ -349,13 +363,13 @@
               @input="changeData('noiNhan', $event)"
               :options="PAComboboxData.chuyen"></v-select>
           </td>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light italic">
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light italic">
             {{PAData.ngayThangNamTPKTHK || ' Ngày ... tháng ... năm ...'}}
           </td>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light italic">
             {{PAData.ngayThangNamTPKEHOACH || ' Ngày ... tháng ... năm ...'}}
           </td>
-          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light italic">
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light italic">
             {{PAData.ngayThangNamtpVatTu || ' Ngày ... tháng ... năm ...'}}
           </td>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light italic">
@@ -364,24 +378,56 @@
         </tr>
         <tr>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light italic"></th>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KTHK</th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KTHK</th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KẾ HOẠCH</th>
-          <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. VẬT TƯ</th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. VẬT TƯ</th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI LẬP</th>
         </tr>
-        <tr>
+        <tr class="row--chu-ky">
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></th>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <span class="text-warning">Chờ phê duyệt</span>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PAData.truongPhongKTHKXacNhan"
+              @input="changeData('truongPhongKTHKXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PAData.truongPhongKTHKXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <span class="text-danger">Không phê duyệt</span>
-          </th>
-          <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <span class="text-success">Đã phê duyệt</span>
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PAData.truongPhongKeHoachXacNhan"
+              @input="changeData('truongPhongKeHoachXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PAData.truongPhongKeHoachXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <span class="text-success">Đã phê duyệt</span>
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PAData.truongPhongVatTuXacNhan"
+              @input="changeData('truongPhongVatTuXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PAData.truongPhongVatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+          </th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PAData.nguoiLapXacNhan"
+              @input="changeData('nguoiLapXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PAData.nguoiLapXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
           </th>
         </tr>
         </tbody>
@@ -436,7 +482,8 @@
       ...mapGetters([
         'PAData',
         'PAComboboxData',
-        'RequestId'
+        'RequestId',
+        'AppActiveUser'
       ]),
     },
     mounted () {
@@ -465,9 +512,19 @@
         list.push({})
         this.changeData('dinhMucLaoDongs', list);
       },
+      deleteDinhMucLaoDong (index) {
+        const list = Object.assign([], this.PAData.dinhMucLaoDongs);
+        list.splice(index, 1);
+        this.changeData('dinhMucLaoDongs', list);
+      },
       addDinhMucVatTu () {
         const list = Object.assign([], this.PAData.dinhMucVatTus);
         list.push({})
+        this.changeData('dinhMucVatTus', list);
+      },
+      deleteDinhMucVatTu (index) {
+        const list = Object.assign([], this.PAData.dinhMucVatTus);
+        list.splice(index, 1);
         this.changeData('dinhMucVatTus', list);
       },
       onSubmit () {
@@ -528,6 +585,21 @@
       /*&:nth-child(2) {*/
       /*  min-width: 190px;*/
       /*}*/
+    }
+  }
+
+  .row--chu-ky {
+    height: 135px;
+
+    th, td {
+      vertical-align: top;
+    }
+
+    .chu-ky {
+      height: 100px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 </style>

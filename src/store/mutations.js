@@ -90,6 +90,26 @@ const mutations = {
   },
 
   // ////////////////////////////////////////////
+  // PROFILE
+  // ////////////////////////////////////////////
+
+  PROFILE_GET_USER_INFO (state) {
+    state.profile.error = null;
+    state.profile.loading = true;
+  },
+
+  PROFILE_GET_USER_INFO_SUCCESS (state, payload) {
+    state.profile.error = null;
+    state.profile.loading = false;
+    state.profile.data = payload
+  },
+
+  PROFILE_GET_USER_INFO_FAILURE (state, e) {
+    state.profile.error = e;
+    state.profile.loading = false;
+  },
+
+  // ////////////////////////////////////////////
   // DASHBOARD
   // ////////////////////////////////////////////
 

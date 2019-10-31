@@ -86,11 +86,17 @@
           v-for="(tr, indextr) in PDHData.phieuDatHangDetails"
           :key="indextr"
         >
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center">
+          <td class="p-2 border border-solid d-theme-border-grey-light text-center relative">
             {{indextr + 1}}
+            <div
+              @click="deleteDetail(indextr)"
+              class="custom-btn-delete bg-danger"
+            >x
+            </div>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              style="width: 135px"
               size="small"
               class="inputx"
               :value="tr.tenPhuKien"
@@ -98,6 +104,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              style="width: 135px"
               size="small"
               class="inputx"
               :value="tr.tenVatTuKyThuat"
@@ -196,25 +203,49 @@
         </tr>
         <tr>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP KTHK</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KTHK</th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP VẬT TƯ</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP. VẬT TƯ</th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI ĐẶT HÀNG</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
-        <tr>
+        <tr class="row--chu-ky">
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <span class="text-warning">Chờ phê duyệt</span>
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PDHData.tpkthkXacNhan"
+              @input="changeData('tpkthkXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PDHData.tpkthkXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
           </th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <span class="text-danger">Không phê duyệt</span>
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PDHData.tpvatTuXacNhan"
+              @input="changeData('tpvatTuXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PDHData.tpvatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <span class="text-success">Đã phê duyệt</span>
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PDHData.nguoiDatHangXacNhan"
+              @input="changeData('nguoiDatHangXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PDHData.nguoiDatHangXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
@@ -270,7 +301,8 @@
       ...mapGetters([
         'PDHData',
         'PDHComboboxData',
-        'RequestId'
+        'RequestId',
+        'AppActiveUser'
       ]),
     },
     mounted () {
@@ -297,6 +329,11 @@
       addDetail () {
         const phieuDatHang = Object.assign([], this.PDHData.phieuDatHangDetails);
         phieuDatHang.push({})
+        this.changeData('phieuDatHangDetails', phieuDatHang);
+      },
+      deleteDetail (index) {
+        const phieuDatHang = Object.assign([], this.PDHData.phieuDatHangDetails);
+        phieuDatHang.splice(index, 1);
         this.changeData('phieuDatHangDetails', phieuDatHang);
       },
       onSubmit () {
@@ -335,7 +372,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .table--container {
     font-size: .8em;
     overflow: auto;
@@ -348,10 +385,21 @@
       &:nth-child(1), &:nth-child(6) {
         min-width: 100px;
       }
+    }
+  }
 
-      /*&:nth-child(2) {*/
-      /*  min-width: 190px;*/
-      /*}*/
+  .row--chu-ky {
+    height: 135px;
+
+    th, td {
+      vertical-align: top;
+    }
+
+    .chu-ky {
+      height: 100px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 </style>

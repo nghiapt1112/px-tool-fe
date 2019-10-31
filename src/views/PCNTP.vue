@@ -103,7 +103,8 @@
 
         <tbody>
         <tr>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">Nội dung thực hiện</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">TT</th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Nội dung thực hiện</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Kết quả</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Người làm</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Nghiệm thu</th>
@@ -115,7 +116,15 @@
           v-for="(tr, indextr) in PCNTPData.noiDungThucHiens"
           :key="indextr"
         >
-          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light">
+          <td class="p-2 border border-solid d-theme-border-grey-light text-center relative">
+            {{indextr + 1}}
+            <div
+              @click="deleteDetail(indextr)"
+              class="custom-btn-delete bg-danger"
+            >x
+            </div>
+          </td>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               style="width: 100%"
               size="small"
@@ -177,26 +186,57 @@
 
         <tbody>
         <tr>
-          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019
-          </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019
-          </td>
-        </tr>
-        <tr>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI GIAO VIỆC</th>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI THỰC HIỆN</th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">TP.KCS</th>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Ngày 12 tháng 12 năm 2019</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019
+          </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019
+          </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         <tr>
-          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI GIAO VIỆC</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI THỰC HIỆN</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP.KCS</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
+        </tr>
+        <tr class="row--chu-ky">
+          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PCNTPData.nguoiGiaoViecXacNhan"
+              @input="changeData('nguoiGiaoViecXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PCNTPData.nguoiGiaoViecXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
           </th>
-          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
+          <th class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PCNTPData.nguoiThucHienXacNhan"
+              @input="changeData('nguoiThucHienXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PCNTPData.nguoiThucHienXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
           </th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PCNTPData.tpkcsXacNhan"
+              @input="changeData('tpkcsXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PCNTPData.tpkcsXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+          </th>
+          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
         </tbody>
       </table>
@@ -214,6 +254,7 @@
 <script>
   import vSelect from 'vue-select'
   import { mapActions, mapGetters } from 'vuex';
+
   export default {
     components: {
       'v-select': vSelect,
@@ -222,7 +263,8 @@
       ...mapGetters([
         'PCNTPData',
         'PCNTPComboboxData',
-        'RequestId'
+        'RequestId',
+        'AppActiveUser'
       ]),
     },
     mounted () {
@@ -249,6 +291,11 @@
       addDetail () {
         const list = Object.assign([], this.PCNTPData.noiDungThucHiens);
         list.push({})
+        this.changeData('noiDungThucHiens', list);
+      },
+      deleteDetail (index) {
+        const list = Object.assign([], this.PCNTPData.noiDungThucHiens);
+        list.splice(index, 1);
         this.changeData('noiDungThucHiens', list);
       },
       onSubmit () {
@@ -294,10 +341,25 @@
   }
 
   .invoice__table--content {
-   td {
-     &:nth-child(1) {
-       min-width: 200px;
-     }
-   }
+    td {
+      &:nth-child(1) {
+        min-width: 150px;
+      }
+    }
+  }
+
+  .row--chu-ky {
+    height: 135px;
+
+    th, td {
+      vertical-align: top;
+    }
+
+    .chu-ky {
+      height: 100px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 </style>

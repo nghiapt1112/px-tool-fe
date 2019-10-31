@@ -110,8 +110,13 @@
           v-for="(tr, indextr) in PKHData.kiemHongDetails"
           :key="indextr"
         >
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center">
+          <td class="p-2 border border-solid d-theme-border-grey-light text-center relative">
             {{indextr + 1}}
+            <div
+              @click="deleteDetail(indextr)"
+              class="custom-btn-delete bg-danger"
+            >x
+            </div>
           </td>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
@@ -178,7 +183,15 @@
         </tbody>
         <tbody>
         <tr>
-          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
+            <v-select
+              size="small"
+              label="name"
+              :reduce="t => t.name"
+              @input="changeData('noiNhan', $event)"
+              :options="PKHComboboxData.chuyen"></v-select>
+          </td>
           <td class="p-2 border border-solid d-theme-border-grey-light italic">
             {{PKHData.ngayThangNamQuanDoc || ' Ngày ... tháng ... năm ...'}}
           </td>
@@ -199,26 +212,42 @@
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TỔ TRƯỞNG</th>
         </tr>
-        <tr>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select
-              size="small"
-              label="name"
-              :reduce="t => t.name"
-              @input="changeData('noiNhan', $event)"
-              :options="PKHComboboxData.chuyen"></v-select>
-          </td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <span class="text-warning">Chờ phê duyệt</span>
+        <tr class="row--chu-ky">
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <th class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PKHData.quanDocXacNhan"
+              @input="changeData('quanDocXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PKHData.quanDocXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
           </th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <span class="text-success">Đã phê duyệt</span>
+          <th class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PKHData.troLyKTXacNhan"
+              @input="changeData('troLyKTXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PKHData.troLyKTXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <span class="text-danger">Không phê duyệt</span>
+          <th class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PKHData.toTruongXacNhan"
+              @input="changeData('toTruongXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PKHData.toTruongXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
           </th>
         </tr>
         <tr>
@@ -227,15 +256,14 @@
             Ý kiến giám đốc
           </th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
-            <ul style="display: flex; flex-direction: row">
-              <li>
-                <vs-checkbox icon-pack="feather" icon="icon-check" class="input-inline">Nhất trí</vs-checkbox>
-              </li>
-              <li>
-                <vs-checkbox icon-pack="feather" icon="icon-x" color="danger" class="input-inline">Không nhất trí
-                </vs-checkbox>
-              </li>
-            </ul>
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PKHData.nhatTri"
+              @input="changeData('nhatTri', $event)"
+            >Nhất trí
+            </vs-checkbox>
             <vs-textarea
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
@@ -280,7 +308,8 @@
         'PKHScreenData',
         'PKHData',
         'PKHComboboxData',
-        'RequestId'
+        'RequestId',
+        'AppActiveUser'
       ]),
       pkhError: {
         get () {
@@ -314,6 +343,11 @@
         kiemHong.push({})
         this.changeData('kiemHongDetails', kiemHong);
       },
+      deleteDetail (index) {
+        const kiemHong = Object.assign([], this.PKHData.kiemHongDetails);
+        kiemHong.splice(index, 1);
+        this.changeData('kiemHongDetails', kiemHong);
+      },
       onSubmit () {
         const data = Object.assign({}, this.PKHData);
         this.pkhSaveData(data).then(() => {
@@ -335,25 +369,38 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .table--container {
     font-size: .8em;
     overflow: auto;
   }
 
   .invoice__table--content {
+    min-width: 1268px;
+
     td {
       &:nth-child(1), &:nth-child(5) {
         min-width: 100px;
       }
-
-      /*&:nth-child(2) {*/
-      /*  min-width: 190px;*/
-      /*}*/
     }
   }
 
   .text-uppercase {
     text-transform: uppercase;
+  }
+
+  .row--chu-ky {
+    height: 135px;
+
+    th, td {
+      vertical-align: top;
+    }
+
+    .chu-ky {
+      height: 100px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 </style>
