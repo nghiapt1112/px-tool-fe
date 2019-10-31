@@ -99,6 +99,9 @@ const mutations = {
   },
 
   PROFILE_GET_USER_INFO_SUCCESS (state, payload) {
+    const { email, signImg } = payload;
+    state.AppActiveUser.name = email;
+    state.AppActiveUser.chuKy = signImg;
     state.profile.error = null;
     state.profile.loading = false;
     state.profile.data = payload

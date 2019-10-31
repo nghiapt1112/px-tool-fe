@@ -535,7 +535,7 @@
             title: 'Lưu Phương Án',
             text: `Lưu Phương Án thành công.`
           })
-        }).catch(() => {
+        }).catch((e) => {
           this.$vs.notify({
             color: 'danger',
             title: 'Lưu Phương Án',

@@ -15,7 +15,3 @@ export const create = (payload) => {
 export const update = (payload) => {
   return api.put('/px/ukh', payload)
 }
-
-export const chuyen = (requestId) => {
-  return api.post('/px/chuyen', payload)
-}

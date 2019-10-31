@@ -25,7 +25,7 @@
       }
     },
     created () {
-      this.getUserProfile().catch(e=> {
+      this.getUserProfile().catch(() => {
         this.$router.push('/pages/login');
       })
     },

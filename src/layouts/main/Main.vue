@@ -86,8 +86,7 @@ import TheNavbar from '../components/TheNavbar.vue';
 import TheFooter from '../components/TheFooter.vue';
 import themeConfig from '@/../themeConfig.js';
 import sidebarItems from "@/layouts/components/vx-sidebar/sidebarItems.js";
-import BackToTop from 'vue-backtotop'
-
+import BackToTop from 'vue-backtotop';
 export default {
     data() {
         return {
