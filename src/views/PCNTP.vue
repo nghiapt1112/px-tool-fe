@@ -171,15 +171,30 @@
         <tr>
           <td class="p-2 border border-solid d-theme-border-grey-light">Lao động tiền lương:</td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('laoDongTienLuong', $event.target.value)"
+              :value="PCNTPData.laoDongTienLuong"
+            />
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">Giờ X:</td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('gioX', $event.target.value)"
+              :value="PCNTPData.gioX"
+            />
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">Đồng:</td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input size="small" class="inputx"/>
+            <vs-input
+              size="small"
+              class="inputx"
+              @change="changeData('dong', $event.target.value)"
+              :value="PCNTPData.dong"
+            />
           </td>
         </tr>
         </tbody>
