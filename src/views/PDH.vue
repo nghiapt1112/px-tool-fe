@@ -304,12 +304,12 @@
       ...mapGetters([
         'PDHData',
         'PDHComboboxData',
-        'RequestId',
         'AppActiveUser'
       ]),
     },
     mounted () {
-      this.RequestId && this.pdhGetById(this.RequestId);
+      const { query: { id } } = this.$route;
+      id && this.pdhGetById(id);
     },
     methods: {
       ...mapActions([

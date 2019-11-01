@@ -81,23 +81,19 @@
         this.cvctUpdateRequestId(id)
         switch (type) {
           case 'DAT_HANG': {
-            // this.$router.push(`/pdh/${id}`);
-            this.$router.push(`/pdh`);
+            this.$router.push(`/pdh?id=${id}`);
             break;
           }
           case 'KIEM_HONG': {
-            // this.$router.push(`/pkh/${id}`);
-            this.$router.push(`/pkh`);
+            this.$router.push(`/pkh?id=${id}`);
             break;
           }
           case 'PHUONG_AN': {
-            // this.$router.push(`/pa/${id}`);
-            this.$router.push(`/pa`);
+            this.$router.push(`/pa?id=${id}`);
             break;
           }
           case 'CONG_NHAN_THANH_PHAM': {
-            // this.$router.push(`/pcntp/${id}`);
-            this.$router.push(`/pcntp`);
+            this.$router.push(`/pcntp?id=${id}`);
             break;
           }
         }

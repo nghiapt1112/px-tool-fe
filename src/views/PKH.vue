@@ -311,7 +311,6 @@
         'PKHScreenData',
         'PKHData',
         'PKHComboboxData',
-        'RequestId',
         'AppActiveUser'
       ]),
       pkhError: {
@@ -321,7 +320,8 @@
       }
     },
     mounted () {
-      this.RequestId && this.pkhGetById(this.RequestId);
+      const { query: { id } } = this.$route;
+      id && this.pkhGetById(id);
     },
     methods: {
       ...mapActions([

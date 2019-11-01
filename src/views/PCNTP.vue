@@ -266,12 +266,12 @@
       ...mapGetters([
         'PCNTPData',
         'PCNTPComboboxData',
-        'RequestId',
         'AppActiveUser'
       ]),
     },
     mounted () {
-      this.RequestId && this.pcntpGetById(this.RequestId);
+      const { query: { id } } = this.$route;
+      id && this.pcntpGetById(id);
     },
     methods: {
       ...mapActions([

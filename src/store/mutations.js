@@ -292,7 +292,7 @@ const mutations = {
     state.pcntp.error = error;
   },
 
-  PCNTPA_GET_BY_ID (state) {
+  PCNTP_GET_BY_ID (state) {
     state.pcntp.error = null;
     state.pcntp.loading = true;
   },

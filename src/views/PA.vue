@@ -497,12 +497,12 @@
       ...mapGetters([
         'PAData',
         'PAComboboxData',
-        'RequestId',
         'AppActiveUser'
       ]),
     },
     mounted () {
-      this.RequestId && this.paGetById(this.RequestId);
+      const { query: { id } } = this.$route;
+      id && this.paGetById(id);
     },
     methods: {
       ...mapActions([
