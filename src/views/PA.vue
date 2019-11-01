@@ -141,7 +141,7 @@
               size="small"
               class="inputx"
               :value="tr.noiDungCongViec"
-              @change="changeDetailItem(indextr, 'noiDungCongViec', $event.target.value)"/>
+              @change="changeDingMucLaoDong(indextr, 'noiDungCongViec', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
@@ -149,7 +149,7 @@
               size="small"
               class="inputx"
               :value="tr.bacCV"
-              @change="changeDetailItem(indextr, 'bacCV', $event.target.value)"/>
+              @change="changeDingMucLaoDong(indextr, 'bacCV', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
@@ -157,7 +157,7 @@
               size="small"
               class="inputx"
               :value="tr.dm"
-              @change="changeDetailItem(indextr, 'dm', $event.target.value)"/>
+              @change="changeDingMucLaoDong(indextr, 'dm', $event.target.value)"/>
           </td>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
@@ -165,7 +165,7 @@
               size="small"
               class="inputx"
               :value="tr.ghiChu"
-              @change="changeDetailItem(indextr, 'ghiChu', $event.target.value)"/>
+              @change="changeDingMucLaoDong(indextr, 'ghiChu', $event.target.value)"/>
           </td>
         </tr>
         <tr>
@@ -501,11 +501,18 @@
         this.paUpdateData(data);
       },
       changeDetailItem (index, fieldName, value) {
-        const item = Object.assign({}, this.PAData.phieuDatHangDetails[index]);
-        const phieuDatHang = Object.assign([], this.PAData.phieuDatHangDetails);
+        const item = Object.assign({}, this.PAData.dinhMucVatTus[index]);
+        const dmvt = Object.assign([], this.PAData.dinhMucVatTus);
         item[fieldName] = value;
-        phieuDatHang[index] = item;
-        this.changeData('phieuDatHangDetails', phieuDatHang);
+        dmvt[index] = item;
+        this.changeData('dinhMucVatTus', dmvt);
+      },
+      changeDingMucLaoDong (index, fieldName, value) {
+        const item = Object.assign({}, this.PAData.dinhMucLaoDongs[index]);
+        const dmld = Object.assign([], this.PAData.dinhMucLaoDongs);
+        item[fieldName] = value;
+        dmld[index] = item;
+        this.changeData('dinhMucLaoDongs', dmld);
       },
       addDinhMucLaoDong () {
         const list = Object.assign([], this.PAData.dinhMucLaoDongs);

@@ -5,6 +5,7 @@
         <vx-card title="Kiểm hỏng">
           <template v-for="item in kiemHongs">
             <vx-card
+              class="mt-3"
               :title="item.ma"
               title-color="primary"
               :subtitle="item.noiDung">
@@ -21,6 +22,7 @@
         <vx-card title="Đặt hàng">
           <template v-for="item in datHangs">
             <vx-card
+              class="mt-3"
               :title="item.ma"
               title-color="primary"
               :subtitle="item.noiDung">
@@ -37,6 +39,7 @@
         <vx-card title="Phương án">
           <template v-for="item in phuongAns">
             <vx-card
+              class="mt-3"
               :title="item.ma"
               title-color="primary"
               :subtitle="item.noiDung">
@@ -53,6 +56,7 @@
         <vx-card title="Thành Phẩm">
           <template v-for="item in congNhanThanhPhams">
             <vx-card
+              class="mt-3"
               :title="item.ma"
               title-color="primary"
               :subtitle="item.noiDung">

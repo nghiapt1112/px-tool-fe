@@ -260,8 +260,8 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
-              :value="PKHData.nhatTri"
-              @input="changeData('nhatTri', $event)"
+              :value="PKHData.giamDocXacNhan"
+              @input="changeData('giamDocXacNhan', $event)"
             >Nhất trí
             </vs-checkbox>
             <vs-textarea

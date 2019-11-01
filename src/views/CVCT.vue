@@ -1,6 +1,6 @@
 <template>
   <vx-card title="Công Việc Cần Xử Lý">
-    <div class="table--container">
+    <div class="cvct-table--container">
       <table class="works__table--content border-collapse">
 
         <tr>
@@ -122,8 +122,8 @@
   }
 </script>
 
-<style lang="scss">
-  .table--container {
+<style lang="scss" scoped>
+  .cvct-table--container {
     font-size: .8em;
     overflow: auto;
   }
