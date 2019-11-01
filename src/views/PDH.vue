@@ -191,8 +191,8 @@
           <td class="p-2 border border-solid d-theme-border-grey-light italic">
             {{PDHData.ngayThangNamTPKTHK || ' Ngày ... tháng ... năm ...'}}
           </td>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light italic">
+          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light italic">
             {{PDHData.ngayThangNamTPVatTu || ' Ngày ... tháng ... năm ...'}}
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -204,8 +204,8 @@
         <tr>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KTHK</th>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP. VẬT TƯ</th>
+          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. VẬT TƯ</th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI ĐẶT HÀNG</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
@@ -224,8 +224,8 @@
             <img v-if="PDHData.tpkthkXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PDHData.tpkthkXacNhan">{{AppActiveUser.name}}</span>
           </th>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
               icon-pack="feather"
               icon="icon-check"
