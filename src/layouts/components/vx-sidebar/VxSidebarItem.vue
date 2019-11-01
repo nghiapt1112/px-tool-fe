@@ -79,10 +79,10 @@ export default {
     methods: {
         CheckIsActive() {
             if (this.to) {
-                if(this.to == this.$router.path && this.to) this.activeLink = true
-                else this.activeLink = false
-                // if (this.$route.path.slice(1).includes(this.to.slice(1)) && this.to.slice(1)) this.activeLink = true
+                // if(this.to == this.$router.path && this.to) this.activeLink = true
                 // else this.activeLink = false
+                if (this.$route.path.slice(1).includes(this.to.slice(1)) && this.to.slice(1)) this.activeLink = true
+                else this.activeLink = false
             }
         }
     },

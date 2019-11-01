@@ -203,7 +203,7 @@
         </tr>
         <tr class="row--chu-ky">
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
               icon-pack="feather"
               icon="icon-check"
@@ -213,8 +213,9 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PCNTPData.nguoiGiaoViecXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PCNTPData.nguoiGiaoViecXacNhan">{{AppActiveUser.name}}</span>
           </th>
-          <th class="p-2 border border-solid d-theme-border-grey-light">
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
               icon-pack="feather"
               icon="icon-check"
@@ -224,8 +225,9 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PCNTPData.nguoiThucHienXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PCNTPData.nguoiThucHienXacNhan">{{AppActiveUser.name}}</span>
           </th>
-          <th class="p-2 border border-solid d-theme-border-grey-light">
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
               icon-pack="feather"
               icon="icon-check"
@@ -235,6 +237,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PCNTPData.tpkcsXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PCNTPData.tpkcsXacNhan">{{AppActiveUser.name}}</span>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
@@ -345,21 +348,6 @@
       &:nth-child(1) {
         min-width: 150px;
       }
-    }
-  }
-
-  .row--chu-ky {
-    height: 135px;
-
-    th, td {
-      vertical-align: top;
-    }
-
-    .chu-ky {
-      height: 100px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
     }
   }
 </style>

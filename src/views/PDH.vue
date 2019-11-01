@@ -222,6 +222,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PDHData.tpkthkXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PDHData.tpkthkXacNhan">{{AppActiveUser.name}}</span>
           </th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -234,6 +235,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PDHData.tpvatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PDHData.tpvatTuXacNhan">{{AppActiveUser.name}}</span>
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -246,6 +248,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PDHData.nguoiDatHangXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PDHData.nguoiDatHangXacNhan">{{AppActiveUser.name}}</span>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
@@ -385,21 +388,6 @@
       &:nth-child(1), &:nth-child(6) {
         min-width: 100px;
       }
-    }
-  }
-
-  .row--chu-ky {
-    height: 135px;
-
-    th, td {
-      vertical-align: top;
-    }
-
-    .chu-ky {
-      height: 100px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
     }
   }
 </style>

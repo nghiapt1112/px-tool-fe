@@ -214,7 +214,7 @@
         </tr>
         <tr class="row--chu-ky">
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light">
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
               icon-pack="feather"
               icon="icon-check"
@@ -224,9 +224,10 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PKHData.quanDocXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PKHData.quanDocXacNhan">{{AppActiveUser.name}}</span>
           </th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light">
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
               icon-pack="feather"
               icon="icon-check"
@@ -236,9 +237,10 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PKHData.troLyKTXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PKHData.troLyKTXacNhan">{{AppActiveUser.name}}</span>
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light">
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
               icon-pack="feather"
               icon="icon-check"
@@ -248,6 +250,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PKHData.toTruongXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PKHData.toTruongXacNhan">{{AppActiveUser.name}}</span>
           </th>
         </tr>
         <tr>
@@ -387,20 +390,5 @@
 
   .text-uppercase {
     text-transform: uppercase;
-  }
-
-  .row--chu-ky {
-    height: 135px;
-
-    th, td {
-      vertical-align: top;
-    }
-
-    .chu-ky {
-      height: 100px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
   }
 </style>

@@ -453,6 +453,20 @@ ul.bordered-items {
   }
 }
 
+.row--chu-ky {
+  height: 160px;
+
+  th, td {
+    vertical-align: top;
+  }
+
+  .chu-ky {
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 .custom-btn-delete {
   position: absolute;

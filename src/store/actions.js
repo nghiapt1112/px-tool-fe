@@ -80,7 +80,6 @@ const actions = {
       user.getUserInfo().then(res => {
         const { data } = res;
         commit('PROFILE_GET_USER_INFO_SUCCESS', data);
-        console.log('getUserInfo', data)
         resolve(res)
       }).catch(e => {
         commit('PROFILE_GET_USER_INFO_FAILURE', e)

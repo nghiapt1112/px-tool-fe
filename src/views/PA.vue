@@ -395,6 +395,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PAData.truongPhongKTHKXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PAData.truongPhongKTHKXacNhan">{{AppActiveUser.name}}</span>
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -406,6 +407,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PAData.truongPhongKeHoachXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PAData.truongPhongKeHoachXacNhan">{{AppActiveUser.name}}</span>
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -417,6 +419,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PAData.truongPhongVatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PAData.truongPhongVatTuXacNhan">{{AppActiveUser.name}}</span>
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -428,6 +431,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PAData.nguoiLapXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PAData.nguoiLapXacNhan">{{AppActiveUser.name}}</span>
           </th>
         </tr>
         </tbody>
@@ -592,21 +596,6 @@
       /*&:nth-child(2) {*/
       /*  min-width: 190px;*/
       /*}*/
-    }
-  }
-
-  .row--chu-ky {
-    height: 135px;
-
-    th, td {
-      vertical-align: top;
-    }
-
-    .chu-ky {
-      height: 100px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
     }
   }
 </style>
