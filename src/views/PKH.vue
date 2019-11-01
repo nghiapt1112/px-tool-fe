@@ -188,7 +188,7 @@
             <v-select
               size="small"
               label="name"
-              :reduce="t => t.name"
+              :reduce="t => t.id"
               @input="changeData('noiNhan', $event)"
               :options="PKHComboboxData.chuyen"></v-select>
           </td>
