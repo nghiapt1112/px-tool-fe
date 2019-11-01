@@ -589,14 +589,6 @@ const state = {
       donviThucHien: '',
       noiDung: '',
       noiDungThucHiens: [
-        {
-          chuyen: 0,
-          ketQua: '',
-          nghiemThu: '',
-          nguoiLam: '',
-          noiDung: '',
-          noiDungId: 0
-        }
       ],
       requestId: 0,
       soNghiemThuDuoc: '',

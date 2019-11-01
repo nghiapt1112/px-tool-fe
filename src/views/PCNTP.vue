@@ -286,10 +286,10 @@
       },
       changeDetailItem (index, fieldName, value) {
         const item = Object.assign({}, this.PCNTPData.noiDungThucHiens[index]);
-        const phieuDatHang = Object.assign([], this.PCNTPData.noiDungThucHiens);
+        const noiDungThucHien = Object.assign([], this.PCNTPData.noiDungThucHiens);
         item[fieldName] = value;
-        phieuDatHang[index] = item;
-        this.changeData('noiDungThucHiens', phieuDatHang);
+        noiDungThucHien[index] = item;
+        this.changeData('noiDungThucHiens', noiDungThucHien);
       },
       addDetail () {
         const list = Object.assign([], this.PCNTPData.noiDungThucHiens);
