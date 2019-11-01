@@ -93,8 +93,19 @@
           </th>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
-        <tr>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+        <tr class="row--chu-ky">
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :value="PAData.giamDocXacNhan"
+              @input="changeData('giamDocXacNhan', $event)"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PAData.giamDocXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
+            <span v-if="PAData.giamDocXacNhan">{{AppActiveUser.name}}</span>
+          </th>
           <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">
             Nguồn kinh phí:
           </th>
