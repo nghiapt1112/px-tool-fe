@@ -214,7 +214,7 @@
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI GIAO VIỆC</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI THỰC HIỆN</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP.KCS</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Ý Kiến TP.KCS</th>
         </tr>
         <tr class="row--chu-ky">
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
@@ -254,7 +254,12 @@
             <img v-if="PCNTPData.tpkcsXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PCNTPData.tpkcsXacNhan">{{AppActiveUser.name}}</span>
           </th>
-          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-textarea
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('yKienTpkcsXacNhan', $event.target.value)"/>
+          </th>
         </tr>
         </tbody>
       </table>
