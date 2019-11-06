@@ -9,6 +9,9 @@ const getters = {
   // CVCT
   CVCTScreenData: (state) => state.cvct,
   CVCTData: (state) => state.cvct.data,
+  // TKTDSP
+  TKTDSPScreenData: (state) => state.tktdsp,
+  TKTDSPData: (state) => state.tktdsp.data,
   // PKH
   PKHScreenData: (state) => state.pkh,
   PKHData: (state) => state.pkh.data,

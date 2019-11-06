@@ -5,6 +5,7 @@ import * as pdh from '../services/pdh';
 import * as pa from '../services/pa';
 import * as pcntp from '../services/pcntp';
 import * as cvct from '../services/cvct';
+import * as tktdsp from '../services/tktdsp';
 import * as dashboard from '../services/dashboard';
 import { setToken } from '../services/api';
 
@@ -123,6 +124,24 @@ const actions = {
         resolve(res)
       }).catch(e => {
         commit('CVCT_GET_LIST_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
+  // ////////////////////////////////////////////
+  // TKTDSP
+  // ////////////////////////////////////////////
+
+  tktdspGetList ({ commit }) {
+    commit('TKTDSP_GET_LIST')
+    return new Promise((resolve, reject) => {
+      tktdsp.getList().then(res => {
+        const { data } = res;
+        commit('TKTDSP_GET_LIST_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('TKTDSP_GET_LIST_FAILURE', e)
         reject(e)
       })
     })

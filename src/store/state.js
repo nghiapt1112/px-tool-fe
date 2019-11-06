@@ -56,6 +56,11 @@ const state = {
     error: null,
     loading: false
   },
+  tktdsp: {
+    data: [],
+    error: null,
+    loading: false
+  },
   requestId: null,
   pa: {
     isLoading: false,

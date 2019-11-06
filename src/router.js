@@ -51,6 +51,11 @@ const router = new Router({
             component: () => import('./views/CVCT.vue')
           },
           {
+            path: '/tktdsp',
+            name: 'tktdsp',
+            component: () => import('./views/TKTDSP.vue')
+          },
+          {
             path: '/pkh',
             name: 'pkh',
             component: () => import('./views/PKH.vue')

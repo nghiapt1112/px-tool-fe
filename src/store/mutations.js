@@ -157,6 +157,26 @@ const mutations = {
   },
 
   // ////////////////////////////////////////////
+  // CVCT
+  // ////////////////////////////////////////////
+
+  TKTDSP_GET_LIST (state) {
+    state.tktdsp.error = null;
+    state.tktdsp.loading = true;
+  },
+
+  TKTDSP_GET_LIST_SUCCESS (state, payload) {
+    state.tktdsp.error = null;
+    state.tktdsp.loading = false;
+    state.tktdsp.data = payload
+  },
+
+  TKTDSP_GET_LIST_FAILURE (state, e) {
+    state.tktdsp.error = e;
+    state.tktdsp.loading = false;
+  },
+
+  // ////////////////////////////////////////////
   // PKH
   // ////////////////////////////////////////////
 
