@@ -322,12 +322,14 @@
     mounted () {
       const { query: { id } } = this.$route;
       id && this.pkhGetById(id);
+      this.pkhGetNoiNhanById(id || null);
     },
     methods: {
       ...mapActions([
         'pkhUpdateData',
         'pkhSaveData',
-        'pkhGetById'
+        'pkhGetById',
+        'pkhGetNoiNhanById'
       ]),
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PKHData);
@@ -384,6 +386,10 @@
     td {
       &:nth-child(1), &:nth-child(5) {
         min-width: 100px;
+      }
+
+      &:nth-child(2) {
+        min-width: 200px;
       }
     }
   }

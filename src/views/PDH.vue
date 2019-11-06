@@ -310,12 +310,14 @@
     mounted () {
       const { query: { id } } = this.$route;
       id && this.pdhGetById(id);
+      this.pdhGetNoiNhanById(id || null);
     },
     methods: {
       ...mapActions([
         'pdhUpdateData',
         'pdhSaveData',
-        'pdhGetById'
+        'pdhGetById',
+        'pdhGetNoiNhanById'
       ]),
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PDHData);

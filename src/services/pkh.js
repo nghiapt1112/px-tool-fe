@@ -15,3 +15,8 @@ export const create = (payload) => {
 export const update = (payload) => {
   return api.put('/px/ukh', payload)
 }
+
+export const getNoiNhanById = (requestId) => {
+  const link = requestId ? `/req/noi-nhan?requestId=${requestId}` : `/req/noi-nhan`;
+  return api.get(link)
+}

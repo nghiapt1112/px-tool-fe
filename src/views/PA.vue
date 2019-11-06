@@ -503,12 +503,14 @@
     mounted () {
       const { query: { id } } = this.$route;
       id && this.paGetById(id);
+      this.paGetNoiNhanById(id || null);
     },
     methods: {
       ...mapActions([
         'paUpdateData',
         'paSaveData',
-        'paGetById'
+        'paGetById',
+        'paGetNoiNhanById'
       ]),
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PAData);

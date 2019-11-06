@@ -180,6 +180,19 @@ const actions = {
     })
   },
 
+  pkhGetNoiNhanById ({ commit }, requestId) {
+    commit('PKH_GET_NOI_NHAN_BY_ID')
+    return new Promise((resolve, reject) => {
+      pkh.getNoiNhanById(requestId).then(res => {
+        const { data } = res;
+        commit('PKH_GET_NOI_NHAN_BY_ID_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
   // ////////////////////////////////////////////
   // PDH
   // ////////////////////////////////////////////
@@ -209,6 +222,19 @@ const actions = {
         resolve(res)
       }).catch(e => {
         commit('PDH_GET_BY_ID_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
+  pdhGetNoiNhanById ({ commit }, requestId) {
+    commit('PDH_GET_NOI_NHAN_BY_ID')
+    return new Promise((resolve, reject) => {
+      pdh.getNoiNhanById(requestId).then(res => {
+        const { data } = res;
+        commit('PDH_GET_NOI_NHAN_BY_ID_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
         reject(e)
       })
     })
@@ -246,6 +272,20 @@ const actions = {
       })
     })
   },
+
+  paGetNoiNhanById ({ commit }, requestId) {
+    commit('PA_GET_NOI_NHAN_BY_ID')
+    return new Promise((resolve, reject) => {
+      pa.getNoiNhanById(requestId).then(res => {
+        const { data } = res;
+        commit('PA_GET_NOI_NHAN_BY_ID_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
   // ////////////////////////////////////////////
   // PCNTP
   // ////////////////////////////////////////////

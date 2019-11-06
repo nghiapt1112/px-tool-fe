@@ -214,6 +214,14 @@ const mutations = {
     state.pkh.loading = false;
   },
 
+  PKH_GET_NOI_NHAN_BY_ID (state) {
+    state.pkh.comboboxData.chuyen = [];
+  },
+
+  PKH_GET_NOI_NHAN_BY_ID_SUCCESS (state, payload) {
+    state.pkh.comboboxData.chuyen = payload;
+  },
+
   // ////////////////////////////////////////////
   // PDH
   // ////////////////////////////////////////////
@@ -252,6 +260,15 @@ const mutations = {
     state.pdh.loading = false;
   },
 
+  PDH_GET_NOI_NHAN_BY_ID (state) {
+    state.pdh.comboboxData.chuyen = [];
+  },
+
+  PDH_GET_NOI_NHAN_BY_ID_SUCCESS (state, payload) {
+    state.pdh.comboboxData.chuyen = payload;
+  },
+
+
   // ////////////////////////////////////////////
   // PA
   // ////////////////////////////////////////////
@@ -288,6 +305,14 @@ const mutations = {
   PA_GET_BY_ID_FAILURE (state, e) {
     state.pa.error = e;
     state.pa.loading = false;
+  },
+
+  PA_GET_NOI_NHAN_BY_ID (state) {
+    state.pa.comboboxData.chuyen = [];
+  },
+
+  PA_GET_NOI_NHAN_BY_ID_SUCCESS (state, payload) {
+    state.pa.comboboxData.chuyen = payload;
   },
 
   // ////////////////////////////////////////////
