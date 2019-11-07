@@ -356,7 +356,11 @@
       onSubmit () {
         const data = Object.assign({}, this.PKHData);
         this.pkhSaveData(data).then(() => {
-
+          this.$vs.notify({
+            color: 'success',
+            title: 'Lưu Phiếu Kiểm Hỏng',
+            text: `Lưu Phiếu Kiểm Hỏng thành công.`
+          })
         }).catch(() => {
           this.showError = true;
         })
