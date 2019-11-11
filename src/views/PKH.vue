@@ -225,6 +225,12 @@
             </vs-checkbox>
             <img v-if="PKHData.quanDocXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PKHData.quanDocXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PKHData.quanDocXacNhan"
+              class="mt-3"
+              rows="4"
+              placeholder="Nhập ý kiến khi không đồng ý"
+              @change="changeData('yKienQuanDoc', $event.target.value)"/>
           </th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -238,6 +244,12 @@
             </vs-checkbox>
             <img v-if="PKHData.troLyKTXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PKHData.troLyKTXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PKHData.troLyKTXacNhan"
+              class="mt-3"
+              rows="4"
+              placeholder="Nhập ý kiến khi không đồng ý"
+              @change="changeData('yKienTroLyKT', $event.target.value)"/>
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -251,6 +263,12 @@
             </vs-checkbox>
             <img v-if="PKHData.toTruongXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PKHData.toTruongXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PKHData.toTruongXacNhan"
+              class="mt-3"
+              rows="4"
+              placeholder="Nhập ý kiến khi không đồng ý"
+              @change="changeData('yKienToTruong', $event.target.value)"/>
           </th>
         </tr>
         <tr>
@@ -270,7 +288,7 @@
             <vs-textarea
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
-              @change="changeData('ykienGiamDoc', $event.target.value)"/>
+              @change="changeData('yKienGiamDoc', $event.target.value)"/>
           </td>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
           </th>
@@ -392,7 +410,7 @@
         min-width: 100px;
       }
 
-      &:nth-child(2) {
+      &:nth-child(2), &:nth-child(3) {
         min-width: 200px;
       }
     }

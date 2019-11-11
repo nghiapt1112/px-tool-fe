@@ -223,6 +223,12 @@
             </vs-checkbox>
             <img v-if="PDHData.tpkthkXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PDHData.tpkthkXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PDHData.tpkthkXacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('yKienTPKTHK', $event.target.value)"/>
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -236,6 +242,12 @@
             </vs-checkbox>
             <img v-if="PDHData.tpvatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PDHData.tpvatTuXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PDHData.tpvatTuXacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('yKienTPVatTu', $event.target.value)"/>
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -249,6 +261,12 @@
             </vs-checkbox>
             <img v-if="PDHData.nguoiDatHangXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PDHData.nguoiDatHangXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PDHData.nguoiDatHangXacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('yKienNguoiDatHang', $event.target.value)"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>

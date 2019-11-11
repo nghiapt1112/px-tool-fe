@@ -229,6 +229,12 @@
             </vs-checkbox>
             <img v-if="PCNTPData.nguoiGiaoViecXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PCNTPData.nguoiGiaoViecXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PCNTPData.nguoiGiaoViecXacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('yKienNguoiGiaoViec', $event.target.value)"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -241,6 +247,12 @@
             </vs-checkbox>
             <img v-if="PCNTPData.nguoiThucHienXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PCNTPData.nguoiThucHienXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PCNTPData.nguoiThucHienXacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('yKienNguoiThucHien', $event.target.value)"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -253,6 +265,12 @@
             </vs-checkbox>
             <img v-if="PCNTPData.tpkcsXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PCNTPData.tpkcsXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PCNTPData.tpkcsXacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('yKienTPKCS', $event.target.value)"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light">
             <vs-textarea

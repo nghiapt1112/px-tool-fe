@@ -261,7 +261,7 @@ const state = {
       toSo: '',
       toTruong: '',
       troLyKT: '',
-      ykienGiamDoc: ''
+      yKienGiamDoc: ''
     },
     isLoading: false,
     error: null,
@@ -317,7 +317,7 @@ const state = {
       tpvatTu: '',
       updatedAt: '',
       updatedBy: 0,
-      ykienGiamDoc: '',
+      yKienGiamDoc: '',
       phieuDatHangDetails: [],
     },
     isLoading: false,

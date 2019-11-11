@@ -33,12 +33,6 @@ export default [
     icon: "CheckSquareIcon",
   },
   {
-    url: "/tktdsp",
-    name: "Thống Kê Tiến Độ Sản Phẩm",
-    slug: "tktdsp",
-    icon: "ActivityIcon",
-  },
-  {
     url: "/pkh",
     name: "Phiếu Kiểm Hỏng",
     slug: "pkh",
@@ -61,5 +55,11 @@ export default [
     name: "Phiếu Công Nhận Thành Phẩm",
     slug: "pcntp",
     icon: "FileIcon",
-  }
+  },
+  {
+    url: "/tktdsp",
+    name: "Thống Kê Tiến Độ Sản Phẩm",
+    slug: "tktdsp",
+    icon: "ActivityIcon",
+  },
 ]

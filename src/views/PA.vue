@@ -407,6 +407,12 @@
             </vs-checkbox>
             <img v-if="PAData.truongPhongKTHKXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PAData.truongPhongKTHKXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PAData.truongPhongKTHKXacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('yKienTruongPhongKTHK', $event.target.value)"/>
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -419,6 +425,12 @@
             </vs-checkbox>
             <img v-if="PAData.truongPhongKeHoachXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PAData.truongPhongKeHoachXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PAData.truongPhongKeHoachXacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('yKienTruongPhongKeHoach', $event.target.value)"/>
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -431,6 +443,12 @@
             </vs-checkbox>
             <img v-if="PAData.truongPhongVatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PAData.truongPhongVatTuXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PAData.truongPhongVatTuXacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('yKienTruongPhongVatTu', $event.target.value)"/>
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -443,6 +461,12 @@
             </vs-checkbox>
             <img v-if="PAData.nguoiLapXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PAData.nguoiLapXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PAData.nguoiLapXacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              @change="changeData('yKienNguoiLap', $event.target.value)"/>
           </th>
         </tr>
         </tbody>
