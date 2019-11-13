@@ -281,7 +281,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
-              style="width: 50px"
+              style="width: 100px"
               size="small"
               class="inputx"
               :value="tr.khoDonGia"
@@ -289,23 +289,18 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
-              style="width: 70px"
+              style="width: 100px"
               size="small"
               class="inputx"
               :value="tr.khoSoLuong"
               @change="changeDetailItem(indextr, 'khoSoLuong', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input
-              style="width: 70px"
-              size="small"
-              class="inputx"
-              :value="tr.khoThanhTien"
-              @change="changeDetailItem(indextr, 'khoThanhTien', $event.target.value)"/>
+            <div style="width: 100px">{{tr.khoThanhTien.toLocaleString()}}</div>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
-              style="width: 70px"
+              style="width: 100px"
               size="small"
               class="inputx"
               :value="tr.mnDonGia"
@@ -313,19 +308,14 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
-              style="width: 70px"
+              style="width: 100px"
               size="small"
               class="inputx"
               :value="tr.mnSoLuong"
               @change="changeDetailItem(indextr, 'mnSoLuong', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input
-              style="width: 70px"
-              size="small"
-              class="inputx"
-              :value="tr.mnThanhTien"
-              @change="changeDetailItem(indextr, 'mnThanhTien', $event.target.value)"/>
+            <div style="width: 100px">{{tr.mnThanhTien.toLocaleString()}}</div>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
@@ -350,10 +340,14 @@
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Cộng</th>
           <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning">300</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning">
+            {{PAData.tongDMVTKho ? PAData.tongDMVTKho.toLocaleString() : 0}}
+          </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning">300</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning">
+            {{PAData.tongDMVTMuaNgoai ? PAData.tongDMVTMuaNgoai.toLocaleString() : 0}}
+          </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
         </tr>
         <tr>
@@ -402,7 +396,7 @@
               icon="icon-check"
               class="input-inline"
               :value="PAData.truongPhongKTHKXacNhan"
-              @input="changeData('truongPhongKTHKXacNhan', $event)"
+              @input="changeData('truongPhongKTHKXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PAData.truongPhongKTHKXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -420,7 +414,7 @@
               icon="icon-check"
               class="input-inline"
               :value="PAData.truongPhongKeHoachXacNhan"
-              @input="changeData('truongPhongKeHoachXacNhan', $event)"
+              @input="changeData('truongPhongKeHoachXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PAData.truongPhongKeHoachXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -430,7 +424,7 @@
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
-              @change="changeData('yKienTruongPhongKeHoach', $event.target.value)"/>
+              @change="changeData('yKienTruongPhongKeHoach', $event.target.value); getNoiNhan()"/>
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -438,7 +432,7 @@
               icon="icon-check"
               class="input-inline"
               :value="PAData.truongPhongVatTuXacNhan"
-              @input="changeData('truongPhongVatTuXacNhan', $event)"
+              @input="changeData('truongPhongVatTuXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PAData.truongPhongVatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -456,7 +450,7 @@
               icon="icon-check"
               class="input-inline"
               :value="PAData.nguoiLapXacNhan"
-              @input="changeData('nguoiLapXacNhan', $event)"
+              @input="changeData('nguoiLapXacNhan', $event); getNoiNhan() "
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PAData.nguoiLapXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -526,8 +520,10 @@
     },
     mounted () {
       const { query: { id } } = this.$route;
-      id && this.paGetById(id);
-      this.paGetNoiNhanById(id || null);
+      id && this.paGetById(id).then(() => {
+        this.getNoiNhan();
+      });
+      !id && this.getNoiNhan();
     },
     methods: {
       ...mapActions([
@@ -536,6 +532,23 @@
         'paGetById',
         'paGetNoiNhanById'
       ]),
+      getNoiNhan () {
+        const {
+          requestId,
+          truongPhongKTHKXacNhan: tpKTHK,
+          truongPhongKeHoachXacNhan: tpKeHoach,
+          truongPhongVatTuXacNhan: tpVatTu,
+          nguoiLapXacNhan: nguoiLap,
+        } = this.PAData;
+        const params = {
+          requestId,
+          tpKTHK,
+          tpKeHoach,
+          tpVatTu,
+          nguoiLap
+        };
+        this.paGetNoiNhanById(params);
+      },
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PAData);
         data[fieldName] = value;

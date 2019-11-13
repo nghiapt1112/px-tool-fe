@@ -220,7 +220,7 @@
               icon="icon-check"
               class="input-inline"
               :value="PKHData.quanDocXacNhan"
-              @input="changeData('quanDocXacNhan', $event)"
+              @input="changeData('quanDocXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PKHData.quanDocXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -239,7 +239,7 @@
               icon="icon-check"
               class="input-inline"
               :value="PKHData.troLyKTXacNhan"
-              @input="changeData('troLyKTXacNhan', $event)"
+              @input="changeData('troLyKTXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PKHData.troLyKTXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -258,7 +258,7 @@
               icon="icon-check"
               class="input-inline"
               :value="PKHData.toTruongXacNhan"
-              @input="changeData('toTruongXacNhan', $event)"
+              @input="changeData('toTruongXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PKHData.toTruongXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -339,8 +339,10 @@
     },
     mounted () {
       const { query: { id } } = this.$route;
-      id && this.pkhGetById(id);
-      this.pkhGetNoiNhanById(id || null);
+      id && this.pkhGetById(id).then(() => {
+        this.getNoiNhan();
+      });
+      !id && this.getNoiNhan();
     },
     methods: {
       ...mapActions([
@@ -349,6 +351,21 @@
         'pkhGetById',
         'pkhGetNoiNhanById'
       ]),
+      getNoiNhan () {
+        const {
+          requestId,
+          quanDocXacNhan: quanDoc,
+          troLyKTXacNhan: troLyKT,
+          toTruongXacNhan: toTruong,
+        } = this.PKHData;
+        const params = {
+          requestId,
+          quanDoc,
+          troLyKT,
+          toTruong,
+        };
+        this.pkhGetNoiNhanById(params);
+      },
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PKHData);
         data[fieldName] = value;

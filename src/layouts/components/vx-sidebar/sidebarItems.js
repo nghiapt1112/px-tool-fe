@@ -57,6 +57,12 @@ export default [
     icon: "FileIcon",
   },
   {
+    url: "/vbd",
+    name: "Văn bản đến",
+    slug: "vbd",
+    icon: "ShareIcon",
+  },
+  {
     url: "/tktdsp",
     name: "Thống Kê Tiến Độ Sản Phẩm",
     slug: "tktdsp",

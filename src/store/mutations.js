@@ -275,6 +275,27 @@ const mutations = {
 
 
   PA_UPDATE_DATA (state, data) {
+    const { dinhMucVatTus } = data;
+    let tongDMVTKho = 0;
+    let tongDMVTMuaNgoai = 0;
+
+    dinhMucVatTus && dinhMucVatTus.forEach((item) => {
+      if (!isNaN(item.khoDonGia) && !isNaN(item.khoSoLuong)) {
+        item.khoThanhTien = Number(item.khoDonGia) * Number(item.khoSoLuong);
+      } else {
+        item.khoThanhTien = 0;
+      }
+      if (!isNaN(item.mnDonGia) && !isNaN(item.mnSoLuong)) {
+        item.mnThanhTien = Number(item.mnDonGia) * Number(item.mnSoLuong);
+      } else {
+        item.mnThanhTien = 0;
+      }
+
+      tongDMVTKho += item.khoThanhTien;
+      tongDMVTMuaNgoai += item.mnThanhTien;
+    });
+    data.tongDMVTKho = tongDMVTKho;
+    data.tongDMVTMuaNgoai = tongDMVTMuaNgoai;
     state.pa.data = data;
   },
 

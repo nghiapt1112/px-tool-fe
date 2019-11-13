@@ -218,7 +218,7 @@
               icon="icon-check"
               class="input-inline"
               :value="PDHData.tpkthkXacNhan"
-              @input="changeData('tpkthkXacNhan', $event)"
+              @input="changeData('tpkthkXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PDHData.tpkthkXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -237,7 +237,7 @@
               icon="icon-check"
               class="input-inline"
               :value="PDHData.tpvatTuXacNhan"
-              @input="changeData('tpvatTuXacNhan', $event)"
+              @input="changeData('tpvatTuXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PDHData.tpvatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -256,7 +256,7 @@
               icon="icon-check"
               class="input-inline"
               :value="PDHData.nguoiDatHangXacNhan"
-              @input="changeData('nguoiDatHangXacNhan', $event)"
+              @input="changeData('nguoiDatHangXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PDHData.nguoiDatHangXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -327,8 +327,10 @@
     },
     mounted () {
       const { query: { id } } = this.$route;
-      id && this.pdhGetById(id);
-      this.pdhGetNoiNhanById(id || null);
+      id && this.pdhGetById(id).then(() => {
+        this.getNoiNhan();
+      });
+      !id && this.getNoiNhan();
     },
     methods: {
       ...mapActions([
@@ -337,6 +339,21 @@
         'pdhGetById',
         'pdhGetNoiNhanById'
       ]),
+      getNoiNhan () {
+        const {
+          requestId,
+          tpkthkXacNhan: tpKTHK,
+          tpvatTuXacNhan: tpVatTu,
+          nguoiDatHangXacNhan: nguoiDatHang,
+        } = this.PDHData;
+        const params = {
+          requestId,
+          tpKTHK,
+          tpVatTu,
+          nguoiDatHang,
+        };
+        this.pdhGetNoiNhanById(params);
+      },
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PDHData);
         data[fieldName] = value;

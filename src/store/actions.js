@@ -180,10 +180,10 @@ const actions = {
     })
   },
 
-  pkhGetNoiNhanById ({ commit }, requestId) {
+  pkhGetNoiNhanById ({ commit }, payload) {
     commit('PKH_GET_NOI_NHAN_BY_ID')
     return new Promise((resolve, reject) => {
-      pkh.getNoiNhanById(requestId).then(res => {
+      pkh.getNoiNhanById(payload).then(res => {
         const { data } = res;
         commit('PKH_GET_NOI_NHAN_BY_ID_SUCCESS', data);
         resolve(res)
@@ -227,10 +227,10 @@ const actions = {
     })
   },
 
-  pdhGetNoiNhanById ({ commit }, requestId) {
+  pdhGetNoiNhanById ({ commit }, payload) {
     commit('PDH_GET_NOI_NHAN_BY_ID')
     return new Promise((resolve, reject) => {
-      pdh.getNoiNhanById(requestId).then(res => {
+      pdh.getNoiNhanById(payload).then(res => {
         const { data } = res;
         commit('PDH_GET_NOI_NHAN_BY_ID_SUCCESS', data);
         resolve(res)
@@ -273,10 +273,10 @@ const actions = {
     })
   },
 
-  paGetNoiNhanById ({ commit }, requestId) {
+  paGetNoiNhanById ({ commit }, payload) {
     commit('PA_GET_NOI_NHAN_BY_ID')
     return new Promise((resolve, reject) => {
-      pa.getNoiNhanById(requestId).then(res => {
+      pa.getNoiNhanById(payload).then(res => {
         const { data } = res;
         commit('PA_GET_NOI_NHAN_BY_ID_SUCCESS', data);
         resolve(res)

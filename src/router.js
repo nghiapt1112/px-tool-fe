@@ -75,6 +75,16 @@ const router = new Router({
             name: 'pa',
             component: () => import('./views/PA.vue')
           },
+          {
+            path: '/vbd',
+            name: 'vbd',
+            component: () => import('./views/VBD.vue')
+          },
+          {
+            path: '/profile',
+            name: 'profile',
+            component: () => import('./views/Profile.vue')
+          },
         ],
       },
     // =============================================================================
