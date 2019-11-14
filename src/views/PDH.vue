@@ -383,7 +383,8 @@
             color: 'success',
             title: 'Lưu Phiếu Đặt Hàng',
             text: `Lưu Phiếu Đặt Hàng thành công.`
-          })
+          });
+          this.$router.push(`/cvct`);
         }).catch((e) => {
           this.$vs.notify({
             color: 'danger',

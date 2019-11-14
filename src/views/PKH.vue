@@ -395,7 +395,8 @@
             color: 'success',
             title: 'Lưu Phiếu Kiểm Hỏng',
             text: `Lưu Phiếu Kiểm Hỏng thành công.`
-          })
+          });
+          this.$router.push(`/cvct`);
         }).catch(() => {
           this.showError = true;
         })

@@ -595,7 +595,8 @@
             color: 'success',
             title: 'Lưu Phương Án',
             text: `Lưu Phương Án thành công.`
-          })
+          });
+          this.$router.push(`/cvct`);
         }).catch((e) => {
           this.$vs.notify({
             color: 'danger',

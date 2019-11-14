@@ -346,7 +346,8 @@
             color: 'success',
             title: 'Lưu Phiếu Công Nhận Thành Phẩm',
             text: `Lưu Phiếu Công Nhận Thành Phẩm thành công.`
-          })
+          });
+          this.$router.push(`/cvct`);
         }).catch((e) => {
           this.$vs.notify({
             color: 'danger',
