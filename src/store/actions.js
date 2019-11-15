@@ -95,7 +95,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       upload.downloadFile(data).then(res => {
         const { fileName } = data;
-        const fileURL = window.URL.createObjectURL(new Blob([response.data]));
+        const fileURL = window.URL.createObjectURL(new Blob([res.data]));
         const fileLink = document.createElement('a');
         fileLink.href = fileURL;
         fileLink.setAttribute('download', fileName);

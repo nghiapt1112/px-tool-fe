@@ -401,7 +401,7 @@
               v-for="(fileName, indextr) in PAData.files"
               :key="indextr"
               @click="onDownloadFile(fileName)"
-              class="link-download"
+              class="link-download mt-2"
             >
               {{fileName}}
             </a>
