@@ -160,22 +160,13 @@
             <vs-dropdown-menu class="vx-navbar-dropdown">
               <ul style="min-width: 9rem">
                 <li class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-                    @click="$router.push('/pages/profile')">
+                    @click="$router.push('/profile')">
                   <feather-icon icon="UserIcon" svgClasses="w-4 h-4"></feather-icon>
-                  <span class="ml-2">Profile</span></li>
+                  <span class="ml-2">Cá nhân</span></li>
                 <li class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-                    @click="$router.push('/apps/email')">
-                  <feather-icon icon="MailIcon" svgClasses="w-4 h-4"></feather-icon>
-                  <span class="ml-2">Inbox</span></li>
-                <li class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-                    @click="$router.push('/apps/todo')">
+                    @click="$router.push('/cvct')">
                   <feather-icon icon="CheckSquareIcon" svgClasses="w-4 h-4"></feather-icon>
-                  <span class="ml-2">Tasks</span></li>
-                <li class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
-                    @click="$router.push('/apps/chat')">
-                  <feather-icon icon="MessageSquareIcon" svgClasses="w-4 h-4"></feather-icon>
-                  <span class="ml-2">Chat</span></li>
-                <vs-divider class="m-1"></vs-divider>
+                  <span class="ml-2">Công việc</span></li>
                 <li class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
                     @click="$router.push('/pages/login')">
                   <feather-icon icon="LogOutIcon" svgClasses="w-4 h-4"></feather-icon>

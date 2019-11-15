@@ -184,7 +184,7 @@
               size="small"
               label="name"
               :value="PDHData.noiNhan"
-              :reduce="t => t.name"
+              :reduce="t => t.id"
               @input="changeData('noiNhan', $event)"
               :options="PDHComboboxData.chuyen"></v-select>
           </td>

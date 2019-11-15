@@ -364,7 +364,7 @@
             <v-select
               size="small"
               label="name"
-              :reduce="t => t.name"
+              :reduce="t => t.id"
               @input="changeData('noiNhan', $event)"
               :options="PAComboboxData.chuyen"></v-select>
           </td>

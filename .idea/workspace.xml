@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb33378-037a-4769-9a9b-c3a5ffeacdef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/PXT_files/0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/PXT_files/1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/PXT_files/2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/PXT_files/9.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/PXT_files/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/PXT_files/loader.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/PXT_files/logo.ff51eb01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/PXT_files/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/components/TheNavbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/TheNavbar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/PA.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PA.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PDH.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PDH.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PKH.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PKH.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/PA.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="608" column="59" selection-start-line="608" selection-start-column="59" selection-end-line="608" selection-end-column="59" />
+            <state relative-caret-position="167">
+              <caret line="364" column="26" lean-forward="true" selection-start-line="364" selection-start-column="26" selection-end-line="364" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
@@ -51,49 +45,100 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/store/actions.js">
+        <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebar.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+            <state relative-caret-position="928">
+              <caret line="66" column="7" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/PKH.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="191" column="41" selection-start-line="191" selection-start-column="34" selection-end-line="191" selection-end-column="41" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#4000#4006#1" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#13768#13800#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/upload.js">
+        <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebarGroup.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+            <state relative-caret-position="156">
+              <caret line="43" column="6" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/user.js">
+        <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebarItem.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="156">
+              <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/pdh.js">
+        <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="34" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="34" />
+            <state relative-caret-position="930">
+              <caret line="62" column="20" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/store/mutations.js">
+        <entry file="file://$PROJECT_DIR$/src/layouts/components/TheNavbar.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="92" column="7" selection-start-line="92" selection-start-column="7" selection-end-line="92" selection-end-column="7" />
+            <state relative-caret-position="-1331">
+              <caret line="170" column="54" selection-start-line="170" selection-start-column="49" selection-end-line="170" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/Profile.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="12" selection-start-line="3" selection-start-column="6" selection-end-line="7" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/PCNTP.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+              <folding>
+                <element signature="e#12320#12352#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/PDH.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="183" column="26" lean-forward="true" selection-start-line="183" selection-start-column="26" selection-end-line="183" selection-end-column="26" />
+              <folding>
+                <element signature="n#style#0;n#vs-input#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#v-select#0;n#td#6;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#12996#13028#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,10 +147,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>COPYRIGHT</find>
-      <find>Hand-crafted &amp; Made with</find>
-      <find>renewTokens</find>
-      <find>admin</find>
       <find>user_displayName</find>
       <find>activeUserImg</find>
       <find>chuyen</find>
@@ -132,6 +173,10 @@
       <find>VBDComboboxData</find>
       <find>multiple</find>
       <find>filesSelected</find>
+      <find>pr</find>
+      <find>profile</find>
+      <find>paId</find>
+      <find>noinhan</find>
     </findStrings>
     <replaceStrings>
       <replace>PKHComboboxData</replace>
@@ -162,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/services/user.js" />
         <option value="$PROJECT_DIR$/src/layouts/main/Main.vue" />
-        <option value="$PROJECT_DIR$/src/layouts/components/TheNavbar.vue" />
         <option value="$PROJECT_DIR$/src/views/Home.vue" />
         <option value="$PROJECT_DIR$/themeConfig.js" />
         <option value="$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebarItem.vue" />
@@ -178,9 +222,7 @@
         <option value="$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js" />
         <option value="$PROJECT_DIR$/src/services/pkh.js" />
         <option value="$PROJECT_DIR$/src/services/pdh.js" />
-        <option value="$PROJECT_DIR$/src/views/PDH.vue" />
         <option value="$PROJECT_DIR$/src/views/PCNTP.vue" />
-        <option value="$PROJECT_DIR$/src/views/PKH.vue" />
         <option value="$PROJECT_DIR$/src/store/state.js" />
         <option value="$PROJECT_DIR$/src/services/vbd.js" />
         <option value="$PROJECT_DIR$/src/store/getters.js" />
@@ -189,7 +231,10 @@
         <option value="$PROJECT_DIR$/src/store/actions.js" />
         <option value="$PROJECT_DIR$/src/store/mutations.js" />
         <option value="$PROJECT_DIR$/src/services/upload.js" />
+        <option value="$PROJECT_DIR$/src/layouts/components/TheNavbar.vue" />
         <option value="$PROJECT_DIR$/src/views/PA.vue" />
+        <option value="$PROJECT_DIR$/src/views/PDH.vue" />
+        <option value="$PROJECT_DIR$/src/views/PKH.vue" />
       </list>
     </option>
   </component>
@@ -220,14 +265,28 @@
               <item name="nd" type="b2602c69:ProjectViewProjectNode" />
               <item name="nd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nd" type="b2602c69:ProjectViewProjectNode" />
               <item name="nd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="vx-sidebar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="nd" type="b2602c69:ProjectViewProjectNode" />
@@ -246,6 +305,13 @@
               <item name="nd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -305,18 +371,18 @@
       <workItem from="1573438115827" duration="4262000" />
       <workItem from="1573525574224" duration="2967000" />
       <workItem from="1573611983961" duration="12033000" />
-      <workItem from="1573746414056" duration="5643000" />
+      <workItem from="1573746414056" duration="6950000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131154000" />
+    <option name="totallyTimeSpent" value="132461000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="731" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23424879" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23424879" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -333,7 +399,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.37558687" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.14084508" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -362,10 +428,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/assets/images/logo/favicon-backup.png" />
-    <entry file="file://$PROJECT_DIR$/src/assets/images/logo/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/images/logo/favicon.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -382,13 +444,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebarItem.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="89" column="29" lean-forward="true" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -428,13 +483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="22" column="154" selection-start-line="22" selection-start-column="142" selection-end-line="22" selection-end-column="154" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -470,27 +518,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Profile.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="12" selection-start-line="3" selection-start-column="6" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="885">
           <caret line="76" column="12" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="12" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="62" column="20" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -528,42 +559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1245">
           <caret line="83" column="47" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/PKH.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5940">
-          <caret line="397" column="13" selection-start-line="397" selection-start-column="13" selection-end-line="397" selection-end-column="13" />
-          <folding>
-            <element signature="e#4000#4006#1" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#13768#13800#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/PCNTP.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5205">
-          <caret line="348" column="13" selection-start-line="348" selection-start-column="13" selection-end-line="348" selection-end-column="13" />
-          <folding>
-            <element signature="e#12320#12352#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/PDH.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5760">
-          <caret line="385" column="13" selection-start-line="385" selection-start-column="13" selection-end-line="385" selection-end-column="13" />
-          <folding>
-            <element signature="n#style#0;n#vs-input#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#v-select#0;n#td#6;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#12996#13028#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -693,10 +688,55 @@
     <entry file="file://$PROJECT_DIR$/src/assets/images/PXT_files/logo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/Profile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="12" selection-start-line="3" selection-start-column="6" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="928">
+          <caret line="66" column="7" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebarGroup.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="43" column="6" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebarItem.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="62" column="20" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/components/TheNavbar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1331">
+          <caret line="170" column="54" selection-start-line="170" selection-start-column="49" selection-end-line="170" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/PA.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="608" column="59" selection-start-line="608" selection-start-column="59" selection-end-line="608" selection-end-column="59" />
+        <state relative-caret-position="167">
+          <caret line="364" column="26" lean-forward="true" selection-start-line="364" selection-start-column="26" selection-end-line="364" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
@@ -713,6 +753,42 @@
             <element signature="n#style#0;n#vs-input#0;n#td#10;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#vs-input#0;n#td#11;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
             <element signature="e#21910#21942#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/PCNTP.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+          <folding>
+            <element signature="e#12320#12352#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/PDH.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="183" column="26" lean-forward="true" selection-start-line="183" selection-start-column="26" selection-end-line="183" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#vs-input#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-select#0;n#td#6;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#12996#13028#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/PKH.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="191" column="41" selection-start-line="191" selection-start-column="34" selection-end-line="191" selection-end-column="41" />
+          <folding>
+            <element signature="e#4000#4006#1" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#13768#13800#0" expanded="true" />
           </folding>
         </state>
       </provider>
