@@ -561,7 +561,7 @@
       selectFiles (e) {
         const files = e.target.files;
         const data = Object.assign({}, this.PAData);
-        data['filesSelected'] = files;
+        data['filesSelected'] = [...files];
         this.paUpdateData(data);
       },
       changeData (fieldName, value) {

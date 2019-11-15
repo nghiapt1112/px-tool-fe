@@ -5,7 +5,9 @@ export const uploadFiles = (payload) => {
   const { requestType, requestId, files } = payload;
   bodyFormData.append('requestType', requestType);
   bodyFormData.append('requestId', requestId);
-  bodyFormData.append('files', files);
+  files.forEach(file => {
+    bodyFormData.append('files[]', file);
+  });
   return api({
     method: 'post',
     url: '/file/upload',
