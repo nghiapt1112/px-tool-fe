@@ -607,14 +607,13 @@
         const data = Object.assign({}, this.PAData);
         this.paSaveData(data).then((res) => {
           const { filesSelected, requestId } = this.PAData;
-          const { data: { paId } } = res;
           if (filesSelected) {
             // Upload
             filesSelected && this.commonUploadFiles({
               requestId,
               requestType: 'PHUONG_AN',
               files: filesSelected
-            }).then((res) => {
+            }).then(() => {
               this.$vs.notify({
                 color: 'success',
                 title: 'Lưu Phương Án',
