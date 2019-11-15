@@ -15,3 +15,13 @@ export const uploadFiles = (payload) => {
     config: { headers: { 'Content-Type': 'multipart/form-data' } }
   })
 }
+
+
+export const downloadFile = (payload) => {
+  const {fileName} = payload;
+  return api({
+    method: 'get',
+    url: `/file/download/${fileName}`,
+    responseType: 'blob',
+  })
+}

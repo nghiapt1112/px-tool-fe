@@ -397,6 +397,14 @@
               multiple
               @change="selectFiles($event)"
             />
+            <a
+              v-for="(fileName, indextr) in PAData.files"
+              :key="indextr"
+              @click="onDownloadFile(fileName)"
+              class="link-download"
+            >
+              {{fileName}}
+            </a>
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -539,7 +547,8 @@
         'paSaveData',
         'paGetById',
         'paGetNoiNhanById',
-        'commonUploadFiles'
+        'commonUploadFiles',
+        'commonDownloadFile'
       ]),
       getNoiNhan () {
         const {
@@ -656,6 +665,9 @@
           text: 'Xóa Phiếu Định Mức Lao Động - Vật Tư thất bại.'
         })
       },
+      onDownloadFile (fileName) {
+        this.commonDownloadFile({ fileName });
+      }
     }
   }
 </script>

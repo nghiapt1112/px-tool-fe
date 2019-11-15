@@ -481,3 +481,11 @@ ul.bordered-items {
   width: 15px;
   border-bottom-left-radius: 5px;
 }
+
+.link-download {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
