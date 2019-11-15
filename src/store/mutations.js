@@ -90,6 +90,19 @@ const mutations = {
   },
 
   // ////////////////////////////////////////////
+  // COMMON
+  // ////////////////////////////////////////////
+
+  COMMON_UPLOAD_FILES (state) {
+  },
+
+  COMMON_UPLOAD_FILES_SUCCESS (state) {
+  },
+
+  COMMON_UPLOAD_FILES_FAILURE (state) {
+  },
+
+  // ////////////////////////////////////////////
   // PROFILE
   // ////////////////////////////////////////////
 
@@ -340,7 +353,6 @@ const mutations = {
   // PCNTP
   // ////////////////////////////////////////////
 
-
   PCNTP_UPDATE_DATA (state, data) {
     state.pcntp.data = data;
   },
@@ -372,6 +384,35 @@ const mutations = {
   PCNTP_GET_BY_ID_FAILURE (state, e) {
     state.pcntp.error = e;
     state.pcntp.loading = false;
+  },
+
+  // ////////////////////////////////////////////
+  // VBD
+  // ////////////////////////////////////////////
+
+  VBD_UPDATE_DATA (state, data) {
+    state.vbd.data = data;
+  },
+
+  VBD_SAVE_DATA (state) {
+    state.vbd.isLoading = true;
+  },
+
+  VBD_SAVE_DATA_SUCCESS (state) {
+    state.vbd.isLoading = false;
+  },
+
+  VBD_SAVE_DATA_FAILURE (state, error) {
+    state.vbd.isLoading = false;
+    state.vbd.error = error;
+  },
+
+  VBD_GET_NOI_NHAN_BY_ID (state) {
+    state.vbd.comboboxData.chuyen = [];
+  },
+
+  VBD_GET_NOI_NHAN_BY_ID_SUCCESS (state, payload) {
+    state.vbd.comboboxData.chuyen = payload;
   },
 }
 

@@ -6,7 +6,9 @@ import * as pa from '../services/pa';
 import * as pcntp from '../services/pcntp';
 import * as cvct from '../services/cvct';
 import * as tktdsp from '../services/tktdsp';
+import * as vbd from '../services/vbd';
 import * as dashboard from '../services/dashboard';
+import * as upload from '../services/upload';
 import { setToken } from '../services/api';
 
 const actions = {
@@ -66,6 +68,23 @@ const actions = {
         resolve(res)
       }).catch(e => {
         commit('AUTH_LOGIN_ERROR', e)
+        reject(e)
+      })
+    })
+  },
+
+  // ////////////////////////////////////////////
+  // COMMON
+  // ////////////////////////////////////////////
+
+  commonUploadFiles ({ commit }, data) {
+    commit('COMMON_UPLOAD_FILES', data);
+    return new Promise((resolve, reject) => {
+      upload.uploadFiles(data).then(res => {
+        commit('COMMON_UPLOAD_FILES_SUCCESS')
+        resolve(res)
+      }).catch(e => {
+        commit('COMMON_UPLOAD_FILES_FAILURE', e)
         reject(e)
       })
     })
@@ -314,6 +333,40 @@ const actions = {
         resolve(res)
       }).catch(e => {
         commit('PCNTP_GET_BY_ID_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
+  // ////////////////////////////////////////////
+  // VBN
+  // ////////////////////////////////////////////
+
+  vbnUpdateData ({ commit }, data) {
+    commit('VBN_UPDATE_DATA', data)
+  },
+
+  vbnSaveData ({ commit }, data) {
+    commit('VBN_SAVE_DATA', data);
+    return new Promise((resolve, reject) => {
+      vbd.create(data).then(res => {
+        commit('VBN_SAVE_DATA_SUCCESS')
+        resolve(res)
+      }).catch(e => {
+        commit('VBN_SAVE_DATA_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
+  vbdGetNoiNhanById ({ commit }, payload) {
+    commit('VBD_GET_NOI_NHAN_BY_ID')
+    return new Promise((resolve, reject) => {
+      vbd.getNoiNhanById(payload).then(res => {
+        const { data } = res;
+        commit('VBD_GET_NOI_NHAN_BY_ID_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
         reject(e)
       })
     })

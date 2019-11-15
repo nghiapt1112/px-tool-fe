@@ -399,6 +399,15 @@ const state = {
       ],
       chuyen: []
     }
+  },
+  vbd: {
+    data: {
+      files: []
+    },
+    isLoading: false,
+    error: null,
+    comboboxData: {
+    }
   }
 }
 

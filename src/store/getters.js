@@ -25,6 +25,9 @@ const getters = {
   // PA
   PAData: (state) => state.pa.data,
   PAComboboxData: (state) => state.pa.comboboxData,
+  // VBD
+  VBDData: (state) => state.vbd.data,
+  VBDComboboxData: (state) => state.vbd.comboboxData,
 }
 
 export default getters

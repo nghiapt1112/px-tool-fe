@@ -389,7 +389,15 @@
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI LẬP</th>
         </tr>
         <tr class="row--chu-ky">
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-input
+              type="file"
+              class="w-full"
+              label="Hình ảnh đính kèm"
+              multiple
+              @change="selectFiles($event)"
+            />
+          </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
               icon-pack="feather"
@@ -530,7 +538,8 @@
         'paUpdateData',
         'paSaveData',
         'paGetById',
-        'paGetNoiNhanById'
+        'paGetNoiNhanById',
+        'commonUploadFiles'
       ]),
       getNoiNhan () {
         const {
@@ -548,6 +557,12 @@
           nguoiLap
         };
         this.paGetNoiNhanById(params);
+      },
+      selectFiles (e) {
+        const files = e.target.files;
+        const data = Object.assign({}, this.PAData);
+        data['filesSelected'] = files;
+        this.paUpdateData(data);
       },
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PAData);
@@ -590,13 +605,34 @@
       },
       onSubmit () {
         const data = Object.assign({}, this.PAData);
-        this.paSaveData(data).then(() => {
-          this.$vs.notify({
-            color: 'success',
-            title: 'Lưu Phương Án',
-            text: `Lưu Phương Án thành công.`
-          });
-          this.$router.push(`/cvct`);
+        this.paSaveData(data).then((res) => {
+          const { filesSelected, requestId } = this.PAData;
+          const { data: { paId } } = res;
+          if (filesSelected) {
+            // Upload
+            filesSelected && this.commonUploadFiles({
+              requestId,
+              requestType: 'PHUONG_AN',
+              files: filesSelected
+            }).then((res) => {
+              this.$vs.notify({
+                color: 'success',
+                title: 'Lưu Phương Án',
+                text: `Lưu Phương Án thành công.`
+              });
+              this.$router.push(`/cvct`);
+            }).catch(e => {
+              console.log('e', e);
+            });
+          } else {
+            this.$vs.notify({
+              color: 'success',
+              title: 'Lưu Phương Án',
+              text: `Lưu Phương Án thành công.`
+            });
+            this.$router.push(`/cvct`);
+          }
+
         }).catch((e) => {
           this.$vs.notify({
             color: 'danger',

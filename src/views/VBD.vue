@@ -7,17 +7,21 @@
             class="w-1/2"
             placeholder="Người nhận"
             size="small"
-            label="name"></v-select>
+            label="name"
+            :reduce="t => t.name"
+            @input="changeData('noiNhan', $event)"
+            :options="VBDComboboxData.chuyen"
+          ></v-select>
         </div>
       </div>
-      <div class= "vx-row">
+      <div class="vx-row">
         <div class="vx-col w-full">
           <vs-textarea class="w-1/2" label="Nội dung"/>
         </div>
       </div>
       <div class="vx-row mb-6">
         <div class="vx-col w-full">
-          <vs-input type="file" class="w-1/2" label="Files"/>
+          <vs-input type="file" class="w-1/2" label="Files" multiple/>
         </div>
       </div>
       <div class="vx-row">
@@ -32,6 +36,7 @@
 <script>
   import { mapActions, mapGetters } from 'vuex';
   import vSelect from 'vue-select'
+
   export default {
     components: {
       'v-select': vSelect,
@@ -43,17 +48,21 @@
     },
     computed: {
       ...mapGetters([
-        'TKTDSPData',
+        'VBDData',
+        'VBDComboboxData',
         'AppActiveUser'
       ])
     },
     mounted () {
-      this.tktdspGetList();
+      this.vbdGetNoiNhanById();
     },
     methods: {
       ...mapActions([
-        'tktdspGetList'
-      ])
+        'vbdGetNoiNhanById'
+      ]),
+      changeData () {
+
+      }
     }
   }
 </script>
