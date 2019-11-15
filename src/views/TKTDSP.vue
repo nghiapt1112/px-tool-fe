@@ -54,13 +54,13 @@
             {{ tr.ngayChuyenPhongVatTu }}
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            {{ tr.soPhieuDatHang }}
+            <a class="link-download" target="_blank" :href="'/pdh?id=' + tr.requestId">{{ tr.soPhieuDatHang }}</a>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.ngayChuyenKT }}
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            {{ tr.soPA }}
+            <a class="link-download" target="_blank" :href="'/pa?id=' + tr.requestId">{{ tr.soPA }}</a>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.ngayRaPA }}
