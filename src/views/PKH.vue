@@ -379,7 +379,6 @@
         this.changeData('kiemHongDetails', kiemHong);
       },
       addDetail () {
-      addDetail () {
         const kiemHong = Object.assign([], this.PKHData.kiemHongDetails);
         kiemHong.push({})
         this.changeData('kiemHongDetails', kiemHong);
