@@ -342,7 +342,7 @@
       id && this.pkhGetById(id).then(() => {
         this.getNoiNhan();
       });
-      !id && this.getNoiNhan();
+      !id && this.resetData() && this.getNoiNhan();
     },
     methods: {
       ...mapActions([
@@ -365,6 +365,13 @@
           toTruong,
         };
         this.pkhGetNoiNhanById(params);
+      },
+      resetData () {
+        const data = {
+          kiemHongDetails: []
+        };
+        this.pkhUpdateData(data);
+        return true;
       },
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PKHData);
