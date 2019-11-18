@@ -219,6 +219,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              :disabled="PKHData.quanDocEdit"
               :value="PKHData.quanDocXacNhan"
               @input="changeData('quanDocXacNhan', $event); getNoiNhan()"
             >Đồng Ý
@@ -238,6 +239,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              :disabled="PKHData.troLyKTEdit"
               :value="PKHData.troLyKTXacNhan"
               @input="changeData('troLyKTXacNhan', $event); getNoiNhan()"
             >Đồng Ý
@@ -257,6 +259,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              :disabled="PKHData.toTruongEdit"
               :value="PKHData.toTruongXacNhan"
               @input="changeData('toTruongXacNhan', $event); getNoiNhan()"
             >Đồng Ý

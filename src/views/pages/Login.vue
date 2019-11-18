@@ -32,6 +32,7 @@
                   class="w-full no-icon-border"/>
 
                 <vs-input
+                  v-on:keyup.enter="login"
                   type="password"
                   name="password"
                   icon="icon icon-lock"
@@ -54,9 +55,7 @@
                   <vs-checkbox v-model="checkbox_remember_me" class="mb-3">Ghi nhớ đăng nhập</vs-checkbox>
                   <router-link to="#">Quên mật khẩu?</router-link>
                 </div>
-<!--                <vs-button type="border">Register</vs-button>-->
                 <vs-button @click="login">Đăng Nhập</vs-button>
-
               </div>
             </div>
           </div>
@@ -98,7 +97,7 @@
           password: this.password
         })
           .then(() => {
-            this.$router.push('/');
+            this.$router.push('/cvct');
           })
           .catch(() => {
             this.showError = true;

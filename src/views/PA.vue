@@ -539,7 +539,7 @@
       id && this.paGetById(id).then(() => {
         this.getNoiNhan();
       });
-      !id && this.getNoiNhan();
+      !id && this.resetData() && this.getNoiNhan();
     },
     methods: {
       ...mapActions([
@@ -572,6 +572,14 @@
         const data = Object.assign({}, this.PAData);
         data['filesSelected'] = [...files];
         this.paUpdateData(data);
+      },
+      resetData () {
+        const data = {
+          dinhMucVatTus: [],
+          dinhMucLaoDongs: []
+        };
+        this.paUpdateData(data);
+        return true;
       },
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PAData);

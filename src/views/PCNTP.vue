@@ -310,6 +310,7 @@
     mounted () {
       const { query: { id } } = this.$route;
       id && this.pcntpGetById(id);
+      !id && this.resetData();
     },
     methods: {
       ...mapActions([
@@ -317,6 +318,13 @@
         'pcntpSaveData',
         'pcntpGetById'
       ]),
+      resetData () {
+        const data = {
+          noiDungThucHiens: [],
+        };
+        this.pcntpUpdateData(data);
+        return true;
+      },
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PCNTPData);
         data[fieldName] = value;

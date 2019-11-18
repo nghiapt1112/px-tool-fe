@@ -42,8 +42,8 @@ const router = new Router({
       // =============================================================================
           {
             path: '/',
-            name: 'home',
-            component: () => import('./views/Home.vue')
+            name: 'cvct',
+            component: () => import('./views/CVCT.vue')
           },
           {
             path: '/cvct',

@@ -20,12 +20,12 @@
 
 
 export default [
-  {
-    url: "/",
-    name: "Dashboard",
-    slug: "home",
-    icon: "HomeIcon",
-  },
+  // {
+  //   url: "/",
+  //   name: "Dashboard",
+  //   slug: "home",
+  //   icon: "HomeIcon",
+  // },
   {
     url: "/cvct",
     name: "Công Việc Cần Xử Lý",

@@ -330,7 +330,7 @@
       id && this.pdhGetById(id).then(() => {
         this.getNoiNhan();
       });
-      !id && this.getNoiNhan();
+      !id && this.resetData() && this.getNoiNhan();
     },
     methods: {
       ...mapActions([
@@ -353,6 +353,13 @@
           nguoiDatHang,
         };
         this.pdhGetNoiNhanById(params);
+      },
+      resetData () {
+        const data = {
+          phieuDatHangDetails: []
+        };
+        this.pdhUpdateData(data);
+        return true;
       },
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PDHData);
