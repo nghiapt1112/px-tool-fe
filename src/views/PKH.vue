@@ -227,6 +227,7 @@
             <img v-if="PKHData.quanDocXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PKHData.quanDocXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PKHData.quanDocEdit"
               v-if="!PKHData.quanDocXacNhan"
               class="mt-3"
               rows="4"
@@ -247,6 +248,7 @@
             <img v-if="PKHData.troLyKTXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PKHData.troLyKTXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PKHData.troLyKTEdit"
               v-if="!PKHData.troLyKTXacNhan"
               class="mt-3"
               rows="4"
@@ -268,6 +270,7 @@
             <span v-if="PKHData.toTruongXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
               v-if="!PKHData.toTruongXacNhan"
+              :disabled="PKHData.toTruongEdit"
               class="mt-3"
               rows="4"
               placeholder="Nhập ý kiến khi không đồng ý"
@@ -276,23 +279,8 @@
         </tr>
         <tr>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
-            Ý kiến giám đốc
-          </th>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-checkbox
-              icon-pack="feather"
-              icon="icon-check"
-              class="input-inline"
-              :value="PKHData.giamDocXacNhan"
-              @input="changeData('giamDocXacNhan', $event)"
-            >Nhất trí
-            </vs-checkbox>
-            <vs-textarea
-              class="mt-3"
-              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
-              @change="changeData('yKienGiamDoc', $event.target.value)"/>
-          </td>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
           </th>
         </tr>
