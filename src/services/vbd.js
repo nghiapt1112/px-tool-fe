@@ -1,7 +1,7 @@
 import api from './api'
 
 export const create = (payload) => {
-  return api.post('/px/tkh', payload)
+  return api.post('/vbd', payload)
 }
 
 export const getNoiNhanById = (params) => {
@@ -10,4 +10,8 @@ export const getNoiNhanById = (params) => {
 
 export const getList = () => {
   return api.get('/vbd')
+}
+
+export const getById = (requestId) => {
+  return api.get(`/vbd/${requestId}`)
 }

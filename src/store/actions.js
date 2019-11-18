@@ -361,7 +361,7 @@ const actions = {
   // ////////////////////////////////////////////
 
   vbnUpdateData ({ commit }, data) {
-    commit('VBN_UPDATE_DATA', data)
+    commit('VBD_UPDATE_DATA', data)
   },
 
   vbnSaveData ({ commit }, data) {
@@ -372,6 +372,20 @@ const actions = {
         resolve(res)
       }).catch(e => {
         commit('VBN_SAVE_DATA_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
+  vbdGetById ({ commit }, vbdId) {
+    commit('VBD_GET_BY_ID')
+    return new Promise((resolve, reject) => {
+      vbd.getById(vbdId).then(res => {
+        const { data } = res;
+        commit('VBD_GET_BY_ID_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('VBD_GET_BY_ID_FAILURE', e)
         reject(e)
       })
     })
@@ -399,6 +413,19 @@ const actions = {
         resolve(res)
       }).catch(e => {
         commit('CVBD_GET_LIST_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
+  vbdSaveData ({ commit }, data) {
+    commit('VBD_SAVE_DATA', data);
+    return new Promise((resolve, reject) => {
+      vbd.create(data).then(res => {
+        commit('VBD_SAVE_DATA_SUCCESS')
+        resolve(res)
+      }).catch(e => {
+        commit('VBD_SAVE_DATA_FAILURE', e)
         reject(e)
       })
     })

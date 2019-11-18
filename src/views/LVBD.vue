@@ -1,21 +1,20 @@
 <template>
-  <vx-card title="Công Việc Cần Xử Lý">
+  <vx-card title="Văn bản đến">
+    <vs-button class="mb-4" @click="$router.push(`vbd/new`)">Thêm mới</vs-button>
     <div class="cvct-table--container">
       <table class="works__table--content border-collapse">
-
         <tr>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Mã</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Loại</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Trạng thái</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Files</th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
 
         <tbody>
-        <tr :key="indextr" v-for="(tr, indextr) in CVCTData">
+        <tr :key="indextr" v-for="(tr, indextr) in VBDList">
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            {{ tr.ma }}
+            {{ tr.noiNhan }}
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -23,16 +22,18 @@
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            {{ MAP_TYPES[tr.type] }}
-          </td>
-
-          <td class="p-2 border border-solid d-theme-border-grey-light">
-            <span class="text-warning">{{ MAP_STATUS[tr.trangThai] }}</span>
+            <a
+              v-for="(fileName, indextr) in tr.files"
+              :key="indextr"
+              class="mr-2"
+            >
+              {{fileName}}
+            </a>
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <vs-button class="mr-4" size="small" @click="onDetailClick(tr.requestId, tr.type)">Chi tiết</vs-button>
-            <vs-button class="mr-4" size="small" color="danger" @click="openDeleteConfirm">Hủy</vs-button>
+            <vs-button class="mr-4" size="small" @click="onDetailClick(tr.vbdId)">Chi tiết</vs-button>
+<!--            <vs-button class="mr-4" size="small" color="danger" @click="openDeleteConfirm">Hủy</vs-button>-->
           </td>
 
         </tr>
@@ -45,58 +46,21 @@
 <script>
   import { mapActions, mapGetters } from 'vuex';
 
-  const MAP_TYPES = {
-    'PHUONG_AN': 'Phương án',
-    'KIEM_HONG': 'Kiểm hỏng',
-    'DAT_HANG': 'Đặt hàng',
-    'CONG_NHAN_THANH_PHAM': 'C.N thành phẩm',
-  };
-
-  const MAP_STATUS = {
-    'DANG_CHO_DUYET': 'Đang chờ duyệt',
-    'DA_DUYET': 'Đã duyệt',
-    'KHONG_DUYET': 'Không duyệt',
-  };
   export default {
-    data () {
-      return {
-        MAP_TYPES,
-        MAP_STATUS
-      }
-    },
     computed: {
       ...mapGetters([
-        'CVCTData',
+        'VBDList',
       ])
     },
     mounted () {
-      this.cvctGetList()
+      this.vbdGetList()
     },
     methods: {
       ...mapActions([
-        'cvctGetList',
-        'cvctUpdateRequestId'
+        'vbdGetList',
       ]),
-      onDetailClick (id, type) {
-        this.cvctUpdateRequestId(id)
-        switch (type) {
-          case 'DAT_HANG': {
-            this.$router.push(`/pdh?id=${id}`);
-            break;
-          }
-          case 'KIEM_HONG': {
-            this.$router.push(`/pkh?id=${id}`);
-            break;
-          }
-          case 'PHUONG_AN': {
-            this.$router.push(`/pa?id=${id}`);
-            break;
-          }
-          case 'CONG_NHAN_THANH_PHAM': {
-            this.$router.push(`/pcntp?id=${id}`);
-            break;
-          }
-        }
+      onDetailClick (id) {
+        this.$router.push(`/vbd/edit?id=${id}`);
       },
       openDeleteConfirm () {
         this.$vs.dialog({
@@ -128,11 +92,7 @@
     width: 100%;
 
     td {
-      &:nth-child(1) {
-        width: 100px;
-      }
-
-      &:nth-child(5) {
+      &:nth-child(4) {
         width: 200px;
       }
     }

@@ -8,25 +8,47 @@
             placeholder="Người nhận"
             size="small"
             label="name"
-            :reduce="t => t.name"
+            :reduce="t => t.id"
             @input="changeData('noiNhan', $event)"
             :options="VBDComboboxData.chuyen"
+            :value="VBDData.noiNhan"
           ></v-select>
         </div>
       </div>
       <div class="vx-row">
         <div class="vx-col w-full">
-          <vs-textarea class="w-1/2" label="Nội dung"/>
+          <vs-textarea
+            class="w-1/2"
+            @change="changeData('noiDung', $event.target.value)"
+            :value="VBDData.noiDung"
+            label="Nội dung"
+          />
         </div>
       </div>
       <div class="vx-row mb-6">
         <div class="vx-col w-full">
-          <vs-input type="file" class="w-1/2" label="Files" multiple/>
+          <vs-input
+            type="file"
+            class="w-1/2"
+            label="Chọn files"
+            multiple
+            @change="selectFiles($event)"
+          />
+        </div>
+        <div class="vx-col w-full">
+          <a
+            v-for="(fileName, indextr) in VBDData.files"
+            :key="indextr"
+            @click="onDownloadFile(fileName)"
+            class="link-download mt-2"
+          >
+            {{fileName}}
+          </a>
         </div>
       </div>
       <div class="vx-row">
         <div class="vx-col w-full">
-          <vs-button class="mr-3 mb-2">Lưu</vs-button>
+          <vs-button class="mb-2" @click="onSubmit">Lưu</vs-button>
         </div>
       </div>
     </vx-card>
@@ -54,14 +76,69 @@
       ])
     },
     mounted () {
+      const { query: { id } } = this.$route;
+      id && this.vbdGetById(id);
       this.vbdGetNoiNhanById();
     },
     methods: {
       ...mapActions([
-        'vbdGetNoiNhanById'
+        'vbnUpdateData',
+        'vbdSaveData',
+        'vbdGetById',
+        'vbdGetNoiNhanById',
+        'commonDownloadFile',
+        'commonUploadFiles'
       ]),
-      changeData () {
+      changeData (fieldName, value) {
+        const data = Object.assign({}, this.VBDData);
+        data[fieldName] = value;
+        this.vbnUpdateData(data);
+      },
+      selectFiles (e) {
+        const files = e.target.files;
+        const data = Object.assign({}, this.VBDData);
+        data['filesSelected'] = [...files];
+        this.vbnUpdateData(data);
+      },
+      onSubmit () {
+        const data = Object.assign({}, this.VBDData);
+        this.vbdSaveData(data).then(() => {
+          const { filesSelected, vbdId } = this.VBDData;
+          if (filesSelected) {
+            // Upload
+            filesSelected && this.commonUploadFiles({
+              requestId: vbdId,
+              requestType: 'VAN_BAN_DEN',
+              files: filesSelected
+            }).then(() => {
+              this.$vs.notify({
+                color: 'success',
+                title: 'Lưu Văn Bản Đến',
+                text: `Lưu Văn Bản Đến thành công.`
+              });
+              this.$router.push(`/vbd`);
+            }).catch(e => {
+              console.log('e', e);
+            });
+          } else {
+            this.$vs.notify({
+              color: 'success',
+              title: 'Lưu Văn Bản Đến',
+              text: `Lưu Văn Bản Đến thành công.`
+            });
+            this.$router.push(`/vbd`);
+          }
 
+        }).catch((e) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Lưu Văn Bản Đến',
+            text: `Lưu Văn Bản Đến thất bại. ${e}`
+          })
+        })
+      },
+      onDownloadFile (fileName) {
+        this.commonDownloadFile({ fileName });
       }
     }
   }

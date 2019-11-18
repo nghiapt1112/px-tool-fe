@@ -430,6 +430,23 @@ const mutations = {
   VBD_GET_NOI_NHAN_BY_ID_SUCCESS (state, payload) {
     state.vbd.comboboxData.chuyen = payload;
   },
+
+  VBD_GET_BY_ID (state) {
+    state.vbd.error = null;
+    state.vbd.loading = true;
+  },
+
+  VBD_GET_BY_ID_SUCCESS (state, payload) {
+    state.vbd.error = null;
+    state.vbd.loading = false;
+    state.vbd.data = payload
+  },
+
+  VBD_GET_BY_ID_FAILURE (state, e) {
+    state.vbd.error = e;
+    state.vbd.loading = false;
+  },
+
 }
 
 export default mutations

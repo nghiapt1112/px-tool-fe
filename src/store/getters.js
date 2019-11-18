@@ -27,6 +27,7 @@ const getters = {
   PAComboboxData: (state) => state.pa.comboboxData,
   // VBD
   VBDData: (state) => state.vbd.data,
+  VBDList: (state) => state.vbd.list,
   VBDComboboxData: (state) => state.vbd.comboboxData,
 }
 
