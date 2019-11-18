@@ -78,6 +78,7 @@
     mounted () {
       const { query: { id } } = this.$route;
       id && this.vbdGetById(id);
+      !id && this.resetData();
       this.vbdGetNoiNhanById();
     },
     methods: {
@@ -89,6 +90,14 @@
         'commonDownloadFile',
         'commonUploadFiles'
       ]),
+      resetData () {
+        const data = {
+          filesSelected: [],
+          files: [],
+        };
+        this.vbnUpdateData(data);
+        return true;
+      },
       changeData (fieldName, value) {
         const data = Object.assign({}, this.VBDData);
         data[fieldName] = value;
@@ -102,12 +111,13 @@
       },
       onSubmit () {
         const data = Object.assign({}, this.VBDData);
-        this.vbdSaveData(data).then(() => {
+        this.vbdSaveData(data).then((res) => {
+          const { data } = res;
           const { filesSelected, vbdId } = this.VBDData;
           if (filesSelected) {
             // Upload
             filesSelected && this.commonUploadFiles({
-              requestId: vbdId,
+              requestId: vbdId || data['vbdId'],
               requestType: 'VAN_BAN_DEN',
               files: filesSelected
             }).then(() => {
