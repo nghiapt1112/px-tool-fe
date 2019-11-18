@@ -219,7 +219,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
-              :disabled="PKHData.quanDocEdit"
+              :disabled="PKHData.quanDocDisable"
               :value="PKHData.quanDocXacNhan"
               @input="changeData('quanDocXacNhan', $event); getNoiNhan()"
             >Đồng Ý
@@ -227,7 +227,7 @@
             <img v-if="PKHData.quanDocXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PKHData.quanDocXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
-              :disabled="PKHData.quanDocEdit"
+              :disabled="PKHData.quanDocDisable"
               v-if="!PKHData.quanDocXacNhan"
               class="mt-3"
               rows="4"
@@ -240,7 +240,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
-              :disabled="PKHData.troLyKTEdit"
+              :disabled="PKHData.troLyKTDisable"
               :value="PKHData.troLyKTXacNhan"
               @input="changeData('troLyKTXacNhan', $event); getNoiNhan()"
             >Đồng Ý
@@ -248,7 +248,7 @@
             <img v-if="PKHData.troLyKTXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PKHData.troLyKTXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
-              :disabled="PKHData.troLyKTEdit"
+              :disabled="PKHData.troLyKTDisable"
               v-if="!PKHData.troLyKTXacNhan"
               class="mt-3"
               rows="4"
@@ -261,7 +261,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
-              :disabled="PKHData.toTruongEdit"
+              :disabled="PKHData.toTruongDisable"
               :value="PKHData.toTruongXacNhan"
               @input="changeData('toTruongXacNhan', $event); getNoiNhan()"
             >Đồng Ý
@@ -269,8 +269,8 @@
             <img v-if="PKHData.toTruongXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PKHData.toTruongXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PKHData.toTruongDisable"
               v-if="!PKHData.toTruongXacNhan"
-              :disabled="PKHData.toTruongEdit"
               class="mt-3"
               rows="4"
               placeholder="Nhập ý kiến khi không đồng ý"

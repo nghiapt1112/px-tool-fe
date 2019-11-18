@@ -223,6 +223,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              :disabled="PCNTPData.nguoiGiaoViecDisable"
               :value="PCNTPData.nguoiGiaoViecXacNhan"
               @input="changeData('nguoiGiaoViecXacNhan', $event)"
             >Đồng Ý
@@ -230,6 +231,7 @@
             <img v-if="PCNTPData.nguoiGiaoViecXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PCNTPData.nguoiGiaoViecXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PCNTPData.nguoiGiaoViecDisable"
               v-if="!PCNTPData.nguoiGiaoViecXacNhan"
               rows="4"
               class="mt-3"
@@ -241,6 +243,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              :disabled="PCNTPData.nguoiThucHienDisable"
               :value="PCNTPData.nguoiThucHienXacNhan"
               @input="changeData('nguoiThucHienXacNhan', $event)"
             >Đồng Ý
@@ -248,6 +251,7 @@
             <img v-if="PCNTPData.nguoiThucHienXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PCNTPData.nguoiThucHienXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PCNTPData.nguoiThucHienDisable"
               v-if="!PCNTPData.nguoiThucHienXacNhan"
               rows="4"
               class="mt-3"
@@ -259,6 +263,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              :disabled="PCNTPData.tpkcsDisable"
               :value="PCNTPData.tpkcsXacNhan"
               @input="changeData('tpkcsXacNhan', $event)"
             >Đồng Ý
@@ -266,6 +271,7 @@
             <img v-if="PCNTPData.tpkcsXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PCNTPData.tpkcsXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PCNTPData.tpkcsDisable"
               v-if="!PCNTPData.tpkcsXacNhan"
               rows="4"
               class="mt-3"

@@ -217,6 +217,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              :disabled="PDHData.tpkthkDisable"
               :value="PDHData.tpkthkXacNhan"
               @input="changeData('tpkthkXacNhan', $event); getNoiNhan()"
             >Đồng Ý
@@ -224,6 +225,7 @@
             <img v-if="PDHData.tpkthkXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PDHData.tpkthkXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PDHData.tpkthkDisable"
               v-if="!PDHData.tpkthkXacNhan"
               rows="4"
               class="mt-3"
@@ -233,6 +235,7 @@
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
+              :disabled="PDHData.tpvatTuDisable"
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
@@ -243,6 +246,7 @@
             <img v-if="PDHData.tpvatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PDHData.tpvatTuXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PDHData.tpvatTuDisable"
               v-if="!PDHData.tpvatTuXacNhan"
               rows="4"
               class="mt-3"
@@ -252,6 +256,7 @@
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
+              :disabled="PDHData.nguoiDatHangDisable"
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
@@ -262,6 +267,7 @@
             <img v-if="PDHData.nguoiDatHangXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PDHData.nguoiDatHangXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PDHData.nguoiDatHangDisable"
               v-if="!PDHData.nguoiDatHangXacNhan"
               rows="4"
               class="mt-3"

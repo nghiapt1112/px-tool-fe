@@ -411,6 +411,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              :disabled="PAData.truongPhongKTHKDisable"
               :value="PAData.truongPhongKTHKXacNhan"
               @input="changeData('truongPhongKTHKXacNhan', $event); getNoiNhan()"
             >Đồng Ý
@@ -418,6 +419,7 @@
             <img v-if="PAData.truongPhongKTHKXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PAData.truongPhongKTHKXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PAData.truongPhongKTHKDisable"
               v-if="!PAData.truongPhongKTHKXacNhan"
               rows="4"
               class="mt-3"
@@ -429,6 +431,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              :disabled="PAData.truongPhongKeHoachDisable"
               :value="PAData.truongPhongKeHoachXacNhan"
               @input="changeData('truongPhongKeHoachXacNhan', $event); getNoiNhan()"
             >Đồng Ý
@@ -436,6 +439,7 @@
             <img v-if="PAData.truongPhongKeHoachXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PAData.truongPhongKeHoachXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PAData.truongPhongKeHoachDisable"
               v-if="!PAData.truongPhongKeHoachXacNhan"
               rows="4"
               class="mt-3"
@@ -447,6 +451,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              :disabled="PAData.truongPhongVatTuDisable"
               :value="PAData.truongPhongVatTuXacNhan"
               @input="changeData('truongPhongVatTuXacNhan', $event); getNoiNhan()"
             >Đồng Ý
@@ -454,6 +459,7 @@
             <img v-if="PAData.truongPhongVatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PAData.truongPhongVatTuXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PAData.truongPhongVatTuDisable"
               v-if="!PAData.truongPhongVatTuXacNhan"
               rows="4"
               class="mt-3"
@@ -465,6 +471,7 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              :disabled="PAData.nguoiLapDisable"
               :value="PAData.nguoiLapXacNhan"
               @input="changeData('nguoiLapXacNhan', $event); getNoiNhan() "
             >Đồng Ý
@@ -472,6 +479,7 @@
             <img v-if="PAData.nguoiLapXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PAData.nguoiLapXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PAData.nguoiLapDisable"
               v-if="!PAData.nguoiLapXacNhan"
               rows="4"
               class="mt-3"
