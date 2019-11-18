@@ -401,14 +401,14 @@ const state = {
     }
   },
   vbd: {
+    list: [],
     data: {
       files: []
     },
     isLoading: false,
     error: null,
-    comboboxData: {
-    }
+    comboboxData: {}
   }
-}
+};
 
 export default state

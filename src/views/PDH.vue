@@ -230,6 +230,7 @@
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PDHData.yKienTPKTHK"
               @change="changeData('yKienTPKTHK', $event.target.value)"/>
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -251,6 +252,7 @@
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PDHData.yKienTPVatTu"
               @change="changeData('yKienTPVatTu', $event.target.value)"/>
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -272,6 +274,7 @@
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PDHData.yKienNguoiDatHang"
               @change="changeData('yKienNguoiDatHang', $event.target.value)"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>

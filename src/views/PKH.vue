@@ -224,6 +224,7 @@
               class="mt-3"
               rows="4"
               placeholder="Nhập ý kiến khi không đồng ý"
+              :value="PKHData.yKienQuanDoc"
               @change="changeData('yKienQuanDoc', $event.target.value)"/>
           </th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -245,6 +246,7 @@
               class="mt-3"
               rows="4"
               placeholder="Nhập ý kiến khi không đồng ý"
+              :value="PKHData.yKienTroLyKT"
               @change="changeData('yKienTroLyKT', $event.target.value)"/>
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -266,6 +268,7 @@
               class="mt-3"
               rows="4"
               placeholder="Nhập ý kiến khi không đồng ý"
+              :value="PKHData.yKienToTruong"
               @change="changeData('yKienToTruong', $event.target.value)"/>
           </th>
         </tr>

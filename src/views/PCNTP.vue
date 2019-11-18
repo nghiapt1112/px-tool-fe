@@ -236,6 +236,7 @@
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PCNTPData.yKienNguoiGiaoViec"
               @change="changeData('yKienNguoiGiaoViec', $event.target.value)"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -256,6 +257,7 @@
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PCNTPData.yKienNguoiThucHien"
               @change="changeData('yKienNguoiThucHien', $event.target.value)"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -276,12 +278,14 @@
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PCNTPData.yKienTPKCS"
               @change="changeData('yKienTPKCS', $event.target.value)"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light">
             <vs-textarea
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PCNTPData.yKienTpkcsXacNhan"
               @change="changeData('yKienTpkcsXacNhan', $event.target.value)"/>
           </th>
         </tr>

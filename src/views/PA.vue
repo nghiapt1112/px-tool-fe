@@ -424,6 +424,7 @@
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PAData.yKienTruongPhongKTHK"
               @change="changeData('yKienTruongPhongKTHK', $event.target.value)"/>
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -444,6 +445,7 @@
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PAData.yKienTruongPhongKeHoach"
               @change="changeData('yKienTruongPhongKeHoach', $event.target.value); getNoiNhan()"/>
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -464,6 +466,7 @@
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PAData.yKienTruongPhongVatTu"
               @change="changeData('yKienTruongPhongVatTu', $event.target.value)"/>
           </th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -484,6 +487,7 @@
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PAData.yKienNguoiLap"
               @change="changeData('yKienNguoiLap', $event.target.value)"/>
           </th>
         </tr>

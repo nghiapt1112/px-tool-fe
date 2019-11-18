@@ -390,6 +390,22 @@ const mutations = {
   // VBD
   // ////////////////////////////////////////////
 
+  VBD_GET_LIST (state) {
+    state.vbd.error = null;
+    state.vbd.loading = true;
+  },
+
+  VBD_GET_LIST_SUCCESS (state, payload) {
+    state.vbd.error = null;
+    state.vbd.loading = false;
+    state.vbd.list = payload
+  },
+
+  VBD_GET_LIST_FAILURE (state, e) {
+    state.vbd.error = e;
+    state.vbd.loading = false;
+  },
+
   VBD_UPDATE_DATA (state, data) {
     state.vbd.data = data;
   },

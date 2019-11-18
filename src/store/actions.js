@@ -389,6 +389,20 @@ const actions = {
       })
     })
   },
+
+  vbdGetList ({ commit }) {
+    commit('VBD_GET_LIST')
+    return new Promise((resolve, reject) => {
+      vbd.getList().then(res => {
+        const { data } = res;
+        commit('VBD_GET_LIST_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('CVBD_GET_LIST_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
 }
 
 export default actions
