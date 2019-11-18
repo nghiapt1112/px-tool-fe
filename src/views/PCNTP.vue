@@ -294,7 +294,6 @@
       icon-pack="feather"
       icon="icon-trash"></vs-button>
     <vs-button class="mr-4 mt-3" @click="onSubmit">Lưu</vs-button>
-    <vs-button class="mt-3" type="border" color="warning">Reset</vs-button>
   </vx-card>
 </template>
 

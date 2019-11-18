@@ -285,8 +285,7 @@
       icon-pack="feather"
       icon="icon-trash"
       @click="openDeleteConfirm"></vs-button>
-    <vs-button class="mr-4 mt-3" @click="onSubmit">Lưu</vs-button>
-    <vs-button class="mt-3" type="border" color="warning">Reset</vs-button>
+    <vs-button class="mr-4 mt-3" @click="onSubmit">Chuyển</vs-button>
   </vx-card>
 </template>
 
