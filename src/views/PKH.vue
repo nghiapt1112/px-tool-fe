@@ -183,15 +183,7 @@
         </tbody>
         <tbody>
         <tr>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select
-              size="small"
-              label="name"
-              :reduce="t => t.id"
-              @input="changeData('noiNhan', $event)"
-              :options="PKHComboboxData.chuyen"></v-select>
-          </td>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></th>
           <td class="p-2 border border-solid d-theme-border-grey-light italic">
             {{PKHData.ngayThangNamQuanDoc || ' Ngày ... tháng ... năm ...'}}
           </td>
@@ -278,11 +270,21 @@
           </th>
         </tr>
         <tr>
-          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
-          </th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
+            <v-select
+              size="small"
+              label="name"
+              :reduce="t => t.id"
+              @input="changeData('noiNhan', $event)"
+              @search:blur="isNoiNhanShowDropdownList = false"
+              @search:focus="isNoiNhanShowDropdownList = true"
+              :options="PKHComboboxData.chuyen"></v-select>
+          </td>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+        </tr>
+        <tr :class="{'last-row' : isNoiNhanShowDropdownList}">
+          <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         </tbody>
       </table>
@@ -312,6 +314,7 @@
     data () {
       return {
         showError: false,
+        isNoiNhanShowDropdownList: false
       }
     },
     computed: {

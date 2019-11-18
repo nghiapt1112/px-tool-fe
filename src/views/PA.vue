@@ -629,7 +629,7 @@
       },
       onSubmit () {
         const data = Object.assign({}, this.PAData);
-        this.paSaveData(data).then((res) => {
+        this.paSaveData(data).then(() => {
           const { filesSelected, requestId } = this.PAData;
           if (filesSelected) {
             // Upload

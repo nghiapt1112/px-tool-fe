@@ -482,6 +482,12 @@ ul.bordered-items {
   border-bottom-left-radius: 5px;
 }
 
+.last-row {
+  td, th {
+    height: 150px;
+  }
+}
+
 .link-download {
   display: block;
   cursor: pointer;

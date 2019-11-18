@@ -5,5 +5,5 @@ export const create = (payload) => {
 }
 
 export const getNoiNhanById = (params) => {
-  return api.get('/req/noi-nhan', { params });
+  return api.get('/req/vbd/noi-nhan', { params });
 }
