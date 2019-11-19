@@ -379,6 +379,19 @@ const actions = {
     })
   },
 
+  pcntpGetNoiNhanById ({ commit }, payload) {
+    commit('PCNTP_GET_NOI_NHAN_BY_ID')
+    return new Promise((resolve, reject) => {
+      pcntp.getNoiNhanById(payload).then(res => {
+        const { data } = res;
+        commit('PCNTP_GET_NOI_NHAN_BY_ID_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
   // ////////////////////////////////////////////
   // VBN
   // ////////////////////////////////////////////

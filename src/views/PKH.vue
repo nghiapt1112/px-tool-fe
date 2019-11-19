@@ -280,6 +280,7 @@
               size="small"
               label="name"
               :reduce="t => t.id"
+              :value="PKHData.noiNhan"
               @input="changeData('noiNhan', $event)"
               @search:blur="isNoiNhanShowDropdownList = false"
               @search:focus="isNoiNhanShowDropdownList = true"

@@ -14,3 +14,6 @@ export const update = (payload) => {
   return api.put('/cntp', payload)
 }
 
+export const getNoiNhanById = (params) => {
+  return api.get('/req/noi-nhan', { params });
+}

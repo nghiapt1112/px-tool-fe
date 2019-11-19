@@ -393,6 +393,14 @@ const mutations = {
     state.pcntp.loading = false;
   },
 
+  PCNTP_GET_NOI_NHAN_BY_ID (state) {
+    state.pcntp.comboboxData.chuyen = [];
+  },
+
+  PCNTP_GET_NOI_NHAN_BY_ID_SUCCESS (state, payload) {
+    state.pcntp.comboboxData.chuyen = payload;
+  },
+
   // ////////////////////////////////////////////
   // VBD
   // ////////////////////////////////////////////

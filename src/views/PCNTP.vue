@@ -225,7 +225,7 @@
               class="input-inline"
               :disabled="PCNTPData.nguoiGiaoViecDisable"
               :value="PCNTPData.nguoiGiaoViecXacNhan"
-              @input="changeData('nguoiGiaoViecXacNhan', $event)"
+              @input="changeData('nguoiGiaoViecXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PCNTPData.nguoiGiaoViecXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -246,7 +246,7 @@
               class="input-inline"
               :disabled="PCNTPData.nguoiThucHienDisable"
               :value="PCNTPData.nguoiThucHienXacNhan"
-              @input="changeData('nguoiThucHienXacNhan', $event)"
+              @input="changeData('nguoiThucHienXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PCNTPData.nguoiThucHienXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -267,7 +267,7 @@
               class="input-inline"
               :disabled="PCNTPData.tpkcsDisable"
               :value="PCNTPData.tpkcsXacNhan"
-              @input="changeData('tpkcsXacNhan', $event)"
+              @input="changeData('tpkcsXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PCNTPData.tpkcsXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -289,6 +289,24 @@
               @change="changeData('yKienTpkcsXacNhan', $event.target.value)"/>
           </th>
         </tr>
+        <tr>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
+            <v-select
+              size="small"
+              label="name"
+              :reduce="t => t.id"
+              :value="PCNTPData.noiNhan"
+              @input="changeData('noiNhan', $event)"
+              @search:blur="isNoiNhanShowDropdownList = false"
+              @search:focus="isNoiNhanShowDropdownList = true"
+              :options="PCNTPComboboxData.chuyen"></v-select>
+          </td>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+        </tr>
+        <tr :class="{'last-row' : isNoiNhanShowDropdownList}">
+          <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light"></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -309,6 +327,11 @@
     components: {
       'v-select': vSelect,
     },
+    data () {
+      return {
+        isNoiNhanShowDropdownList: false
+      }
+    },
     computed: {
       ...mapGetters([
         'PCNTPData',
@@ -318,15 +341,33 @@
     },
     mounted () {
       const { query: { id } } = this.$route;
-      id && this.pcntpGetById(id);
-      !id && this.resetData();
+      id && this.pcntpGetById(id).then(() => {
+        this.getNoiNhan();
+      });
+      !id && this.resetData() && this.getNoiNhan();
     },
     methods: {
       ...mapActions([
         'pcntpUpdateData',
         'pcntpSaveData',
-        'pcntpGetById'
+        'pcntpGetById',
+        'pcntpGetNoiNhanById'
       ]),
+      getNoiNhan () {
+        const {
+          requestId,
+          nguoiGiaoViecXacNhan: nguoiGiaoViec,
+          nguoiThucHienXacNhan: nguoiThucHien,
+          tpkcsXacNhan: tpKCS,
+        } = this.PCNTPData;
+        const params = {
+          requestId,
+          nguoiGiaoViec,
+          nguoiThucHien,
+          tpKCS,
+        };
+        this.pcntpGetNoiNhanById(params);
+      },
       resetData () {
         const data = {
           noiDungThucHiens: [],
