@@ -9,6 +9,6 @@ export const getNotification = () => {
 }
 
 export const markReadNotification = (notiId) => {
-  return api.get(`/req/notification/${notiId}`)
+  return api.post(`/req/notification/${notiId}`)
 }
 

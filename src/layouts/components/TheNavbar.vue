@@ -105,14 +105,12 @@
                                   :svgClasses="[ntf.read ? 'text-dark' : 'text-primary', 'stroke-current mr-1 h-6 w-6']"></feather-icon>
                     <div class="mx-2">
                       <span
-                        v-if="ntf.title"
                         class="font-medium block notification-title"
                         :class="[ntf.read ? 'text-dark' : 'text-primary']"
-                      >{{ ntf.title }}</span>
-                      <small :class="[ntf.read ? 'text-dark' : 'text-primary']">{{ ntf.body }}</small>
+                      >{{ ntf.body }}</span>
+                      <small class="italic" :class="[ntf.read ? 'text-dark' : 'text-primary']">{{ ntf.time }}</small>
                     </div>
                   </div>
-                  <!--                  <small class="mt-1 whitespace-no-wrap">{{ elapsedTime(ntf.time) }}</small>-->
                 </li>
               </ul>
             </VuePerfectScrollbar>
