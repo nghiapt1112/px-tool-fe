@@ -27,7 +27,7 @@
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <span class="text-warning">{{ MAP_STATUS[tr.trangThai] }}</span>
+            <span class="text-warning">{{ tr.trangThai }}</span>
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -51,17 +51,10 @@
     'DAT_HANG': 'Đặt hàng',
     'CONG_NHAN_THANH_PHAM': 'C.N thành phẩm',
   };
-
-  const MAP_STATUS = {
-    'DANG_CHO_DUYET': 'Đang chờ duyệt',
-    'DA_DUYET': 'Đã duyệt',
-    'KHONG_DUYET': 'Không duyệt',
-  };
   export default {
     data () {
       return {
         MAP_TYPES,
-        MAP_STATUS
       }
     },
     computed: {
