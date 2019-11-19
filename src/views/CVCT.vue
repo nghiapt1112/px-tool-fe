@@ -27,7 +27,7 @@
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <span class="text-warning">{{ tr.trangThai }}</span>
+            <span>{{ tr.status }}</span>
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
