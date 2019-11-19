@@ -120,8 +120,13 @@
     min-width: 1268px;
 
     td {
-      &:nth-child(1), &:nth-child(5) {
-        min-width: 100px;
+      &:nth-child(1) {
+        text-align: center;
+        min-width: 50px;
+      }
+
+      &:nth-of-type(n+2) {
+        min-width: 150px;
       }
     }
   }
