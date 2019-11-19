@@ -85,50 +85,37 @@
         <!-- NOTIFICATIONS -->
         <vs-dropdown vs-custom-content vs-trigger-click class="cursor-pointer ml-4">
           <feather-icon icon="BellIcon" class="cursor-pointer mt-1 sm:mr-6 mr-2"
-                        :badge="unreadNotifications.length"></feather-icon>
+                        :badge="UnreadNotifications.length"></feather-icon>
           <vs-dropdown-menu class="notification-dropdown dropdown-custom vx-navbar-dropdown">
 
             <div class="notification-top text-center p-5 bg-primary text-white">
-              <h3 class="text-white">{{ unreadNotifications.length }} New</h3>
-              <p class="opacity-75">App Notifications</p>
+              <h3 class="text-white">{{ UnreadNotifications.length }} Thông báo</h3>
             </div>
 
-            <VuePerfectScrollbar ref="mainSidebarPs" class="scroll-area--nofications-dropdown p-0 mb-10"
+            <VuePerfectScrollbar ref="mainSidebarPs" class="scroll-area--nofications-dropdown p-0 mb-3"
                                  :settings="settings">
               <ul class="bordered-items">
-                <li v-for="ntf in unreadNotifications" :key="ntf.index"
-                    class="flex justify-between px-4 py-4 notification cursor-pointer">
+                <li
+                  v-for="ntf in UnreadNotifications"
+                  :key="ntf.index"
+                  @click="onClickThongBao(ntf.requestId)"
+                  class="flex justify-between px-4 py-4 notification cursor-pointer">
                   <div class="flex items-start">
-                    <feather-icon :icon="ntf.icon"
-                                  :svgClasses="[`text-${ntf.category}`, 'stroke-current mr-1 h-6 w-6']"></feather-icon>
+                    <feather-icon icon="MailIcon"
+                                  :svgClasses="[ntf.read ? 'text-dark' : 'text-primary', 'stroke-current mr-1 h-6 w-6']"></feather-icon>
                     <div class="mx-2">
-                      <span class="font-medium block notification-title" :class="[`text-${ntf.category}`]">{{ ntf.title }}</span>
-                      <small>{{ ntf.msg }}</small>
+                      <span
+                        v-if="ntf.title"
+                        class="font-medium block notification-title"
+                        :class="[ntf.read ? 'text-dark' : 'text-primary']"
+                      >{{ ntf.title }}</span>
+                      <small :class="[ntf.read ? 'text-dark' : 'text-primary']">{{ ntf.body }}</small>
                     </div>
                   </div>
-                  <small class="mt-1 whitespace-no-wrap">{{ elapsedTime(ntf.time) }}</small>
+                  <!--                  <small class="mt-1 whitespace-no-wrap">{{ elapsedTime(ntf.time) }}</small>-->
                 </li>
               </ul>
             </VuePerfectScrollbar>
-            <div class="
-                        checkout-footer
-                        fixed
-                        bottom-0
-                        rounded-b-lg
-                        text-primary
-                        w-full
-                        p-2
-                        font-semibold
-                        text-center
-                        border
-                        border-b-0
-                        border-l-0
-                        border-r-0
-                        border-solid
-                        d-theme-border-grey-light
-                        cursor-pointer">
-              <span>View All Notifications</span>
-            </div>
           </vs-dropdown-menu>
         </vs-dropdown>
 
@@ -185,7 +172,7 @@
   import VxAutoSuggest from '@/components/vx-auto-suggest/VxAutoSuggest.vue';
   import VuePerfectScrollbar from 'vue-perfect-scrollbar'
   import draggable from 'vuedraggable'
-  import { mapGetters } from 'vuex';
+  import { mapActions, mapGetters } from 'vuex';
 
   export default {
     name: "the-navbar",
@@ -200,54 +187,13 @@
         navbarSearchAndPinList: this.$store.state.navbarSearchAndPinList,
         searchQuery: '',
         showFullSearch: false,
-        unreadNotifications: [
-          {
-            index: 0,
-            title: 'New Message',
-            msg: 'Are your going to meet me tonight?',
-            icon: 'MessageSquareIcon',
-            time: 'Wed Jan 30 2019 07:45:23 GMT+0000 (GMT)',
-            category: 'primary'
-          },
-          {
-            index: 1,
-            title: 'New Order Recieved',
-            msg: 'You got new order of goods.',
-            icon: 'PackageIcon',
-            time: 'Wed Jan 30 2019 07:45:23 GMT+0000 (GMT)',
-            category: 'success'
-          },
-          {
-            index: 2,
-            title: 'Server Limit Reached!',
-            msg: 'Server have 99% CPU usage.',
-            icon: 'AlertOctagonIcon',
-            time: 'Thu Jan 31 2019 07:45:23 GMT+0000 (GMT)',
-            category: 'danger'
-          },
-          {
-            index: 3,
-            title: 'New Mail From Peter',
-            msg: 'Cake sesame snaps cupcake',
-            icon: 'MailIcon',
-            time: 'Fri Feb 01 2019 07:45:23 GMT+0000 (GMT)',
-            category: 'primary'
-          },
-          {
-            index: 4,
-            title: 'Bruce\'s Party',
-            msg: 'Chocolate cake oat cake tiramisu',
-            icon: 'CalendarIcon',
-            time: 'Fri Feb 02 2019 07:45:23 GMT+0000 (GMT)',
-            category: 'warning'
-          },
-        ],
         settings: { // perfectscrollbar settings
           maxScrollbarLength: 60,
           wheelSpeed: .60,
         },
         autoFocusSearch: false,
         showBookmarkPagesDropdown: false,
+        getNotificationControl: null,
       }
     },
     watch: {
@@ -255,9 +201,19 @@
         if (this.showBookmarkPagesDropdown) this.showBookmarkPagesDropdown = false
       }
     },
+    mounted () {
+      this.notificationGetList();
+      this.getNotificationControl = setInterval(() => {
+        this.notificationGetList();
+      }, 15000);
+    },
+    beforeDestroy () {
+      clearInterval(this.getNotificationControl);
+    },
     computed: {
       ...mapGetters([
-        'AppActiveUser'
+        'AppActiveUser',
+        'UnreadNotifications'
       ]),
       // HELPER
       sidebarWidth () {
@@ -308,6 +264,16 @@
       }
     },
     methods: {
+      ...mapActions([
+        'notificationMarkRead',
+        'notificationGetList'
+      ]),
+      onClickThongBao (notiId) {
+        this.notificationMarkRead(notiId).then(() => {
+          this.notificationGetList();
+        });
+        this.$router.push(`/`);
+      },
       showSidebar () {
         this.$store.commit('TOGGLE_IS_SIDEBAR_ACTIVE', true);
       },

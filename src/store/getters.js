@@ -1,4 +1,5 @@
 const getters = {
+  UnreadNotifications: (state) => state.unreadNotifications,
   AUTHScreenData: (state) => state.auth,
   // Common
   RequestId: (state) => state.requestId,

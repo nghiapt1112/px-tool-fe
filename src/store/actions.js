@@ -36,6 +36,31 @@ const actions = {
     commit('UPDATE_WINDOW_WIDTH', width);
   },
 
+  // ////////////////////////////////////////////
+  // NOTIFICATION
+  // ////////////////////////////////////////////
+
+  notificationGetList ({ commit }) {
+    return new Promise((resolve, reject) => {
+      user.getNotification().then(res => {
+        const { data } = res;
+        commit('NOTIFICATION_GET_NOTIFICATION_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  notificationMarkRead ({ commit }, notiId) {
+    return new Promise((resolve, reject) => {
+      user.markReadNotification(notiId).then(res => {
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
 
   // ////////////////////////////////////////////
   // COMPONENT

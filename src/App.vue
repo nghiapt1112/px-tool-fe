@@ -26,12 +26,12 @@
     },
     created () {
       this.getUserProfile().catch(() => {
-        this.$router.push('/pages/login');
-      })
+          this.$router.push('/pages/login');
+        });
     },
     methods: {
       ...mapActions([
-        'getUserProfile'
+        'getUserProfile',
       ]),
       toggleClassInBody (className) {
         if (className == 'dark') {

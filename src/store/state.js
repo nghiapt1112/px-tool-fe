@@ -62,6 +62,7 @@ const state = {
     loading: false
   },
   requestId: null,
+  unreadNotifications: [],
   pa: {
     isLoading: false,
     error: null,
