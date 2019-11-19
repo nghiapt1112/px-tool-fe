@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb33378-037a-4769-9a9b-c3a5ffeacdef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/store/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/state.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/VBD.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/VBD.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PA.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PA.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PDH.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PDH.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +16,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/PA.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="505" column="25" selection-start-line="505" selection-start-column="25" selection-end-line="505" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#3;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#3;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#5;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#6;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#7;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#8;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#10;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#11;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/PKH.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="260" column="73" selection-start-line="260" selection-start-column="59" selection-end-line="260" selection-end-column="73" />
+            <state relative-caret-position="153">
+              <caret line="292" column="13" lean-forward="true" selection-start-line="275" selection-start-column="8" selection-end-line="292" selection-end-column="13" />
               <folding>
                 <element signature="e#4000#4006#1" expanded="true" />
                 <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
@@ -38,15 +63,6 @@
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/pkh.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="29" lean-forward="true" selection-start-line="25" selection-end-line="29" />
             </state>
           </provider>
         </entry>
@@ -78,7 +94,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/store/state.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="263">
@@ -105,13 +121,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/PDH.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="185" column="34" selection-start-line="185" selection-start-column="30" selection-end-line="185" selection-end-column="34" />
+            <state relative-caret-position="260">
+              <caret line="289" column="13" lean-forward="true" selection-start-line="272" selection-start-column="8" selection-end-line="289" selection-end-column="13" />
               <folding>
                 <element signature="n#style#0;n#vs-input#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#v-select#0;n#td#6;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#13884#13916#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,7 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>changeData</find>
       <find>cvc</find>
       <find>MAP_STATUS</find>
       <find>onDetailClick</find>
@@ -160,9 +176,10 @@
       <find>cntp</find>
       <find>isNoiNhanShowDropdownList</find>
       <find>pcntpGetNoiNhanById</find>
-      <find>getNoiNhan</find>
       <find>VBDComboboxData</find>
       <find>noi_nhan</find>
+      <find>getNoiNhan</find>
+      <find>nơi nhận</find>
     </findStrings>
     <replaceStrings>
       <replace>PKHComboboxData</replace>
@@ -203,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/services/upload.js" />
         <option value="$PROJECT_DIR$/src/services/config.js" />
         <option value="$PROJECT_DIR$/src/assets/scss/vuesax/_customClasses.scss" />
-        <option value="$PROJECT_DIR$/src/views/PDH.vue" />
         <option value="$PROJECT_DIR$/src/store/getters.js" />
         <option value="$PROJECT_DIR$/src/router.js" />
         <option value="$PROJECT_DIR$/src/services/vbd.js" />
@@ -211,7 +227,6 @@
         <option value="$PROJECT_DIR$/src/views/CVCT.vue" />
         <option value="$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js" />
         <option value="$PROJECT_DIR$/src/views/pages/Login.vue" />
-        <option value="$PROJECT_DIR$/src/views/PA.vue" />
         <option value="$PROJECT_DIR$/src/layouts/components/TheNavbar.vue" />
         <option value="$PROJECT_DIR$/src/services/pkh.js" />
         <option value="$PROJECT_DIR$/src/views/TKTDSP.vue" />
@@ -222,6 +237,8 @@
         <option value="$PROJECT_DIR$/src/views/PCNTP.vue" />
         <option value="$PROJECT_DIR$/src/views/VBD.vue" />
         <option value="$PROJECT_DIR$/src/store/state.js" />
+        <option value="$PROJECT_DIR$/src/views/PDH.vue" />
+        <option value="$PROJECT_DIR$/src/views/PA.vue" />
       </list>
     </option>
   </component>
@@ -363,12 +380,12 @@
       <workItem from="1573525574224" duration="2967000" />
       <workItem from="1573611983961" duration="12033000" />
       <workItem from="1573746414056" duration="27813000" />
-      <workItem from="1574073981914" duration="7755000" />
+      <workItem from="1574073981914" duration="8321000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161079000" />
+    <option name="totallyTimeSpent" value="161645000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="731" extended-state="0" />
@@ -668,42 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/PA.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2160">
-          <caret line="292" column="27" selection-start-line="292" selection-start-column="27" selection-end-line="292" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#3;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#3;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#5;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#6;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#7;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#8;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#10;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#11;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/PDH.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="185" column="34" selection-start-line="185" selection-start-column="30" selection-end-line="185" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#vs-input#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#v-select#0;n#td#6;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/pkh.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
@@ -724,18 +705,6 @@
           <caret line="381" column="21" selection-start-line="381" selection-start-column="2" selection-end-line="381" selection-end-column="21" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/PKH.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="260" column="73" selection-start-line="260" selection-start-column="59" selection-end-line="260" selection-end-column="73" />
-          <folding>
-            <element signature="e#4000#4006#1" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#13768#13800#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -780,6 +749,55 @@
             <element signature="e#468#548#0" expanded="true" />
             <element signature="e#1657#5157#0" />
             <element signature="e#5178#5606#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/PKH.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="292" column="13" lean-forward="true" selection-start-line="275" selection-start-column="8" selection-end-line="292" selection-end-column="13" />
+          <folding>
+            <element signature="e#4000#4006#1" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#13768#13800#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/PDH.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="289" column="13" lean-forward="true" selection-start-line="272" selection-start-column="8" selection-end-line="289" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#vs-input#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-select#0;n#td#6;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#13884#13916#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/PA.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="505" column="25" selection-start-line="505" selection-start-column="25" selection-end-line="505" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#3;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#3;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#5;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#6;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#7;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#8;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#10;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#11;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

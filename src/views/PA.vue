@@ -363,15 +363,7 @@
         </tbody>
         <tbody>
         <tr>
-          <td class="p-2 border border-solid d-theme-border-grey-light italic">Nơi nhận</td>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light italic">
-            <v-select
-              size="small"
-              label="name"
-              :reduce="t => t.id"
-              @input="changeData('noiNhan', $event)"
-              :options="PAComboboxData.chuyen"></v-select>
-          </td>
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light italic"></td>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light italic">
             {{PAData.ngayThangNamTPKTHK || ' Ngày ... tháng ... năm ...'}}
           </td>
@@ -495,6 +487,24 @@
               @change="changeData('yKienNguoiLap', $event.target.value)"/>
           </th>
         </tr>
+        <tr>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light">
+            <v-select
+              size="small"
+              label="name"
+              :reduce="t => t.id"
+              :value="PAData.noiNhan"
+              @input="changeData('noiNhan', $event)"
+              @search:blur="isNoiNhanShowDropdownList = false"
+              @search:focus="isNoiNhanShowDropdownList = true"
+              :options="PAComboboxData.chuyen"></v-select>
+          </td>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+        </tr>
+        <tr :class="{'last-row' : isNoiNhanShowDropdownList}">
+          <td colspan="14" class="p-2 border border-solid d-theme-border-grey-light"></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -518,28 +528,7 @@
     },
     data () {
       return {
-        listDevices: [
-          {
-            id: 1,
-            name: "Vạn điện từ 445",
-            detail: "Vỏ thân van",
-            code: "3345ty53",
-            amount: 1,
-            error: "Hỏng ren",
-            method: "Bằng mắt",
-            person: null,
-          },
-          {
-            id: 1,
-            name: "Vạn điện từ 445",
-            detail: "Vỏ thân van",
-            code: "3345ty53",
-            amount: 1,
-            error: "Hỏng ren",
-            method: "Bằng mắt",
-            person: null,
-          }
-        ]
+        isNoiNhanShowDropdownList: false
       }
     },
     computed: {
