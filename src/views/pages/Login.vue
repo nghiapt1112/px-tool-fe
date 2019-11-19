@@ -18,45 +18,47 @@
               <img src="@/assets/images/pages/login.png" alt="login" class="mx-auto">
             </div>
             <div class="vx-col sm:w-full md:w-full lg:w-1/2 d-theme-dark-bg">
-              <div class="p-8">
-                <div class="vx-card__title mb-8">
-                  <h4 class="mb-4">Đăng Nhập</h4>
-                  <p>Hãy đăng nhập để sử dụng hệ thống.</p>
+              <form v-on:submit.prevent="login">
+                <div class="p-8">
+                  <div class="vx-card__title mb-8">
+                    <h4 class="mb-4">Đăng Nhập</h4>
+                    <p>Hãy đăng nhập để sử dụng hệ thống.</p>
+                  </div>
+                  <vs-input
+                    name="email"
+                    icon="icon icon-user"
+                    icon-pack="feather"
+                    label-placeholder="Tên đăng nhập"
+                    v-model="userName"
+                    v-on:keyup.enter="login"
+                    class="w-full no-icon-border"/>
+
+                  <vs-input
+                    type="password"
+                    name="password"
+                    icon="icon icon-lock"
+                    icon-pack="feather"
+                    label-placeholder="Mật khẩu"
+                    v-model="password"
+                    class="w-full mt-6 no-icon-border"/>
+
+                  <vs-alert
+                    v-if="showError"
+                    class="mt-3"
+                    :active.sync="showError"
+                    color="danger"
+                    closable icon-pack="feather"
+                    close-icon="icon-x">
+                    {{loginError}}
+                  </vs-alert>
+
+                  <div class="flex flex-wrap justify-between my-5">
+                    <vs-checkbox v-model="checkbox_remember_me" class="mb-3">Ghi nhớ đăng nhập</vs-checkbox>
+                    <router-link to="#">Quên mật khẩu?</router-link>
+                  </div>
+                  <vs-button @click="login">Đăng Nhập</vs-button>
                 </div>
-                <vs-input
-                  name="email"
-                  icon="icon icon-user"
-                  icon-pack="feather"
-                  label-placeholder="Tên đăng nhập"
-                  v-model="userName"
-                  class="w-full no-icon-border"/>
-
-                <vs-input
-                  v-on:keyup.enter="login"
-                  type="password"
-                  name="password"
-                  icon="icon icon-lock"
-                  icon-pack="feather"
-                  label-placeholder="Mật khẩu"
-                  v-model="password"
-                  class="w-full mt-6 no-icon-border"/>
-
-                <vs-alert
-                  v-if="showError"
-                  class="mt-3"
-                  :active.sync="showError"
-                  color="danger"
-                  closable icon-pack="feather"
-                  close-icon="icon-x">
-                  {{loginError}}
-                </vs-alert>
-
-                <div class="flex flex-wrap justify-between my-5">
-                  <vs-checkbox v-model="checkbox_remember_me" class="mb-3">Ghi nhớ đăng nhập</vs-checkbox>
-                  <router-link to="#">Quên mật khẩu?</router-link>
-                </div>
-                <vs-button @click="login">Đăng Nhập</vs-button>
-              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -89,7 +91,8 @@
     },
     methods: {
       ...mapActions([
-        'authLogin'
+        'authLogin',
+        'getUserProfile'
       ]),
       login () {
         this.authLogin({
@@ -97,6 +100,7 @@
           password: this.password
         })
           .then(() => {
+            this.getUserProfile();
             this.$router.push('/cvct');
           })
           .catch(() => {

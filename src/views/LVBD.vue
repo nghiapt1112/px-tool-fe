@@ -1,5 +1,5 @@
 <template>
-  <vx-card title="Văn bản đến">
+  <vx-card title="Gửi văn bản, giấy tờ">
     <vs-button class="mb-4" @click="$router.push(`vbd/new`)">Thêm mới</vs-button>
     <div class="cvct-table--container">
       <table class="works__table--content border-collapse">

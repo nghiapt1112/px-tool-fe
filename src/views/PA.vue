@@ -281,6 +281,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              type="number"
               style="width: 100px"
               size="small"
               class="inputx"
@@ -289,6 +290,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              type="number"
               style="width: 100px"
               size="small"
               class="inputx"
@@ -300,6 +302,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              type="number"
               style="width: 100px"
               size="small"
               class="inputx"
@@ -308,6 +311,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              type="number"
               style="width: 100px"
               size="small"
               class="inputx"

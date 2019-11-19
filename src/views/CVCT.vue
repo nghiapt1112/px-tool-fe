@@ -1,5 +1,5 @@
 <template>
-  <vx-card title="Công Việc Cần Xử Lý">
+  <vx-card title="Văn bản cần giải quyết">
     <div class="cvct-table--container">
       <table class="works__table--content border-collapse">
 

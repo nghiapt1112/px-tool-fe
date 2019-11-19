@@ -1,6 +1,6 @@
 <template>
   <div class="vx-col w-full mb-base">
-    <vx-card title="Văn bản đến">
+    <vx-card title="Gửi văn bản, giấy tờ">
       <div class="vx-row mb-6">
         <div class="vx-col w-full">
           <v-select

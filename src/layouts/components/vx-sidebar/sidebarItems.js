@@ -28,7 +28,7 @@ export default [
   // },
   {
     url: "/cvct",
-    name: "Công Việc Cần Xử Lý",
+    name: "Văn bản cần giải quyết",
     slug: "cvct",
     icon: "CheckSquareIcon",
   },
@@ -58,7 +58,7 @@ export default [
   },
   {
     url: "/vbd",
-    name: "Văn bản đến",
+    name: "Gửi văn bản, giấy tờ",
     slug: "vbd",
     icon: "ShareIcon",
   },
