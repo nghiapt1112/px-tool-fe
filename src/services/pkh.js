@@ -8,6 +8,14 @@ export const getById = (requestId) => {
   return api.get(`/px/ttkh/${requestId}`)
 }
 
+export const getPhanXuong = () => {
+  return api.get(`/req/phan-xuong`)
+}
+
+export const getToSXByPXId = (pxId) => {
+  return api.get(`/req/to-sx?pxId=${pxId}`)
+}
+
 export const create = (payload) => {
   return api.post('/px/tkh', payload)
 }

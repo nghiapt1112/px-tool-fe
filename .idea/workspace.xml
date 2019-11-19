@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb33378-037a-4769-9a9b-c3a5ffeacdef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/TheNavbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/TheNavbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/pkh.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/pkh.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/mutations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PKH.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PKH.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +60,33 @@
         <entry file="file://$PROJECT_DIR$/src/store/store.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+              <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/store/actions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="244" column="23" selection-start-line="244" selection-start-column="2" selection-end-line="244" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/PKH.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="340" column="25" selection-start-line="340" selection-start-column="25" selection-end-line="340" selection-end-column="25" />
+              <folding>
+                <element signature="e#4000#4006#1" expanded="true" />
+                <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#13768#13800#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/src/services/api.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="113">
-              <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="40" />
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="40" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -73,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/layouts/components/TheNavbar.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="363" column="8" lean-forward="true" selection-start-line="363" selection-start-column="8" selection-end-line="363" selection-end-column="8" />
+            <state relative-caret-position="282">
+              <caret line="363" column="8" selection-start-line="363" selection-start-column="8" selection-end-line="363" selection-end-column="8" />
               <folding>
                 <element signature="e#9432#9507#0" expanded="true" />
               </folding>
@@ -86,49 +116,38 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/store/actions.js">
+        <entry file="file://$PROJECT_DIR$/src/services/pkh.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="114" column="16" selection-start-line="114" selection-start-column="2" selection-end-line="114" selection-end-column="16" />
+            <state relative-caret-position="180">
+              <caret line="14" column="26" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/store/state.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="268" column="16" selection-start-line="268" selection-start-column="6" selection-end-line="268" selection-end-column="16" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#468#548#0" expanded="true" />
+                <element signature="e#1657#5157#0" />
+                <element signature="e#5178#5606#0" />
+                <element signature="e#6567#7991#0" />
+                <element signature="e#6579#7039#0" />
+                <element signature="e#8002#9168#0" />
+                <element signature="e#8014#8216#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/pages/Login.vue">
+        <entry file="file://$PROJECT_DIR$/src/store/mutations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="102" column="34" selection-start-line="102" selection-start-column="34" selection-end-line="102" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/CVCT.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-377">
-              <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/TKTDSP.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/PCNTP.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-237">
-              <caret line="74" column="39" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="39" />
+            <state relative-caret-position="257">
+              <caret line="240" column="29" selection-start-line="240" selection-start-column="2" selection-end-line="240" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -137,12 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>download</find>
-      <find>search</find>
-      <find>addDetail</find>
-      <find>chose</find>
-      <find>placeholder</find>
-      <find>file</find>
       <find>Nơi nhận</find>
       <find>save</find>
       <find>onNoiNhanBlur</find>
@@ -167,6 +180,12 @@
       <find>soluong</find>
       <find>hình anh</find>
       <find>logout</find>
+      <find>phãnuong</find>
+      <find>pkh</find>
+      <find>getPhanXuong</find>
+      <find>getNoiNhan</find>
+      <find>getTo</find>
+      <find>getToSanXuat</find>
     </findStrings>
     <replaceStrings>
       <replace>PKHComboboxData</replace>
@@ -203,21 +222,16 @@
         <option value="$PROJECT_DIR$/src/layouts/components/vx-sidebar/VxSidebar.vue" />
         <option value="$PROJECT_DIR$/src/services/tktdsp.js" />
         <option value="$PROJECT_DIR$/src/views/Profile.vue" />
-        <option value="$PROJECT_DIR$/src/services/pkh.js" />
         <option value="$PROJECT_DIR$/src/services/pdh.js" />
         <option value="$PROJECT_DIR$/src/services/pa.js" />
         <option value="$PROJECT_DIR$/src/services/upload.js" />
         <option value="$PROJECT_DIR$/src/services/config.js" />
         <option value="$PROJECT_DIR$/src/views/TKTDSP.vue" />
         <option value="$PROJECT_DIR$/src/assets/scss/vuesax/_customClasses.scss" />
-        <option value="$PROJECT_DIR$/src/store/state.js" />
         <option value="$PROJECT_DIR$/src/views/PDH.vue" />
-        <option value="$PROJECT_DIR$/src/views/PKH.vue" />
         <option value="$PROJECT_DIR$/src/views/PCNTP.vue" />
         <option value="$PROJECT_DIR$/src/store/getters.js" />
         <option value="$PROJECT_DIR$/src/router.js" />
-        <option value="$PROJECT_DIR$/src/store/mutations.js" />
-        <option value="$PROJECT_DIR$/src/store/actions.js" />
         <option value="$PROJECT_DIR$/src/services/vbd.js" />
         <option value="$PROJECT_DIR$/src/views/VBD.vue" />
         <option value="$PROJECT_DIR$/src/views/LVBD.vue" />
@@ -226,6 +240,11 @@
         <option value="$PROJECT_DIR$/src/views/pages/Login.vue" />
         <option value="$PROJECT_DIR$/src/views/PA.vue" />
         <option value="$PROJECT_DIR$/src/layouts/components/TheNavbar.vue" />
+        <option value="$PROJECT_DIR$/src/store/state.js" />
+        <option value="$PROJECT_DIR$/src/store/mutations.js" />
+        <option value="$PROJECT_DIR$/src/services/pkh.js" />
+        <option value="$PROJECT_DIR$/src/store/actions.js" />
+        <option value="$PROJECT_DIR$/src/views/PKH.vue" />
       </list>
     </option>
   </component>
@@ -294,20 +313,19 @@
               <item name="nd" type="b2602c69:ProjectViewProjectNode" />
               <item name="nd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nd" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -368,18 +386,18 @@
       <workItem from="1573525574224" duration="2967000" />
       <workItem from="1573611983961" duration="12033000" />
       <workItem from="1573746414056" duration="27813000" />
-      <workItem from="1574073981914" duration="1407000" />
+      <workItem from="1574073981914" duration="4774000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154731000" />
+    <option name="totallyTimeSpent" value="158098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="731" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2374798" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2374798" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -396,7 +414,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3568075" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3568075" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -560,23 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/state.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="406" column="6" lean-forward="true" selection-start-line="406" selection-start-column="6" selection-end-line="406" selection-end-column="6" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#468#548#0" expanded="true" />
-            <element signature="e#1657#5157#0" />
-            <element signature="e#5166#6558#0" />
-            <element signature="e#6567#7991#0" />
-            <element signature="e#6579#7039#0" />
-            <element signature="e#8002#9168#0" />
-            <element signature="e#8014#8216#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -601,13 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/pkh.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/getters.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -626,24 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/PKH.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4200">
-          <caret line="280" column="30" selection-start-line="280" selection-start-column="30" selection-end-line="280" selection-end-column="30" />
-          <folding>
-            <element signature="e#4000#4006#1" expanded="true" />
-            <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/mutations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4785">
-          <caret line="319" column="31" selection-start-line="319" selection-start-column="31" selection-end-line="319" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -690,16 +666,6 @@
           <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="114" column="16" selection-start-line="114" selection-start-column="2" selection-end-line="114" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -768,14 +734,14 @@
     <entry file="file://$PROJECT_DIR$/src/store/store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
-          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="40" />
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="40" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -784,10 +750,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/layouts/components/TheNavbar.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="363" column="8" lean-forward="true" selection-start-line="363" selection-start-column="8" selection-end-line="363" selection-end-column="8" />
+        <state relative-caret-position="282">
+          <caret line="363" column="8" selection-start-line="363" selection-start-column="8" selection-end-line="363" selection-end-column="8" />
           <folding>
             <element signature="e#9432#9507#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/state.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="268" column="16" selection-start-line="268" selection-start-column="6" selection-end-line="268" selection-end-column="16" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#468#548#0" expanded="true" />
+            <element signature="e#1657#5157#0" />
+            <element signature="e#5178#5606#0" />
+            <element signature="e#6567#7991#0" />
+            <element signature="e#6579#7039#0" />
+            <element signature="e#8002#9168#0" />
+            <element signature="e#8014#8216#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/mutations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="240" column="29" selection-start-line="240" selection-start-column="2" selection-end-line="240" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/pkh.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="244" column="23" selection-start-line="244" selection-start-column="2" selection-end-line="244" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/PKH.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="340" column="25" selection-start-line="340" selection-start-column="25" selection-end-line="340" selection-end-column="25" />
+          <folding>
+            <element signature="e#4000#4006#1" expanded="true" />
+            <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#13768#13800#0" expanded="true" />
           </folding>
         </state>
       </provider>

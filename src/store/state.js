@@ -266,20 +266,8 @@ const state = {
     isLoading: false,
     error: null,
     comboboxData: {
-      phan_xuong: [
-        { id: 1, name: '1' },
-        { id: 2, name: '2' },
-        { id: 3, name: '3' },
-        { id: 4, name: '4' },
-        { id: 5, name: '5' },
-      ],
-      to_san_xuat: [
-        { id: 1, name: 'TCĐK 1' },
-        { id: 2, name: 'to_san_xuat 2' },
-        { id: 3, name: 'to_san_xuat 3' },
-        { id: 4, name: 'to_san_xuat 4' },
-        { id: 5, name: 'to_san_xuat 5' },
-      ],
+      phan_xuong: [],
+      to_san_xuat: [],
       ten_vktbkt: [
         { id: 1, name: 'Máy bay L-39' },
         { id: 2, name: 'Máy bay Iak-52' },

@@ -40,8 +40,8 @@
               size="small"
               label="name"
               :value="PKHData.phanXuong"
-              :reduce="t => t.name"
-              @input="changeData('phanXuong', $event)"
+              :reduce="t => t.id"
+              @input="changeData('phanXuong', $event); getToSanXuat()"
               :options="PKHComboboxData.phan_xuong"></v-select>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nguồn vào:</th>
@@ -75,10 +75,11 @@
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Tổ sx:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <v-select
+              :disabled="!PKHData.phanXuong"
               size="small"
               label="name"
               :value="PKHData.toSX"
-              :reduce="t => t.name"
+              :reduce="t => t.id"
               @input="changeData('toSX', $event)"
               :options="PKHComboboxData.to_san_xuat"></v-select>
           </td>
@@ -337,15 +338,19 @@
       const { query: { id } } = this.$route;
       id && this.pkhGetById(id).then(() => {
         this.getNoiNhan();
+        this.getToSanXuat();
       });
       !id && this.resetData() && this.getNoiNhan();
+      this.pkhGetPhanXuong();
     },
     methods: {
       ...mapActions([
         'pkhUpdateData',
         'pkhSaveData',
         'pkhGetById',
-        'pkhGetNoiNhanById'
+        'pkhGetNoiNhanById',
+        'pkhGetPhanXuong',
+        'pkhGetToSanXuatByPXId',
       ]),
       getNoiNhan () {
         const {
@@ -361,6 +366,9 @@
           toTruong,
         };
         this.pkhGetNoiNhanById(params);
+      },
+      getToSanXuat () {
+        this.pkhGetToSanXuatByPXId(this.PKHData.phanXuong)
       },
       resetData () {
         const data = {

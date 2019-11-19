@@ -193,7 +193,6 @@ const mutations = {
   // PKH
   // ////////////////////////////////////////////
 
-
   PKH_UPDATE_DATA (state, data) {
     state.pkh.data = data;
   },
@@ -233,6 +232,14 @@ const mutations = {
 
   PKH_GET_NOI_NHAN_BY_ID_SUCCESS (state, payload) {
     state.pkh.comboboxData.chuyen = payload;
+  },
+
+  PKH_GET_PHAN_XUONG_SUCCESS (state, payload) {
+    state.pkh.comboboxData.phan_xuong = payload;
+  },
+
+  PKH_GET_TO_SAN_XUAT_SUCCESS (state, payload) {
+    state.pkh.comboboxData.to_san_xuat = payload;
   },
 
   // ////////////////////////////////////////////

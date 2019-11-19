@@ -230,6 +230,29 @@ const actions = {
     })
   },
 
+  pkhGetPhanXuong ({ commit }) {
+    return new Promise((resolve, reject) => {
+      pkh.getPhanXuong().then(res => {
+        const { data } = res;
+        commit('PKH_GET_PHAN_XUONG_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  pkhGetToSanXuatByPXId ({ commit }, pxId) {
+    return new Promise((resolve, reject) => {
+      pkh.getToSXByPXId(pxId).then(res => {
+        const { data } = res;
+        commit('PKH_GET_TO_SAN_XUAT_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
   // ////////////////////////////////////////////
   // PDH
   // ////////////////////////////////////////////
