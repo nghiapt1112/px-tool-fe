@@ -5,7 +5,7 @@
         <div class="vx-col w-full">
           <v-select
             class="w-1/2"
-            placeholder="Người nhận"
+            placeholder="Nơi nhận"
             size="small"
             label="name"
             :reduce="t => t.id"
