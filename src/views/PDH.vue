@@ -25,23 +25,19 @@
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Đơn vị yêu cầu:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select
+            <vs-input
               size="small"
-              label="name"
-              :value="PDHData.donViYeuCau"
-              :reduce="t => t.name"
-              @input="changeData('toSX', $event)"
-              :options="PDHComboboxData.to_san_xuat"></v-select>
+              class="inputx"
+              @change="changeData('donViYeuCau', $event.target.value)"
+              :value="PDHData.donViYeuCau"/>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Phân xưởng</th>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select
+            <vs-input
               size="small"
-              label="name"
-              :value="PDHData.phanXuong"
-              :reduce="t => t.name"
-              @input="changeData('phanXuong', $event)"
-              :options="PDHComboboxData.phan_xuong"></v-select>
+              class="inputx"
+              @change="changeData('phanXuong', $event.target.value)"
+              :value="PDHData.phanXuong"/>
           </td>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
