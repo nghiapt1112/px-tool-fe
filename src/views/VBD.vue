@@ -27,13 +27,20 @@
       </div>
       <div class="vx-row mb-6">
         <div class="vx-col w-full">
-          <vs-input
-            type="file"
-            class="w-1/2"
-            label="Chọn files"
-            multiple
-            @change="selectFiles($event)"
-          />
+          <input ref="fileInput" style="display: none" type="file" multiple @change="selectFiles($event)">
+          <vx-input-group class="w-1/2">
+            <template slot="prepend">
+              <div class="prepend-text btn-addon">
+                <vs-button @click="$refs.fileInput.click()" color="primary">Chọn tệp</vs-button>
+              </div>
+            </template>
+            <vs-input
+              size="small"
+              readonly="true"
+              placeholder="Chọn tệp đính kèm"
+              :value="filesTextValue"
+            />
+          </vx-input-group>
         </div>
         <div class="vx-col w-full">
           <a
@@ -73,7 +80,17 @@
         'VBDData',
         'VBDComboboxData',
         'AppActiveUser'
-      ])
+      ]),
+      filesTextValue: {
+        get () {
+          const { filesSelected } = this.VBDData;
+          if (filesSelected && filesSelected.length) {
+            const filesName = filesSelected.map(f => f.name).join(', ');
+            return `${filesSelected.length} file được chọn (${filesName})`;
+          }
+          return null;
+        }
+      }
     },
     mounted () {
       const { query: { id } } = this.$route;

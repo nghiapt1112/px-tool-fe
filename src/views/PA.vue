@@ -386,13 +386,20 @@
         </tr>
         <tr class="row--chu-ky">
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input
-              type="file"
-              class="w-full"
-              label="Hình ảnh đính kèm"
-              multiple
-              @change="selectFiles($event)"
-            />
+            <input ref="fileInput" style="display: none" type="file" multiple @change="selectFiles($event)">
+            <vx-input-group>
+              <template slot="prepend">
+                <div class="prepend-text btn-addon">
+                  <vs-button @click="$refs.fileInput.click()" color="primary">Chọn tệp</vs-button>
+                </div>
+              </template>
+              <vs-input
+                size="small"
+                readonly="true"
+                placeholder="Chọn tệp đính kèm"
+                :value="filesTextValue"
+              />
+            </vx-input-group>
             <a
               v-for="(fileName, indextr) in PAData.files"
               :key="indextr"
@@ -537,6 +544,16 @@
         'PAComboboxData',
         'AppActiveUser'
       ]),
+      filesTextValue: {
+        get () {
+          const { filesSelected } = this.PAData;
+          if (filesSelected && filesSelected.length) {
+            const filesName = filesSelected.map(f => f.name).join(', ');
+            return `${filesSelected.length} file được chọn (${filesName})`;
+          }
+          return null;
+        }
+      }
     },
     mounted () {
       const { query: { id } } = this.$route;
