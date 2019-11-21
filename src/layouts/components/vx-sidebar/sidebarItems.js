@@ -63,6 +63,12 @@ export default [
     icon: "ShareIcon",
   },
   {
+    url: "/vbn",
+    name: "Văn bản nhận",
+    slug: "vbn",
+    icon: "DownloadIcon",
+  },
+  {
     url: "/tktdsp",
     name: "Thống Kê Tiến Độ Sản Phẩm",
     slug: "tktdsp",

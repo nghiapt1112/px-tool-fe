@@ -91,6 +91,11 @@ const router = new Router({
             component: () => import('./views/LVBD.vue')
           },
           {
+            path: '/vbn',
+            name: 'vbn',
+            component: () => import('./views/LRVBD.vue')
+          },
+          {
             path: '/profile',
             name: 'profile',
             component: () => import('./views/Profile.vue')

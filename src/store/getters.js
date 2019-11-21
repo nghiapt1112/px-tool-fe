@@ -29,6 +29,7 @@ const getters = {
   // VBD
   VBDData: (state) => state.vbd.data,
   VBDList: (state) => state.vbd.list,
+  VBDListReceive: (state) => state.vbd.listReceive,
   VBDComboboxData: (state) => state.vbd.comboboxData,
 }
 

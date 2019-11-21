@@ -8,8 +8,8 @@
             placeholder="Nơi nhận"
             size="small"
             label="name"
-            :reduce="t => t.id"
             @input="changeData('noiNhan', $event)"
+            :reduce="t => t.id"
             :options="VBDComboboxData.chuyen"
             :value="VBDData.noiNhan"
           ></v-select>

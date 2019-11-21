@@ -452,6 +452,17 @@ const actions = {
     })
   },
 
+  vbdDeleteById ({ commit }, vbdId) {
+    return new Promise((resolve, reject) => {
+      vbd.deleteById(vbdId).then(res => {
+        const { data } = res;
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
   vbdGetNoiNhanById ({ commit }, payload) {
     commit('VBD_GET_NOI_NHAN_BY_ID')
     return new Promise((resolve, reject) => {
@@ -474,6 +485,20 @@ const actions = {
         resolve(res)
       }).catch(e => {
         commit('CVBD_GET_LIST_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
+  vbdGetListReceive ({ commit }) {
+    commit('VBD_GET_LIST_RECEIVE')
+    return new Promise((resolve, reject) => {
+      vbd.getListReceive().then(res => {
+        const { data } = res;
+        commit('VBD_GET_LIST_RECEIVE_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('VBD_GET_LIST_RECEIVE_FAILURE', e)
         reject(e)
       })
     })

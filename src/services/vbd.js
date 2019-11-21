@@ -12,6 +12,14 @@ export const getList = () => {
   return api.get('/vbd')
 }
 
+export const getListReceive = () => {
+  return api.get('/vbd/receive')
+}
+
 export const getById = (requestId) => {
   return api.get(`/vbd/${requestId}`)
+}
+
+export const deleteById = (requestId) => {
+  return api.delete(`/vbd/${requestId}`)
 }

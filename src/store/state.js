@@ -385,6 +385,7 @@ const state = {
   },
   vbd: {
     list: [],
+    listReceive: [],
     data: {
       files: []
     },

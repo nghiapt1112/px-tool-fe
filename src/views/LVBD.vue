@@ -6,8 +6,7 @@
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Files</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Chức năng</th>
         </tr>
 
         <tbody>
@@ -21,19 +20,19 @@
             {{ tr.noiDung }}
           </td>
 
-          <td class="p-2 border border-solid d-theme-border-grey-light">
-            <a
-              v-for="(fileName, indextr) in tr.files"
-              :key="indextr"
-              class="mr-2"
-            >
-              {{fileName}}
-            </a>
-          </td>
+<!--          <td class="p-2 border border-solid d-theme-border-grey-light">-->
+<!--            <a-->
+<!--              v-for="(fileName, indextr) in tr.files"-->
+<!--              :key="indextr"-->
+<!--              class="mr-2"-->
+<!--            >-->
+<!--              {{fileName}}-->
+<!--            </a>-->
+<!--          </td>-->
 
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-button class="mr-4" size="small" @click="onDetailClick(tr.vbdId)">Chi tiết</vs-button>
-<!--            <vs-button class="mr-4" size="small" color="danger" @click="openDeleteConfirm">Hủy</vs-button>-->
+            <vs-button class="mr-4" size="small" color="danger" @click="openDeleteConfirm(tr.vbdId)">Hủy</vs-button>
           </td>
 
         </tr>
@@ -58,25 +57,41 @@
     methods: {
       ...mapActions([
         'vbdGetList',
+        'vbdDeleteById'
       ]),
       onDetailClick (id) {
         this.$router.push(`/vbd/edit?id=${id}`);
       },
-      openDeleteConfirm () {
+      openDeleteConfirm (id) {
         this.$vs.dialog({
           type: 'confirm',
           color: 'danger',
           title: `Xác nhận xóa`,
           text: 'Bạn có chắc muốn xóa bản ghi này?',
-          accept: this.acceptDelete
+          acceptText: 'Đồng ý',
+          cancelText: 'Đóng',
+          accept: () => {
+            this.acceptDelete(id);
+          }
         })
       },
-      acceptDelete () {
-        this.$vs.notify({
-          color: 'danger',
-          title: 'Xóa Bản Ghi',
-          text: 'Xóa bản ghi thất bại.'
+      acceptDelete (id) {
+        this.vbdDeleteById(id)
+          .then(() => {
+            this.vbdGetList();
+            this.$vs.notify({
+              color: 'success',
+              title: 'Xóa Bản Ghi',
+              text: 'Xóa bản ghi thành công.'
+            })
+          }).catch((e) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Xóa Bản Ghi',
+            text: `Xóa bản ghi thất bại. ${e}`
+          })
         })
+
       },
     }
   }
@@ -92,7 +107,7 @@
     width: 100%;
 
     td {
-      &:nth-child(4) {
+      &:nth-child(3) {
         width: 200px;
       }
     }
