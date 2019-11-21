@@ -57,7 +57,9 @@ const state = {
     loading: false
   },
   tktdsp: {
-    data: [],
+    data: {
+      details: []
+    },
     error: null,
     loading: false
   },

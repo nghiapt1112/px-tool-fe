@@ -2,6 +2,19 @@
   <vx-card title="Thống Kê Tiến Độ Sản Phẩm">
     <div class="table--container">
       <table class="invoice__table--content border-collapse">
+
+        <tbody>
+        <tr>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">Sản phẩm:
+            {{TKTDSPData.sanPham}}
+          </th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tiến độ: {{TKTDSPData.tienDo}}%</th>
+          <th colspan="13" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+        </tr>
+        <tr>
+          <th colspan="17" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+        </tr>
+        </tbody>
         <tbody>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TT</th>
@@ -25,7 +38,7 @@
         </tr>
         </tbody>
         <tbody>
-        <tr :key="indextr" v-for="(tr, indextr) in TKTDSPData">
+        <tr :key="indextr" v-for="(tr, indextr) in TKTDSPData.details">
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ indextr + 1 }}
           </td>
