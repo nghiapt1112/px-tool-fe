@@ -3,6 +3,7 @@
     <div class="cvct-table--container">
       <table class="works__table--content border-collapse">
         <tr>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Chức năng</th>
         </tr>

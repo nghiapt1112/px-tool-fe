@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb33378-037a-4769-9a9b-c3a5ffeacdef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/store/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/state.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TKTDSP.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TKTDSP.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/LRVBD.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LRVBD.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,27 +15,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/LVBD.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="81" selection-start-line="8" selection-start-column="81" selection-end-line="8" selection-end-column="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/store/actions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="497" column="44" selection-start-line="497" selection-start-column="16" selection-end-line="497" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/store/mutations.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -65,10 +43,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/LRVBD.vue">
+        <entry file="file://$PROJECT_DIR$/src/views/VBD.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#vx-card#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/LVBD.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <caret line="8" column="81" selection-start-line="8" selection-start-column="81" selection-end-line="8" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/LRVBD.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="80" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -97,13 +96,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/store/state.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+            <state relative-caret-position="80">
+              <caret line="56" column="18" lean-forward="true" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="e#468#548#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>logout</find>
       <find>phãnuong</find>
       <find>pkh</find>
       <find>getPhanXuong</find>
@@ -152,6 +151,7 @@
       <find>openDeleteConfirm</find>
       <find>VBD_GET_LIST_</find>
       <find>vb</find>
+      <find>tk</find>
     </findStrings>
     <replaceStrings>
       <replace>PKHComboboxData</replace>
@@ -207,11 +207,11 @@
         <option value="$PROJECT_DIR$/src/services/vbd.js" />
         <option value="$PROJECT_DIR$/src/store/mutations.js" />
         <option value="$PROJECT_DIR$/src/store/getters.js" />
-        <option value="$PROJECT_DIR$/src/views/LRVBD.vue" />
         <option value="$PROJECT_DIR$/src/router.js" />
         <option value="$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js" />
         <option value="$PROJECT_DIR$/src/views/TKTDSP.vue" />
         <option value="$PROJECT_DIR$/src/store/state.js" />
+        <option value="$PROJECT_DIR$/src/views/LRVBD.vue" />
       </list>
     </option>
   </component>
@@ -356,12 +356,12 @@
       <workItem from="1573746414056" duration="27813000" />
       <workItem from="1574073981914" duration="8924000" />
       <workItem from="1574176422997" duration="9738000" />
-      <workItem from="1574303917029" duration="4603000" />
+      <workItem from="1574303917029" duration="5745000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176589000" />
+    <option name="totallyTimeSpent" value="177731000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="731" extended-state="0" />
@@ -688,24 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/VBD.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#vx-card#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#1998#2044#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/LVBD.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="81" selection-start-line="8" selection-start-column="81" selection-end-line="8" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/actions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -750,17 +732,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/LRVBD.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/vbd.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/state.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="56" column="18" lean-forward="true" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#468#548#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -771,13 +757,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/state.js">
+    <entry file="file://$PROJECT_DIR$/src/views/VBD.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+        <state relative-caret-position="150">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#vx-card#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/LVBD.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="81" selection-start-line="8" selection-start-column="81" selection-end-line="8" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/LRVBD.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="80" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
         </state>
       </provider>
     </entry>
