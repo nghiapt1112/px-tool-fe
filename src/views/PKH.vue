@@ -102,7 +102,7 @@
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Ký hiệu</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">SL</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Dạng hư hỏng</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Phương pháp kiểm hỏng</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Phương pháp khắc phục</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Người kiểm hỏng</th>
         </tr>
         </tbody>

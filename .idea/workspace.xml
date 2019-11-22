@@ -75,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/PKH.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="85" column="105" selection-start-line="85" selection-start-column="105" selection-end-line="85" selection-end-column="105" />
+            <state relative-caret-position="203">
+              <caret line="104" column="105" selection-start-line="104" selection-start-column="105" selection-end-line="104" selection-end-column="105" />
               <folding>
                 <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
               </folding>
@@ -359,12 +359,12 @@
       <workItem from="1573746414056" duration="27813000" />
       <workItem from="1574073981914" duration="8924000" />
       <workItem from="1574176422997" duration="9738000" />
-      <workItem from="1574303917029" duration="7311000" />
+      <workItem from="1574303917029" duration="7595000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179297000" />
+    <option name="totallyTimeSpent" value="179581000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="731" extended-state="0" />
@@ -776,8 +776,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/PKH.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="85" column="105" selection-start-line="85" selection-start-column="105" selection-end-line="85" selection-end-column="105" />
+        <state relative-caret-position="203">
+          <caret line="104" column="105" selection-start-line="104" selection-start-column="105" selection-end-line="104" selection-end-column="105" />
           <folding>
             <element signature="n#style#0;n#vs-input#0;n#td#4;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
           </folding>
