@@ -132,11 +132,15 @@
             <v-select
               style="width: 220px"
               size="small"
-              label="name"
+              label="ten"
               :value="tr.mucDichSuDung"
-              :reduce="t => t.name"
-              @input="changeData('mucDichSuDung', $event)"
-              :options="PDHComboboxData.ten_vktbkt"></v-select>
+               :reduce="t => t.mdId"
+              @input="changeDetailItemMDSD(indextr, 'mucDichSuDung', $event)"
+              :options="optionsMDSD">
+                <template slot="option" slot-scope="option">
+                   <span :style="{color: option.mdId == -1 ? 'red' : ''}">{{option.ten}}</span>
+                </template>
+              </v-select>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
@@ -316,9 +320,18 @@
         'PDHComboboxData',
         'AppActiveUser'
       ]),
+      optionsMDSD: {
+        get() {
+          const lastItem = {mdId: -1, ten: '+ Thêm mới item'};
+          const tmp = [...this.PDHComboboxData.mdsd];
+          tmp.push(lastItem);
+          return tmp;
+        }
+      }
     },
     mounted () {
       const { query: { id } } = this.$route;
+      this.pdhGetListMDSD();
       id && this.pdhGetById(id).then(() => {
         this.getNoiNhan();
       });
@@ -329,7 +342,9 @@
         'pdhUpdateData',
         'pdhSaveData',
         'pdhGetById',
-        'pdhGetNoiNhanById'
+        'pdhGetNoiNhanById',
+        'pdhGetListMDSD',
+        'pdhAddMDSD'
       ]),
       getNoiNhan () {
         const {
@@ -352,6 +367,36 @@
         };
         this.pdhUpdateData(data);
         return true;
+      },
+      changeDetailItemMDSD (index, fieldName, value) {
+        if(value == -1) {
+           const addItem = prompt("Nhập mục đích sử dụng", "Mục đích sử dụng");
+           if (addItem) {
+              this.pdhAddMDSD({ten: addItem})
+              .then((res)=>{
+                const {data: {mdId}} = res;
+                this.pdhGetListMDSD().then(() => {
+                  this.changeDetailItem(index, fieldName, mdId);
+                });
+                this.$vs.notify({
+                  color: 'success',
+                  title: 'Mục Đích Sử Dụng',
+                  text: `Thêm thành công.`
+                });
+              })
+              .catch(e=> {
+                this.$vs.notify({
+                  color: 'danger',
+                  title: 'Mục Đích Sử Dụng',
+                  text: `Thêm thất bại. ${e}`
+                })
+              })
+           } else {
+             this.changeDetailItem(index, fieldName, null);
+           }
+        } else {
+          this.changeDetailItem(index, fieldName, value);
+        }
       },
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PDHData);

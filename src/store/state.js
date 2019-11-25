@@ -335,13 +335,8 @@ const state = {
         { id: 4, name: 'Cánh quạt V530TA-D35' },
         { id: 5, name: 'Khác' },
       ],
-      noi_nhan: [
-        { id: 1, name: 'Nơi nhận 1' },
-        { id: 2, name: 'Nơi nhận 2' },
-        { id: 3, name: 'Nơi nhận 3' },
-        { id: 4, name: 'Nơi nhận 4' },
-        { id: 5, name: 'Khác' },
-      ],
+      noi_nhan: [],
+      mdsd: [],
       chuyen: []
     }
   },
