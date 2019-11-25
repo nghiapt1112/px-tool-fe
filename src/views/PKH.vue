@@ -83,7 +83,7 @@
               @input="changeData('toSX', $event)"
               :options="PKHComboboxData.to_san_xuat"></v-select>
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light">Công đoạn:</td>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Công đoạn:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
                 size="small"
