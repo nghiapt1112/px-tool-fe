@@ -83,9 +83,15 @@
               @input="changeData('toSX', $event)"
               :options="PKHComboboxData.to_san_xuat"></v-select>
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light">Công đoạn: <span class="text-uppercase">{{PKHData.congDoan}}</span>
+          <td class="p-2 border border-solid d-theme-border-grey-light">Công đoạn:</td>
+          <td class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-input
+                size="small"
+                class="inputx"
+                @change="changeData('congDoan', $event.target.value)"
+                :value="PKHData.congDoan"/>
           </td>
-          <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         </tbody>
         <tbody>
