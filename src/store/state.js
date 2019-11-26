@@ -52,7 +52,12 @@ const state = {
     loading: false
   },
   cvct: {
-    data: [],
+    data: {
+      details: [],
+      total: 0,
+      page: 1,
+      size: 15
+    },
     error: null,
     loading: false
   },

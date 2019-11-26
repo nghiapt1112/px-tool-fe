@@ -2,7 +2,6 @@
   <vx-card title="Văn bản cần giải quyết">
     <div class="cvct-table--container">
       <table class="works__table--content border-collapse">
-
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Mã</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
@@ -12,7 +11,7 @@
         </tr>
 
         <tbody>
-        <tr :key="indextr" v-for="(tr, indextr) in CVCTData">
+        <tr :key="indextr" v-for="(tr, indextr) in CVCTData.details">
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.ma }}
@@ -38,6 +37,13 @@
         </tr>
         </tbody>
       </table>
+      <div class="mt-5 float-right">
+        <vs-pagination
+          @change="onChangePage"
+          :total="CVCTData.total"
+          :value="CVCTData.page"
+        ></vs-pagination>
+      </div>
     </div>
   </vx-card>
 </template>
@@ -62,16 +68,20 @@
         'CVCTData',
       ])
     },
-    mounted () {
-      this.cvctGetList()
-    },
     methods: {
       ...mapActions([
         'cvctGetList',
         'cvctUpdateRequestId'
       ]),
+      onChangePage (e) {
+        const params = {
+          page: this.CVCTData.page,
+          size: this.CVCTData.size
+        }
+        this.cvctGetList(params);
+      },
       onDetailClick (id, type) {
-        this.cvctUpdateRequestId(id)
+        this.cvctUpdateRequestId(id);
         switch (type) {
           case 'DAT_HANG': {
             this.$router.push(`/pdh?id=${id}`);

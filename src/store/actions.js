@@ -177,10 +177,10 @@ const actions = {
     commit('CVCT_UPDATE_REQUEST_ID', requestId)
   },
 
-  cvctGetList ({ commit }) {
+  cvctGetList ({ commit }, payload) {
     commit('CVCT_GET_LIST')
     return new Promise((resolve, reject) => {
-      cvct.getList().then(res => {
+      cvct.getList(payload).then(res => {
         const { data } = res;
         commit('CVCT_GET_LIST_SUCCESS', data)
         resolve(res)
