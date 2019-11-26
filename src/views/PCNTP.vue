@@ -228,8 +228,8 @@
               @input="changeData('nguoiGiaoViecXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PCNTPData.nguoiGiaoViecXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PCNTPData.nguoiGiaoViecXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PCNTPData.nguoiGiaoViecXacNhan" class="chu-ky" :src="PCNTPData.nguoiGiaoViecDisable ? PCNTPData.nguoiGiaoViecSignImg : AppActiveUser.chuKy">
+            <span v-if="PCNTPData.nguoiGiaoViecXacNhan">{{PCNTPData.nguoiGiaoViecDisable ? PCNTPData.nguoiGiaoViecFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PCNTPData.nguoiGiaoViecDisable"
               v-if="!PCNTPData.nguoiGiaoViecXacNhan"
@@ -249,8 +249,8 @@
               @input="changeData('nguoiThucHienXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PCNTPData.nguoiThucHienXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PCNTPData.nguoiThucHienXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PCNTPData.nguoiThucHienXacNhan" class="chu-ky" :src="PCNTPData.nguoiThucHienDisable ? PCNTPData.nguoiThucHienSignImg : AppActiveUser.chuKy">
+            <span v-if="PCNTPData.nguoiThucHienXacNhan">{{PCNTPData.nguoiThucHienDisable ? PCNTPData.nguoiThucHienFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PCNTPData.nguoiThucHienDisable"
               v-if="!PCNTPData.nguoiThucHienXacNhan"
@@ -270,8 +270,8 @@
               @input="changeData('tpkcsXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PCNTPData.tpkcsXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PCNTPData.tpkcsXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PCNTPData.tpkcsXacNhan" class="chu-ky" :src="PCNTPData.tpkcsDisable ? PCNTPData.tpkcsSignImg : AppActiveUser.chuKy">
+            <span v-if="PCNTPData.tpkcsXacNhan">{{PCNTPData.tpkcsDisable ? PCNTPData.tpkcsFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PCNTPData.tpkcsDisable"
               v-if="!PCNTPData.tpkcsXacNhan"

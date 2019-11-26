@@ -223,8 +223,8 @@
               @input="changeData('quanDocXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PKHData.quanDocXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PKHData.quanDocXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PKHData.quanDocXacNhan" class="chu-ky" :src="PKHData.quanDocDisable ? PKHData.quanDocSignImg : AppActiveUser.chuKy">
+            <span v-if="PKHData.quanDocXacNhan">{{PKHData.quanDocDisable ? PKHData.quanDocFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PKHData.quanDocDisable"
               v-if="!PKHData.quanDocXacNhan"
@@ -245,8 +245,8 @@
               @input="changeData('troLyKTXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PKHData.troLyKTXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PKHData.troLyKTXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PKHData.troLyKTXacNhan" class="chu-ky" :src="PKHData.troLyKTDisable ? PKHData.troLyKTSignImg : AppActiveUser.chuKy">
+            <span v-if="PKHData.troLyKTXacNhan">{{PKHData.troLyKTDisable ? PKHData.troLyKTFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PKHData.troLyKTDisable"
               v-if="!PKHData.troLyKTXacNhan"
@@ -267,8 +267,8 @@
               @input="changeData('toTruongXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PKHData.toTruongXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PKHData.toTruongXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PKHData.toTruongXacNhan" class="chu-ky" :src="PKHData.toTruongDisable ? PKHData.toTruongSignImg : AppActiveUser.chuKy">
+            <span v-if="PKHData.toTruongXacNhan">{{PKHData.toTruongDisable ? PKHData.toTruongFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PKHData.toTruongDisable"
               v-if="!PKHData.toTruongXacNhan"

@@ -8,7 +8,11 @@
       </div>
       <div class="vx-row mb-6">
         <div class="vx-col w-full">
-          <vs-input class="w-1/2" label="Tên dưới chữ ký"/>
+          <vs-input
+            class="w-1/2"
+            label="Tên dưới chữ ký"
+            :value="AppActiveUser.name"
+          />
         </div>
       </div>
       <div class="vx-row">
