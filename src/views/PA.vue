@@ -419,8 +419,8 @@
               @input="changeData('truongPhongKTHKXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PAData.truongPhongKTHKXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PAData.truongPhongKTHKXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PAData.truongPhongKTHKXacNhan" class="chu-ky" :src="PAData.truongPhongKTHKDisable ? PAData.truongPhongKTHKSignImg : AppActiveUser.chuKy">
+            <span v-if="PAData.truongPhongKTHKXacNhan">{{PAData.truongPhongKTHKDisable ? PAData.truongPhongKTHKFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PAData.truongPhongKTHKDisable"
               v-if="!PAData.truongPhongKTHKXacNhan"
@@ -440,8 +440,8 @@
               @input="changeData('truongPhongKeHoachXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PAData.truongPhongKeHoachXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PAData.truongPhongKeHoachXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PAData.truongPhongKeHoachXacNhan" class="chu-ky" :src="PAData.truongPhongKeHoachDisable ? PAData.truongPhongKeHoachSignImg : AppActiveUser.chuKy">
+            <span v-if="PAData.truongPhongKeHoachXacNhan">{{PAData.truongPhongKeHoachDisable ? PAData.truongPhongKeHoachFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PAData.truongPhongKeHoachDisable"
               v-if="!PAData.truongPhongKeHoachXacNhan"
@@ -461,8 +461,8 @@
               @input="changeData('truongPhongVatTuXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PAData.truongPhongVatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PAData.truongPhongVatTuXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PAData.truongPhongVatTuXacNhan" class="chu-ky" :src="PAData.truongPhongVatTuDisable ? PAData.truongPhongVatTuSignImg : AppActiveUser.chuKy">
+            <span v-if="PAData.truongPhongVatTuXacNhan">{{PAData.truongPhongVatTuDisable ? PAData.truongPhongVatTuFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PAData.truongPhongVatTuDisable"
               v-if="!PAData.truongPhongVatTuXacNhan"
@@ -482,8 +482,8 @@
               @input="changeData('nguoiLapXacNhan', $event); getNoiNhan() "
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PAData.nguoiLapXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PAData.nguoiLapXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PAData.nguoiLapXacNhan" class="chu-ky" :src="PAData.nguoiLapDisable ? PAData.nguoiLapSignImg : AppActiveUser.chuKy">
+            <span v-if="PAData.nguoiLapXacNhan">{{PAData.nguoiLapDisable ? PAData.nguoiLapFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PAData.nguoiLapDisable"
               v-if="!PAData.nguoiLapXacNhan"

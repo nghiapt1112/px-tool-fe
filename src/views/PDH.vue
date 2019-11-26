@@ -209,8 +209,8 @@
               @input="changeData('tpkthkXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PDHData.tpkthkXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PDHData.tpkthkXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PDHData.tpkthkXacNhan" class="chu-ky" :src="PDHData.tpkthkDisable ? PDHData.tpkthkSignImg : AppActiveUser.chuKy">
+            <span v-if="PDHData.tpkthkXacNhan">{{PDHData.tpkthkDisable ? PDHData.tpkthkFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PDHData.tpkthkDisable"
               v-if="!PDHData.tpkthkXacNhan"
@@ -231,8 +231,8 @@
               @input="changeData('tpvatTuXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PDHData.tpvatTuXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PDHData.tpvatTuXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PDHData.tpvatTuXacNhan" class="chu-ky" :src="PDHData.tpvatTuDisable ? PDHData.tpvatTuSignImg : AppActiveUser.chuKy">
+            <span v-if="PDHData.tpvatTuXacNhan">{{PDHData.tpvatTuDisable ? PDHData.tpvatTuFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PDHData.tpvatTuDisable"
               v-if="!PDHData.tpvatTuXacNhan"
@@ -253,8 +253,8 @@
               @input="changeData('nguoiDatHangXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PDHData.nguoiDatHangXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
-            <span v-if="PDHData.nguoiDatHangXacNhan">{{AppActiveUser.name}}</span>
+            <img v-if="PDHData.nguoiDatHangXacNhan" class="chu-ky" :src="PDHData.nguoiDatHangDisable ? PDHData.nguoiDatHangSignImg : AppActiveUser.chuKy">
+            <span v-if="PDHData.nguoiDatHangXacNhan">{{PDHData.nguoiDatHangDisable ? PDHData.nguoiDatHangFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PDHData.nguoiDatHangDisable"
               v-if="!PDHData.nguoiDatHangXacNhan"
