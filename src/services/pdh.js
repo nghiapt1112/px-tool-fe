@@ -1,11 +1,21 @@
 import api from './api'
 
+export const getListMDSD = () => {
+  return api.get('/mdsd')
+}
+
+export const addMDSD = (payload) => {
+  return api.post('/mdsd', payload)
+}
+
 export const getList = () => {
   return api.get('/pdh')
 }
+
 export const getById = (requestId) => {
   return api.get(`/pdh/${requestId}`)
 }
+
 export const create = (payload) => {
   return api.post('/pdh', payload)
 }

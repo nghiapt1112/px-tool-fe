@@ -282,9 +282,32 @@ const actions = {
   // PDH
   // ////////////////////////////////////////////
 
+  pdhGetListMDSD ({ commit }) {
+    return new Promise((resolve, reject) => {
+      pdh.getListMDSD().then(res => {
+        const { data } = res;
+        commit('PDH_GET_LIST_MDSD_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  pdhAddMDSD ({ commit }, data) {
+    return new Promise((resolve, reject) => {
+      pdh.addMDSD(data).then(res => {
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
   pdhUpdateData ({ commit }, data) {
     commit('PDH_UPDATE_DATA', data)
   },
+
   pdhSaveData ({ commit }, data) {
     commit('PDH_SAVE_DATA', data);
     return new Promise((resolve, reject) => {

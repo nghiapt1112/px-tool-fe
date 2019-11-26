@@ -254,6 +254,9 @@ const mutations = {
   // PDH
   // ////////////////////////////////////////////
 
+  PDH_GET_LIST_MDSD_SUCCESS (state, data) {
+    state.pdh.comboboxData.mdsd = data;
+  },
 
   PDH_UPDATE_DATA (state, data) {
     state.pdh.data = data;
