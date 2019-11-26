@@ -64,7 +64,7 @@ export default [
   },
   {
     url: "/vbn",
-    name: "Văn bản nhận",
+    name: "Văn bản đến",
     slug: "vbn",
     icon: "DownloadIcon",
   },

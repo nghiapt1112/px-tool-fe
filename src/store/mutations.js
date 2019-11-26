@@ -178,8 +178,12 @@ const mutations = {
   },
 
   // ////////////////////////////////////////////
-  // CVCT
+  // TKTDSP
   // ////////////////////////////////////////////
+
+  TKTDSP_GET_LIST_MDSD_SUCCESS (state, data) {
+    state.tktdsp.comboboxData.mdsd = data;
+  },
 
   TKTDSP_GET_LIST (state) {
     state.tktdsp.error = null;

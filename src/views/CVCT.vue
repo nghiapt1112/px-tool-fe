@@ -40,8 +40,8 @@
       <div class="mt-5 float-right">
         <vs-pagination
           @change="onChangePage"
+          v-model="page"
           :total="CVCTData.total"
-          :value="CVCTData.page"
         ></vs-pagination>
       </div>
     </div>
@@ -61,6 +61,7 @@
     data () {
       return {
         MAP_TYPES,
+        page: 1
       }
     },
     computed: {
@@ -75,8 +76,8 @@
       ]),
       onChangePage (e) {
         const params = {
-          page: this.CVCTData.page,
-          size: this.CVCTData.size
+          page: this.page,
+          size: 15
         }
         this.cvctGetList(params);
       },

@@ -5,11 +5,18 @@
 
         <tbody>
         <tr>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">Sản phẩm:
-            {{TKTDSPData.sanPham}}
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">Sản phẩm:</th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <v-select
+              size="small"
+              label="ten"
+              :reduce="t => t.mdId"
+              v-model="mdsd"
+              @input="getList()"
+              :options="TKTDSPComboboxData.mdsd"></v-select>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tiến độ: {{TKTDSPData.tienDo}}%</th>
-          <th colspan="13" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          <th colspan="11" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
         <tr>
           <th colspan="17" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
@@ -94,31 +101,56 @@
         </tbody>
       </table>
     </div>
+    <div class="vx-row no-gutter justify-end mt-5">
+      <div class="vx-col">
+        <vs-pagination
+          :total="TKTDSPData.total"
+          @change="getList()"
+          v-model="page"
+        ></vs-pagination>
+      </div>
+    </div>
   </vx-card>
 </template>
 
 <script>
   import { mapActions, mapGetters } from 'vuex';
+  import vSelect from 'vue-select'
 
   export default {
+    components: {
+      'v-select': vSelect,
+    },
     data () {
       return {
+        mdsd: null,
         showError: false,
+        page: 1,
       }
     },
     computed: {
       ...mapGetters([
         'TKTDSPData',
+        'TKTDSPComboboxData',
         'AppActiveUser'
       ])
     },
     mounted () {
-      this.tktdspGetList();
+      this.tktdspGetListMDSD();
     },
     methods: {
       ...mapActions([
+        'tktdspGetListMDSD',
         'tktdspGetList'
-      ])
+      ]),
+      getList () {
+        const params = {
+          page: this.page,
+          size: 15,
+          spId: this.mdsd
+        };
+        this.tktdspGetList(params);
+      },
     }
   }
 </script>
@@ -132,7 +164,7 @@
   .invoice__table--content {
     min-width: 1268px;
 
-    td {
+    td, th {
       &:nth-child(1) {
         text-align: center;
         min-width: 50px;

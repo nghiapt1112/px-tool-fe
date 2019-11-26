@@ -1,5 +1,5 @@
 <template>
-  <vx-card title="Văn bản nhận">
+  <vx-card title="Văn bản đến">
     <div class="cvct-table--container">
       <table class="works__table--content border-collapse">
         <tr>

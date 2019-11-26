@@ -195,10 +195,22 @@ const actions = {
   // TKTDSP
   // ////////////////////////////////////////////
 
-  tktdspGetList ({ commit }) {
-    commit('TKTDSP_GET_LIST')
+  tktdspGetListMDSD ({ commit }, payload) {
     return new Promise((resolve, reject) => {
-      tktdsp.getList().then(res => {
+      tktdsp.getListMDSD(payload).then(res => {
+        const { data } = res;
+        commit('TKTDSP_GET_LIST_MDSD_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  tktdspGetList ({ commit }, payload) {
+    commit('TKTDSP_GET_LIST');
+    return new Promise((resolve, reject) => {
+      tktdsp.getList(payload).then(res => {
         const { data } = res;
         commit('TKTDSP_GET_LIST_SUCCESS', data)
         resolve(res)
