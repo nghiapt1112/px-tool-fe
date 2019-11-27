@@ -1,9 +1,10 @@
 <template>
   <div class="vx-col w-full mb-base">
-    <vx-card title="Gửi văn bản, giấy tờ">
+    <vx-card :title="isCreate ? 'Gửi văn bản, giấy tờ' : 'Chi tiết văn bản đến'">
       <div class="vx-row mb-6">
         <div class="vx-col w-full">
           <v-select
+            v-if="isCreate"
             class="w-1/2"
             placeholder="Nơi nhận"
             size="small"
@@ -18,6 +19,7 @@
       <div class="vx-row">
         <div class="vx-col w-full">
           <vs-textarea
+            :disabled="!isCreate"
             class="w-1/2"
             @change="changeData('noiDung', $event.target.value)"
             :value="VBDData.noiDung"
@@ -25,7 +27,9 @@
           />
         </div>
       </div>
-      <div class="vx-row mb-6">
+      <div
+        class="vx-row mb-6"
+        v-if="isCreate">
         <div class="vx-col w-full">
           <input ref="fileInput" style="display: none" type="file" multiple @change="selectFiles($event)">
           <vx-input-group class="w-1/2">
@@ -53,7 +57,7 @@
           </a>
         </div>
       </div>
-      <div class="vx-row">
+      <div class="vx-row" v-if="isCreate">
         <div class="vx-col w-full">
           <vs-button class="mb-2" @click="onSubmit">Lưu</vs-button>
         </div>
@@ -73,6 +77,7 @@
     data () {
       return {
         showError: false,
+        isCreate: false
       }
     },
     computed: {
@@ -94,6 +99,7 @@
     },
     mounted () {
       const { query: { id } } = this.$route;
+      this.isCreate = !id;
       id && this.vbdGetById(id);
       !id && this.resetData();
       this.vbdGetNoiNhanById();

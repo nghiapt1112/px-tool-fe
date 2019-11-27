@@ -4,6 +4,10 @@ export const getUserInfo = () => {
   return api.get('/users/info')
 }
 
+export const update = (payload) => {
+  return api.post('/users', payload)
+}
+
 export const getNotification = () => {
   return api.get('/req/notification')
 }

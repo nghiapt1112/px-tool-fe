@@ -3,7 +3,13 @@
     <vx-card title="Cập nhật thông tin cá nhân">
       <div class="vx-row mb-6">
         <div class="vx-col w-full">
-          <vs-input type="file" class="w-1/2" label="Chữ ký"/>
+          <vs-input
+            type="file"
+            class="w-1/2"
+            label="Chữ ký"
+            accept="image/*"
+            @change="selectFile($event)"
+          />
         </div>
       </div>
       <div class="vx-row mb-6">
@@ -11,13 +17,17 @@
           <vs-input
             class="w-1/2"
             label="Tên dưới chữ ký"
-            :value="AppActiveUser.name"
+            :placeholder="AppActiveUser.name"
+            v-model="fullName"
           />
         </div>
       </div>
       <div class="vx-row">
         <div class="vx-col w-full">
-          <vs-button class="mr-3 mb-2">Lưu</vs-button>
+          <vs-button
+            @click="submitProfile"
+            class="mr-3 mb-2">Lưu
+          </vs-button>
         </div>
       </div>
     </vx-card>
@@ -31,21 +41,56 @@
     data () {
       return {
         showError: false,
+        fullName: null,
+        imgBase64: null
       }
     },
     computed: {
       ...mapGetters([
-        'TKTDSPData',
         'AppActiveUser'
       ])
     },
     mounted () {
-      this.tktdspGetList();
     },
     methods: {
       ...mapActions([
-        'tktdspGetList'
-      ])
+        'updateProfile'
+      ]),
+      selectFile (e) {
+        const files = e.target.files;
+        if (files && files.length) {
+          const reader = new FileReader();
+          reader.readAsDataURL(files[0]);
+          reader.onload = () => {
+            this.file = reader.result;
+          };
+          reader.onerror = error => console.log(error);
+        }
+      },
+      submitProfile () {
+        console.log('AppActiveUser', this.AppActiveUser);
+        const payload = {
+          fullName: this.fullName,
+          imgBase64: this.imgBase64,
+          email: '',
+          userId: ''
+        }
+        this.updateProfile(payload)
+          .then(() => {
+            this.$vs.notify({
+              color: 'success',
+              title: 'Thông tin cá nhân',
+              text: `Cập nhật thành công.`
+            });
+          })
+          .catch(e => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Thông tin cá nhân',
+              text: `Cập nhật thất bại. ${e}`
+            })
+          })
+      }
     }
   }
 </script>

@@ -151,6 +151,16 @@ const actions = {
     })
   },
 
+  updateProfile ({ commit }, data) {
+    return new Promise((resolve, reject) => {
+      user.update(data).then(res => {
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
   // ////////////////////////////////////////////
   // DASHBOARD
   // ////////////////////////////////////////////

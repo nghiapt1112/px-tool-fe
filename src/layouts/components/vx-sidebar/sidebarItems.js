@@ -57,15 +57,15 @@ export default [
     icon: "FileIcon",
   },
   {
-    url: "/vbd",
+    url: "/vbg",
     name: "Gửi văn bản, giấy tờ",
-    slug: "vbd",
+    slug: "vbg",
     icon: "ShareIcon",
   },
   {
-    url: "/vbn",
+    url: "/vbd",
     name: "Văn bản đến",
-    slug: "vbn",
+    slug: "vbd",
     icon: "DownloadIcon",
   },
   {
