@@ -224,7 +224,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PKHData.quanDocXacNhan" class="chu-ky" :src="PKHData.quanDocDisable ? PKHData.quanDocSignImg : AppActiveUser.chuKy">
-            <span v-if="PKHData.quanDocXacNhan">{{PKHData.quanDocDisable ? PKHData.quanDocFullName : AppActiveUser.name}}</span>
+            <span v-if="PKHData.quanDocXacNhan">{{PKHData.quanDocDisable ? PKHData.quanDocfullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PKHData.quanDocDisable"
               v-if="!PKHData.quanDocXacNhan"
@@ -246,7 +246,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PKHData.troLyKTXacNhan" class="chu-ky" :src="PKHData.troLyKTDisable ? PKHData.troLyKTSignImg : AppActiveUser.chuKy">
-            <span v-if="PKHData.troLyKTXacNhan">{{PKHData.troLyKTDisable ? PKHData.troLyKTFullName : AppActiveUser.name}}</span>
+            <span v-if="PKHData.troLyKTXacNhan">{{PKHData.troLyKTDisable ? PKHData.troLyfullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PKHData.troLyKTDisable"
               v-if="!PKHData.troLyKTXacNhan"
@@ -268,7 +268,7 @@
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PKHData.toTruongXacNhan" class="chu-ky" :src="PKHData.toTruongDisable ? PKHData.toTruongSignImg : AppActiveUser.chuKy">
-            <span v-if="PKHData.toTruongXacNhan">{{PKHData.toTruongDisable ? PKHData.toTruongFullName : AppActiveUser.name}}</span>
+            <span v-if="PKHData.toTruongXacNhan">{{PKHData.toTruongDisable ? PKHData.toTruongfullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PKHData.toTruongDisable"
               v-if="!PKHData.toTruongXacNhan"

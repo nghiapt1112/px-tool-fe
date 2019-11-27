@@ -511,10 +511,10 @@ const actions = {
     })
   },
 
-  vbdGetList ({ commit }) {
+  vbdGetList ({ commit }, payload) {
     commit('VBD_GET_LIST')
     return new Promise((resolve, reject) => {
-      vbd.getList().then(res => {
+      vbd.getList(payload).then(res => {
         const { data } = res;
         commit('VBD_GET_LIST_SUCCESS', data)
         resolve(res)
@@ -525,10 +525,10 @@ const actions = {
     })
   },
 
-  vbdGetListReceive ({ commit }) {
+  vbdGetListReceive ({ commit }, payload) {
     commit('VBD_GET_LIST_RECEIVE')
     return new Promise((resolve, reject) => {
-      vbd.getListReceive().then(res => {
+      vbd.getListReceive(payload).then(res => {
         const { data } = res;
         commit('VBD_GET_LIST_RECEIVE_SUCCESS', data)
         resolve(res)

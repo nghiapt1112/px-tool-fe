@@ -10,7 +10,7 @@
         </tr>
 
         <tbody>
-        <tr :key="indextr" v-for="(tr, indextr) in VBDList">
+        <tr :key="indextr" v-for="(tr, indextr) in VBDList.details">
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.noiNhan }}
@@ -20,15 +20,15 @@
             {{ tr.noiDung }}
           </td>
 
-<!--          <td class="p-2 border border-solid d-theme-border-grey-light">-->
-<!--            <a-->
-<!--              v-for="(fileName, indextr) in tr.files"-->
-<!--              :key="indextr"-->
-<!--              class="mr-2"-->
-<!--            >-->
-<!--              {{fileName}}-->
-<!--            </a>-->
-<!--          </td>-->
+          <!--          <td class="p-2 border border-solid d-theme-border-grey-light">-->
+          <!--            <a-->
+          <!--              v-for="(fileName, indextr) in tr.files"-->
+          <!--              :key="indextr"-->
+          <!--              class="mr-2"-->
+          <!--            >-->
+          <!--              {{fileName}}-->
+          <!--            </a>-->
+          <!--          </td>-->
 
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-button class="mr-4" size="small" @click="onDetailClick(tr.vbdId)">Chi tiết</vs-button>
@@ -39,6 +39,15 @@
         </tbody>
       </table>
     </div>
+    <div class="vx-row no-gutter justify-end mt-5">
+      <div class="vx-col">
+        <vs-pagination
+          :total="VBDList.total"
+          @change="onChangePage()"
+          v-model="page"
+        ></vs-pagination>
+      </div>
+    </div>
   </vx-card>
 </template>
 
@@ -46,19 +55,28 @@
   import { mapActions, mapGetters } from 'vuex';
 
   export default {
+    data () {
+      return {
+        page: 1
+      }
+    },
     computed: {
       ...mapGetters([
         'VBDList',
       ])
-    },
-    mounted () {
-      this.vbdGetList()
     },
     methods: {
       ...mapActions([
         'vbdGetList',
         'vbdDeleteById'
       ]),
+      onChangePage () {
+        const params = {
+          page: this.page,
+          size: 15
+        }
+        this.vbdGetList(params);
+      },
       onDetailClick (id) {
         this.$router.push(`/vbd/edit?id=${id}`);
       },

@@ -8,12 +8,12 @@ export const getNoiNhanById = (params) => {
   return api.get('/req/vbd/noi-nhan', { params });
 }
 
-export const getList = () => {
-  return api.get('/vbd')
+export const getList = (payload) => {
+  return api.get('/vbd', { params: payload })
 }
 
-export const getListReceive = () => {
-  return api.get('/vbd/receive')
+export const getListReceive = (payload) => {
+  return api.get('/vbd/receive', { params: payload })
 }
 
 export const getById = (requestId) => {

@@ -9,7 +9,7 @@
         </tr>
 
         <tbody>
-        <tr :key="indextr" v-for="(tr, indextr) in VBDListReceive">
+        <tr :key="indextr" v-for="(tr, indextr) in VBDListReceive.details">
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.noiNhan }}
@@ -26,6 +26,15 @@
         </tbody>
       </table>
     </div>
+    <div class="vx-row no-gutter justify-end mt-5">
+      <div class="vx-col">
+        <vs-pagination
+          :total="VBDListReceive.total"
+          @change="onChangePage()"
+          v-model="page"
+        ></vs-pagination>
+      </div>
+    </div>
   </vx-card>
 </template>
 
@@ -33,18 +42,27 @@
   import { mapActions, mapGetters } from 'vuex';
 
   export default {
+    data () {
+      return {
+        page: 1
+      }
+    },
     computed: {
       ...mapGetters([
         'VBDListReceive',
       ])
     },
-    mounted () {
-      this.vbdGetListReceive()
-    },
     methods: {
       ...mapActions([
         'vbdGetListReceive'
       ]),
+      onChangePage () {
+        const params = {
+          page: this.page,
+          size: 15
+        }
+        this.vbdGetListReceive(params);
+      },
       onDetailClick (id) {
         this.$router.push(`/vbd/edit?id=${id}`);
       },
