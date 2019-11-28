@@ -40,6 +40,7 @@
               @change="changeData('toSo', $event.target.value)"
               :value="PKHData.toSo"/>
           </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         <tr>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Phẩn xưởng:</th>
@@ -76,6 +77,7 @@
               @change="changeData('soTo', $event.target.value)"
               :value="PKHData.soTo"/>
           </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         </tbody>
         <tbody>
@@ -99,12 +101,12 @@
               @change="changeData('congDoan', $event.target.value)"
               :value="PKHData.congDoan"/>
           </td>
-          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         </tbody>
         <tbody>
         <tr>
-          <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light">&nbsp;</td>
+          <td colspan="10" class="p-2 border border-solid d-theme-border-grey-light">&nbsp;</td>
         </tr>
         </tbody>
         <tbody>
@@ -115,6 +117,7 @@
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Ký hiệu</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">SL</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Đơn vị tính</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Dạng hư hỏng</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Phương pháp khắc phục</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Người kiểm hỏng</th>
@@ -162,6 +165,13 @@
               :value="tr.sl"
               @change="changeDetailItem(indextr, 'sl', $event.target.value)"/>
           </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light text-right">
+            <vs-input
+              size="small"
+              class="inputx"
+              :value="tr.dvt"
+              @change="changeDetailItem(indextr, 'dvt', $event.target.value)"/>
+          </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               size="small"
@@ -185,7 +195,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light">
+          <td colspan="10" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-button
               color="success"
               size="small"
@@ -210,6 +220,7 @@
           <td class="p-2 border border-solid d-theme-border-grey-light italic">
             {{PKHData.ngayThangNamToTruong || ' Ngày ... tháng ... năm ...'}}
           </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         <tr>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -218,6 +229,7 @@
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TRỢ LÝ KT</th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TỔ TRƯỞNG</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
         <tr class="row--chu-ky">
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -290,6 +302,7 @@
               :value="PKHData.yKienToTruong"
               @change="changeData('yKienToTruong', $event.target.value)"/>
           </th>
+          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
         <tr>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
@@ -304,10 +317,10 @@
               @search:focus="isNoiNhanShowDropdownList = true"
               :options="PKHComboboxData.chuyen"></v-select>
           </td>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
         <tr :class="{'last-row' : isNoiNhanShowDropdownList}">
-          <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <td colspan="10" class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         </tbody>
       </table>
