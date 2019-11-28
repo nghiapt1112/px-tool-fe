@@ -68,12 +68,11 @@
         }
       },
       submitProfile () {
-        console.log('AppActiveUser', this.AppActiveUser);
         const payload = {
-          fullName: this.fullName,
-          imgBase64: this.imgBase64,
-          email: '',
-          userId: ''
+          fullName: this.fullName || this.AppActiveUser.email,
+          imgBase64: this.imgBase64 || this.AppActiveUser.chuKy,
+          email: this.AppActiveUser.email,
+          userId: this.AppActiveUser.userId
         }
         this.updateProfile(payload)
           .then(() => {

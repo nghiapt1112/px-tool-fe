@@ -26,7 +26,9 @@ const state = {
     about: '',
     img: 'avatar-default.png',
     status: 'online',
-    chuKy: ''
+    chuKy: '',
+    userId: '',
+    email: '',
   },
 
   themePrimaryColor: colors.primary,
