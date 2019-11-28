@@ -82,6 +82,7 @@ const state = {
     isLoading: false,
     error: null,
     data: {
+      requestId: 0,
       dinhMucLaoDongs: [],
       dinhMucVatTus: [],
       maSo: '',
@@ -258,6 +259,7 @@ const state = {
   },
   pkh: {
     data: {
+      requestId: 0,
       khId: 0,
       congDoan: '',
       kiemHongDetails: [],
@@ -303,6 +305,7 @@ const state = {
   },
   pdh: {
     data: {
+      requestId: 0,
       createdAt: '',
       createdBy: 0,
       deleted: true,

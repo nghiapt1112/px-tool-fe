@@ -1,5 +1,13 @@
 <template>
   <vx-card title="Phiếu Công Nhận Thành Phẩm">
+    <template slot="actions">
+      <vs-button
+        v-show="PCNTPData.requestId"
+        @click="download()"
+        icon-pack="feather"
+        icon="icon-download">Tải về
+      </vs-button>
+    </template>
     <div class="table--container">
       <table class="invoice__table--content border-collapse">
         <tbody>
@@ -348,8 +356,22 @@
         'pcntpUpdateData',
         'pcntpSaveData',
         'pcntpGetById',
-        'pcntpGetNoiNhanById'
+        'pcntpGetNoiNhanById',
+        'commonDownloadFileByType'
       ]),
+      download () {
+        this.commonDownloadFileByType({
+          requestId: this.PCNTPData.requestId,
+          requestType: 'CONG_NHAN_THANH_PHAM'
+        }).then()
+          .catch((e) => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Tải file',
+              text: `Tải file thất bại. ${e}`
+            })
+          })
+      },
       getNoiNhan () {
         const {
           requestId,

@@ -25,3 +25,12 @@ export const downloadFile = (payload) => {
     responseType: 'blob',
   })
 }
+
+export const downloadFileByType = (payload) => {
+  const {requestId, requestType} = payload;
+  return api({
+    method: 'get',
+    url: `/file/print?requestId=${requestId}&requestType=${requestType}`,
+    responseType: 'blob',
+  })
+}

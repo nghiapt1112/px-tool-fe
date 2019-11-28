@@ -1,5 +1,13 @@
 <template>
   <vx-card title="Phiếu Đặt Hàng">
+    <template slot="actions">
+      <vs-button
+        v-show="PDHData.requestId"
+        @click="download()"
+        icon-pack="feather"
+        icon="icon-download">Tải về
+      </vs-button>
+    </template>
     <div class="table--container">
       <table class="invoice__table--content border-collapse">
         <tbody>
@@ -344,8 +352,22 @@
         'pdhGetById',
         'pdhGetNoiNhanById',
         'pdhGetListMDSD',
-        'pdhAddMDSD'
+        'pdhAddMDSD',
+        'commonDownloadFileByType'
       ]),
+      download () {
+        this.commonDownloadFileByType({
+          requestId: this.PDHData.requestId,
+          requestType: 'DAT_HANG'
+        }).then()
+          .catch((e) => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Tải file',
+              text: `Tải file thất bại. ${e}`
+            })
+          })
+      },
       getNoiNhan () {
         const {
           requestId,

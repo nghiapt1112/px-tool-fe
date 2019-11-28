@@ -1,5 +1,13 @@
 <template>
   <vx-card title="Phiếu Định Mức Lao Động - Vật Tư">
+    <template slot="actions">
+      <vs-button
+        v-show="PAData.requestId"
+        @click="download()"
+        icon-pack="feather"
+        icon="icon-download">Tải về
+      </vs-button>
+    </template>
     <div class="table--container">
       <table class="invoice__table--content border-collapse">
         <tbody>
@@ -569,8 +577,22 @@
         'paGetById',
         'paGetNoiNhanById',
         'commonUploadFiles',
-        'commonDownloadFile'
+        'commonDownloadFile',
+        'commonDownloadFileByType'
       ]),
+      download () {
+        this.commonDownloadFileByType({
+          requestId: this.PAData.requestId,
+          requestType: 'PHUONG_AN'
+        }).then()
+          .catch((e) => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Tải file',
+              text: `Tải file thất bại. ${e}`
+            })
+          })
+      },
       getNoiNhan () {
         const {
           requestId,

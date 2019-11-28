@@ -1,5 +1,13 @@
 <template>
   <vx-card title="Phiếu Kiểm Hỏng">
+    <template slot="actions">
+      <vs-button
+        v-show="PKHData.requestId"
+        @click="download()"
+        icon-pack="feather"
+        icon="icon-download">Tải về
+      </vs-button>
+    </template>
     <div class="table--container">
       <table class="invoice__table--content border-collapse">
         <tbody>
@@ -86,10 +94,10 @@
           <th class="p-2 border border-solid d-theme-border-grey-light">Công đoạn:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
-                size="small"
-                class="inputx"
-                @change="changeData('congDoan', $event.target.value)"
-                :value="PKHData.congDoan"/>
+              size="small"
+              class="inputx"
+              @change="changeData('congDoan', $event.target.value)"
+              :value="PKHData.congDoan"/>
           </td>
           <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
@@ -223,7 +231,8 @@
               @input="changeData('quanDocXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PKHData.quanDocXacNhan" class="chu-ky" :src="PKHData.quanDocDisable ? PKHData.quanDocSignImg : AppActiveUser.chuKy">
+            <img v-if="PKHData.quanDocXacNhan" class="chu-ky"
+                 :src="PKHData.quanDocDisable ? PKHData.quanDocSignImg : AppActiveUser.chuKy">
             <span v-if="PKHData.quanDocXacNhan">{{PKHData.quanDocDisable ? PKHData.quanDocfullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PKHData.quanDocDisable"
@@ -245,8 +254,10 @@
               @input="changeData('troLyKTXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PKHData.troLyKTXacNhan" class="chu-ky" :src="PKHData.troLyKTDisable ? PKHData.troLyKTSignImg : AppActiveUser.chuKy">
-            <span v-if="PKHData.troLyKTXacNhan">{{PKHData.troLyKTDisable ? PKHData.troLyfullName : AppActiveUser.name}}</span>
+            <img v-if="PKHData.troLyKTXacNhan" class="chu-ky"
+                 :src="PKHData.troLyKTDisable ? PKHData.troLyKTSignImg : AppActiveUser.chuKy">
+            <span
+              v-if="PKHData.troLyKTXacNhan">{{PKHData.troLyKTDisable ? PKHData.troLyfullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PKHData.troLyKTDisable"
               v-if="!PKHData.troLyKTXacNhan"
@@ -267,7 +278,8 @@
               @input="changeData('toTruongXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PKHData.toTruongXacNhan" class="chu-ky" :src="PKHData.toTruongDisable ? PKHData.toTruongSignImg : AppActiveUser.chuKy">
+            <img v-if="PKHData.toTruongXacNhan" class="chu-ky"
+                 :src="PKHData.toTruongDisable ? PKHData.toTruongSignImg : AppActiveUser.chuKy">
             <span v-if="PKHData.toTruongXacNhan">{{PKHData.toTruongDisable ? PKHData.toTruongfullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PKHData.toTruongDisable"
@@ -358,7 +370,21 @@
         'pkhGetNoiNhanById',
         'pkhGetPhanXuong',
         'pkhGetToSanXuatByPXId',
+        'commonDownloadFileByType',
       ]),
+      download () {
+        this.commonDownloadFileByType({
+          requestId: this.PKHData.requestId,
+          requestType: 'KIEM_HONG'
+        }).then()
+          .catch((e) => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Tải file',
+              text: `Tải file thất bại. ${e}`
+            })
+          })
+      },
       getNoiNhan () {
         const {
           requestId,
