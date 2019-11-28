@@ -137,7 +137,8 @@ const actions = {
   commonDownloadFileByType ({ commit }, data) {
     return new Promise((resolve, reject) => {
       upload.downloadFileByType(data).then(res => {
-        const { fileName } = data;
+        const { requestType } = data;
+        const fileName = `${requestType}_${(new Date()).getTime()}.xls`;
         const fileURL = window.URL.createObjectURL(new Blob([res.data]));
         const fileLink = document.createElement('a');
         fileLink.href = fileURL;
