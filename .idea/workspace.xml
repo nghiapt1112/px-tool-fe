@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2cb33378-037a-4769-9a9b-c3a5ffeacdef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/components/vx-sidebar/sidebarItems.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/LRVBD.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LRVBD.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/LVBD.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LVBD.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/VBD.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/VBD.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PCNTP.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PCNTP.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/TKTDSP.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="100" column="16" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
+            <state relative-caret-position="233">
+              <caret line="76" column="114" lean-forward="true" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="114" />
               <folding>
                 <element signature="e#5520#5566#0" expanded="true" />
               </folding>
@@ -51,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/Profile.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="70" column="57" lean-forward="true" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
+            <state relative-caret-position="1050">
+              <caret line="70" column="57" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -85,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/PCNTP.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="231" column="122" selection-start-line="231" selection-start-column="101" selection-end-line="231" selection-end-column="122" />
+            <state relative-caret-position="140">
+              <caret line="35" column="84" selection-start-line="35" selection-start-column="84" selection-end-line="35" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -140,7 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nơi nhận</find>
       <find>MAP_STATUS</find>
       <find>unreadNotifications</find>
       <find>TheNavbar</find>
@@ -170,6 +162,7 @@
       <find>value</find>
       <find>isCreate</find>
       <find>TKTDSPData</find>
+      <find>requestId</find>
     </findStrings>
     <replaceStrings>
       <replace>PKHComboboxData</replace>
@@ -218,7 +211,6 @@
         <option value="$PROJECT_DIR$/src/services/tktdsp.js" />
         <option value="$PROJECT_DIR$/src/views/CVCT.vue" />
         <option value="$PROJECT_DIR$/src/views/TKTDSP.vue" />
-        <option value="$PROJECT_DIR$/src/views/PCNTP.vue" />
         <option value="$PROJECT_DIR$/src/store/state.js" />
         <option value="$PROJECT_DIR$/src/views/PKH.vue" />
         <option value="$PROJECT_DIR$/src/services/vbd.js" />
@@ -230,6 +222,7 @@
         <option value="$PROJECT_DIR$/src/services/user.js" />
         <option value="$PROJECT_DIR$/src/store/actions.js" />
         <option value="$PROJECT_DIR$/src/views/Profile.vue" />
+        <option value="$PROJECT_DIR$/src/views/PCNTP.vue" />
       </list>
     </option>
   </component>
@@ -244,6 +237,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -338,8 +333,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -400,18 +393,19 @@
       <workItem from="1574649326281" duration="628000" />
       <workItem from="1574737885488" duration="9352000" />
       <workItem from="1574784355146" duration="15158000" />
-      <workItem from="1574864609904" duration="511000" />
+      <workItem from="1574864609904" duration="2048000" />
+      <workItem from="1574910004972" duration="920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209671000" />
+    <option name="totallyTimeSpent" value="212128000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="729" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26494345" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26898223" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -428,7 +422,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3579278" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3579278" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -748,13 +742,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/TKTDSP.vue">
+    <entry file="file://$PROJECT_DIR$/src/views/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="100" column="16" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
-          <folding>
-            <element signature="e#5520#5566#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1050">
+          <caret line="70" column="57" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -769,6 +760,13 @@
             <element signature="n#style#0;n#v-select#0;n#td#6;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
             <element signature="e#14249#14281#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="51" selection-start-column="25" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -809,24 +807,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Profile.vue">
+    <entry file="file://$PROJECT_DIR$/src/views/TKTDSP.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="70" column="57" lean-forward="true" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="51" selection-start-column="25" selection-end-column="51" />
+        <state relative-caret-position="233">
+          <caret line="76" column="114" lean-forward="true" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="114" />
+          <folding>
+            <element signature="e#5520#5566#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/PCNTP.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="231" column="122" selection-start-line="231" selection-start-column="101" selection-end-line="231" selection-end-column="122" />
+        <state relative-caret-position="140">
+          <caret line="35" column="84" selection-start-line="35" selection-start-column="84" selection-end-line="35" selection-end-column="84" />
         </state>
       </provider>
     </entry>

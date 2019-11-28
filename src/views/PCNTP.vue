@@ -30,13 +30,10 @@
           </td>
         </tr>
         <tr>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Số PA:</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">
+            <a class="link-download" target="_blank" :href="'/pa?id=' + PCNTPData.requestId">Số PA</a>
+          </th>
           <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input
-              size="small"
-              class="inputx"
-              @change="changeData('soPa', $event.target.value)"
-              :value="PCNTPData.soPa"/>
           </td>
         </tr>
         <tr>
