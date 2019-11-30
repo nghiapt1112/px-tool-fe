@@ -17,5 +17,14 @@ export const getNoiNhanById = (params) => {
 }
 
 export const getNguoiThucHien = () => {
-  return api.get('/req/noi-nhan');
+  return api.get('/req/nguoi-thuc-hien');
 }
+
+export const getCusNoiNhan = () => {
+  return api.get('/req/cus-noi-nhan');
+}
+
+export const getPAIdByDetailsIds = (payload) => {
+  return api.post('/pa/tao-pa', payload);
+}
+

@@ -295,7 +295,7 @@
           </th>
         </tr>
         <tr>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Chuyển tiếp</th>
           <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
             <v-select
               size="small"

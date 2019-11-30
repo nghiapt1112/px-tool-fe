@@ -447,6 +447,30 @@ const actions = {
     })
   },
 
+  paGetCusNoiNhan ({ commit }, payload) {
+    commit('PA_GET_CUS_NOI_NHAN');
+    return new Promise((resolve, reject) => {
+      pa.getCusNoiNhan(payload).then(res => {
+        const { data } = res;
+        commit('PA_GET_CUS_NOI_NHAN_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  paGetPAIdByDetailsIds ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      pa.getPAIdByDetailsIds(payload).then(res => {
+        const { data } = res;
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
   // ////////////////////////////////////////////
   // PCNTP
   // ////////////////////////////////////////////

@@ -369,8 +369,19 @@
           <td colspan="12" class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning"></td>
         </tr>
         <tr>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
+            <v-select
+              size="small"
+              label="name"
+              :multiple="true"
+              :reduce="t => t.id"
+              :value="PAData.cusReceivers"
+              @input="changeData('cusReceivers', $event)"
+              :options="PAComboboxData.cusNoiNhan"></v-select>
+          </td>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Người thực hiện</th>
-          <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light">
+          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
             <v-select
               size="small"
               label="name"
@@ -380,7 +391,18 @@
               @input="changeData('nguoiThucHien', $event)"
               :options="PAComboboxData.nguoiThucHien"></v-select>
           </td>
-          <th colspan="6" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+        </tr>
+        <tr>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
+          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-textarea
+              class="mb-0"
+              rows="4"
+              :value="PAData.cusNoiDung"
+              @change="changeData('cusNoiDung', $event.target.value)"/>
+          </td>
+          <th colspan="8" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
         </tbody>
         <tbody>
@@ -521,7 +543,7 @@
           </th>
         </tr>
         <tr>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Chuyển tiếp</th>
           <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light">
             <v-select
               size="small"
@@ -587,6 +609,7 @@
         this.getNoiNhan();
       });
       !id && this.resetData() && this.getNoiNhan();
+      this.paGetCusNoiNhan();
       this.paGetNguoiThucHien();
     },
     methods: {
@@ -598,7 +621,8 @@
         'commonUploadFiles',
         'commonDownloadFile',
         'commonDownloadFileByType',
-        'paGetNguoiThucHien'
+        'paGetCusNoiNhan',
+        'paGetNguoiThucHien',
       ]),
       download () {
         this.commonDownloadFileByType({

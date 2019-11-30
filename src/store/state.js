@@ -140,7 +140,8 @@ const state = {
         { id: 5, name: 'Khác' },
       ],
       chuyen: [],
-      nguoiThucHien: []
+      nguoiThucHien: [],
+      cusNoiNhan: [],
     }
   },
   pkh: {

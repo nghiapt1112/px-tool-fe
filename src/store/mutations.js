@@ -381,6 +381,14 @@ const mutations = {
     state.pa.comboboxData.nguoiThucHien = payload;
   },
 
+  PA_GET_CUS_NOI_NHAN (state) {
+    state.pa.comboboxData.cusNoiNhan = [];
+  },
+
+  PA_GET_CUS_NOI_NHAN_SUCCESS (state, payload) {
+    state.pa.comboboxData.cusNoiNhan = payload;
+  },
+
   // ////////////////////////////////////////////
   // PCNTP
   // ////////////////////////////////////////////

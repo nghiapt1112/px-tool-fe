@@ -2,10 +2,9 @@
   <vx-card title="Thống Kê Tiến Độ Sản Phẩm">
     <div class="table--container">
       <table class="invoice__table--content border-collapse">
-
         <tbody>
         <tr>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">Sản phẩm:</th>
+          <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">Sản phẩm:</th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <v-select
               size="small"
@@ -19,11 +18,12 @@
           <th colspan="11" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
         <tr>
-          <th colspan="17" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          <th colspan="18" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
         </tbody>
         <tbody>
         <tr>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TT</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tên phụ kiện</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tên linh kiện, chi tiết kiểm hỏng
@@ -46,6 +46,14 @@
         </tbody>
         <tbody>
         <tr :key="indextr" v-for="(tr, indextr) in TKTDSPData.details">
+          <td class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              v-model="paIds[indextr]"
+            ></vs-checkbox>
+          </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ indextr + 1 }}
           </td>
@@ -101,7 +109,10 @@
         </tbody>
       </table>
     </div>
-    <div class="vx-row no-gutter justify-end mt-5">
+    <div class="vx-row no-gutter justify-state mt-5">
+      <div class="vx-col lg:w-1/2">
+        <vs-button :disabled="!enableTaoPA" @click="onCreatePA">Tạo Phương Án</vs-button>
+      </div>
       <div class="vx-col">
         <vs-pagination
           :total="TKTDSPData.total"
@@ -126,6 +137,7 @@
         mdsd: null,
         showError: false,
         page: 1,
+        paIds: []
       }
     },
     computed: {
@@ -133,7 +145,12 @@
         'TKTDSPData',
         'TKTDSPComboboxData',
         'AppActiveUser'
-      ])
+      ]),
+      enableTaoPA: {
+        get () {
+          return this.paIds.includes(true);
+        }
+      }
     },
     mounted () {
       this.tktdspGetListMDSD();
@@ -141,7 +158,8 @@
     methods: {
       ...mapActions([
         'tktdspGetListMDSD',
-        'tktdspGetList'
+        'tktdspGetList',
+        'paGetPAIdByDetailsIds'
       ]),
       getList () {
         const params = {
@@ -151,6 +169,26 @@
         };
         this.tktdspGetList(params);
       },
+      onCreatePA () {
+        const detailIds = [];
+        this.paIds.forEach((val, key) => {
+          val && detailIds.push(this.TKTDSPData.details[key].detailId || -1);
+        });
+        if (detailIds.length) {
+          this.paGetPAIdByDetailsIds({ detailIds })
+            .then(res => {
+              const { data: { paId } } = res;
+              paId && this.$router.push(`/pa?id=${paId}`);
+            })
+            .catch(e => {
+              this.$vs.notify({
+                color: 'danger',
+                title: 'Thống Kê Tiến Độ Sản Phẩm',
+                text: `Không lấy được thông tin phương án. ${e}`
+              })
+            })
+        }
+      }
     }
   }
 </script>
