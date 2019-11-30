@@ -434,6 +434,19 @@ const actions = {
     })
   },
 
+  paGetNguoiThucHien ({ commit }, payload) {
+    commit('PA_GET_NGUOI_THUC_HIEN')
+    return new Promise((resolve, reject) => {
+      pa.getNguoiThucHien(payload).then(res => {
+        const { data } = res;
+        commit('PA_GET_NGUOI_THUC_HIEN_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
   // ////////////////////////////////////////////
   // PCNTP
   // ////////////////////////////////////////////

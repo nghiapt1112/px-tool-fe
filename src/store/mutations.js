@@ -373,6 +373,14 @@ const mutations = {
     state.pa.comboboxData.chuyen = payload;
   },
 
+  PA_GET_NGUOI_THUC_HIEN (state) {
+    state.pa.comboboxData.nguoiThucHien = [];
+  },
+
+  PA_GET_NGUOI_THUC_HIEN_SUCCESS (state, payload) {
+    state.pa.comboboxData.nguoiThucHien = payload;
+  },
+
   // ////////////////////////////////////////////
   // PCNTP
   // ////////////////////////////////////////////
