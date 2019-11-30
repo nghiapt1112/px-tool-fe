@@ -108,7 +108,7 @@
               icon="icon-check"
               class="input-inline"
               :value="PAData.giamDocXacNhan"
-              @input="changeData('giamDocXacNhan', $event)"
+              @input="changeData('giamDocXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PAData.giamDocXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
@@ -620,13 +620,15 @@
           truongPhongKeHoachXacNhan: tpKeHoach,
           truongPhongVatTuXacNhan: tpVatTu,
           nguoiLapXacNhan: nguoiLap,
+          giamDocXacNhan: giamDoc,
         } = this.PAData;
         const params = {
           requestId,
           tpKTHK,
           tpKeHoach,
           tpVatTu,
-          nguoiLap
+          nguoiLap,
+          giamDoc
         };
         this.paGetNoiNhanById(params);
       },

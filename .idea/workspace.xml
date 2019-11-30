@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb33378-037a-4769-9a9b-c3a5ffeacdef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/pa.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/pa.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/state.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/PA.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PA.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -113,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/src/views/PA.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
-              <caret line="646" column="37" selection-start-line="646" selection-start-column="37" selection-end-line="646" selection-end-column="37" />
+              <caret line="113" column="44" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="44" />
               <folding>
                 <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
@@ -140,7 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>VBD</find>
       <find>openDeleteConfirm</find>
       <find>VBD_GET_LIST_</find>
       <find>vb</find>
@@ -170,6 +164,7 @@
       <find>pa</find>
       <find>PA_GET_NOI_NHAN_BY_ID_SUCCESS</find>
       <find>nguoithuc</find>
+      <find>giamDocXacNhan</find>
     </findStrings>
     <replaceStrings>
       <replace>PKHComboboxData</replace>
@@ -403,12 +398,12 @@
       <workItem from="1574864609904" duration="2048000" />
       <workItem from="1574910004972" duration="6640000" />
       <workItem from="1574952167146" duration="3897000" />
-      <workItem from="1575102084361" duration="1128000" />
+      <workItem from="1575102084361" duration="1705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222873000" />
+    <option name="totallyTimeSpent" value="223450000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="729" extended-state="0" />
@@ -813,7 +808,7 @@
     <entry file="file://$PROJECT_DIR$/src/views/PA.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
-          <caret line="646" column="37" selection-start-line="646" selection-start-column="37" selection-end-line="646" selection-end-column="37" />
+          <caret line="113" column="44" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="44" />
           <folding>
             <element signature="n#style#0;n#vs-input#0;n#td#1;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#vs-input#0;n#td#2;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#vx-card#0;n#template#0;n#!!top" expanded="true" />
