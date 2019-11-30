@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cb33378-037a-4769-9a9b-c3a5ffeacdef" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/src/views/PA.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PA.vue" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/pages/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/pages/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/Login.vue" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +21,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+<<<<<<< Updated upstream
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -337,18 +346,26 @@
       </pane>
     </panes>
   </component>
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1UJakxTgg5SB5gGjfbUVmmnxptl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+>>>>>>> Stashed changes
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/images/pages" />
       <recent name="$PROJECT_DIR$/src/views" />
       <recent name="$PROJECT_DIR$/src/services" />
       <recent name="$PROJECT_DIR$/src/assets/images/logo" />
@@ -397,6 +414,7 @@
       <workItem from="1574784355146" duration="15158000" />
       <workItem from="1574864609904" duration="2048000" />
       <workItem from="1574910004972" duration="6640000" />
+<<<<<<< Updated upstream
       <workItem from="1574952167146" duration="3897000" />
       <workItem from="1575102084361" duration="1705000" />
     </task>
@@ -440,20 +458,46 @@
       <window_info anchor="right" id="Database" order="8" />
     </layout>
   </component>
+=======
+      <workItem from="1574952167146" duration="750000" />
+      <workItem from="1575077306912" duration="783000" />
+      <workItem from="1575099260838" duration="599000" />
+    </task>
+    <servers />
+  </component>
+>>>>>>> Stashed changes
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/store/state.js</url>
+<<<<<<< Updated upstream
           <line>146</line>
+=======
+          <line>266</line>
+>>>>>>> Stashed changes
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
+<<<<<<< Updated upstream
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/favicon.ico">
       <provider selected="true" editor-type-id="images" />
@@ -831,4 +875,6 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> Stashed changes
 </project>

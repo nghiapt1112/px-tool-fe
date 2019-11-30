@@ -21,7 +21,7 @@
               <form v-on:submit.prevent="login">
                 <div class="p-8">
                   <div class="vx-card__title mb-8">
-                    <h4 class="mb-4">Đăng Nhập</h4>
+                    <h4 class="mb-4">Phương Án Số</h4>
                     <p>Hãy đăng nhập để sử dụng hệ thống.</p>
                   </div>
                   <vs-input
