@@ -17,3 +17,7 @@ export const update = (payload) => {
 export const getNoiNhanById = (params) => {
   return api.get('/req/noi-nhan', { params });
 }
+
+export const getNguoiLam = () => {
+  return api.get('/req/cntp/nguoi-lam');
+}

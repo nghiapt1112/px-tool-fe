@@ -280,7 +280,8 @@ const state = {
         { id: 5, name: 'Khác' },
       ],
       noi_nhan: [],
-      chuyen: []
+      chuyen: [],
+      nguoiLam: [],
     }
   },
   vbd: {

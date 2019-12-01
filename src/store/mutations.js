@@ -434,6 +434,14 @@ const mutations = {
     state.pcntp.comboboxData.chuyen = payload;
   },
 
+  PCNTP_GET_NGUOI_LAM (state) {
+    state.pcntp.comboboxData.nguoiLam = [];
+  },
+
+  PCNTP_GET_NGUOI_LAM_SUCCESS (state, payload) {
+    state.pcntp.comboboxData.nguoiLam = payload;
+  },
+
   // ////////////////////////////////////////////
   // VBD
   // ////////////////////////////////////////////

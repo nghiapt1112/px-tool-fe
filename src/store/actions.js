@@ -517,6 +517,19 @@ const actions = {
     })
   },
 
+  pcntpGetNguoiLam ({ commit }) {
+    commit('PCNTP_GET_NGUOI_LAM');
+    return new Promise((resolve, reject) => {
+      pcntp.getNguoiLam().then(res => {
+        const { data } = res;
+        commit('PCNTP_GET_NGUOI_LAM_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
   // ////////////////////////////////////////////
   // VBN
   // ////////////////////////////////////////////

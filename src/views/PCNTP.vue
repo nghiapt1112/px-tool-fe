@@ -13,13 +13,13 @@
         <tbody>
         <tr>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"><strong>Nhà máy A41</strong></td>
-          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center">
+          <th colspan="6" class="p-2 border border-solid d-theme-border-grey-light text-center">
             PHIẾU CÔNG NHẬN THÀNH PHẨM
           </th>
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Tên sản phẩm:</th>
-          <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light">
+          <td colspan="6" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               size="small"
               class="inputx"
@@ -29,7 +29,7 @@
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung:</th>
-          <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light">
+          <td colspan="6" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               size="small"
               class="inputx"
@@ -41,7 +41,7 @@
           <th class="p-2 border border-solid d-theme-border-grey-light">
             <a class="link-download" target="_blank" :href="'/pa?id=' + PCNTPData.requestId">Số PA</a>
           </th>
-          <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light">
+          <td colspan="6" class="p-2 border border-solid d-theme-border-grey-light">
           </td>
         </tr>
         <tr>
@@ -54,7 +54,7 @@
               :value="PCNTPData.donViThucHien"/>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Tổ:</th>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               size="small"
               class="inputx"
@@ -80,7 +80,7 @@
               :value="PCNTPData.soLuong"/>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">ĐVT:</th>
-          <td class="p-2 border border-solid d-theme-border-grey-light">
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               size="small"
               class="inputx"
@@ -90,7 +90,7 @@
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Số nghiệm thu được:</th>
-          <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light">
+          <td colspan="6" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               size="small"
               class="inputx"
@@ -102,7 +102,7 @@
 
         <tbody>
         <tr>
-          <td colspan="6" class="p-2 border border-solid d-theme-border-grey-light">&nbsp;</td>
+          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">&nbsp;</td>
         </tr>
         </tbody>
 
@@ -113,6 +113,7 @@
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Kết quả</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Người làm</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Nghiệm thu</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Xác Nhận</th>
         </tr>
         </tbody>
 
@@ -145,11 +146,13 @@
               @change="changeDetailItem(indextr, 'ketQua', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-right">
-            <vs-input
+            <v-select
               size="small"
-              class="inputx"
+              label="name"
+              :reduce="t => t.id"
               :value="tr.nguoiLam"
-              @change="changeDetailItem(indextr, 'nguoiLam', $event.target.value)"/>
+              @input="changeDetailItem(indextr, 'nguoiLam', $event)"
+              :options="PCNTPComboboxData.nguoiLam"></v-select>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
@@ -158,9 +161,26 @@
               :value="tr.nghiemThu"
               @change="changeDetailItem(indextr, 'nghiemThu', $event.target.value)"/>
           </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light">
+            <div class="chu-ky-row-container">
+              <vs-checkbox
+                icon-pack="feather"
+                icon="icon-check"
+                class="input-inline"
+                :disabled="tr.signImg"
+                :value="tr.xacNhan"
+                @input="changeDetailItem(indextr, 'xacNhan', $event)"
+              >Đồng Ý
+              </vs-checkbox>
+              <img
+                v-if="tr.xacNhan"
+                class="chu-ky-row"
+                :src="tr.signImg || AppActiveUser.chuKy">
+            </div>
+          </td>
         </tr>
         <tr>
-          <td colspan="6" class="p-2 border border-solid d-theme-border-grey-light">
+          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-button
               color="success"
               size="small"
@@ -201,6 +221,7 @@
               :value="PCNTPData.dong"
             />
           </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         </tbody>
 
@@ -212,7 +233,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
@@ -220,6 +241,7 @@
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI THỰC HIỆN</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP.KCS</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Ý Kiến TP.KCS</th>
+          <td class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         <tr class="row--chu-ky">
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
@@ -233,7 +255,8 @@
               @input="changeData('nguoiGiaoViecXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PCNTPData.nguoiGiaoViecXacNhan" class="chu-ky" :src="PCNTPData.nguoiGiaoViecDisable ? PCNTPData.nguoiGiaoViecSignImg : AppActiveUser.chuKy">
+            <img v-if="PCNTPData.nguoiGiaoViecXacNhan" class="chu-ky"
+                 :src="PCNTPData.nguoiGiaoViecDisable ? PCNTPData.nguoiGiaoViecSignImg : AppActiveUser.chuKy">
             <span v-if="PCNTPData.nguoiGiaoViecXacNhan">{{PCNTPData.nguoiGiaoViecDisable ? PCNTPData.nguoiGiaoViecFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PCNTPData.nguoiGiaoViecDisable"
@@ -254,7 +277,8 @@
               @input="changeData('nguoiThucHienXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PCNTPData.nguoiThucHienXacNhan" class="chu-ky" :src="PCNTPData.nguoiThucHienDisable ? PCNTPData.nguoiThucHienSignImg : AppActiveUser.chuKy">
+            <img v-if="PCNTPData.nguoiThucHienXacNhan" class="chu-ky"
+                 :src="PCNTPData.nguoiThucHienDisable ? PCNTPData.nguoiThucHienSignImg : AppActiveUser.chuKy">
             <span v-if="PCNTPData.nguoiThucHienXacNhan">{{PCNTPData.nguoiThucHienDisable ? PCNTPData.nguoiThucHienFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PCNTPData.nguoiThucHienDisable"
@@ -275,7 +299,8 @@
               @input="changeData('tpkcsXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PCNTPData.tpkcsXacNhan" class="chu-ky" :src="PCNTPData.tpkcsDisable ? PCNTPData.tpkcsSignImg : AppActiveUser.chuKy">
+            <img v-if="PCNTPData.tpkcsXacNhan" class="chu-ky"
+                 :src="PCNTPData.tpkcsDisable ? PCNTPData.tpkcsSignImg : AppActiveUser.chuKy">
             <span v-if="PCNTPData.tpkcsXacNhan">{{PCNTPData.tpkcsDisable ? PCNTPData.tpkcsFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PCNTPData.tpkcsDisable"
@@ -293,6 +318,7 @@
               :value="PCNTPData.yKienTpkcsXacNhan"
               @change="changeData('yKienTpkcsXacNhan', $event.target.value)"/>
           </th>
+          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Chuyển tiếp</th>
@@ -307,7 +333,7 @@
               @search:focus="isNoiNhanShowDropdownList = true"
               :options="PCNTPComboboxData.chuyen"></v-select>
           </td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
         <tr :class="{'last-row' : isNoiNhanShowDropdownList}">
           <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -350,6 +376,7 @@
         this.getNoiNhan();
       });
       !id && this.resetData() && this.getNoiNhan();
+      this.pcntpGetNguoiLam();
     },
     methods: {
       ...mapActions([
@@ -357,7 +384,8 @@
         'pcntpSaveData',
         'pcntpGetById',
         'pcntpGetNoiNhanById',
-        'commonDownloadFileByType'
+        'commonDownloadFileByType',
+        'pcntpGetNguoiLam'
       ]),
       download () {
         this.commonDownloadFileByType({
@@ -466,6 +494,24 @@
       &:nth-child(1) {
         min-width: 150px;
       }
+      &:nth-child(5) {
+        min-width: 250px;
+      }
+      &:last-child {
+        min-width: 200px;
+      }
     }
+  }
+
+  .chu-ky-row-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .chu-ky-row {
+    height: 22px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 </style>

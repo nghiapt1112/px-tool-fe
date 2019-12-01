@@ -142,7 +142,7 @@
               size="small"
               label="ten"
               :value="tr.mucDichSuDung"
-               :reduce="t => t.mdId"
+              :reduce="t => t.mdId"
               @input="changeDetailItemMDSD(indextr, 'mucDichSuDung', $event)"
               :options="optionsMDSD">
                 <template slot="option" slot-scope="option">
