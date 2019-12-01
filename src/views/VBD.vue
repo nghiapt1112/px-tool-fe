@@ -27,10 +27,8 @@
           />
         </div>
       </div>
-      <div
-        class="vx-row mb-6"
-        v-if="isCreate">
-        <div class="vx-col w-full">
+      <div class="vx-row mb-6">
+        <div class="vx-col w-full" v-if="isCreate">
           <input ref="fileInput" style="display: none" type="file" multiple @change="selectFiles($event)">
           <vx-input-group class="w-1/2">
             <template slot="prepend">
