@@ -48,6 +48,7 @@
         <tr :key="indextr" v-for="(tr, indextr) in TKTDSPData.details">
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-checkbox
+              v-show="!tr.soPA"
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"

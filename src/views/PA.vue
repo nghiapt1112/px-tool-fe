@@ -366,7 +366,13 @@
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Tiền lương (tiền công)
           </th>
-          <td colspan="12" class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning"></td>
+          <td colspan="12" class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning">
+            <vs-input
+              type = "number"
+              :value="PAData.tienLuong"
+              @change="changeData('tienLuong', $event.target.value)"/>
+
+          </td>
         </tr>
         <tr>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
@@ -645,6 +651,7 @@
           truongPhongVatTuXacNhan: tpVatTu,
           nguoiLapXacNhan: nguoiLap,
           giamDocXacNhan: giamDoc,
+          type = 'PHUONG_AN'
         } = this.PAData;
         const params = {
           requestId,
@@ -652,7 +659,8 @@
           tpKeHoach,
           tpVatTu,
           nguoiLap,
-          giamDoc
+          giamDoc,
+          type
         };
         this.paGetNoiNhanById(params);
       },

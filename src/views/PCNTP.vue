@@ -378,12 +378,14 @@
           nguoiGiaoViecXacNhan: nguoiGiaoViec,
           nguoiThucHienXacNhan: nguoiThucHien,
           tpkcsXacNhan: tpKCS,
+          type = 'CONG_NHAN_THANH_PHAM'
         } = this.PCNTPData;
         const params = {
           requestId,
           nguoiGiaoViec,
           nguoiThucHien,
           tpKCS,
+          type
         };
         this.pcntpGetNoiNhanById(params);
       },
