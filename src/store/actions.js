@@ -629,6 +629,74 @@ const actions = {
       })
     })
   },
+
+  // ////////////////////////////////////////////
+  // ND
+  // ////////////////////////////////////////////
+
+  ndUpdateData ({ commit }, data) {
+    commit('ND_UPDATE_DATA', data)
+  },
+
+  ndGetList ({ commit }, payload) {
+    commit('ND_GET_LIST')
+    return new Promise((resolve, reject) => {
+      user.getList(payload).then(res => {
+        const { data } = res;
+        commit('ND_GET_LIST_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('ND_GET_LIST_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
+  ndGetLevel ({ commit }) {
+    commit('ND_GET_LEVEL')
+    return new Promise((resolve, reject) => {
+      user.getLevel().then(res => {
+        const { data } = res;
+        commit('ND_GET_LEVEL_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  ndGetPhongBan ({ commit }) {
+    commit('ND_GET_PHONG_BAN')
+    return new Promise((resolve, reject) => {
+      user.getPhongBan().then(res => {
+        const { data } = res;
+        commit('ND_GET_PHONG_BAN_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  ndSaveData ({ commit }, data) {
+    return new Promise((resolve, reject) => {
+      user.create(data).then(res => {
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  ndDeleteUser ({ commit }, data) {
+    return new Promise((resolve, reject) => {
+      user.deleteUser(data).then(res => {
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
 }
 
 export default actions

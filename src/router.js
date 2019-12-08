@@ -100,6 +100,21 @@ const router = new Router({
             name: 'profile',
             component: () => import('./views/Profile.vue')
           },
+          {
+            path: '/nd',
+            name: 'nd',
+            component: () => import('./views/Accounts.vue')
+          },
+          {
+            path: '/nd/edit',
+            name: 'editND',
+            component: () => import('./views/CreateAccount.vue')
+          },
+          {
+            path: '/nd/new',
+            name: 'createND',
+            component: () => import('./views/CreateAccount.vue')
+          },
         ],
       },
     // =============================================================================

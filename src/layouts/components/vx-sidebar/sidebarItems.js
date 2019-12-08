@@ -74,4 +74,10 @@ export default [
     slug: "tktdsp",
     icon: "ActivityIcon",
   },
+  {
+    url: "/nd",
+    name: "Người Dùng",
+    slug: "nd",
+    icon: "UserIcon",
+  },
 ]

@@ -62,7 +62,7 @@
           const reader = new FileReader();
           reader.readAsDataURL(files[0]);
           reader.onload = () => {
-            this.file = reader.result;
+            this.imgBase64 = reader.result;
           };
           reader.onerror = error => console.log(error);
         }

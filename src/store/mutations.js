@@ -518,7 +518,46 @@ const mutations = {
     state.vbd.error = e;
     state.vbd.loading = false;
   },
+  
+  // ////////////////////////////////////////////
+  // ND
+  // ////////////////////////////////////////////
 
+  ND_GET_LIST (state) {
+    state.nd.error = null;
+    state.vbd.loading = true;
+  },
+
+  ND_GET_LIST_SUCCESS (state, payload) {
+    state.nd.error = null;
+    state.nd.loading = false;
+    state.nd.list = payload
+  },
+
+  ND_GET_LIST_FAILURE (state, e) {
+    state.nd.error = e;
+    state.nd.loading = false;
+  },
+
+  ND_GET_LEVEL (state) {
+    state.nd.comboboxData.level = [];
+  },
+
+  ND_GET_LEVEL_SUCCESS (state, payload) {
+    state.nd.comboboxData.level = payload;
+  },
+
+  ND_GET_PHONG_BAN (state) {
+    state.nd.comboboxData.phongBan = [];
+  },
+
+  ND_GET_PHONG_BAN_SUCCESS (state, payload) {
+    state.nd.comboboxData.phongBan = payload;
+  },
+
+  ND_UPDATE_DATA (state, data) {
+    state.nd.data = data;
+  },
 }
 
 export default mutations

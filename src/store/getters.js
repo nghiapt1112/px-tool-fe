@@ -32,6 +32,11 @@ const getters = {
   VBDList: (state) => state.vbd.list,
   VBDListReceive: (state) => state.vbd.listReceive,
   VBDComboboxData: (state) => state.vbd.comboboxData,
+
+  // ND
+  NDData: (state) => state.nd.data,
+  NDList: (state) => state.nd.list,
+  NDComboboxData: (state) => state.nd.comboboxData,
 }
 
 export default getters

@@ -306,6 +306,19 @@ const state = {
       noi_nhan: [],
       chuyen: []
     }
+  },
+  nd: {
+    list: {
+      details: [],
+      total: 0,
+      page: 1,
+      size: 15
+    },
+    data: {},
+    comboboxData: {
+      level: [],
+      phongBan: []
+    }
   }
 };
 
