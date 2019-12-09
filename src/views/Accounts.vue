@@ -30,7 +30,7 @@
             {{ tr.phongBan }}
           </td>
 
-           <td class="p-2 border border-solid d-theme-border-grey-light">
+          <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.Level }}
           </td>
 
@@ -81,7 +81,7 @@
         this.ndGetList(params);
       },
       onDetailClick (user) {
-        const {userId} = user;
+        const { userId } = user;
         this.ndUpdateData(user);
         this.$router.push(`/nd/edit?id=${userId}`);
       },
@@ -128,6 +128,7 @@
 
   .works__table--content {
     width: 100%;
+
     td {
       &:nth-child(1) {
         width: 50px;

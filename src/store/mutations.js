@@ -93,20 +93,20 @@ const mutations = {
   // COMMON
   // ////////////////////////////////////////////
 
-  COMMON_UPLOAD_FILES (state) {
+  COMMON_UPLOAD_FILES () {
   },
 
-  COMMON_UPLOAD_FILES_SUCCESS (state) {
+  COMMON_UPLOAD_FILES_SUCCESS () {
   },
 
-  COMMON_UPLOAD_FILES_FAILURE (state) {
+  COMMON_UPLOAD_FILES_FAILURE () {
   },
 
   // ////////////////////////////////////////////
   // NOTIFICATION
   // ////////////////////////////////////////////
 
-  NOTIFICATION_GET_NOTIFICATION_SUCCESS(state, payload) {
+  NOTIFICATION_GET_NOTIFICATION_SUCCESS (state, payload) {
     state.unreadNotifications = payload;
   },
 
@@ -518,7 +518,7 @@ const mutations = {
     state.vbd.error = e;
     state.vbd.loading = false;
   },
-  
+
   // ////////////////////////////////////////////
   // ND
   // ////////////////////////////////////////////

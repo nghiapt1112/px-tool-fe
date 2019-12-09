@@ -4,10 +4,10 @@
       <div class="vx-row mb-6">
         <div class="vx-col w-1/2">
           <vs-input
-          class="w-full"
-          label="Account"
-          @change="changeData('email', $event.target.value)"
-          :value="NDData.email"/>
+            class="w-full"
+            label="Account"
+            @change="changeData('email', $event.target.value)"
+            :value="NDData.email"/>
         </div>
         <div class="vx-col w-1/2">
           <label class="vs-input--label">Level</label>
@@ -24,10 +24,10 @@
       <div class="vx-row mb-6">
         <div class="vx-col w-1/2">
           <vs-input
-          class="w-full"
-          label="Họ và tên"
-          @change="changeData('fullName', $event.target.value)"
-          :value="NDData.fullName"/>
+            class="w-full"
+            label="Họ và tên"
+            @change="changeData('fullName', $event.target.value)"
+            :value="NDData.fullName"/>
         </div>
         <div class="vx-col w-1/2">
           <label class="vs-input--label">Phòng ban</label>
@@ -44,15 +44,15 @@
       <div class="vx-row mb-6">
         <div class="vx-col w-1/2">
           <vs-input
-          class="w-full"
-          type="password"
-          label="Mật khẩu"
-          v-model="password"/>
+            class="w-full"
+            type="password"
+            label="Mật khẩu"
+            v-model="password"/>
         </div>
       </div>
       <div class="vx-row mb-6">
         <div class="vx-col w-full">
-           <vs-input
+          <vs-input
             type="file"
             class="w-1/2"
             label="Chữ ký"
@@ -156,21 +156,21 @@
         data.imgBase64 = this.imgBase64 || this.NDData.signImg;
         data.password = this.password || null;
         this.ndSaveData(data)
-        .then(() => {
-          this.$vs.notify({
+          .then(() => {
+            this.$vs.notify({
               color: 'success',
               title: 'Thêm Mới Người Dùng',
               text: `Thêm Mới Người Dùng thành công.`
             });
             this.$router.push(`/nd`);
-        })
-        .catch((e)=> {
-           this.$vs.notify({
-            color: 'danger',
-            title: 'Thêm Mới Người Dùng',
-            text: `Thêm Mới Người Dùng thất bại. ${e}`
           })
-        })
+          .catch((e) => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Thêm Mới Người Dùng',
+              text: `Thêm Mới Người Dùng thất bại. ${e}`
+            })
+          })
       },
       openDeleteConfirm () {
         this.$vs.dialog({
@@ -183,21 +183,21 @@
       },
       acceptDelete () {
         this.ndDeleteUser(this.userId)
-        .then(() => {
-          this.$vs.notify({
+          .then(() => {
+            this.$vs.notify({
               color: 'success',
               title: 'Xóa Người Dùng',
               text: `Xóa Người Dùng thành công.`
             });
             this.$router.push(`/nd`);
-        })
-        .catch((e)=> {
-          this.$vs.notify({
-            color: 'danger',
-            title: 'Xóa Người Dùng',
-            text: `Xóa Người Dùng thất bại. ${e}`
           })
-        })
+          .catch((e) => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Xóa Người Dùng',
+              text: `Xóa Người Dùng thất bại. ${e}`
+            })
+          })
       },
     }
   }

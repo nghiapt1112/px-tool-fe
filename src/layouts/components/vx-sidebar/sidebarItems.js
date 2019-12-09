@@ -75,9 +75,16 @@ export default [
     icon: "ActivityIcon",
   },
   {
-    url: "/nd",
-    name: "Người Dùng",
-    slug: "nd",
-    icon: "UserIcon",
+    url: null,
+    name: "Hệ Thống",
+    icon: "SettingsIcon",
+    submenu: [
+      {
+        url: "/nd",
+        name: "Người Dùng",
+        slug: "nd",
+        icon: "UserIcon",
+      }
+    ]
   },
 ]

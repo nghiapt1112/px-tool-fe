@@ -380,6 +380,7 @@
             <v-select
               size="small"
               label="name"
+              :closeOnSelect="false"
               :multiple="true"
               :reduce="t => t.id"
               :value="PAData.cusReceivers"
@@ -391,6 +392,7 @@
             <v-select
               size="small"
               label="name"
+              :closeOnSelect="false"
               :multiple="true"
               :reduce="t => t.id"
               :value="PAData.nguoiThucHien"
