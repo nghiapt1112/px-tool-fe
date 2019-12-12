@@ -76,13 +76,19 @@ export default [
   },
   {
     url: null,
-    name: "Hệ Thống",
+    name: "Cài đặt",
     icon: "SettingsIcon",
     submenu: [
       {
         url: "/nd",
         name: "Người Dùng",
         slug: "nd",
+        icon: "UserIcon",
+      },
+      {
+        url: "/dmdc",
+        name: "Danh Mục Chung",
+        slug: "dmdc",
         icon: "UserIcon",
       }
     ]

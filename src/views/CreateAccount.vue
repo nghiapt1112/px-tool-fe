@@ -34,10 +34,10 @@
           <v-select
             size="small"
             label="name"
-            @input="changeData('phongBanId', $event)"
+            @input="changeData('phanXuong', $event)"
             :reduce="t => t.phongBanId"
             :options="NDComboboxData.phongBan"
-            :value="NDData.phongBanId"
+            :value="NDData.phanXuong"
           ></v-select>
         </div>
       </div>
@@ -46,6 +46,7 @@
           <vs-input
             class="w-full"
             type="password"
+            autocomplete="new-password"
             label="Mật khẩu"
             v-model="password"/>
         </div>
@@ -117,6 +118,7 @@
     mounted () {
       const { query: { id } } = this.$route;
       this.userId = id;
+      id && this.ndGetById(id);
       this.ndGetLevel();
       this.ndGetPhongBan();
     },
@@ -126,7 +128,8 @@
         'ndGetPhongBan',
         'ndUpdateData',
         'ndSaveData',
-        'ndDeleteUser'
+        'ndDeleteUser',
+        'ndGetById'
       ]),
       resetData () {
         const data = {

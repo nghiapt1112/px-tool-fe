@@ -53,7 +53,6 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex';
-
   export default {
     data () {
       return {
@@ -124,7 +123,7 @@
   .works__table--content {
     width: 100%;
 
-    td {
+    td, th {
       &:nth-child(3) {
         width: 200px;
       }

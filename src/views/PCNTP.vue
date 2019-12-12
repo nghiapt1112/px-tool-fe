@@ -490,7 +490,7 @@
   }
 
   .invoice__table--content {
-    td {
+    td, th {
       &:nth-child(1) {
         min-width: 150px;
       }

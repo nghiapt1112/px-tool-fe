@@ -20,6 +20,10 @@ export const getList = (payload) => {
   return api.get('/users', { params: payload })
 }
 
+export const getUserById = (userId) => {
+  return api.get('/users/detail', { params: { userId: userId } })
+}
+
 export const getLevel = () => {
   return api.get('/users/roles')
 }

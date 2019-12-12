@@ -27,11 +27,11 @@
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            {{ tr.phongBan }}
+            {{ tr.phanXuong }}
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            {{ tr.Level }}
+            {{ tr.level }}
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -70,8 +70,7 @@
     },
     methods: {
       ...mapActions([
-        'ndGetList',
-        'ndUpdateData'
+        'ndGetList'
       ]),
       onChangePage () {
         const params = {
@@ -82,7 +81,6 @@
       },
       onDetailClick (user) {
         const { userId } = user;
-        this.ndUpdateData(user);
         this.$router.push(`/nd/edit?id=${userId}`);
       },
       openDeleteConfirm (id) {

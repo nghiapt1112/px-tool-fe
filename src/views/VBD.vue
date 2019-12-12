@@ -184,7 +184,7 @@
   .invoice__table--content {
     min-width: 1268px;
 
-    td {
+    td, th {
       &:nth-child(1), &:nth-child(5) {
         min-width: 100px;
       }

@@ -7,6 +7,7 @@ import * as pcntp from '../services/pcntp';
 import * as cvct from '../services/cvct';
 import * as tktdsp from '../services/tktdsp';
 import * as vbd from '../services/vbd';
+import * as dmdc from '../services/dmdc';
 import * as dashboard from '../services/dashboard';
 import * as upload from '../services/upload';
 import { setToken } from '../services/api';
@@ -568,7 +569,6 @@ const actions = {
   vbdDeleteById ({ commit }, vbdId) {
     return new Promise((resolve, reject) => {
       vbd.deleteById(vbdId).then(res => {
-        const { data } = res;
         resolve(res)
       }).catch(e => {
         reject(e)
@@ -652,6 +652,19 @@ const actions = {
     })
   },
 
+  ndGetById ({ commit }, userId) {
+    return new Promise((resolve, reject) => {
+      user.getUserById(userId).then(res => {
+        const { data } = res;
+        commit('ND_GET_BY_ID_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('ND_GET_BY_ID_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
+
   ndGetLevel ({ commit }) {
     commit('ND_GET_LEVEL')
     return new Promise((resolve, reject) => {
@@ -697,6 +710,46 @@ const actions = {
       })
     })
   },
+
+  // ////////////////////////////////////////////
+  // DMDC
+  // ////////////////////////////////////////////
+
+  dmdcGetListMDSD ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      dmdc.getListMDSD(payload).then(res => {
+        const { data } = res;
+        commit('DMDC_GET_LIST_MDSD_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+  dmdcUpdateMDSD ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      dmdc.updateMDSD(payload).then(res => {
+        const { data } = res;
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+  dmdcGetListThuMuc ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      dmdc.getListThuMuc(payload).then(res => {
+        const { data } = res;
+        commit('DMDC_GET_LIST_THU_MUC_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+  dmsdUpdateEditMode ({ commit }, payload) {
+    commit('DMSD_UPDATE_EDIT_MODE', payload)
+  }
 }
 
 export default actions

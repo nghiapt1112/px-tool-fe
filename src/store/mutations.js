@@ -539,6 +539,16 @@ const mutations = {
     state.nd.loading = false;
   },
 
+  ND_GET_BY_ID_SUCCESS (state, payload) {
+    state.nd.error = null;
+    state.nd.data = payload;
+  },
+
+  ND_GET_BY_ID_FAILURE (state, e) {
+    state.nd.error = e;
+    state.nd.data = {};
+  },
+
   ND_GET_LEVEL (state) {
     state.nd.comboboxData.level = [];
   },
@@ -558,6 +568,23 @@ const mutations = {
   ND_UPDATE_DATA (state, data) {
     state.nd.data = data;
   },
+
+  // ////////////////////////////////////////////
+  // DMDC
+  // ////////////////////////////////////////////
+
+  DMDC_GET_LIST_MDSD_SUCCESS (state, payload) {
+    state.dmdc.data.mdsd = payload
+  },
+
+  DMDC_GET_LIST_THU_MUC_SUCCESS (state, payload) {
+    state.dmdc.data.thuMuc = payload
+  },
+
+  DMSD_UPDATE_EDIT_MODE (state, payload) {
+    const { dataName, index, isEdit } = payload;
+    state.dmdc.data[dataName][index].isEdit = isEdit;
+  }
 }
 
 export default mutations

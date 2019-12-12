@@ -115,6 +115,11 @@ const router = new Router({
             name: 'createND',
             component: () => import('./views/CreateAccount.vue')
           },
+          {
+            path: '/dmdc',
+            name: 'dmdc',
+            component: () => import('./views/DMDC.vue')
+          },
         ],
       },
     // =============================================================================

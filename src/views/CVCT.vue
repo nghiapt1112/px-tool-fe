@@ -131,7 +131,7 @@
   .works__table--content {
     width: 100%;
 
-    td {
+    td, th {
       &:nth-child(1) {
         width: 100px;
       }
