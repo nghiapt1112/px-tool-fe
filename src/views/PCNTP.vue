@@ -146,20 +146,21 @@
               @change="changeDetailItem(indextr, 'ketQua', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-right">
+            <vs-input
+              style="width: 100%"
+              size="small"
+              class="inputx"
+              :value="tr.nguoiLam"
+              @change="changeDetailItem(indextr, 'nguoiLam', $event.target.value)"/>
+          </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light">
             <v-select
               size="small"
               label="name"
               :reduce="t => t.id"
-              :value="tr.nguoiLam"
-              @input="changeDetailItem(indextr, 'nguoiLam', $event)"
-              :options="PCNTPComboboxData.nguoiLam"></v-select>
-          </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-input
-              size="small"
-              class="inputx"
               :value="tr.nghiemThu"
-              @change="changeDetailItem(indextr, 'nghiemThu', $event.target.value)"/>
+              @input="changeDetailItem(indextr, 'nghiemThu', $event)"
+              :options="PCNTPComboboxData.nguoiLam"></v-select>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <div class="chu-ky-row-container">
@@ -240,32 +241,32 @@
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI GIAO VIỆC</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI THỰC HIỆN</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP.KCS</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Ý Kiến TP.KCS</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         <tr class="row--chu-ky">
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <vs-checkbox
-              icon-pack="feather"
-              icon="icon-check"
-              class="input-inline"
-              :disabled="PCNTPData.nguoiGiaoViecDisable"
-              :value="PCNTPData.nguoiGiaoViecXacNhan"
-              @input="changeData('nguoiGiaoViecXacNhan', $event); getNoiNhan()"
-            >Đồng Ý
-            </vs-checkbox>
-            <img v-if="PCNTPData.nguoiGiaoViecXacNhan" class="chu-ky"
-                 :src="PCNTPData.nguoiGiaoViecDisable ? PCNTPData.nguoiGiaoViecSignImg : AppActiveUser.chuKy">
-            <span v-if="PCNTPData.nguoiGiaoViecXacNhan">{{PCNTPData.nguoiGiaoViecDisable ? PCNTPData.nguoiGiaoViecFullName : AppActiveUser.name}}</span>
-            <vs-textarea
-              :disabled="PCNTPData.nguoiGiaoViecDisable"
-              v-if="!PCNTPData.nguoiGiaoViecXacNhan"
-              rows="4"
-              class="mt-3"
-              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
-              :value="PCNTPData.yKienNguoiGiaoViec"
-              @change="changeData('yKienNguoiGiaoViec', $event.target.value)"/>
+<!--            <vs-checkbox-->
+<!--              icon-pack="feather"-->
+<!--              icon="icon-check"-->
+<!--              class="input-inline"-->
+<!--              :disabled="PCNTPData.nguoiGiaoViecDisable"-->
+<!--              :value="PCNTPData.nguoiGiaoViecXacNhan"-->
+<!--              @input="changeData('nguoiGiaoViecXacNhan', $event); getNoiNhan()"-->
+<!--            >Đồng Ý-->
+<!--            </vs-checkbox>-->
+<!--            <img v-if="PCNTPData.nguoiGiaoViecXacNhan" class="chu-ky"-->
+<!--                 :src="PCNTPData.nguoiGiaoViecDisable ? PCNTPData.nguoiGiaoViecSignImg : AppActiveUser.chuKy">-->
+<!--            <span v-if="PCNTPData.nguoiGiaoViecXacNhan">{{PCNTPData.nguoiGiaoViecDisable ? PCNTPData.nguoiGiaoViecFullName : AppActiveUser.name}}</span>-->
+<!--            <vs-textarea-->
+<!--              :disabled="PCNTPData.nguoiGiaoViecDisable"-->
+<!--              v-if="!PCNTPData.nguoiGiaoViecXacNhan"-->
+<!--              rows="4"-->
+<!--              class="mt-3"-->
+<!--              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"-->
+<!--              :value="PCNTPData.yKienNguoiGiaoViec"-->
+<!--              @change="changeData('yKienNguoiGiaoViec', $event.target.value)"/>-->
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -312,32 +313,155 @@
               @change="changeData('yKienTPKCS', $event.target.value)"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-textarea
-              class="mt-3"
-              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
-              :value="PCNTPData.yKienTpkcsXacNhan"
-              @change="changeData('yKienTpkcsXacNhan', $event.target.value)"/>
+<!--            <vs-textarea-->
+<!--              class="mt-3"-->
+<!--              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"-->
+<!--              :value="PCNTPData.yKienTpkcsXacNhan"-->
+<!--              @change="changeData('yKienTpkcsXacNhan', $event.target.value)"/>-->
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
-        <tr>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Chuyển tiếp</th>
-          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select
-              size="small"
-              label="name"
-              :reduce="t => t.id"
-              :value="PCNTPData.noiNhan"
-              @input="changeData('noiNhan', $event)"
-              @search:blur="isNoiNhanShowDropdownList = false"
-              @search:focus="isNoiNhanShowDropdownList = true"
-              :options="PCNTPComboboxData.chuyen"></v-select>
-          </td>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+        </tbody>
+        <tbody>
+          <tr>
+            <th class="p-2 border border-solid d-theme-border-grey-light"></th>
+            <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Tổ trưởng 1</th>
+            <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tổ trưởng 2</th>
+            <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tổ trưởng 3</th>
+            <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tổ trưởng 4</th>
+            <th class="p-2 border border-solid d-theme-border-grey-light">Tổ trưởng 5</th>
+          </tr>
+        <tr class="row--chu-ky">
+          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :disabled="PCNTPData.toTruong1Disable"
+              :value="PCNTPData.toTruong1XacNhan"
+              @input="changeData('toTruong1XacNhan', $event); getNoiNhan()"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PCNTPData.toTruong1XacNhan" class="chu-ky"
+                 :src="PCNTPData.toTruong1Disable ? PCNTPData.toTruong1SignImg : AppActiveUser.chuKy">
+            <span v-if="PCNTPData.toTruong1XacNhan">{{PCNTPData.toTruong1Disable ? PCNTPData.toTruong1fullName : AppActiveUser.name}}</span>
+            <vs-textarea
+              :disabled="PCNTPData.toTruong1Disable"
+              v-if="!PCNTPData.toTruong1XacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PCNTPData.ykienToTruong1"
+              @change="changeData('ykienToTruong1', $event.target.value)"/>
+          </th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :disabled="PCNTPData.toTruong2Disable"
+              :value="PCNTPData.toTruong2XacNhan"
+              @input="changeData('toTruong2XacNhan', $event); getNoiNhan()"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PCNTPData.toTruong2XacNhan" class="chu-ky"
+                 :src="PCNTPData.toTruong2Disable ? PCNTPData.toTruong2SignImg : AppActiveUser.chuKy">
+            <span v-if="PCNTPData.toTruong2XacNhan">{{PCNTPData.toTruong2Disable ? PCNTPData.toTruong2fullName : AppActiveUser.name}}</span>
+            <vs-textarea
+              :disabled="PCNTPData.toTruong2Disable"
+              v-if="!PCNTPData.toTruong2XacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PCNTPData.ykienToTruong2"
+              @change="changeData('ykienToTruong2', $event.target.value)"/>
+          </th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :disabled="PCNTPData.toTruong3Disable"
+              :value="PCNTPData.toTruong3XacNhan"
+              @input="changeData('toTruong3XacNhan', $event); getNoiNhan()"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PCNTPData.toTruong3XacNhan" class="chu-ky"
+                 :src="PCNTPData.toTruong3Disable ? PCNTPData.toTruong3SignImg : AppActiveUser.chuKy">
+            <span v-if="PCNTPData.toTruong3XacNhan">{{PCNTPData.toTruong3Disable ? PCNTPData.toTruong3fullName : AppActiveUser.name}}</span>
+            <vs-textarea
+              :disabled="PCNTPData.toTruong3Disable"
+              v-if="!PCNTPData.toTruong3XacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PCNTPData.ykienToTruong3"
+              @change="changeData('ykienToTruong3', $event.target.value)"/>
+          </th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :disabled="PCNTPData.toTruong4Disable"
+              :value="PCNTPData.toTruong4XacNhan"
+              @input="changeData('toTruong4XacNhan', $event); getNoiNhan()"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PCNTPData.toTruong4XacNhan" class="chu-ky"
+                 :src="PCNTPData.toTruong4Disable ? PCNTPData.toTruong4SignImg : AppActiveUser.chuKy">
+            <span v-if="PCNTPData.toTruong4XacNhan">{{PCNTPData.toTruong4Disable ? PCNTPData.toTruong4fullName : AppActiveUser.name}}</span>
+            <vs-textarea
+              :disabled="PCNTPData.toTruong4Disable"
+              v-if="!PCNTPData.toTruong4XacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PCNTPData.ykienToTruong4"
+              @change="changeData('ykienToTruong4', $event.target.value)"/>
+          </th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">
+            <vs-checkbox
+              icon-pack="feather"
+              icon="icon-check"
+              class="input-inline"
+              :disabled="PCNTPData.toTruong5Disable"
+              :value="PCNTPData.toTruong5XacNhan"
+              @input="changeData('toTruong5XacNhan', $event); getNoiNhan()"
+            >Đồng Ý
+            </vs-checkbox>
+            <img v-if="PCNTPData.toTruong5XacNhan" class="chu-ky"
+                 :src="PCNTPData.toTruong5Disable ? PCNTPData.toTruong5SignImg : AppActiveUser.chuKy">
+            <span v-if="PCNTPData.toTruong5XacNhan">{{PCNTPData.toTruong5Disable ? PCNTPData.toTruong5fullName : AppActiveUser.name}}</span>
+            <vs-textarea
+              :disabled="PCNTPData.toTruong5Disable"
+              v-if="!PCNTPData.toTruong5XacNhan"
+              rows="4"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PCNTPData.ykienToTruong5"
+              @change="changeData('ykienToTruong5', $event.target.value)"/>
+          </th>
         </tr>
-        <tr :class="{'last-row' : isNoiNhanShowDropdownList}">
-          <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light"></td>
-        </tr>
+          <tr>
+            <th class="p-2 border border-solid d-theme-border-grey-light">Chuyển tiếp</th>
+            <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
+              <v-select
+                size="small"
+                label="name"
+                :reduce="t => t.id"
+                :value="PCNTPData.noiNhan"
+                @input="changeData('noiNhan', $event)"
+                @search:blur="isNoiNhanShowDropdownList = false"
+                @search:focus="isNoiNhanShowDropdownList = true"
+                :options="PCNTPComboboxData.chuyen"></v-select>
+            </td>
+            <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          </tr>
+          <tr :class="{'last-row' : isNoiNhanShowDropdownList}">
+            <td colspan="9" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          </tr>
         </tbody>
       </table>
     </div>

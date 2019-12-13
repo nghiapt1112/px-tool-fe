@@ -113,6 +113,13 @@
             </vs-checkbox>
             <img v-if="PAData.giamDocXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PAData.giamDocXacNhan">{{AppActiveUser.name}}</span>
+            <vs-textarea
+              v-if="!PAData.giamDocXacNhan"
+              rows="3"
+              class="mt-3"
+              placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
+              :value="PAData.yKienGiamDoc"
+              @change="changeData('yKienGiamDoc', $event.target.value)"/>
           </th>
           <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">
             Nguồn kinh phí:

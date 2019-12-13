@@ -21,6 +21,7 @@
               </td>
               <td class="p-2 border border-solid d-theme-border-grey-light text-center">
                 <vs-button class="mr-4" size="small" @click="onDetailClick(tr.vbdId)">Chi tiết</vs-button>
+                <vs-button class="mr-4" size="small" type="border" @click="activePrompt = true">Phân loại</vs-button>
               </td>
 
             </tr>
@@ -38,6 +39,22 @@
         </div>
       </div>
     </div>
+    <vs-prompt
+      @vs-cancel="val=''"
+      @vs-accept="acceptAlert"
+      @vs-close="close"
+      :vs-active.sync="activePrompt">
+      <div class="con-exemple-prompt">
+        <span>Chọn thư mục để gom</span>
+        <v-select
+          class="mt-3 w-full"
+          size="small"
+          label="name"
+          :reduce="t => t.id"
+          :options="VBDComboboxData.chuyen"
+        ></v-select>
+      </div>
+    </vs-prompt>
   </vx-card>
 </template>
 
@@ -45,15 +62,19 @@
   import { mapActions, mapGetters } from 'vuex';
   import VuePerfectScrollbar from 'vue-perfect-scrollbar';
   import VBDThuMucFilters from './components/VBDThuMucFilters'
+  import vSelect from 'vue-select'
 
   export default {
     components: {
       VuePerfectScrollbar,
-      VBDThuMucFilters
+      VBDThuMucFilters,
+      vSelect
     },
     data () {
       return {
         page: 1,
+        activePrompt: false,
+        val: '',
         settings: {
           maxScrollbarLength: 60,
           wheelSpeed: 0.30,
@@ -63,6 +84,7 @@
     computed: {
       ...mapGetters([
         'VBDListReceive',
+        'VBDComboboxData'
       ])
     },
     methods: {
@@ -78,6 +100,10 @@
       },
       onDetailClick (id) {
         this.$router.push(`/vbd/edit?id=${id}`);
+      },
+      acceptAlert () {
+      },
+      close () {
       },
     }
   }
