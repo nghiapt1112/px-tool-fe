@@ -30,7 +30,7 @@
                 </vs-button>
                 <vs-button class="mr-4"
                            size="small"
-                           @click="addNewMDSD()"
+                           @click="cancelAddNewMDSD()"
                            color="danger">Hủy
                 </vs-button>
               </td>
@@ -229,7 +229,7 @@
               text: 'Thêm thành công.'
             })
             this.dmdcGetListMDSD();
-            this.addNewMDSD();
+            this.cancelAddNewMDSD();
           })
           .catch(e => {
             this.$vs.notify({
@@ -239,7 +239,7 @@
             })
           })
       },
-      addNewMDSD () {
+      cancelAddNewMDSD () {
         this.showAddNewMDSD = false;
         this.ten = '';
       },
