@@ -39,9 +39,10 @@
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">
-            <a class="link-download" target="_blank" :href="'/pa?id=' + PCNTPData.requestId">Số PA</a>
+            Số PA
           </th>
           <td colspan="6" class="p-2 border border-solid d-theme-border-grey-light">
+            <a class="link-download" target="_blank" :href="'/pa?id=' + PCNTPData.requestId">PA {{PCNTPData.soPa}}</a>
           </td>
         </tr>
         <tr>
@@ -450,9 +451,11 @@
               <v-select
                 size="small"
                 label="name"
+                :closeOnSelect="false"
+                :multiple="true"
                 :reduce="t => t.id"
-                :value="PCNTPData.noiNhan"
-                @input="changeData('noiNhan', $event)"
+                :value="PCNTPData.cusToTruongIds"
+                @input="changeData('cusToTruongIds', $event)"
                 @search:blur="isNoiNhanShowDropdownList = false"
                 @search:focus="isNoiNhanShowDropdownList = true"
                 :options="PCNTPComboboxData.chuyen"></v-select>

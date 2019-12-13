@@ -3,10 +3,32 @@
     <div class="flex mb-4">
       <div class="w-1/4 mr-5">
         <VuePerfectScrollbar class="scroll-area">
-          <VBDThuMucFilters/>
+          <VBDThuMucFilters :folders="VBDComboboxData.thuMuc"/>
         </VuePerfectScrollbar>
       </div>
       <div class="w-3/4">
+        <div class="filter-container">
+          <div class="vx-row mb-6">
+            <div class="vx-col w-1/2">
+              <label class="vs-input--label">Ngày tạo</label>
+              <datepicker placeholder="Select Date" input-class="input-date"></datepicker>
+            </div>
+            <div class="vx-col w-1/2">
+              <vs-input class="w-full" label="Số văn bản"/>
+            </div>
+          </div>
+          <div class="vx-row mb-6">
+            <div class="vx-col w-1/2">
+              <label class="vs-input--label">Loại văn bản</label>
+              <v-select
+                :options="listLoaiVanBan"
+              ></v-select>
+            </div>
+            <div class="vx-col w-1/2">
+              <vs-button class="mt-5">Tìm kiếm</vs-button>
+            </div>
+          </div>
+        </div>
         <div class="cvct-table--container">
           <table class="works__table--content border-collapse">
             <tr>
@@ -21,7 +43,8 @@
               </td>
               <td class="p-2 border border-solid d-theme-border-grey-light text-center">
                 <vs-button class="mr-4" size="small" @click="onDetailClick(tr.vbdId)">Chi tiết</vs-button>
-                <vs-button class="mr-4" size="small" type="border" @click="activePrompt = true">Phân loại</vs-button>
+                <vs-button class="mr-4" size="small" type="border" @click="startPhanLoai(tr.vbdId)">Phân loại
+                </vs-button>
               </td>
 
             </tr>
@@ -40,7 +63,7 @@
       </div>
     </div>
     <vs-prompt
-      @vs-cancel="val=''"
+      @vs-cancel="folderId = null"
       @vs-accept="acceptAlert"
       @vs-close="close"
       :vs-active.sync="activePrompt">
@@ -50,8 +73,9 @@
           class="mt-3 w-full"
           size="small"
           label="name"
-          :reduce="t => t.id"
-          :options="VBDComboboxData.chuyen"
+          v-model="folderId"
+          :reduce="t => t.folderId"
+          :options="VBDComboboxData.thuMuc"
         ></v-select>
       </div>
     </vs-prompt>
@@ -61,25 +85,39 @@
 <script>
   import { mapActions, mapGetters } from 'vuex';
   import VuePerfectScrollbar from 'vue-perfect-scrollbar';
-  import VBDThuMucFilters from './components/VBDThuMucFilters'
-  import vSelect from 'vue-select'
+  import VBDThuMucFilters from './components/VBDThuMucFilters';
+  import Datepicker from 'vuejs-datepicker';
+  import vSelect from 'vue-select';
 
   export default {
     components: {
       VuePerfectScrollbar,
       VBDThuMucFilters,
-      vSelect
+      vSelect,
+      Datepicker
     },
     data () {
       return {
         page: 1,
         activePrompt: false,
-        val: '',
+        folderId: null,
+        vbdId: null,
         settings: {
           maxScrollbarLength: 60,
           wheelSpeed: 0.30,
         },
+        listLoaiVanBan: [
+          'KIEM_HONG',
+          'DAT_HANG',
+          'PHUONG_AN',
+          'CONG_NHAN_THANH_PHAM',
+          'VAN_BAN_DEN',
+          'VAN_THU_BAO_MAT',
+        ]
       }
+    },
+    mounted () {
+      this.vbdGetThuMuc();
     },
     computed: {
       ...mapGetters([
@@ -89,7 +127,9 @@
     },
     methods: {
       ...mapActions([
-        'vbdGetListReceive'
+        'vbdGetListReceive',
+        'vbdGetThuMuc',
+        'vbdMoveThuMuc'
       ]),
       onChangePage () {
         const params = {
@@ -101,9 +141,36 @@
       onDetailClick (id) {
         this.$router.push(`/vbd/edit?id=${id}`);
       },
+      startPhanLoai (vbdId) {
+        this.vbdId = vbdId;
+        this.activePrompt = true;
+      },
       acceptAlert () {
+        const data = {
+          vbdId: this.vbdId,
+          folderId: this.folderId
+        }
+        this.vbdMoveThuMuc(data)
+          .then(() => {
+            this.$vs.notify({
+              color: 'success',
+              title: 'Phân loại văn bản đến',
+              text: 'Phân loại thành công.'
+            })
+            this.activePrompt = false;
+            this.folderId = null;
+            this.onChangePage();
+          })
+          .catch(e => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Phân loại văn bản đến',
+              text: `phân loại thất bại. ${e}`
+            })
+          })
       },
       close () {
+        this.folderId = null;
       },
     }
   }
@@ -128,5 +195,9 @@
   .scroll-area {
     position: relative;
     height: 620px;
+  }
+
+  /deep/ .input-date {
+    width: 100%;
   }
 </style>

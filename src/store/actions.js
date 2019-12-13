@@ -539,6 +539,28 @@ const actions = {
     commit('VBD_UPDATE_DATA', data)
   },
 
+  vbdGetThuMuc ({ commit }) {
+    return new Promise((resolve, reject) => {
+      vbd.getThuMuc().then(res => {
+        const { data } = res;
+        commit('VBD_GET_THU_MUC_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  vbdMoveThuMuc ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      vbd.moveThuMu(payload).then(res => {
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
   vbnSaveData ({ commit }, data) {
     commit('VBN_SAVE_DATA', data);
     return new Promise((resolve, reject) => {
@@ -741,6 +763,16 @@ const actions = {
       dmdc.getListThuMuc(payload).then(res => {
         const { data } = res;
         commit('DMDC_GET_LIST_THU_MUC_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+  dmdcUpdateThuMuc ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      dmdc.updateThuMuc(payload).then(res => {
+        const { data } = res;
         resolve(res)
       }).catch(e => {
         reject(e)

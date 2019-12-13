@@ -5,7 +5,7 @@ export const getListMDSD = () => {
 }
 
 export const getListThuMuc = () => {
-  return api.get('/thu-muc')
+  return api.get('/users/list-thu-muc')
 }
 
 export const updateMDSD = (payload) => {
@@ -14,5 +14,5 @@ export const updateMDSD = (payload) => {
 
 
 export const updateThuMuc = (payload) => {
-  return api.post('/thu-muc', payload)
+  return api.post('/users/thu-muc', payload)
 }

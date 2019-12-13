@@ -8,6 +8,14 @@ export const getNoiNhanById = (params) => {
   return api.get('/req/vbd/noi-nhan', { params });
 }
 
+export const getThuMuc = (params) => {
+  return api.get('/users/list-thu-muc')
+}
+
+export const moveThuMu = (payload) => {
+  return api.post('/vbd/move-vbd', payload)
+}
+
 export const getList = (payload) => {
   return api.get('/vbd', { params: payload })
 }

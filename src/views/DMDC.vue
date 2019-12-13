@@ -81,7 +81,7 @@
         </div>
       </vs-tab>
       <vs-tab label="Thư mục Văn Bản Đến">
-        <vs-button :disabled="showAddNewThuMuc" class="mb-4 mt-4" @click="showAddNewThuMuc = true">Thêm mới</vs-button>
+        <vs-button :disabled="true" class="mb-4 mt-4" @click="showAddNewThuMuc = true">Thêm mới</vs-button>
         <div class="cvct-table--container">
           <table class="works__table--content border-collapse">
             <tr>
@@ -120,18 +120,18 @@
               </td>
 
               <td class="p-2 border border-solid d-theme-border-grey-light">
-                {{ tr.id }}
+                {{ tr.folderId }}
               </td>
 
               <td class="p-2 border border-solid d-theme-border-grey-light">
-                <span v-if="!editMarkArrayThuMuc[indextr]">{{ tr.ten }}</span>
+                <span v-if="!editMarkArrayThuMuc[indextr]">{{ tr.name }}</span>
                 <vs-input
                   style="width: 100%"
                   v-if="editMarkArrayThuMuc[indextr]"
                   size="small"
                   class="inputx"
-                  @change="editValueArrayThuMuc[indextr].ten = $event.target.value"
-                  :value="editValueArrayThuMuc[indextr].ten"/>
+                  @change="editValueArrayThuMuc[indextr].name = $event.target.value"
+                  :value="editValueArrayThuMuc[indextr].name"/>
               </td>
 
               <td class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -176,7 +176,7 @@
         showAddNewThuMuc: false,
         editMarkArrayThuMuc: [],
         editValueArrayThuMuc: [],
-        tenThuMuc: ''
+        name: ''
       }
     },
     computed: {
@@ -185,12 +185,15 @@
       ])
     },
     mounted () {
-      this.dmdcGetListMDSD()
+      this.dmdcGetListMDSD();
+      this.dmdcGetListThuMuc();
     },
     methods: {
       ...mapActions([
         'dmdcGetListMDSD',
-        'dmdcUpdateMDSD'
+        'dmdcUpdateMDSD',
+        'dmdcGetListThuMuc',
+        'dmdcUpdateThuMuc'
       ]),
       saveDataMDSD (index) {
         const data = Object.assign({}, this.editValueArrayMDSD[index]);
@@ -239,6 +242,54 @@
       addNewMDSD () {
         this.showAddNewMDSD = false;
         this.ten = '';
+      },
+      saveDataThuMuc (index) {
+        const data = Object.assign({}, this.editValueArrayThuMuc[index]);
+        this.dmdcUpdateThuMuc(data)
+          .then(() => {
+            this.$vs.notify({
+              color: 'success',
+              title: 'Chỉnh sửa bản ghi',
+              text: 'Chỉnh sửa thành công.'
+            })
+            this.dmdcGetListThuMuc();
+            this.markEditThuMuc(null, index, false);
+          })
+          .catch(e => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Chỉnh sửa bản ghi',
+              text: `Chỉnh sửa bản ghi thất bại. ${e}`
+            })
+          })
+      },
+      markEditThuMuc (data, index, isEdit) {
+        this.$set(this.editMarkArrayThuMuc, index, isEdit);
+        isEdit && this.$set(this.editValueArrayThuMuc, index, Object.assign({}, data));
+        !isEdit && this.$set(this.editValueArrayThuMuc, index, {});
+      },
+      addNewThuMuc () {
+        this.dmdcUpdateThuMuc({ name: this.name })
+          .then(() => {
+            this.$vs.notify({
+              color: 'success',
+              title: 'Thêm mới bản ghi',
+              text: 'Thêm thành công.'
+            })
+            this.dmdcGetListThuMuc();
+            this.addNewThuMuc();
+          })
+          .catch(e => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Thêm bản ghi',
+              text: `Thêm bản ghi thất bại. ${e}`
+            })
+          })
+      },
+      addNewThuMuc () {
+        this.showAddNewThuMuc = false;
+        this.name = '';
       }
     }
   }

@@ -503,6 +503,10 @@ const mutations = {
     state.vbd.comboboxData.chuyen = payload;
   },
 
+  VBD_GET_THU_MUC_SUCCESS (state, payload) {
+    state.vbd.comboboxData.thuMuc = payload;
+  },
+
   VBD_GET_BY_ID (state) {
     state.vbd.error = null;
     state.vbd.loading = true;

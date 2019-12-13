@@ -305,11 +305,7 @@ const state = {
       comboboxData: {
         noi_nhan: [],
         chuyen: [],
-        thuMuc: [
-          {name: 'AAA', id: 1},
-          {name: 'BBB', id: 2},
-          {name: 'CCC', id: 3}
-        ]
+        thuMuc: []
       }
     },
     nd: {
