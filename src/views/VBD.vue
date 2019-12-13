@@ -3,27 +3,40 @@
     <vx-card :title="isCreate ? 'Gửi văn bản, giấy tờ' : 'Chi tiết văn bản đến'">
       <div class="vx-row mb-6">
         <div class="vx-col w-full">
+          <label class="vs-input--label">Nơi nhận</label>
           <v-select
             v-if="isCreate"
             class="w-1/2"
-            placeholder="Nơi nhận"
             size="small"
             label="name"
-            @input="changeData('noiNhan', $event)"
+            :closeOnSelect="false"
+            :multiple="true"
+            @input="changeData('cusReceivers', $event)"
             :reduce="t => t.id"
             :options="VBDComboboxData.chuyen"
-            :value="VBDData.noiNhan"
+            :value="VBDData.cusReceivers"
           ></v-select>
         </div>
       </div>
-      <div class="vx-row">
+      <div class="vx-row mb-6">
         <div class="vx-col w-full">
+          <vs-input
+            :disabled="!isCreate"
+            class="w-1/2"
+            @change="changeData('soPa', $event.target.value)"
+            :value="VBDData.soPa"
+            label="Số văn bản"
+          />
+        </div>
+      </div>
+      <div class="vx-row mb-6">
+        <div class="vx-col w-full">
+          <label class="vs-input--label">Nội dung</label>
           <vs-textarea
             :disabled="!isCreate"
             class="w-1/2"
             @change="changeData('noiDung', $event.target.value)"
             :value="VBDData.noiDung"
-            label="Nội dung"
           />
         </div>
       </div>

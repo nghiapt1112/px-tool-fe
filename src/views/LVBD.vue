@@ -5,6 +5,7 @@
       <table class="works__table--content border-collapse">
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Số VB</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Chức năng</th>
         </tr>
@@ -14,6 +15,10 @@
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.noiNhan }}
+          </td>
+
+          <td class="p-2 border border-solid d-theme-border-grey-light">
+            {{ tr.soPa }}
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -77,7 +82,7 @@
         this.vbdGetList(params);
       },
       onDetailClick (id) {
-        this.$router.push(`/vbd/edit?id=${id}`);
+        this.$router.push(`/vbg/edit?id=${id}`);
       },
       openDeleteConfirm (id) {
         this.$vs.dialog({
@@ -124,7 +129,7 @@
     width: 100%;
 
     td, th {
-      &:nth-child(3) {
+      &:nth-child(4) {
         width: 200px;
       }
     }

@@ -81,8 +81,8 @@ const router = new Router({
             component: () => import('./views/VBD.vue')
           },
           {
-            path: '/vbd/edit',
-            name: 'vbdEdit',
+            path: '/vbg/edit',
+            name: 'vbgEdit',
             component: () => import('./views/VBD.vue')
           },
           {
@@ -94,6 +94,11 @@ const router = new Router({
             path: '/vbd',
             name: 'vbd',
             component: () => import('./views/LRVBD.vue')
+          },
+          {
+            path: '/vbd/edit',
+            name: 'vbdEdit',
+            component: () => import('./views/VBD.vue')
           },
           {
             path: '/profile',
