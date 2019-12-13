@@ -1,9 +1,12 @@
 <template>
   <vx-card title="Văn bản đến">
     <div class="flex mb-4">
-      <div class="w-1/4 mr-5">
+      <div class="w-1/4 mr-5 filter-folder-area">
         <VuePerfectScrollbar class="scroll-area">
-          <VBDThuMucFilters :folders="VBDComboboxData.thuMuc"/>
+          <VBDThuMucFilters
+            @filter="changeFolder($event)"
+            :folderId="searchCondition.folderId"
+            :folders="VBDComboboxData.thuMuc"/>
         </VuePerfectScrollbar>
       </div>
       <div class="w-3/4">
@@ -11,21 +14,23 @@
           <div class="vx-row mb-6">
             <div class="vx-col w-1/2">
               <label class="vs-input--label">Ngày tạo</label>
-              <datepicker placeholder="Select Date" input-class="input-date"></datepicker>
+              <datepicker placeholder="Select Date" input-class="input-date"
+                          v-model="searchCondition.date"></datepicker>
             </div>
             <div class="vx-col w-1/2">
-              <vs-input class="w-full" label="Số văn bản"/>
+              <vs-input class="w-full" label="Số văn bản" v-model="searchCondition.soVB"/>
             </div>
           </div>
           <div class="vx-row mb-6">
             <div class="vx-col w-1/2">
               <label class="vs-input--label">Loại văn bản</label>
               <v-select
+                v-model="searchCondition.loaiVb"
                 :options="listLoaiVanBan"
               ></v-select>
             </div>
             <div class="vx-col w-1/2">
-              <vs-button class="mt-5">Tìm kiếm</vs-button>
+              <vs-button class="mt-5" @click="search()">Tìm kiếm</vs-button>
             </div>
           </div>
         </div>
@@ -98,6 +103,12 @@
     },
     data () {
       return {
+        searchCondition: {
+          date: null,
+          soVB: null,
+          loaiVb: null,
+          folderId: null,
+        },
         page: 1,
         activePrompt: false,
         folderId: null,
@@ -116,7 +127,13 @@
         ]
       }
     },
+    created () {
+      const { query: { folderId } } = this.$route;
+      this.$set(this.searchCondition, 'folderId', folderId);
+    },
     mounted () {
+      const { query: { folderId } } = this.$route;
+      !folderId && history.pushState('', '', `?folderId=all`);
       this.vbdGetThuMuc();
     },
     computed: {
@@ -131,10 +148,27 @@
         'vbdGetThuMuc',
         'vbdMoveThuMuc'
       ]),
+      clearSearch () {
+        this.$set(this.searchCondition, 'date', null);
+        this.$set(this.searchCondition, 'soVB', null);
+        this.$set(this.searchCondition, 'loaiVb', null);
+      },
+      changeFolder (folderId) {
+        history.pushState('', '', `?folderId=${folderId}`);
+        this.$set(this.searchCondition, 'folderId', folderId);
+        this.clearSearch();
+        this.search();
+      },
+      search () {
+        this.onChangePage();
+      },
       onChangePage () {
+        const { date } = this.searchCondition;
         const params = {
+          ...this.searchCondition,
           page: this.page,
-          size: 15
+          size: 15,
+          date: date ? date.getTime() : null,
         }
         this.vbdGetListReceive(params);
       },
@@ -159,7 +193,7 @@
             })
             this.activePrompt = false;
             this.folderId = null;
-            this.onChangePage();
+            this.search();
           })
           .catch(e => {
             this.$vs.notify({
@@ -190,6 +224,11 @@
         width: 200px;
       }
     }
+  }
+
+  .filter-folder-area {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    padding-right: 20px;
   }
 
   .scroll-area {
