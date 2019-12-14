@@ -256,6 +256,22 @@ const mutations = {
     state.pkh.comboboxData.to_san_xuat = payload;
   },
 
+  PKH_GET_NGUOI_THUC_HIEN (state) {
+    state.pkh.comboboxData.nguoiThucHien = [];
+  },
+
+  PKH_GET_NGUOI_THUC_HIEN_SUCCESS (state, payload) {
+    state.pkh.comboboxData.nguoiThucHien = payload;
+  },
+
+  PKH_GET_CUS_NOI_NHAN (state) {
+    state.pkh.comboboxData.cusNoiNhan = [];
+  },
+
+  PKH_GET_CUS_NOI_NHAN_SUCCESS (state, payload) {
+    state.pkh.comboboxData.cusNoiNhan = payload;
+  },
+
   // ////////////////////////////////////////////
   // PDH
   // ////////////////////////////////////////////
@@ -305,6 +321,21 @@ const mutations = {
     state.pdh.comboboxData.chuyen = payload;
   },
 
+  PDH_GET_NGUOI_THUC_HIEN (state) {
+    state.pdh.comboboxData.nguoiThucHien = [];
+  },
+
+  PDH_GET_NGUOI_THUC_HIEN_SUCCESS (state, payload) {
+    state.pdh.comboboxData.nguoiThucHien = payload;
+  },
+
+  PDH_GET_CUS_NOI_NHAN (state) {
+    state.pdh.comboboxData.cusNoiNhan = [];
+  },
+
+  PDH_GET_CUS_NOI_NHAN_SUCCESS (state, payload) {
+    state.pdh.comboboxData.cusNoiNhan = payload;
+  },
 
   // ////////////////////////////////////////////
   // PA

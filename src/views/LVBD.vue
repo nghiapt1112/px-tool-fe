@@ -25,16 +25,6 @@
             {{ tr.noiDung }}
           </td>
 
-          <!--          <td class="p-2 border border-solid d-theme-border-grey-light">-->
-          <!--            <a-->
-          <!--              v-for="(fileName, indextr) in tr.files"-->
-          <!--              :key="indextr"-->
-          <!--              class="mr-2"-->
-          <!--            >-->
-          <!--              {{fileName}}-->
-          <!--            </a>-->
-          <!--          </td>-->
-
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-button class="mr-4" size="small" @click="onDetailClick(tr.vbdId)">Chi tiết</vs-button>
             <vs-button class="mr-4" size="small" color="danger" @click="openDeleteConfirm(tr.vbdId)">Hủy</vs-button>

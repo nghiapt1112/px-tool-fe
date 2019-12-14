@@ -384,40 +384,52 @@
         <tr>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
           <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select
-              size="small"
-              label="name"
-              :closeOnSelect="false"
+            <multiselect
+              class="multiselect"
+              tagPlaceholder=""
+              placeholder=""
+              selectedLabel="Đã chọn"
+              selectLabel="Click để chọn"
+              deselectLabel="Click để bỏ chọn"
+              :close-on-select="false"
+              :preserve-search="true"
+              :options="PAComboboxData.cusNoiNhan.map(i=>i.id)"
+              :custom-label="opt => PAComboboxData.cusNoiNhan.find(obj=> obj.id == opt).name"
               :multiple="true"
-              :reduce="t => t.id"
               :value="PAData.cusReceivers"
               @input="changeData('cusReceivers', $event)"
-              :options="PAComboboxData.cusNoiNhan"></v-select>
+              :taggable="true"></multiselect>
           </td>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Người thực hiện</th>
           <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
-            <v-select
-              size="small"
-              label="name"
-              :closeOnSelect="false"
+            <multiselect
+              class="multiselect"
+              tagPlaceholder=""
+              placeholder=""
+              selectedLabel="Đã chọn"
+              selectLabel="Click để chọn"
+              deselectLabel="Click để bỏ chọn"
+              :close-on-select="false"
+              :preserve-search="true"
+              :options="PAComboboxData.nguoiThucHien.map(i=>i.id)"
+              :custom-label="opt => PAComboboxData.nguoiThucHien.find(obj=> obj.id == opt).name"
               :multiple="true"
-              :reduce="t => t.id"
               :value="PAData.nguoiThucHien"
               @input="changeData('nguoiThucHien', $event)"
-              :options="PAComboboxData.nguoiThucHien"></v-select>
+              :taggable="true"></multiselect>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
         <tr>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
-          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
+          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-textarea
               class="mb-0"
               rows="4"
               :value="PAData.cusNoiDung"
               @change="changeData('cusNoiDung', $event.target.value)"/>
           </td>
-          <th colspan="8" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
         </tbody>
         <tbody>
@@ -591,10 +603,12 @@
 <script>
   import vSelect from 'vue-select'
   import { mapActions, mapGetters } from 'vuex';
+  import Multiselect from 'vue-multiselect';
 
   export default {
     components: {
       'v-select': vSelect,
+      Multiselect
     },
     data () {
       return {
@@ -624,8 +638,8 @@
         this.getNoiNhan();
       });
       !id && this.resetData() && this.getNoiNhan();
-      this.paGetCusNoiNhan();
-      this.paGetNguoiThucHien();
+      this.paGetCusNoiNhan({requestType: 'PHUONG_AN'});
+      this.paGetNguoiThucHien({requestType: 'PHUONG_AN'});
     },
     methods: {
       ...mapActions([

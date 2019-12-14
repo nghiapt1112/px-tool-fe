@@ -187,7 +187,9 @@ const state = {
           { id: 4, name: 'Nơi nhận 4' },
           { id: 5, name: 'Khác' },
         ],
-        chuyen: []
+        chuyen: [],
+        nguoiThucHien: [],
+        cusNoiNhan: [],
       }
     },
     pdh: {
@@ -240,7 +242,9 @@ const state = {
         ],
         noi_nhan: [],
         mdsd: [],
-        chuyen: []
+        chuyen: [],
+        nguoiThucHien: [],
+        cusNoiNhan: [],
       }
     },
     pcntp: {

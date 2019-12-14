@@ -205,6 +205,44 @@
             ></vs-button>
           </td>
         </tr>
+        <tr>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light">
+            <multiselect
+              class="multiselect"
+              tagPlaceholder=""
+              placeholder=""
+              selectedLabel="Đã chọn"
+              selectLabel="Click để chọn"
+              deselectLabel="Click để bỏ chọn"
+              :close-on-select="false"
+              :preserve-search="true"
+              :options="PKHComboboxData.cusNoiNhan.map(i=>i.id)"
+              :custom-label="opt => PKHComboboxData.cusNoiNhan.find(obj=> obj.id == opt).name"
+              :multiple="true"
+              :value="PKHData.cusReceivers"
+              @input="changeData('cusReceivers', $event)"
+              :taggable="true"></multiselect>
+          </td>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Người thực hiện</th>
+          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
+            <multiselect
+              class="multiselect"
+              tagPlaceholder=""
+              placeholder=""
+              selectedLabel="Đã chọn"
+              selectLabel="Click để chọn"
+              deselectLabel="Click để bỏ chọn"
+              :close-on-select="false"
+              :preserve-search="true"
+              :options="PKHComboboxData.nguoiThucHien.map(i=>i.id)"
+              :custom-label="opt => PKHComboboxData.nguoiThucHien.find(obj=> obj.id == opt).name"
+              :multiple="true"
+              :value="PKHData.nguoiThucHien"
+              @input="changeData('nguoiThucHien', $event)"
+              :taggable="true"></multiselect>
+          </td>
+        </tr>
         </tbody>
         <tbody>
         <tr>
@@ -340,12 +378,14 @@
 </template>
 
 <script>
-  import vSelect from 'vue-select'
+  import vSelect from 'vue-select';
+  import Multiselect from 'vue-multiselect';
   import { mapActions, mapGetters } from 'vuex';
 
   export default {
     components: {
       'v-select': vSelect,
+      Multiselect,
     },
     data () {
       return {
@@ -374,6 +414,8 @@
       });
       !id && this.resetData() && this.getNoiNhan();
       this.pkhGetPhanXuong();
+      this.pkhGetCusNoiNhan({ requestType: 'KIEM_HONG' });
+      this.pkhGetNguoiThucHien({ requestType: 'KIEM_HONG' });
     },
     methods: {
       ...mapActions([
@@ -384,6 +426,8 @@
         'pkhGetPhanXuong',
         'pkhGetToSanXuatByPXId',
         'commonDownloadFileByType',
+        'pkhGetCusNoiNhan',
+        'pkhGetNguoiThucHien',
       ]),
       download () {
         this.commonDownloadFileByType({
@@ -482,10 +526,14 @@
 
     td, th {
       &:nth-child(1), &:nth-child(5) {
-        min-width: 100px;
+        min-width: 130px;
       }
 
       &:nth-child(2), &:nth-child(3) {
+        min-width: 200px;
+      }
+
+      &:last-child {
         min-width: 200px;
       }
     }

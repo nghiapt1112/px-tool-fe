@@ -16,12 +16,12 @@ export const getNoiNhanById = (params) => {
   return api.get('/req/noi-nhan', { params });
 }
 
-export const getNguoiThucHien = () => {
-  return api.get('/req/nguoi-thuc-hien');
+export const getNguoiThucHien = (params) => {
+  return api.get('/req/nguoi-thuc-hien', { params });
 }
 
-export const getCusNoiNhan = () => {
-  return api.get('/req/cus-noi-nhan');
+export const getCusNoiNhan = (params) => {
+  return api.get('/req/cus-noi-nhan', { params });
 }
 
 export const getPAIdByDetailsIds = (payload) => {

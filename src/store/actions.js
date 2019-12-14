@@ -319,6 +319,32 @@ const actions = {
       })
     })
   },
+
+  pkhGetNguoiThucHien ({ commit }, payload) {
+    commit('PKH_GET_NGUOI_THUC_HIEN')
+    return new Promise((resolve, reject) => {
+      pkh.getNguoiThucHien(payload).then(res => {
+        const { data } = res;
+        commit('PKH_GET_NGUOI_THUC_HIEN_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  pkhGetCusNoiNhan ({ commit }, payload) {
+    commit('PKH_GET_CUS_NOI_NHAN');
+    return new Promise((resolve, reject) => {
+      pkh.getCusNoiNhan(payload).then(res => {
+        const { data } = res;
+        commit('PKH_GET_CUS_NOI_NHAN_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
   // ////////////////////////////////////////////
   // PDH
   // ////////////////////////////////////////////
@@ -382,6 +408,32 @@ const actions = {
       pdh.getNoiNhanById(payload).then(res => {
         const { data } = res;
         commit('PDH_GET_NOI_NHAN_BY_ID_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  pdhGetNguoiThucHien ({ commit }, payload) {
+    commit('PDH_GET_NGUOI_THUC_HIEN')
+    return new Promise((resolve, reject) => {
+      pdh.getNguoiThucHien(payload).then(res => {
+        const { data } = res;
+        commit('PDH_GET_NGUOI_THUC_HIEN_SUCCESS', data);
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  pdhGetCusNoiNhan ({ commit }, payload) {
+    commit('PDH_GET_CUS_NOI_NHAN');
+    return new Promise((resolve, reject) => {
+      pdh.getCusNoiNhan(payload).then(res => {
+        const { data } = res;
+        commit('PDH_GET_CUS_NOI_NHAN_SUCCESS', data);
         resolve(res)
       }).catch(e => {
         reject(e)

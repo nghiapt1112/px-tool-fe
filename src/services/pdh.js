@@ -27,3 +27,11 @@ export const update = (payload) => {
 export const getNoiNhanById = (params) => {
   return api.get('/req/noi-nhan', { params });
 }
+
+export const getNguoiThucHien = (params) => {
+  return api.get('/req/nguoi-thuc-hien', { params });
+}
+
+export const getCusNoiNhan = (params) => {
+  return api.get('/req/cus-noi-nhan', { params });
+}

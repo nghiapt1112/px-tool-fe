@@ -4,18 +4,23 @@
       <div class="vx-row mb-6">
         <div class="vx-col w-full">
           <label class="vs-input--label">Nơi nhận</label>
-          <v-select
+          <multiselect
+            size="small"
             v-if="isCreate"
             class="w-1/2"
-            size="small"
-            label="name"
-            :closeOnSelect="false"
+            tagPlaceholder=""
+            placeholder=""
+            selectedLabel="Đã chọn"
+            selectLabel="Click để chọn"
+            deselectLabel="Click để bỏ chọn"
+            :close-on-select="false"
+            :preserve-search="true"
+            :options="VBDComboboxData.chuyen.map(i=>i.id)"
+            :custom-label="opt => VBDComboboxData.chuyen.find(obj=> obj.id == opt).name"
             :multiple="true"
-            @input="changeData('cusReceivers', $event)"
-            :reduce="t => t.id"
-            :options="VBDComboboxData.chuyen"
             :value="VBDData.cusReceivers"
-          ></v-select>
+            @input="changeData('cusReceivers', $event)"
+            :taggable="true"></multiselect>
         </div>
       </div>
       <div class="vx-row mb-6">
@@ -80,10 +85,12 @@
 <script>
   import { mapActions, mapGetters } from 'vuex';
   import vSelect from 'vue-select'
+  import Multiselect from 'vue-multiselect';
 
   export default {
     components: {
       'v-select': vSelect,
+      Multiselect,
     },
     data () {
       return {

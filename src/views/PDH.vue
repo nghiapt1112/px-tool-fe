@@ -145,10 +145,10 @@
               :reduce="t => t.mdId"
               @input="changeDetailItemMDSD(indextr, 'mucDichSuDung', $event)"
               :options="optionsMDSD">
-                <template slot="option" slot-scope="option">
-                   <span :style="{color: option.mdId == -1 ? 'red' : ''}">{{option.ten}}</span>
-                </template>
-              </v-select>
+              <template slot="option" slot-scope="option">
+                <span :style="{color: option.mdId == -1 ? 'red' : ''}">{{option.ten}}</span>
+              </template>
+            </v-select>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
@@ -181,6 +181,44 @@
               icon="icon-plus"
               @click="addDetail"
             ></vs-button>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light">
+            <multiselect
+              class="multiselect"
+              tagPlaceholder=""
+              placeholder=""
+              selectedLabel="Đã chọn"
+              selectLabel="Click để chọn"
+              deselectLabel="Click để bỏ chọn"
+              :close-on-select="false"
+              :preserve-search="true"
+              :options="PDHComboboxData.cusNoiNhan.map(i=>i.id)"
+              :custom-label="opt => PDHComboboxData.cusNoiNhan.find(obj=> obj.id == opt).name"
+              :multiple="true"
+              :value="PDHData.cusReceivers"
+              @input="changeData('cusReceivers', $event)"
+              :taggable="true"></multiselect>
+          </td>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Người thực hiện</th>
+          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
+            <multiselect
+              class="multiselect"
+              tagPlaceholder=""
+              placeholder=""
+              selectedLabel="Đã chọn"
+              selectLabel="Click để chọn"
+              deselectLabel="Click để bỏ chọn"
+              :close-on-select="false"
+              :preserve-search="true"
+              :options="PDHComboboxData.nguoiThucHien.map(i=>i.id)"
+              :custom-label="opt => PDHComboboxData.nguoiThucHien.find(obj=> obj.id == opt).name"
+              :multiple="true"
+              :value="PDHData.nguoiThucHien"
+              @input="changeData('nguoiThucHien', $event)"
+              :taggable="true"></multiselect>
           </td>
         </tr>
         </tbody>
@@ -221,8 +259,10 @@
               @input="changeData('tpkthkXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PDHData.tpkthkXacNhan" class="chu-ky" :src="PDHData.tpkthkDisable ? PDHData.tpkthkSignImg : AppActiveUser.chuKy">
-            <span v-if="PDHData.tpkthkXacNhan">{{PDHData.tpkthkDisable ? PDHData.tpkthkFullName : AppActiveUser.name}}</span>
+            <img v-if="PDHData.tpkthkXacNhan" class="chu-ky"
+                 :src="PDHData.tpkthkDisable ? PDHData.tpkthkSignImg : AppActiveUser.chuKy">
+            <span
+              v-if="PDHData.tpkthkXacNhan">{{PDHData.tpkthkDisable ? PDHData.tpkthkFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PDHData.tpkthkDisable"
               v-if="!PDHData.tpkthkXacNhan"
@@ -243,7 +283,8 @@
               @input="changeData('tpvatTuXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PDHData.tpvatTuXacNhan" class="chu-ky" :src="PDHData.tpvatTuDisable ? PDHData.tpvatTuSignImg : AppActiveUser.chuKy">
+            <img v-if="PDHData.tpvatTuXacNhan" class="chu-ky"
+                 :src="PDHData.tpvatTuDisable ? PDHData.tpvatTuSignImg : AppActiveUser.chuKy">
             <span v-if="PDHData.tpvatTuXacNhan">{{PDHData.tpvatTuDisable ? PDHData.tpvatTuFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PDHData.tpvatTuDisable"
@@ -265,7 +306,8 @@
               @input="changeData('nguoiDatHangXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PDHData.nguoiDatHangXacNhan" class="chu-ky" :src="PDHData.nguoiDatHangDisable ? PDHData.nguoiDatHangSignImg : AppActiveUser.chuKy">
+            <img v-if="PDHData.nguoiDatHangXacNhan" class="chu-ky"
+                 :src="PDHData.nguoiDatHangDisable ? PDHData.nguoiDatHangSignImg : AppActiveUser.chuKy">
             <span v-if="PDHData.nguoiDatHangXacNhan">{{PDHData.nguoiDatHangDisable ? PDHData.nguoiDatHangFullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PDHData.nguoiDatHangDisable"
@@ -312,10 +354,12 @@
 <script>
   import vSelect from 'vue-select'
   import { mapActions, mapGetters } from 'vuex';
+  import Multiselect from 'vue-multiselect';
 
   export default {
     components: {
       'v-select': vSelect,
+      Multiselect
     },
     data () {
       return {
@@ -329,8 +373,8 @@
         'AppActiveUser'
       ]),
       optionsMDSD: {
-        get() {
-          const lastItem = {mdId: -1, ten: '+ Thêm mới item'};
+        get () {
+          const lastItem = { mdId: -1, ten: '+ Thêm mới item' };
           const tmp = [...this.PDHComboboxData.mdsd];
           tmp.push(lastItem);
           return tmp;
@@ -344,6 +388,8 @@
         this.getNoiNhan();
       });
       !id && this.resetData() && this.getNoiNhan();
+      this.pdhGetCusNoiNhan({ requestType: 'DAT_HANG' });
+      this.pdhGetNguoiThucHien({ requestType: 'DAT_HANG' });
     },
     methods: {
       ...mapActions([
@@ -353,7 +399,9 @@
         'pdhGetNoiNhanById',
         'pdhGetListMDSD',
         'pdhAddMDSD',
-        'commonDownloadFileByType'
+        'commonDownloadFileByType',
+        'pdhGetCusNoiNhan',
+        'pdhGetNguoiThucHien',
       ]),
       download () {
         this.commonDownloadFileByType({
@@ -391,12 +439,12 @@
         return true;
       },
       changeDetailItemMDSD (index, fieldName, value) {
-        if(value == -1) {
-           const addItem = prompt("Nhập mục đích sử dụng", "Mục đích sử dụng");
-           if (addItem) {
-              this.pdhAddMDSD({ten: addItem})
-              .then((res)=>{
-                const {data: {mdId}} = res;
+        if (value == -1) {
+          const addItem = prompt("Nhập mục đích sử dụng", "Mục đích sử dụng");
+          if (addItem) {
+            this.pdhAddMDSD({ ten: addItem })
+              .then((res) => {
+                const { data: { mdId } } = res;
                 this.pdhGetListMDSD().then(() => {
                   this.changeDetailItem(index, fieldName, mdId);
                 });
@@ -406,16 +454,16 @@
                   text: `Thêm thành công.`
                 });
               })
-              .catch(e=> {
+              .catch(e => {
                 this.$vs.notify({
                   color: 'danger',
                   title: 'Mục Đích Sử Dụng',
                   text: `Thêm thất bại. ${e}`
                 })
               })
-           } else {
-             this.changeDetailItem(index, fieldName, null);
-           }
+          } else {
+            this.changeDetailItem(index, fieldName, null);
+          }
         } else {
           this.changeDetailItem(index, fieldName, value);
         }
