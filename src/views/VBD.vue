@@ -21,6 +21,9 @@
             :value="VBDData.cusReceivers"
             @input="changeData('cusReceivers', $event)"
             :taggable="true"></multiselect>
+          <span v-else>
+            {{VBDData.noiNhan}}
+          </span>
         </div>
       </div>
       <div class="vx-row mb-6">

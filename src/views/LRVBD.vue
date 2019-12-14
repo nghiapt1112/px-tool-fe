@@ -26,6 +26,8 @@
               <label class="vs-input--label">Loại văn bản</label>
               <v-select
                 v-model="searchCondition.loaiVb"
+                label="name"
+                :reduce="t => t.id"
                 :options="listLoaiVanBan"
               ></v-select>
             </div>
@@ -122,18 +124,19 @@
           wheelSpeed: 0.30,
         },
         listLoaiVanBan: [
-          'KIEM_HONG',
-          'DAT_HANG',
-          'PHUONG_AN',
-          'CONG_NHAN_THANH_PHAM',
-          'VAN_BAN_DEN',
-          'VAN_THU_BAO_MAT',
+          {id: 'KIEM_HONG', name: 'Kiểm hỏng'},
+          {id: 'DAT_HANG', name: 'Đặt hàng'},
+          {id: 'PHUONG_AN', name: 'Phương án'},
+          {id: 'CONG_NHAN_THANH_PHAM', name: 'Công nhận thành phẩm'},
+          {id: 'VAN_BAN_DEN', name: 'Văn bản đến'},
+          {id: 'VAN_THU_BAO_MAT', name: 'Văn thư bảo mật'},
         ]
       }
     },
     created () {
       const { query: { folderId } } = this.$route;
-      this.$set(this.searchCondition, 'folderId', folderId);
+      const folderIdValue = folderId === 'all' ? 0 : folderId;
+      this.$set(this.searchCondition, 'folderId', folderIdValue);
     },
     mounted () {
       const { query: { folderId } } = this.$route;
@@ -158,8 +161,9 @@
         this.$set(this.searchCondition, 'loaiVb', null);
       },
       changeFolder (folderId) {
+        const folderIdValue = folderId === 'all' ? 0 : folderId;
         history.pushState('', '', `?folderId=${folderId}`);
-        this.$set(this.searchCondition, 'folderId', folderId);
+        this.$set(this.searchCondition, 'folderId', folderIdValue);
         this.clearSearch();
         this.search();
       },
@@ -224,6 +228,9 @@
     width: 100%;
 
     td, th {
+      &:nth-child(1) {
+        width: 100px;
+      }
       &:nth-child(3) {
         width: 200px;
       }
