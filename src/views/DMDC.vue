@@ -81,7 +81,6 @@
         </div>
       </vs-tab>
       <vs-tab label="Thư mục Văn Bản Đến">
-        <vs-button :disabled="true" class="mb-4 mt-4" @click="showAddNewThuMuc = true">Thêm mới</vs-button>
         <div class="cvct-table--container">
           <table class="works__table--content border-collapse">
             <tr>

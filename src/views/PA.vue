@@ -595,8 +595,9 @@
       color="danger"
       icon-pack="feather"
       icon="icon-trash"
+      :disabled="true"
       @click="openDeleteConfirm"></vs-button>
-    <vs-button class="mr-4 mt-3" @click="onSubmit">Chuyển</vs-button>
+    <vs-button class="mr-4 mt-3"  :disabled="PAData.disableAll" @click="onSubmit">Chuyển</vs-button>
   </vx-card>
 </template>
 

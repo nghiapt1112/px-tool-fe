@@ -5,6 +5,7 @@
       <table class="works__table--content border-collapse">
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light">STT</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">ID</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Account</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Họ và tên</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Phòng ban</th>
@@ -17,7 +18,9 @@
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ indextr + 1 }}
           </td>
-
+          <td class="p-2 border border-solid d-theme-border-grey-light">
+            {{ tr.userId }}
+          </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.email }}
           </td>
