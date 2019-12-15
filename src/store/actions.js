@@ -831,6 +831,16 @@ const actions = {
       })
     })
   },
+  dmdcDeleteMDSD ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      dmdc.deleteMDSD(payload).then(res => {
+        const { data } = res;
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
   dmsdUpdateEditMode ({ commit }, payload) {
     commit('DMSD_UPDATE_EDIT_MODE', payload)
   }

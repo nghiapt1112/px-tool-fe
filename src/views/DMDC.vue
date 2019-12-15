@@ -63,6 +63,14 @@
                 >
                   Chỉnh sửa
                 </vs-button>
+                <vs-button v-show="!editMarkArrayMDSD[indextr]"
+                           class="mr-4"
+                           size="small"
+                           color="danger"
+                           @click="confirmDeleteMDSD(tr.mdId)"
+                >
+                  Xóa
+                </vs-button>
                 <vs-button v-show="editMarkArrayMDSD[indextr]"
                            class="mr-4"
                            size="small"
@@ -72,6 +80,7 @@
                            class="mr-4"
                            size="small"
                            @click="markEditMDSD(tr, indextr, false)"
+                           type="border"
                            color="danger">Hủy
                 </vs-button>
               </td>
@@ -192,7 +201,8 @@
         'dmdcGetListMDSD',
         'dmdcUpdateMDSD',
         'dmdcGetListThuMuc',
-        'dmdcUpdateThuMuc'
+        'dmdcUpdateThuMuc',
+        'dmdcDeleteMDSD'
       ]),
       saveDataMDSD (index) {
         const data = Object.assign({}, this.editValueArrayMDSD[index]);
@@ -289,7 +299,37 @@
       addNewThuMuc () {
         this.showAddNewThuMuc = false;
         this.name = '';
-      }
+      },
+      confirmDeleteMDSD (id) {
+        this.$vs.dialog({
+          type: 'confirm',
+          color: 'danger',
+          title: `Xác nhận xóa`,
+          text: 'Bạn có chắc muốn xóa bản ghi này?',
+          acceptText: 'Đồng ý',
+          cancelText: 'Đóng',
+          accept: () => {
+            this.acceptDelete(id);
+          }
+        })
+      },
+      acceptDelete (id) {
+        this.dmdcDeleteMDSD(id)
+          .then(() => {
+            this.dmdcGetListMDSD();
+            this.$vs.notify({
+              color: 'success',
+              title: 'Xóa Bản Ghi',
+              text: 'Xóa bản ghi thành công.'
+            })
+          }).catch((e) => {
+          this.$vs.notify({
+            color: 'danger',
+            title: 'Xóa Bản Ghi',
+            text: `Xóa bản ghi thất bại. ${e}`
+          })
+        })
+      },
     }
   }
 </script>

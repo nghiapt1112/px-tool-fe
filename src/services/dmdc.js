@@ -12,6 +12,10 @@ export const updateMDSD = (payload) => {
   return api.post('/mdsd', payload)
 }
 
+export const deleteMDSD = (id) => {
+  return api.delete(`/mdsd/${id}`)
+}
+
 
 export const updateThuMuc = (payload) => {
   return api.post('/users/thu-muc', payload)
