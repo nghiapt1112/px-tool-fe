@@ -144,10 +144,7 @@
               :value="tr.mucDichSuDung"
               :reduce="t => t.mdId"
               @input="changeDetailItemMDSD(indextr, 'mucDichSuDung', $event)"
-              :options="optionsMDSD">
-              <template slot="option" slot-scope="option">
-                <span :style="{color: option.mdId == -1 ? 'red' : ''}">{{option.ten}}</span>
-              </template>
+              :options="PDHComboboxData.mdsd">
             </v-select>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -439,34 +436,36 @@
         return true;
       },
       changeDetailItemMDSD (index, fieldName, value) {
-        if (value == -1) {
-          const addItem = prompt("Nhập mục đích sử dụng", "Mục đích sử dụng");
-          if (addItem) {
-            this.pdhAddMDSD({ ten: addItem })
-              .then((res) => {
-                const { data: { mdId } } = res;
-                this.pdhGetListMDSD().then(() => {
-                  this.changeDetailItem(index, fieldName, mdId);
-                });
-                this.$vs.notify({
-                  color: 'success',
-                  title: 'Mục Đích Sử Dụng',
-                  text: `Thêm thành công.`
-                });
-              })
-              .catch(e => {
-                this.$vs.notify({
-                  color: 'danger',
-                  title: 'Mục Đích Sử Dụng',
-                  text: `Thêm thất bại. ${e}`
-                })
-              })
-          } else {
-            this.changeDetailItem(index, fieldName, null);
-          }
-        } else {
-          this.changeDetailItem(index, fieldName, value);
-        }
+        this.changeDetailItem(index, fieldName, value);
+
+        // if (value == -1) {
+        //   const addItem = prompt("Nhập mục đích sử dụng", "Mục đích sử dụng");
+        //   if (addItem) {
+        //     this.pdhAddMDSD({ ten: addItem })
+        //       .then((res) => {
+        //         const { data: { mdId } } = res;
+        //         this.pdhGetListMDSD().then(() => {
+        //           this.changeDetailItem(index, fieldName, mdId);
+        //         });
+        //         this.$vs.notify({
+        //           color: 'success',
+        //           title: 'Mục Đích Sử Dụng',
+        //           text: `Thêm thành công.`
+        //         });
+        //       })
+        //       .catch(e => {
+        //         this.$vs.notify({
+        //           color: 'danger',
+        //           title: 'Mục Đích Sử Dụng',
+        //           text: `Thêm thất bại. ${e}`
+        //         })
+        //       })
+        //   } else {
+        //     this.changeDetailItem(index, fieldName, null);
+        //   }
+        // } else {
+        //   this.changeDetailItem(index, fieldName, value);
+        // }
       },
       changeData (fieldName, value) {
         const data = Object.assign({}, this.PDHData);
