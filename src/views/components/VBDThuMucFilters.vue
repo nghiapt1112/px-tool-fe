@@ -17,7 +17,7 @@
            @click="applyTodoFilter('all')">
         <feather-icon icon="MailIcon"
                       :svgClasses="[{'text-primary stroke-current': folderId == 'all'}, 'h-6 w-6']"></feather-icon>
-        <span class="text-lg ml-3">All</span>
+        <span class="text-lg ml-3">Tẩt cả thư mục</span>
       </div>
     </div>
     <vs-divider style="margin: 20px 0"></vs-divider>

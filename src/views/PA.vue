@@ -29,6 +29,7 @@
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              type="number"
               size="small"
               class="inputx"
               @change="changeData('toSo', $event.target.value)"
@@ -54,6 +55,7 @@
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              type="number"
               size="small"
               class="inputx"
               @change="changeData('soTo', $event.target.value)"
@@ -104,6 +106,7 @@
         <tr class="row--chu-ky">
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
+              :disabled="PAData.giamDocDisable"
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
@@ -114,6 +117,7 @@
             <img v-if="PAData.giamDocXacNhan" class="chu-ky" :src="AppActiveUser.chuKy">
             <span v-if="PAData.giamDocXacNhan">{{AppActiveUser.name}}</span>
             <vs-textarea
+              :disabled="PAData.giamDocDisable"
               v-if="!PAData.giamDocXacNhan"
               rows="3"
               class="mt-3"
@@ -166,20 +170,24 @@
               style="width: 100%"
               size="small"
               class="inputx"
+              :disabled="PAData.dmVatTuDisable"
               :value="tr.noiDungCongViec"
               @change="changeDingMucLaoDong(indextr, 'noiDungCongViec', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               style="width: 70px"
+              type="number"
               size="small"
               class="inputx"
+              :disabled="PAData.dmVatTuDisable"
               :value="tr.bacCV"
               @change="changeDingMucLaoDong(indextr, 'bacCV', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               style="width: 70px"
+              type="number"
               size="small"
               class="inputx"
               :value="tr.dm"
@@ -251,6 +259,7 @@
               style="width: 120px"
               size="small"
               class="inputx"
+              :disabled="PAData.dmLaoDOngDisable"
               :value="tr.tenVatTuKyThuat"
               @change="changeDetailItem(indextr, 'tenVatTuKyThuat', $event.target.value)"/>
           </td>
@@ -260,6 +269,7 @@
               size="small"
               class="inputx"
               :value="tr.kyMaKyHieu"
+              :disabled="PAData.dmLaoDOngDisable"
               @change="changeDetailItem(indextr, 'kyMaKyHieu', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -268,6 +278,7 @@
               size="small"
               class="inputx"
               :value="tr.dvt"
+              :disabled="PAData.dmLaoDOngDisable"
               @change="changeDetailItem(indextr, 'dvt', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -275,14 +286,18 @@
               style="width: 50px"
               size="small"
               class="inputx"
+              type="number"
               :value="tr.dm1SP"
+              :disabled="PAData.dmLaoDOngDisable"
               @change="changeDetailItem(indextr, 'dm1SP', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               style="width: 50px"
+              type="number"
               size="small"
               class="inputx"
+              :disabled="PAData.dmLaoDOngDisable"
               :value="tr.soLuongSanPham"
               @change="changeDetailItem(indextr, 'soLuongSanPham', $event.target.value)"/>
           </td>
@@ -290,7 +305,9 @@
             <vs-input
               style="width: 50px"
               size="small"
+              type="number"
               class="inputx"
+              :disabled="PAData.dmLaoDOngDisable"
               :value="tr.tongNhuCau"
               @change="changeDetailItem(indextr, 'tongNhuCau', $event.target.value)"/>
           </td>
@@ -450,7 +467,7 @@
         </tr>
         <tr>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light italic"></th>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KTHK</th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">Trưởng Phòng</th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KẾ HOẠCH</th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. VẬT TƯ</th>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI LẬP</th>

@@ -42,7 +42,7 @@
           <label class="vs-input--label">Nội dung</label>
           <vs-textarea
             :disabled="!isCreate"
-            class="w-1/2"
+            class="w-1/2 text-area"
             @change="changeData('noiDung', $event.target.value)"
             :value="VBDData.noiDung"
           />
@@ -217,4 +217,5 @@
   .text-uppercase {
     text-transform: uppercase;
   }
+
 </style>

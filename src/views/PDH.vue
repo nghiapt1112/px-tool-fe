@@ -182,7 +182,7 @@
         </tr>
         <tr>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
-          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light">
+          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">
             <multiselect
               class="multiselect"
               tagPlaceholder=""
@@ -199,24 +199,17 @@
               @input="changeData('cusReceivers', $event)"
               :taggable="true"></multiselect>
           </td>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Người thực hiện</th>
-          <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
-            <multiselect
-              class="multiselect"
-              tagPlaceholder=""
-              placeholder=""
-              selectedLabel="Đã chọn"
-              selectLabel="Click để chọn"
-              deselectLabel="Click để bỏ chọn"
-              :close-on-select="false"
-              :preserve-search="true"
-              :options="PDHComboboxData.nguoiThucHien.map(i=>i.id)"
-              :custom-label="opt => PDHComboboxData.nguoiThucHien.find(obj=> obj.id == opt).name"
-              :multiple="true"
-              :value="PDHData.nguoiThucHien"
-              @input="changeData('nguoiThucHien', $event)"
-              :taggable="true"></multiselect>
+        </tr>
+        <tr>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
+          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">
+            <vs-textarea
+              class="mb-0"
+              rows="4"
+              :value="PDHData.cusNoiDung"
+              @change="changeData('cusNoiDung', $event.target.value)"/>
           </td>
+          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
         </tbody>
         <tbody>

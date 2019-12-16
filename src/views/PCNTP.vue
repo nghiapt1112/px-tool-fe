@@ -158,6 +158,7 @@
             <v-select
               size="small"
               label="name"
+              :disabled="PCNTPData.nghiemThuDisable"
               :reduce="t => t.id"
               :value="tr.nghiemThu"
               @input="changeDetailItem(indextr, 'nghiemThu', $event)"
@@ -169,7 +170,7 @@
                 icon-pack="feather"
                 icon="icon-check"
                 class="input-inline"
-                :disabled="tr.signImg"
+                v-show="AppActiveUser.userId == tr.nghiemThu"
                 :value="tr.xacNhan"
                 @input="changeDetailItem(indextr, 'xacNhan', $event)"
               >Đồng Ý
@@ -240,7 +241,7 @@
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI GIAO VIỆC</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI THỰC HIỆN</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Quản Đốc</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP.KCS</th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -274,22 +275,22 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
-              :disabled="PCNTPData.nguoiThucHienDisable"
-              :value="PCNTPData.nguoiThucHienXacNhan"
-              @input="changeData('nguoiThucHienXacNhan', $event); getNoiNhan()"
+              :disabled="PCNTPData.quanDocDisable"
+              :value="PCNTPData.quanDocXacNhan"
+              @input="changeData('quanDocXacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
-            <img v-if="PCNTPData.nguoiThucHienXacNhan" class="chu-ky"
-                 :src="PCNTPData.nguoiThucHienDisable ? PCNTPData.nguoiThucHienSignImg : AppActiveUser.chuKy">
-            <span v-if="PCNTPData.nguoiThucHienXacNhan">{{PCNTPData.nguoiThucHienDisable ? PCNTPData.nguoiThucHienFullName : AppActiveUser.name}}</span>
+            <img v-if="PCNTPData.quanDocXacNhan" class="chu-ky"
+                 :src="PCNTPData.quanDocDisable ? PCNTPData.quanDocSignImg : AppActiveUser.chuKy">
+            <span v-if="PCNTPData.quanDocXacNhan">{{PCNTPData.quanDocDisable ? PCNTPData.quanDocFullName : AppActiveUser.name}}</span>
             <vs-textarea
-              :disabled="PCNTPData.nguoiThucHienDisable"
-              v-if="!PCNTPData.nguoiThucHienXacNhan"
+              :disabled="PCNTPData.quanDocDisable"
+              v-if="!PCNTPData.quanDocXacNhan"
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
-              :value="PCNTPData.yKienNguoiThucHien"
-              @change="changeData('yKienNguoiThucHien', $event.target.value)"/>
+              :value="PCNTPData.ykienQuanDoc"
+              @change="changeData('ykienQuanDoc', $event.target.value)"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-checkbox
@@ -326,11 +327,11 @@
         <tbody>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Tổ trưởng 1</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tổ trưởng 2</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tổ trưởng 3</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tổ trưởng 4</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Tổ trưởng 5</th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong1fullName}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong2fullName}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong3fullName}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong4fullName}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong5fullName}}</th>
         </tr>
         <tr class="row--chu-ky">
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
