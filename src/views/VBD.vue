@@ -50,7 +50,7 @@
       </div>
       <div class="vx-row mb-6">
         <div class="vx-col w-full" v-if="isCreate">
-          <input ref="fileInput" style="display: none" type="file" multiple @change="selectFiles($event)">
+          <input ref="fileInput" style="display: none" type="file" accept="application/pdf" multiple @change="selectFiles($event)">
           <vx-input-group class="w-1/2">
             <template slot="prepend">
               <div class="prepend-text btn-addon">
@@ -60,7 +60,7 @@
             <vs-input
               size="small"
               readonly="true"
-              placeholder="Chọn tệp đính kèm"
+              placeholder="Chọn tệp đính kèm *.PDF"
               :value="filesTextValue"
             />
           </vx-input-group>
