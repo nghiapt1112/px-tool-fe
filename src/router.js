@@ -121,8 +121,8 @@ const router = new Router({
             component: () => import('./views/CreateAccount.vue')
           },
           {
-            path: '/dmdc',
-            name: 'dmdc',
+            path: '/cdc',
+            name: 'cdc',
             component: () => import('./views/DMDC.vue')
           },
         ],

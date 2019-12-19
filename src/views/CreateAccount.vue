@@ -181,6 +181,8 @@
           color: 'danger',
           title: `Xác nhận xóa`,
           text: 'Bạn có chắc muốn xóa người dùng này?',
+          acceptText: 'Đồng ý',
+          cancelText: 'Đóng',
           accept: this.acceptDelete
         })
       },

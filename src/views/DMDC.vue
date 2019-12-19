@@ -1,7 +1,7 @@
 <template>
   <vx-card title="Danh mục dùng chung">
     <vs-tabs>
-      <vs-tab label="Mục đích sử dụng">
+      <vs-tab v-if="AppActiveUser.type == 'ADMIN'" label="Mục đích sử dụng">
         <vs-button :disabled="showAddNewMDSD" class="mb-4 mt-4" @click="showAddNewMDSD = true">Thêm mới</vs-button>
         <div class="cvct-table--container">
           <table class="works__table--content border-collapse">
@@ -190,6 +190,7 @@
     computed: {
       ...mapGetters([
         'DMDCData',
+        'AppActiveUser'
       ])
     },
     mounted () {

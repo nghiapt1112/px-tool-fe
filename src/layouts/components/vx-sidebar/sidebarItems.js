@@ -88,9 +88,9 @@ export default [
         roles: ['ADMIN']
       },
       {
-        url: "/dmdc",
-        name: "Danh Mục Chung",
-        slug: "dmdc",
+        url: "/cdc",
+        name: "Cài Đặt Chung",
+        slug: "cdc",
         icon: "UserIcon",
       }
     ]
