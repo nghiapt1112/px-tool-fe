@@ -25,7 +25,7 @@
 		<span class="vs-sidebar--tooltip">{{ group.name }}</span>
     </div>
     <ul ref="items" :style="styleItems" class="vs-sidebar-group-items">
-      <li v-for="(groupItem, index) in group.submenu" :key="index">
+      <li v-for="(groupItem, index) in groupRoleFilter" :key="index">
 		<vx-sidebar-group :group="groupItem" :groupIndex="Number(`${groupIndex}.${index}`)" :open="isGroupActive(groupItem)" :openHover="openHover" v-if="groupItem.submenu" />
 		<vx-sidebar-item :index="groupIndex + '.' + index" :to="groupItem.url" :icon="itemIcon(groupIndex + '.' + index)" icon-small :target="groupItem.target" v-else>
 			<span class="truncate">{{ groupItem.name }}</span>
@@ -56,12 +56,23 @@ export default {
         groupIndex: {
             type: Number,
         },
+        userType: {
+          default: '',
+          type: String
+        }
     },
     data: () => ({
         maxHeight: '0px',
         openItems: false
     }),
     computed: {
+        groupRoleFilter: {
+          get () {
+            return this.group.submenu.filter(item => {
+              return !item.roles || item.roles.includes(this.userType);
+            })
+          }
+        },
         sidebarItemsMin() {
             return this.$store.state.sidebarItemsMin;
         },

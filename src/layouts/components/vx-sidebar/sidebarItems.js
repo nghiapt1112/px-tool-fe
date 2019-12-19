@@ -67,6 +67,7 @@ export default [
     name: "Văn bản đến",
     slug: "vbd",
     icon: "DownloadIcon",
+    roles: ['VAN_THU_BAO_MAT']
   },
   {
     url: "/tktdsp",
@@ -84,6 +85,7 @@ export default [
         name: "Người Dùng",
         slug: "nd",
         icon: "UserIcon",
+        roles: ['ADMIN']
       },
       {
         url: "/dmdc",
