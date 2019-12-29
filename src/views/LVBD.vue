@@ -1,6 +1,6 @@
 <template>
   <vx-card title="Gửi văn bản, giấy tờ">
-    <vs-button class="mb-4" @click="$router.push(`vbg/new`)">Thêm mới</vs-button>
+    <vs-button v-show="AppActiveUser.type == 'VAN_THU_BAO_MAT'" class="mb-4" @click="$router.push(`vbg/new`)">Thêm mới</vs-button>
     <div class="cvct-table--container">
       <table class="works__table--content border-collapse">
         <tr>
@@ -57,6 +57,7 @@
     computed: {
       ...mapGetters([
         'VBDList',
+        'AppActiveUser'
       ])
     },
     methods: {
