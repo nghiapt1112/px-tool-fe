@@ -230,7 +230,7 @@
         </tr>
         <tr>
           <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP. KTHK</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Trưởng Phòng</th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">TP. VẬT TƯ</th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>

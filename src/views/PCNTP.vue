@@ -231,10 +231,10 @@
         <tbody>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
-          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Ngày 12 tháng 12 năm 2019</td>
-          <td class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
+          <td class="p-2 border border-solid d-theme-border-grey-light italic">{{PKHData.ngayThangNamQuanDoc || ' Ngày ... tháng ... năm ...'}}
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light italic">Ngày 12 tháng 12 năm 2019
+          <td class="p-2 border border-solid d-theme-border-grey-light italic">{{PKHData.ngayThangNamTPKCS || ' Ngày ... tháng ... năm ...'}}
           </td>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>

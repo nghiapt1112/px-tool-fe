@@ -417,7 +417,7 @@
               @input="changeData('cusReceivers', $event)"
               :taggable="true"></multiselect>
           </td>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Người thực hiện</th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Đơn vị thực hiện</th>
           <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
             <multiselect
               class="multiselect"

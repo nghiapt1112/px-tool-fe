@@ -66,8 +66,7 @@ export default [
     url: "/vbd",
     name: "Văn bản đến",
     slug: "vbd",
-    icon: "DownloadIcon",
-    roles: ['VAN_THU_BAO_MAT']
+    icon: "DownloadIcon"
   },
   {
     url: "/tktdsp",
