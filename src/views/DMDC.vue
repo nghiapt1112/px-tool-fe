@@ -1,5 +1,5 @@
 <template>
-  <vx-card title="Danh mục dùng chung">
+  <vx-card title="Cài đặt">
     <vs-tabs>
       <vs-tab v-if="AppActiveUser.type == 'ADMIN'" label="Mục đích sử dụng">
         <vs-button :disabled="showAddNewMDSD" class="mb-4 mt-4" @click="showAddNewMDSD = true">Thêm mới</vs-button>

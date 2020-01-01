@@ -88,7 +88,7 @@ export default [
       },
       {
         url: "/cdc",
-        name: "Cài Đặt Chung",
+        name: "Cài Đặt",
         slug: "cdc",
         icon: "UserIcon",
       }

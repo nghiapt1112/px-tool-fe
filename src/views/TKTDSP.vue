@@ -112,7 +112,7 @@
     </div>
     <div class="vx-row no-gutter justify-state mt-5">
       <div class="vx-col lg:w-1/2">
-        <vs-button :disabled="!enableTaoPA" @click="onCreatePA">Tạo Phương Án</vs-button>
+        <vs-button :disabled="permissionTaoPA(AppActiveUser.type)" @click="onCreatePA">Tạo Phương Án</vs-button>
       </div>
       <div class="vx-col">
         <vs-pagination
@@ -162,6 +162,9 @@
         'tktdspGetList',
         'paGetPAIdByDetailsIds'
       ]),
+      permissionTaoPA(type) {
+          return !(this.paIds.includes(true) && type == 'TL_KY_THUAT');
+      },
       getList () {
         const params = {
           page: this.page,

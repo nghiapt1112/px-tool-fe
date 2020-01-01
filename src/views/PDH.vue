@@ -25,6 +25,7 @@
               size="small"
               class="inputx"
               @change="changeData('so', $event.target.value)"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="PDHData.so"/>
           </td>
           <th colspan="6" class="p-2 border border-solid d-theme-border-grey-light"></th>
@@ -37,6 +38,7 @@
               size="small"
               class="inputx"
               @change="changeData('donViYeuCau', $event.target.value)"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="PDHData.donViYeuCau"/>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Phân xưởng</th>
@@ -45,6 +47,7 @@
               size="small"
               class="inputx"
               @change="changeData('phanXuong', $event.target.value)"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="PDHData.phanXuong"/>
           </td>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></th>
@@ -58,6 +61,7 @@
               size="small"
               class="inputx"
               @change="changeData('noiDung', $event.target.value)"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="PDHData.noiDung"/>
           </td>
           <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -93,24 +97,27 @@
           <td class="p-2 border border-solid d-theme-border-grey-light text-center relative">
             {{indextr + 1}}
             <div
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               @click="deleteDetail(indextr)"
               class="custom-btn-delete bg-danger"
             >x
             </div>
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light">
+          <td class="p-2 border border-solid d-theme-border-grey-light" :disabled="true">
             <vs-input
               style="width: 135px"
               size="small"
               class="inputx"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="tr.tenPhuKien"
               @change="changeDetailItem(indextr, 'tenPhuKien', $event.target.value)"/>
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light">
+          <td class="p-2 border border-solid d-theme-border-grey-light" :disabled="true">
             <vs-input
               style="width: 135px"
               size="small"
               class="inputx"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="tr.tenVatTuKyThuat"
               @change="changeDetailItem(indextr, 'tenVatTuKyThuat', $event.target.value)"/>
           </td>
@@ -118,6 +125,7 @@
             <vs-input
               size="small"
               class="inputx"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="tr.kiMaHieu"
               @change="changeDetailItem(indextr, 'kiMaHieu', $event.target.value)"/>
           </td>
@@ -125,6 +133,7 @@
             <vs-input
               size="small"
               class="inputx"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="tr.dvt"
               @change="changeDetailItem(indextr, 'dvt', $event.target.value)"/>
           </td>
@@ -133,6 +142,7 @@
               style="width: 85px"
               size="small"
               class="inputx"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="tr.sl"
               @change="changeDetailItem(indextr, 'sl', $event.target.value)"/>
           </td>
@@ -141,6 +151,7 @@
               style="width: 220px"
               size="small"
               label="ten"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU'"
               :value="tr.mucDichSuDung"
               :reduce="t => t.mdId"
               @input="changeDetailItemMDSD(indextr, 'mucDichSuDung', $event)"
@@ -158,6 +169,7 @@
             <vs-input
               size="small"
               class="inputx"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="tr.soPhieuDatHang"
               @change="changeDetailItem(indextr, 'soPhieuDatHang', $event.target.value)"/>
           </td>
@@ -165,6 +177,7 @@
             <vs-input
               size="small"
               class="inputx"
+              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="tr.nguoiThucHien"
               @change="changeDetailItem(indextr, 'nguoiThucHien', $event.target.value)"/>
           </td>

@@ -33,6 +33,7 @@
               size="small"
               class="inputx"
               @change="changeData('toSo', $event.target.value)"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :value="PAData.toSo"/>
           </td>
         </tr>
@@ -48,6 +49,7 @@
               size="small"
               class="inputx"
               @change="changeData('maSo', $event.target.value)"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :value="PAData.maSo"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -59,6 +61,7 @@
               size="small"
               class="inputx"
               @change="changeData('soTo', $event.target.value)"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :value="PAData.soTo"/>
           </td>
         </tr>
@@ -74,6 +77,7 @@
               size="small"
               class="inputx"
               @change="changeData('sanPham', $event.target.value)"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :value="PAData.sanPham"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -84,6 +88,7 @@
               size="small"
               class="inputx"
               @change="changeData('pdh', $event.target.value)"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :value="PAData.pdh"/>
           </td>
         </tr>
@@ -99,6 +104,7 @@
               size="small"
               class="inputx"
               @change="changeData('noiDung', $event.target.value)"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :value="PAData.noiDung"/>
           </th>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
@@ -133,6 +139,7 @@
               size="small"
               class="inputx"
               @change="changeData('nguonKinhPhi', $event.target.value)"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :value="PAData.nguonKinhPhi"/>
           </th>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
@@ -259,7 +266,7 @@
               style="width: 120px"
               size="small"
               class="inputx"
-              :disabled="PAData.dmLaoDOngDisable"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :value="tr.tenVatTuKyThuat"
               @change="changeDetailItem(indextr, 'tenVatTuKyThuat', $event.target.value)"/>
           </td>
@@ -269,7 +276,7 @@
               size="small"
               class="inputx"
               :value="tr.kyMaKyHieu"
-              :disabled="PAData.dmLaoDOngDisable"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               @change="changeDetailItem(indextr, 'kyMaKyHieu', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -278,7 +285,7 @@
               size="small"
               class="inputx"
               :value="tr.dvt"
-              :disabled="PAData.dmLaoDOngDisable"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               @change="changeDetailItem(indextr, 'dvt', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -288,7 +295,7 @@
               class="inputx"
               type="number"
               :value="tr.dm1SP"
-              :disabled="PAData.dmLaoDOngDisable"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               @change="changeDetailItem(indextr, 'dm1SP', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -297,7 +304,7 @@
               type="number"
               size="small"
               class="inputx"
-              :disabled="PAData.dmLaoDOngDisable"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :value="tr.soLuongSanPham"
               @change="changeDetailItem(indextr, 'soLuongSanPham', $event.target.value)"/>
           </td>
@@ -307,7 +314,7 @@
               size="small"
               type="number"
               class="inputx"
-              :disabled="PAData.dmLaoDOngDisable"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :value="tr.tongNhuCau"
               @change="changeDetailItem(indextr, 'tongNhuCau', $event.target.value)"/>
           </td>
@@ -408,6 +415,7 @@
               selectedLabel="Đã chọn"
               selectLabel="Click để chọn"
               deselectLabel="Click để bỏ chọn"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :close-on-select="false"
               :preserve-search="true"
               :options="PAComboboxData.cusNoiNhan.map(i=>i.id)"
@@ -428,6 +436,7 @@
               deselectLabel="Click để bỏ chọn"
               :close-on-select="false"
               :preserve-search="true"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :options="PAComboboxData.nguoiThucHien.map(i=>i.id)"
               :custom-label="opt => PAComboboxData.nguoiThucHien.find(obj=> obj.id == opt).name"
               :multiple="true"
@@ -443,6 +452,7 @@
             <vs-textarea
               class="mb-0"
               rows="4"
+              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
               :value="PAData.cusNoiDung"
               @change="changeData('cusNoiDung', $event.target.value)"/>
           </td>
@@ -478,10 +488,14 @@
             <vx-input-group>
               <template slot="prepend">
                 <div class="prepend-text btn-addon">
-                  <vs-button @click="$refs.fileInput.click()" color="primary">Chọn tệp</vs-button>
+                  <vs-button
+                    :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+                    @click="$refs.fileInput.click()"
+                    color="primary">Chọn tệp</vs-button>
                 </div>
               </template>
               <vs-input
+                :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
                 size="small"
                 readonly="true"
                 placeholder="Chọn tệp đính kèm"
@@ -753,7 +767,10 @@
         list.push({})
         this.changeData('dinhMucVatTus', list);
       },
-      deleteDinhMucVatTu (index) {
+      deleteDinhMucVatTu(index) {
+        if (AppActiveUser.type == 'NV_DINH_MUC') {
+          return;
+        }
         const list = Object.assign([], this.PAData.dinhMucVatTus);
         list.splice(index, 1);
         this.changeData('dinhMucVatTus', list);
