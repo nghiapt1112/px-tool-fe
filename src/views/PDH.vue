@@ -175,6 +175,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              style="width: 100%"
               size="small"
               class="inputx"
               :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
@@ -213,17 +214,17 @@
               :taggable="true"></multiselect>
           </td>
         </tr>
-        <tr>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
-          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-textarea
-              class="mb-0"
-              rows="4"
-              :value="PDHData.cusNoiDung"
-              @change="changeData('cusNoiDung', $event.target.value)"/>
-          </td>
-          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
-        </tr>
+<!--        <tr>-->
+<!--          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>-->
+<!--          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">-->
+<!--            <vs-textarea-->
+<!--              class="mb-0"-->
+<!--              rows="4"-->
+<!--              :value="PDHData.cusNoiDung"-->
+<!--              @change="changeData('cusNoiDung', $event.target.value)"/>-->
+<!--          </td>-->
+<!--          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>-->
+<!--        </tr>-->
         </tbody>
         <tbody>
         <tr>
@@ -543,7 +544,10 @@
 
     td, th {
       &:nth-child(1), &:nth-child(6) {
-        min-width: 100px;
+        min-width: 50px;
+      }
+      &:last-child {
+        min-width: 150px;
       }
     }
   }

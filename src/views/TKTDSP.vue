@@ -1,26 +1,23 @@
 <template>
   <vx-card title="Thống Kê Tiến Độ Sản Phẩm">
+    <div class="flex mb-4">
+      <div class="w-3/4 mr-5 filter-folder-area">
+        Sản phẩm:
+        <div style="display: flex; flex-direction: row; align-items: center">
+          <v-select
+            style="width: 100%"
+            size="small"
+            label="ten"
+            :reduce="t => t.mdId"
+            v-model="mdsd"
+            @input="getList()"
+            :options="TKTDSPComboboxData.mdsd"></v-select>
+          <div class="ml-4" style="width: 250px">Tiến độ: {{TKTDSPData.tienDo}}%</div>
+        </div>
+      </div>
+    </div>
     <div class="table--container">
       <table class="invoice__table--content border-collapse">
-        <tbody>
-        <tr>
-          <th colspan="4" class="p-2 border border-solid d-theme-border-grey-light text-center">Sản phẩm:</th>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-center">
-            <v-select
-              size="small"
-              label="ten"
-              :reduce="t => t.mdId"
-              v-model="mdsd"
-              @input="getList()"
-              :options="TKTDSPComboboxData.mdsd"></v-select>
-          </th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tiến độ: {{TKTDSPData.tienDo}}%</th>
-          <th colspan="11" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
-        </tr>
-        <tr>
-          <th colspan="18" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
-        </tr>
-        </tbody>
         <tbody>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
@@ -126,14 +123,14 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex';
+  import {mapActions, mapGetters} from 'vuex';
   import vSelect from 'vue-select'
 
   export default {
     components: {
       'v-select': vSelect,
     },
-    data () {
+    data() {
       return {
         mdsd: null,
         showError: false,
@@ -148,12 +145,12 @@
         'AppActiveUser'
       ]),
       enableTaoPA: {
-        get () {
+        get() {
           return this.paIds.includes(true);
         }
       }
     },
-    mounted () {
+    mounted() {
       this.tktdspGetListMDSD();
     },
     methods: {
@@ -163,9 +160,9 @@
         'paGetPAIdByDetailsIds'
       ]),
       permissionTaoPA(type) {
-          return !(this.paIds.includes(true) && type == 'TL_KY_THUAT');
+        return !(this.paIds.includes(true) && type == 'TL_KY_THUAT');
       },
-      getList () {
+      getList() {
         const params = {
           page: this.page,
           size: 15,
@@ -173,15 +170,15 @@
         };
         this.tktdspGetList(params);
       },
-      onCreatePA () {
+      onCreatePA() {
         const detailIds = [];
         this.paIds.forEach((val, key) => {
           val && detailIds.push(this.TKTDSPData.details[key].detailId || -1);
         });
         if (detailIds.length) {
-          this.paGetPAIdByDetailsIds({ detailIds })
+          this.paGetPAIdByDetailsIds({detailIds})
             .then(res => {
-              const { data: { paId } } = res;
+              const {data: {paId}} = res;
               paId && this.$router.push(`/pa?id=${paId}`);
             })
             .catch(e => {
@@ -209,10 +206,29 @@
     td, th {
       &:nth-child(1) {
         text-align: center;
-        min-width: 50px;
       }
 
-      &:nth-of-type(n+2) {
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(6) {
+        width: 100px;
+      }
+
+      &:nth-child(8),
+      &:nth-child(10),
+      &:nth-child(11),
+      &:nth-child(12),
+      &:nth-child(13),
+      &:nth-child(14) {
+        min-width: 100px;
+        width: 100px;
+      }
+
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(7),
+      &:nth-child(9) {
         min-width: 150px;
       }
     }

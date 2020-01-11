@@ -29,6 +29,7 @@
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              style="width: 150px"
               type="number"
               size="small"
               class="inputx"
@@ -57,6 +58,7 @@
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              style="width: 150px"
               type="number"
               size="small"
               class="inputx"
@@ -85,6 +87,7 @@
           </th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              style="width: 150px"
               size="small"
               class="inputx"
               @change="changeData('pdh', $event.target.value)"
@@ -446,18 +449,18 @@
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
-        <tr>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
-          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-textarea
-              class="mb-0"
-              rows="4"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
-              :value="PAData.cusNoiDung"
-              @change="changeData('cusNoiDung', $event.target.value)"/>
-          </td>
-          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
-        </tr>
+<!--        <tr>-->
+<!--          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>-->
+<!--          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">-->
+<!--            <vs-textarea-->
+<!--              class="mb-0"-->
+<!--              rows="4"-->
+<!--              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"-->
+<!--              :value="PAData.cusNoiDung"-->
+<!--              @change="changeData('cusNoiDung', $event.target.value)"/>-->
+<!--          </td>-->
+<!--          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>-->
+<!--        </tr>-->
         </tbody>
         <tbody>
         <tr>
@@ -845,18 +848,13 @@
     min-width: 1268px;
 
     td, th {
-
       &:nth-child(1) {
         min-width: 100px;
       }
 
-      &:nth-child(2) {
-        /*min-width: 150px;*/
+      &:last-child {
+        width: 150px;
       }
-
-      /*&:nth-child(2) {*/
-      /*  min-width: 190px;*/
-      /*}*/
     }
   }
 </style>

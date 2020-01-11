@@ -44,7 +44,7 @@
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         <tr>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Phẩn xưởng:</th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Phẩn xưởng:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <v-select
               size="small"
@@ -228,17 +228,17 @@
               :taggable="true"></multiselect>
           </td>
         </tr>
-        <tr>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
-          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">
-            <vs-textarea
-              class="mb-0"
-              rows="4"
-              :value="PKHData.cusNoiDung"
-              @change="changeData('cusNoiDung', $event.target.value)"/>
-          </td>
-          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
-        </tr>
+<!--        <tr>-->
+<!--          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>-->
+<!--          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">-->
+<!--            <vs-textarea-->
+<!--              class="mb-0"-->
+<!--              rows="4"-->
+<!--              :value="PKHData.cusNoiDung"-->
+<!--              @change="changeData('cusNoiDung', $event.target.value)"/>-->
+<!--          </td>-->
+<!--          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>-->
+<!--        </tr>-->
         </tbody>
         <tbody>
         <tr>
@@ -522,7 +522,7 @@
 
     td, th {
       &:nth-child(1), &:nth-child(5) {
-        min-width: 130px;
+        min-width: 90px;
       }
 
       &:nth-child(2), &:nth-child(3) {
@@ -530,7 +530,7 @@
       }
 
       &:last-child {
-        min-width: 200px;
+        min-width: 150px;
       }
     }
   }
