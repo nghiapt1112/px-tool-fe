@@ -296,9 +296,9 @@ const actions = {
     })
   },
 
-  pkhGetPhanXuong ({ commit }) {
+  pkhGetPhanXuong ({ commit }, payload) {
     return new Promise((resolve, reject) => {
-      pkh.getPhanXuong().then(res => {
+      pkh.getPhanXuong(payload).then(res => {
         const { data } = res;
         commit('PKH_GET_PHAN_XUONG_SUCCESS', data);
         resolve(res)
@@ -308,9 +308,9 @@ const actions = {
     })
   },
 
-  pkhGetToSanXuatByPXId ({ commit }, pxId) {
+  pkhGetToSanXuatByPXId ({ commit }, payload) {
     return new Promise((resolve, reject) => {
-      pkh.getToSXByPXId(pxId).then(res => {
+      pkh.getToSXByPXId(payload).then(res => {
         const { data } = res;
         commit('PKH_GET_TO_SAN_XUAT_SUCCESS', data);
         resolve(res)

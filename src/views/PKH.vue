@@ -44,7 +44,7 @@
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
         <tr>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Phẩn xưởng:</th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Phân xưởng:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <v-select
               size="small"
@@ -228,17 +228,17 @@
               :taggable="true"></multiselect>
           </td>
         </tr>
-<!--        <tr>-->
-<!--          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>-->
-<!--          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">-->
-<!--            <vs-textarea-->
-<!--              class="mb-0"-->
-<!--              rows="4"-->
-<!--              :value="PKHData.cusNoiDung"-->
-<!--              @change="changeData('cusNoiDung', $event.target.value)"/>-->
-<!--          </td>-->
-<!--          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>-->
-<!--        </tr>-->
+        <!--        <tr>-->
+        <!--          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>-->
+        <!--          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">-->
+        <!--            <vs-textarea-->
+        <!--              class="mb-0"-->
+        <!--              rows="4"-->
+        <!--              :value="PKHData.cusNoiDung"-->
+        <!--              @change="changeData('cusNoiDung', $event.target.value)"/>-->
+        <!--          </td>-->
+        <!--          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>-->
+        <!--        </tr>-->
         </tbody>
         <tbody>
         <tr>
@@ -376,14 +376,14 @@
 <script>
   import vSelect from 'vue-select';
   import Multiselect from 'vue-multiselect';
-  import { mapActions, mapGetters } from 'vuex';
+  import {mapActions, mapGetters} from 'vuex';
 
   export default {
     components: {
       'v-select': vSelect,
       Multiselect,
     },
-    data () {
+    data() {
       return {
         showError: false,
         isNoiNhanShowDropdownList: false
@@ -397,21 +397,21 @@
         'AppActiveUser'
       ]),
       pkhError: {
-        get () {
+        get() {
           return this.PKHScreenData.error
         }
       }
     },
-    mounted () {
-      const { query: { id } } = this.$route;
+    mounted() {
+      const {query: {id}} = this.$route;
       id && this.pkhGetById(id).then(() => {
         this.getNoiNhan();
         this.getToSanXuat();
       });
       !id && this.resetData() && this.getNoiNhan();
-      this.pkhGetPhanXuong();
-      this.pkhGetCusNoiNhan({ requestType: 'KIEM_HONG' });
-      this.pkhGetNguoiThucHien({ requestType: 'KIEM_HONG' });
+      this.pkhGetPhanXuong({requestId: id});
+      this.pkhGetCusNoiNhan({requestType: 'KIEM_HONG'});
+      this.pkhGetNguoiThucHien({requestType: 'KIEM_HONG'});
     },
     methods: {
       ...mapActions([
@@ -425,7 +425,7 @@
         'pkhGetCusNoiNhan',
         'pkhGetNguoiThucHien',
       ]),
-      download () {
+      download() {
         this.commonDownloadFileByType({
           requestId: this.PKHData.requestId,
           requestType: 'KIEM_HONG'
@@ -438,7 +438,7 @@
             })
           })
       },
-      getNoiNhan () {
+      getNoiNhan() {
         const {
           requestId,
           quanDocXacNhan: quanDoc,
@@ -453,39 +453,43 @@
         };
         this.pkhGetNoiNhanById(params);
       },
-      getToSanXuat () {
-        this.pkhGetToSanXuatByPXId(this.PKHData.phanXuong)
+      getToSanXuat() {
+        if (this.PKHData.toSX) {
+          this.pkhGetToSanXuatByPXId({tsxId: this.PKHData.toSX})
+        } else {
+          this.pkhGetToSanXuatByPXId({pxId: this.PKHData.phanXuong})
+        }
       },
-      resetData () {
+      resetData() {
         const data = {
           kiemHongDetails: []
         };
         this.pkhUpdateData(data);
         return true;
       },
-      changeData (fieldName, value) {
+      changeData(fieldName, value) {
         const data = Object.assign({}, this.PKHData);
         data[fieldName] = value;
         this.pkhUpdateData(data);
       },
-      changeDetailItem (index, fieldName, value) {
+      changeDetailItem(index, fieldName, value) {
         const item = Object.assign({}, this.PKHData.kiemHongDetails[index]);
         const kiemHong = Object.assign([], this.PKHData.kiemHongDetails);
         item[fieldName] = value;
         kiemHong[index] = item;
         this.changeData('kiemHongDetails', kiemHong);
       },
-      addDetail () {
+      addDetail() {
         const kiemHong = Object.assign([], this.PKHData.kiemHongDetails);
         kiemHong.push({})
         this.changeData('kiemHongDetails', kiemHong);
       },
-      deleteDetail (index) {
+      deleteDetail(index) {
         const kiemHong = Object.assign([], this.PKHData.kiemHongDetails);
         kiemHong.splice(index, 1);
         this.changeData('kiemHongDetails', kiemHong);
       },
-      onSubmit () {
+      onSubmit() {
         const data = Object.assign({}, this.PKHData);
         this.pkhSaveData(data).then(() => {
           this.$vs.notify({
@@ -498,7 +502,7 @@
           this.showError = true;
         })
       },
-      openDeleteConfirm () {
+      openDeleteConfirm() {
         this.$vs.dialog({
           type: 'confirm',
           color: 'danger',

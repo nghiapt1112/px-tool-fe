@@ -8,12 +8,12 @@ export const getById = (requestId) => {
   return api.get(`/px/ttkh/${requestId}`)
 }
 
-export const getPhanXuong = () => {
-  return api.get(`/req/phan-xuong`)
+export const getPhanXuong = (params) => {
+  return api.get(`/req/phan-xuong`, { params })
 }
 
-export const getToSXByPXId = (pxId) => {
-  return api.get(`/req/to-sx?pxId=${pxId}`)
+export const getToSXByPXId = (params) => {
+  return api.get(`/req/to-sx`, {params})
 }
 
 export const create = (payload) => {
