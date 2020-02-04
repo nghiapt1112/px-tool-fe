@@ -25,7 +25,6 @@
               size="small"
               class="inputx"
               @change="changeData('so', $event.target.value)"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
               :value="PDHData.so"/>
           </td>
           <th colspan="6" class="p-2 border border-solid d-theme-border-grey-light"></th>
