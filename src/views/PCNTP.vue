@@ -218,10 +218,11 @@
           <td class="p-2 border border-solid d-theme-border-grey-light">Đồng:</td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
+              disabled="true"
               size="small"
               class="inputx"
               @change="changeData('dong', $event.target.value)"
-              :value="PCNTPData.dong"
+              :value="(Number(PCNTPData.laoDongTienLuong) * (PCNTPData.gioX)).toLocaleString()"
             />
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
