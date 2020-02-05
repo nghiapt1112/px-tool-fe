@@ -344,9 +344,10 @@ const mutations = {
 
 
   PA_UPDATE_DATA (state, data) {
-    const { dinhMucVatTus } = data;
+    const { dinhMucVatTus, dinhMucLaoDongs } = data;
     let tongDMVTKho = 0;
     let tongDMVTMuaNgoai = 0;
+    let tongDMLDDM = 0;
 
     dinhMucVatTus && dinhMucVatTus.forEach((item) => {
       if (!isNaN(item.khoDonGia) && !isNaN(item.khoSoLuong)) {
@@ -363,8 +364,14 @@ const mutations = {
       tongDMVTKho += item.khoThanhTien;
       tongDMVTMuaNgoai += item.mnThanhTien;
     });
+    dinhMucLaoDongs && dinhMucLaoDongs.forEach((item)=> {
+      if (!isNaN(item.dm)) {
+        tongDMLDDM += Number(item.dm);
+      }
+    });
     data.tongDMVTKho = tongDMVTKho;
     data.tongDMVTMuaNgoai = tongDMVTMuaNgoai;
+    data.tongDMLDDM = tongDMLDDM;
     state.pa.data = data;
   },
 

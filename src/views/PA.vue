@@ -213,6 +213,15 @@
           </td>
         </tr>
         <tr>
+          <td colspan="11" class="p-2 border border-solid d-theme-border-grey-light">
+            Tổng cộng
+          </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning">
+            {{PAData.tongDMLDDM ? PAData.tongDMLDDM.toLocaleString() : 0}}
+          </td>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
+        </tr>
+        <tr>
           <td colspan="14" class="p-2 border border-solid d-theme-border-grey-light">
             <vs-button
               color="success"

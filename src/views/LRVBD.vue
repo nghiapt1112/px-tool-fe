@@ -244,7 +244,7 @@
 
   .scroll-area {
     position: relative;
-    height: 620px;
+    height: 100%;
   }
 
   /deep/ .input-date {
