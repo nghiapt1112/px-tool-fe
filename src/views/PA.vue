@@ -187,7 +187,6 @@
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               style="width: 70px"
-              type="number"
               size="small"
               class="inputx"
               :disabled="PAData.dmVatTuDisable"
