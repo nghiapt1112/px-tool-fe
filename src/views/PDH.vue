@@ -24,6 +24,7 @@
             <vs-input
               size="small"
               class="inputx"
+              :disabled="disableFields(AppActiveUser, 'SO')"
               @change="changeData('so', $event.target.value)"
               :value="PDHData.so"/>
           </td>
@@ -37,7 +38,7 @@
               size="small"
               class="inputx"
               @change="changeData('donViYeuCau', $event.target.value)"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
+              :disabled="disableFields(AppActiveUser)"
               :value="PDHData.donViYeuCau"/>
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light">Phân xưởng</th>
@@ -46,7 +47,7 @@
               size="small"
               class="inputx"
               @change="changeData('phanXuong', $event.target.value)"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
+              :disabled="disableFields(AppActiveUser)"
               :value="PDHData.phanXuong"/>
           </td>
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light"></th>
@@ -60,11 +61,12 @@
               size="small"
               class="inputx"
               @change="changeData('noiDung', $event.target.value)"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
+              :disabled="disableFields(AppActiveUser)"
               :value="PDHData.noiDung"/>
           </td>
           <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
+        F
         </tbody>
 
         <tbody>
@@ -96,7 +98,7 @@
           <td class="p-2 border border-solid d-theme-border-grey-light text-center relative">
             {{indextr + 1}}
             <div
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
+              :disabled="disableFields(AppActiveUser)"
               @click="deleteDetail(indextr)"
               class="custom-btn-delete bg-danger"
             >x
@@ -107,7 +109,7 @@
               style="width: 135px"
               size="small"
               class="inputx"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
+              :disabled="disableFields(AppActiveUser)"
               :value="tr.tenPhuKien"
               @change="changeDetailItem(indextr, 'tenPhuKien', $event.target.value)"/>
           </td>
@@ -116,7 +118,7 @@
               style="width: 135px"
               size="small"
               class="inputx"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
+              :disabled="disableFields(AppActiveUser)"
               :value="tr.tenVatTuKyThuat"
               @change="changeDetailItem(indextr, 'tenVatTuKyThuat', $event.target.value)"/>
           </td>
@@ -124,7 +126,7 @@
             <vs-input
               size="small"
               class="inputx"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
+              :disabled="disableFields(AppActiveUser)"
               :value="tr.kiMaHieu"
               @change="changeDetailItem(indextr, 'kiMaHieu', $event.target.value)"/>
           </td>
@@ -132,7 +134,7 @@
             <vs-input
               size="small"
               class="inputx"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
+              :disabled="disableFields(AppActiveUser)"
               :value="tr.dvt"
               @change="changeDetailItem(indextr, 'dvt', $event.target.value)"/>
           </td>
@@ -141,7 +143,7 @@
               style="width: 85px"
               size="small"
               class="inputx"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
+              :disabled="disableFields(AppActiveUser)"
               :value="tr.sl"
               @change="changeDetailItem(indextr, 'sl', $event.target.value)"/>
           </td>
@@ -150,7 +152,7 @@
               style="width: 220px"
               size="small"
               label="ten"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU'"
+              :disabled="disableFields(AppActiveUser, 'MDSD')"
               :value="tr.mucDichSuDung"
               :reduce="t => t.mdId"
               @input="changeDetailItemMDSD(indextr, 'mucDichSuDung', $event)"
@@ -161,6 +163,7 @@
             <vs-input
               size="small"
               class="inputx"
+              :disabled="disableFields(AppActiveUser, 'PPKP')"
               :value="tr.phuongPhapKhacPhuc"
               @change="changeDetailItem(indextr, 'phuongPhapKhacPhuc', $event.target.value)"/>
           </td>
@@ -168,7 +171,7 @@
             <vs-input
               size="small"
               class="inputx"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
+              :disabled="disableFields(AppActiveUser)"
               :value="tr.soPhieuDatHang"
               @change="changeDetailItem(indextr, 'soPhieuDatHang', $event.target.value)"/>
           </td>
@@ -177,7 +180,7 @@
               style="width: 100%"
               size="small"
               class="inputx"
-              :disabled="AppActiveUser.type== 'TP_VAT_TU' || AppActiveUser.type== 'NV_VAT_TU'"
+              :disabled="disableFields(AppActiveUser, 'NTH')"
               :value="tr.nguoiThucHien"
               @change="changeDetailItem(indextr, 'nguoiThucHien', $event.target.value)"/>
           </td>
@@ -213,17 +216,17 @@
               :taggable="true"></multiselect>
           </td>
         </tr>
-<!--        <tr>-->
-<!--          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>-->
-<!--          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">-->
-<!--            <vs-textarea-->
-<!--              class="mb-0"-->
-<!--              rows="4"-->
-<!--              :value="PDHData.cusNoiDung"-->
-<!--              @change="changeData('cusNoiDung', $event.target.value)"/>-->
-<!--          </td>-->
-<!--          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>-->
-<!--        </tr>-->
+        <!--        <tr>-->
+        <!--          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>-->
+        <!--          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">-->
+        <!--            <vs-textarea-->
+        <!--              class="mb-0"-->
+        <!--              rows="4"-->
+        <!--              :value="PDHData.cusNoiDung"-->
+        <!--              @change="changeData('cusNoiDung', $event.target.value)"/>-->
+        <!--          </td>-->
+        <!--          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>-->
+        <!--        </tr>-->
         </tbody>
         <tbody>
         <tr>
@@ -350,13 +353,13 @@
       icon-pack="feather"
       icon="icon-trash"
       @click="openDeleteConfirm"></vs-button>
-    <vs-button class="mr-4 mt-3" @click="onSubmit">Chuyển</vs-button>
+    <vs-button class="mr-4 mt-3" @click="onSubmit" v-show="permissionToSave(AppActiveUser)">Chuyển</vs-button>
   </vx-card>
 </template>
 
 <script>
   import vSelect from 'vue-select'
-  import { mapActions, mapGetters } from 'vuex';
+  import {mapActions, mapGetters} from 'vuex';
   import Multiselect from 'vue-multiselect';
 
   export default {
@@ -364,7 +367,7 @@
       'v-select': vSelect,
       Multiselect
     },
-    data () {
+    data() {
       return {
         isNoiNhanShowDropdownList: false
       }
@@ -376,23 +379,23 @@
         'AppActiveUser'
       ]),
       optionsMDSD: {
-        get () {
-          const lastItem = { mdId: -1, ten: '+ Thêm mới item' };
+        get() {
+          const lastItem = {mdId: -1, ten: '+ Thêm mới item'};
           const tmp = [...this.PDHComboboxData.mdsd];
           tmp.push(lastItem);
           return tmp;
         }
       }
     },
-    mounted () {
-      const { query: { id } } = this.$route;
+    mounted() {
+      const {query: {id}} = this.$route;
       this.pdhGetListMDSD();
       id && this.pdhGetById(id).then(() => {
         this.getNoiNhan();
       });
       !id && this.resetData() && this.getNoiNhan();
-      this.pdhGetCusNoiNhan({ requestType: 'DAT_HANG' });
-      this.pdhGetNguoiThucHien({ requestType: 'DAT_HANG' });
+      this.pdhGetCusNoiNhan({requestType: 'DAT_HANG'});
+      this.pdhGetNguoiThucHien({requestType: 'DAT_HANG'});
     },
     methods: {
       ...mapActions([
@@ -406,7 +409,7 @@
         'pdhGetCusNoiNhan',
         'pdhGetNguoiThucHien',
       ]),
-      download () {
+      download() {
         this.commonDownloadFileByType({
           requestId: this.PDHData.requestId,
           requestType: 'DAT_HANG'
@@ -419,7 +422,7 @@
             })
           })
       },
-      getNoiNhan () {
+      getNoiNhan() {
         const {
           requestId,
           tpkthkXacNhan: tpKTHK,
@@ -434,14 +437,14 @@
         };
         this.pdhGetNoiNhanById(params);
       },
-      resetData () {
+      resetData() {
         const data = {
           phieuDatHangDetails: []
         };
         this.pdhUpdateData(data);
         return true;
       },
-      changeDetailItemMDSD (index, fieldName, value) {
+      changeDetailItemMDSD(index, fieldName, value) {
         this.changeDetailItem(index, fieldName, value);
 
         // if (value == -1) {
@@ -473,29 +476,29 @@
         //   this.changeDetailItem(index, fieldName, value);
         // }
       },
-      changeData (fieldName, value) {
+      changeData(fieldName, value) {
         const data = Object.assign({}, this.PDHData);
         data[fieldName] = value;
         this.pdhUpdateData(data);
       },
-      changeDetailItem (index, fieldName, value) {
+      changeDetailItem(index, fieldName, value) {
         const item = Object.assign({}, this.PDHData.phieuDatHangDetails[index]);
         const phieuDatHang = Object.assign([], this.PDHData.phieuDatHangDetails);
         item[fieldName] = value;
         phieuDatHang[index] = item;
         this.changeData('phieuDatHangDetails', phieuDatHang);
       },
-      addDetail () {
+      addDetail() {
         const phieuDatHang = Object.assign([], this.PDHData.phieuDatHangDetails);
         phieuDatHang.push({})
         this.changeData('phieuDatHangDetails', phieuDatHang);
       },
-      deleteDetail (index) {
+      deleteDetail(index) {
         const phieuDatHang = Object.assign([], this.PDHData.phieuDatHangDetails);
         phieuDatHang.splice(index, 1);
         this.changeData('phieuDatHangDetails', phieuDatHang);
       },
-      onSubmit () {
+      onSubmit() {
         const data = Object.assign({}, this.PDHData);
         this.pdhSaveData(data).then(() => {
           this.$vs.notify({
@@ -512,7 +515,7 @@
           })
         })
       },
-      openDeleteConfirm () {
+      openDeleteConfirm() {
         this.$vs.dialog({
           type: 'confirm',
           color: 'danger',
@@ -521,13 +524,45 @@
           accept: this.acceptDelete
         })
       },
-      acceptDelete () {
+      acceptDelete() {
         this.$vs.notify({
           color: 'danger',
           title: 'Xóa Phiếu Đặt Hàng',
           text: 'Xóa Phiếu Đặt Hàng thất bại.'
         })
       },
+      disableFields(user, fieldName) {
+        if (this.isEmpty(fieldName)) {
+          return true;
+        }
+        if (user.type == 'TP_VAT_TU' || user.type == 'NV_VAT_TU') {
+          if (fieldName == 'SO' || fieldName == 'MDSD' || fieldName == 'PPKP') {
+            return false;
+          }
+          return true;
+        }
+        // phuong phap khac phuc
+        if (user.phanXuong == 'PHONG_KTHK' || user.phanXuong == 'PHONG_XE_MAY_DAC_CHUNG') {
+          if (fieldName == 'PPKP' || fieldName == 'NTH') {
+            return false;
+          }
+          return true;
+        }
+        return true;
+      },
+      permissionToSave(user) {
+        if (user.type == 'TP_VAT_TU'
+          || user.type == 'NV_VAT_TU'
+          || user.phanXuong == 'PHONG_KTHK'
+          || user.phanXuong == 'PHONG_XE_MAY_DAC_CHUNG'
+          || user.type == 'GENERAL') {
+          return true;
+        }
+        return false;
+      },
+      isEmpty(str) {
+        return str == undefined || str == '';
+      }
     }
   }
 </script>
@@ -545,6 +580,7 @@
       &:nth-child(1), &:nth-child(6) {
         min-width: 50px;
       }
+
       &:last-child {
         min-width: 150px;
       }
