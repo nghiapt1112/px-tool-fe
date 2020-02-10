@@ -34,7 +34,7 @@
               size="small"
               class="inputx"
               @change="changeData('toSo', $event.target.value)"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser)"
               :value="PAData.toSo"/>
           </td>
         </tr>
@@ -50,7 +50,7 @@
               size="small"
               class="inputx"
               @change="changeData('maSo', $event.target.value)"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser)"
               :value="PAData.maSo"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -63,7 +63,7 @@
               size="small"
               class="inputx"
               @change="changeData('soTo', $event.target.value)"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser)"
               :value="PAData.soTo"/>
           </td>
         </tr>
@@ -79,7 +79,7 @@
               size="small"
               class="inputx"
               @change="changeData('sanPham', $event.target.value)"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser)"
               :value="PAData.sanPham"/>
           </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -91,7 +91,7 @@
               size="small"
               class="inputx"
               @change="changeData('pdh', $event.target.value)"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser)"
               :value="PAData.pdh"/>
           </td>
         </tr>
@@ -107,7 +107,7 @@
               size="small"
               class="inputx"
               @change="changeData('noiDung', $event.target.value)"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser)"
               :value="PAData.noiDung"/>
           </th>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
@@ -142,7 +142,7 @@
               size="small"
               class="inputx"
               @change="changeData('nguonKinhPhi', $event.target.value)"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser)"
               :value="PAData.nguonKinhPhi"/>
           </th>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
@@ -180,7 +180,7 @@
               style="width: 100%"
               size="small"
               class="inputx"
-              :disabled="PAData.dmVatTuDisable"
+              :disabled="disabledFields(AppActiveUser, 'DMLD')"
               :value="tr.noiDungCongViec"
               @change="changeDingMucLaoDong(indextr, 'noiDungCongViec', $event.target.value)"/>
           </td>
@@ -189,7 +189,7 @@
               style="width: 70px"
               size="small"
               class="inputx"
-              :disabled="PAData.dmVatTuDisable"
+              :disabled="disabledFields(AppActiveUser, 'DMLD')"
               :value="tr.bacCV"
               @change="changeDingMucLaoDong(indextr, 'bacCV', $event.target.value)"/>
           </td>
@@ -199,6 +199,7 @@
               type="number"
               size="small"
               class="inputx"
+              :disabled="disabledFields(AppActiveUser, 'DMH')"
               :value="tr.dm"
               @change="changeDingMucLaoDong(indextr, 'dm', $event.target.value)"/>
           </td>
@@ -207,6 +208,7 @@
               style="width: 100%"
               size="small"
               class="inputx"
+              :disabled="disabledFields(AppActiveUser, 'DMLD')"
               :value="tr.ghiChu"
               @change="changeDingMucLaoDong(indextr, 'ghiChu', $event.target.value)"/>
           </td>
@@ -277,7 +279,7 @@
               style="width: 120px"
               size="small"
               class="inputx"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser, 'DMVT')"
               :value="tr.tenVatTuKyThuat"
               @change="changeDetailItem(indextr, 'tenVatTuKyThuat', $event.target.value)"/>
           </td>
@@ -287,7 +289,7 @@
               size="small"
               class="inputx"
               :value="tr.kyMaKyHieu"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser, 'DMVT')"
               @change="changeDetailItem(indextr, 'kyMaKyHieu', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -296,7 +298,7 @@
               size="small"
               class="inputx"
               :value="tr.dvt"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser, 'DMVT')"
               @change="changeDetailItem(indextr, 'dvt', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -306,7 +308,7 @@
               class="inputx"
               type="number"
               :value="tr.dm1SP"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser, 'DMVT')"
               @change="changeDetailItem(indextr, 'dm1SP', $event.target.value)"/>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -315,7 +317,7 @@
               type="number"
               size="small"
               class="inputx"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser, 'DMVT')"
               :value="tr.soLuongSanPham"
               @change="changeDetailItem(indextr, 'soLuongSanPham', $event.target.value)"/>
           </td>
@@ -325,7 +327,7 @@
               size="small"
               type="number"
               class="inputx"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser, 'DMVT')"
               :value="tr.tongNhuCau"
               @change="changeDetailItem(indextr, 'tongNhuCau', $event.target.value)"/>
           </td>
@@ -335,6 +337,7 @@
               style="width: 100px"
               size="small"
               class="inputx"
+              :disabled="disabledFields(AppActiveUser, 'HDK')"
               :value="tr.khoDonGia"
               @change="changeDetailItem(indextr, 'khoDonGia', $event.target.value)"/>
           </td>
@@ -344,6 +347,7 @@
               style="width: 100px"
               size="small"
               class="inputx"
+              :disabled="disabledFields(AppActiveUser, 'HDK')"
               :value="tr.khoSoLuong"
               @change="changeDetailItem(indextr, 'khoSoLuong', $event.target.value)"/>
           </td>
@@ -356,6 +360,7 @@
               style="width: 100px"
               size="small"
               class="inputx"
+              :disabled="disabledFields(AppActiveUser, 'MN')"
               :value="tr.mnDonGia"
               @change="changeDetailItem(indextr, 'mnDonGia', $event.target.value)"/>
           </td>
@@ -365,6 +370,7 @@
               style="width: 100px"
               size="small"
               class="inputx"
+              :disabled="disabledFields(AppActiveUser, 'MN')"
               :value="tr.mnSoLuong"
               @change="changeDetailItem(indextr, 'mnSoLuong', $event.target.value)"/>
           </td>
@@ -410,8 +416,9 @@
           </th>
           <td colspan="12" class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning">
             <vs-input
-              type = "number"
+              type="number"
               :value="PAData.tienLuong"
+              :disabled="disabledFields(AppActiveUser, 'TL')"
               @change="changeData('tienLuong', $event.target.value)"/>
 
           </td>
@@ -426,7 +433,7 @@
               selectedLabel="Đã chọn"
               selectLabel="Click để chọn"
               deselectLabel="Click để bỏ chọn"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser)"
               :close-on-select="false"
               :preserve-search="true"
               :options="PAComboboxData.cusNoiNhan.map(i=>i.id)"
@@ -447,7 +454,7 @@
               deselectLabel="Click để bỏ chọn"
               :close-on-select="false"
               :preserve-search="true"
-              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+              :disabled="disabledFields(AppActiveUser)"
               :options="PAComboboxData.nguoiThucHien.map(i=>i.id)"
               :custom-label="opt => PAComboboxData.nguoiThucHien.find(obj=> obj.id == opt).name"
               :multiple="true"
@@ -457,18 +464,18 @@
           </td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
         </tr>
-<!--        <tr>-->
-<!--          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>-->
-<!--          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">-->
-<!--            <vs-textarea-->
-<!--              class="mb-0"-->
-<!--              rows="4"-->
-<!--              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"-->
-<!--              :value="PAData.cusNoiDung"-->
-<!--              @change="changeData('cusNoiDung', $event.target.value)"/>-->
-<!--          </td>-->
-<!--          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>-->
-<!--        </tr>-->
+        <!--        <tr>-->
+        <!--          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>-->
+        <!--          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light">-->
+        <!--            <vs-textarea-->
+        <!--              class="mb-0"-->
+        <!--              rows="4"-->
+        <!--              :disabled="AppActiveUser.type== 'NV_DINH_MUC'"-->
+        <!--              :value="PAData.cusNoiDung"-->
+        <!--              @change="changeData('cusNoiDung', $event.target.value)"/>-->
+        <!--          </td>-->
+        <!--          <th colspan="5" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>-->
+        <!--        </tr>-->
         </tbody>
         <tbody>
         <tr>
@@ -495,18 +502,20 @@
         </tr>
         <tr class="row--chu-ky">
           <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">
-            <input ref="fileInput" style="display: none" type="file" multiple @change="selectFiles($event)">
+            <input ref="fileInput" style="display: none" type="file" accept="application/pdf" multiple
+                   @change="selectFiles($event)">
             <vx-input-group>
               <template slot="prepend">
                 <div class="prepend-text btn-addon">
                   <vs-button
-                    :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+                    :disabled="disabledFields(AppActiveUser)"
                     @click="$refs.fileInput.click()"
-                    color="primary">Chọn tệp</vs-button>
+                    color="primary">Chọn tệp
+                  </vs-button>
                 </div>
               </template>
               <vs-input
-                :disabled="AppActiveUser.type== 'NV_DINH_MUC'"
+                :disabled="disabledFields(AppActiveUser)"
                 size="small"
                 readonly="true"
                 placeholder="Chọn tệp đính kèm"
@@ -639,13 +648,15 @@
       icon="icon-trash"
       :disabled="true"
       @click="openDeleteConfirm"></vs-button>
-    <vs-button class="mr-4 mt-3"  :disabled="PAData.disableAll" @click="onSubmit">Chuyển</vs-button>
+    <vs-button class="mr-4 mt-3" :disabled="PAData.disableAll" @click="onSubmit"
+               v-show="permissionToSave(AppActiveUser)">Chuyển
+    </vs-button>
   </vx-card>
 </template>
 
 <script>
   import vSelect from 'vue-select'
-  import { mapActions, mapGetters } from 'vuex';
+  import {mapActions, mapGetters} from 'vuex';
   import Multiselect from 'vue-multiselect';
 
   export default {
@@ -653,7 +664,7 @@
       'v-select': vSelect,
       Multiselect
     },
-    data () {
+    data() {
       return {
         isNoiNhanShowDropdownList: false
       }
@@ -665,8 +676,8 @@
         'AppActiveUser'
       ]),
       filesTextValue: {
-        get () {
-          const { filesSelected } = this.PAData;
+        get() {
+          const {filesSelected} = this.PAData;
           if (filesSelected && filesSelected.length) {
             const filesName = filesSelected.map(f => f.name).join(', ');
             return `${filesSelected.length} file được chọn (${filesName})`;
@@ -675,8 +686,8 @@
         }
       }
     },
-    mounted () {
-      const { query: { id } } = this.$route;
+    mounted() {
+      const {query: {id}} = this.$route;
       id && this.paGetById(id).then(() => {
         this.getNoiNhan();
       });
@@ -696,7 +707,7 @@
         'paGetCusNoiNhan',
         'paGetNguoiThucHien',
       ]),
-      download () {
+      download() {
         this.commonDownloadFileByType({
           requestId: this.PAData.requestId,
           requestType: 'PHUONG_AN'
@@ -709,7 +720,7 @@
             })
           })
       },
-      getNoiNhan () {
+      getNoiNhan() {
         const {
           requestId,
           truongPhongKTHKXacNhan: tpKTHK,
@@ -730,13 +741,13 @@
         };
         this.paGetNoiNhanById(params);
       },
-      selectFiles (e) {
+      selectFiles(e) {
         const files = e.target.files;
         const data = Object.assign({}, this.PAData);
         data['filesSelected'] = [...files];
         this.paUpdateData(data);
       },
-      resetData () {
+      resetData() {
         const data = {
           dinhMucVatTus: [],
           dinhMucLaoDongs: []
@@ -744,36 +755,36 @@
         this.paUpdateData(data);
         return true;
       },
-      changeData (fieldName, value) {
+      changeData(fieldName, value) {
         const data = Object.assign({}, this.PAData);
         data[fieldName] = value;
         this.paUpdateData(data);
       },
-      changeDetailItem (index, fieldName, value) {
+      changeDetailItem(index, fieldName, value) {
         const item = Object.assign({}, this.PAData.dinhMucVatTus[index]);
         const dmvt = Object.assign([], this.PAData.dinhMucVatTus);
         item[fieldName] = value;
         dmvt[index] = item;
         this.changeData('dinhMucVatTus', dmvt);
       },
-      changeDingMucLaoDong (index, fieldName, value) {
+      changeDingMucLaoDong(index, fieldName, value) {
         const item = Object.assign({}, this.PAData.dinhMucLaoDongs[index]);
         const dmld = Object.assign([], this.PAData.dinhMucLaoDongs);
         item[fieldName] = value;
         dmld[index] = item;
         this.changeData('dinhMucLaoDongs', dmld);
       },
-      addDinhMucLaoDong () {
+      addDinhMucLaoDong() {
         const list = Object.assign([], this.PAData.dinhMucLaoDongs);
         list.push({})
         this.changeData('dinhMucLaoDongs', list);
       },
-      deleteDinhMucLaoDong (index) {
+      deleteDinhMucLaoDong(index) {
         const list = Object.assign([], this.PAData.dinhMucLaoDongs);
         list.splice(index, 1);
         this.changeData('dinhMucLaoDongs', list);
       },
-      addDinhMucVatTu () {
+      addDinhMucVatTu() {
         const list = Object.assign([], this.PAData.dinhMucVatTus);
         list.push({})
         this.changeData('dinhMucVatTus', list);
@@ -786,10 +797,10 @@
         list.splice(index, 1);
         this.changeData('dinhMucVatTus', list);
       },
-      onSubmit () {
+      onSubmit() {
         const data = Object.assign({}, this.PAData);
         this.paSaveData(data).then(() => {
-          const { filesSelected, requestId } = this.PAData;
+          const {filesSelected, requestId} = this.PAData;
           if (filesSelected) {
             // Upload
             filesSelected && this.commonUploadFiles({
@@ -823,7 +834,7 @@
           })
         })
       },
-      openDeleteConfirm () {
+      openDeleteConfirm() {
         this.$vs.dialog({
           type: 'confirm',
           color: 'danger',
@@ -832,15 +843,42 @@
           accept: this.acceptDelete
         })
       },
-      acceptDelete () {
+      acceptDelete() {
         this.$vs.notify({
           color: 'danger',
           title: 'Xóa Phiếu Định Mức Lao Động - Vật Tư',
           text: 'Xóa Phiếu Định Mức Lao Động - Vật Tư thất bại.'
         })
       },
-      onDownloadFile (fileName) {
-        this.commonDownloadFile({ fileName });
+      onDownloadFile(fileName) {
+        this.commonDownloadFile({fileName});
+      },
+      disabledFields(user, fieldName) {
+        if (user.type == 'TL_KY_THUAT' || user.type == 'TP_VAT_TU' || user.type == 'TRUONG_PHONG') {
+          return false;
+        }
+        // nhan vien tiep lieu
+        if (user.type == 'NV_VAT_TU' && user.userId == '54') {
+          if (fieldName == 'HDK' || fieldName == 'MN') { // huy dong kho, mua ngoai
+            return false;
+          }
+        }
+        // nhan vien dinh muc
+        if (user.type == 'NV_DINH_MUC' || (user.type == 'GENERAL' && user.phanXuong == 'PHONG_KE_HOACH')) {
+          if (fieldName == 'DMH' || fieldName == 'TL') {
+            return false;
+          }
+        }
+        return true;
+      },
+      permissionToSave(user) {
+        if (user.type == 'TL_KY_THUAT' || user.type == 'TRUONG_PHONG' || user.type == 'NV_VAT_TU' || user.type == 'TP_VAT_TU' || user.type == 'NV_DINH_MUC' || user.type == 'GENERAL') {
+          return true;
+        }
+        return false;
+      },
+      isEmpty(str) {
+        return str == undefined || str == '';
       }
     }
   }

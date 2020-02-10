@@ -91,7 +91,6 @@
             <div class="notification-top text-center p-5 bg-primary text-white">
               <h3 class="text-white">{{ UnreadNotifications.length }} Thông báo</h3>
             </div>
-Full nMae to dien px5
             <VuePerfectScrollbar ref="mainSidebarPs" class="scroll-area--nofications-dropdown p-0 mb-3"
                                  :settings="settings">
               <ul class="bordered-items">

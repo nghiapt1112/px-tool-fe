@@ -173,6 +173,13 @@ const actions = {
   updateProfile ({ commit }, data) {
     return new Promise((resolve, reject) => {
       user.update(data).then(res => {
+        user.getUserInfo().then(userRes => {
+          const {data} = userRes;
+          commit('PROFILE_GET_USER_INFO_SUCCESS', data);
+        }).catch(e => {
+          commit('PROFILE_GET_USER_INFO_FAILURE', e)
+          reject(e)
+        });
         resolve(res)
       }).catch(e => {
         reject(e)
