@@ -7,6 +7,7 @@
           <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Loại</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Trạng thái</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Ngày gửi</th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
 
@@ -27,6 +28,9 @@
 
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <span>{{ tr.status }}</span>
+          </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light">
+            <span>{{tr.ngayGui}}</span>
           </td>
 
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
@@ -110,6 +114,9 @@
           text: 'Bạn có chắc muốn xóa bản ghi này?',
           accept: this.acceptDelete
         })
+      },
+      formatDate(date){
+        return moment(date).format('MM/DD/YYYY')
       },
       acceptDelete () {
         this.$vs.notify({

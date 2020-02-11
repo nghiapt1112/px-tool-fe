@@ -75,7 +75,12 @@
             {{fileName}}
           </a>
         </div>
+        <div class="vx-col w-full">
+          <a class="link-download" target="_blank"
+             :href="getDetailLink(VBDData)">Click để hiện thông tin chi tiết</a>
+        </div>
       </div>
+
       <div class="vx-row" v-if="isCreate">
         <div class="vx-col w-full">
           <vs-button class="mb-2" @click="onSubmit">Lưu</vs-button>
@@ -119,6 +124,7 @@
       }
     },
     mounted () {
+      console.log('ddddd', id);
       const { query: { id } } = this.$route;
       this.isCreate = !id;
       id && this.vbdGetById(id);
@@ -193,6 +199,18 @@
       },
       onDownloadFile (fileName) {
         this.commonDownloadFile({ fileName });
+      },
+      showFields(vanBanDen){
+        if(vanBanDen.requestType == 'KIEM_HONG' || vanBanDen.requestType == 'DAT_HANG' || vanBanDen.requestType == 'PHUONG_AN') {
+          return true;
+        }
+        return false;
+      },
+      getDetailLink(vanBanDen){
+        if (vanBanDen.requestType == 'KIEM_HONG') return '/pkh?id=' +vanBanDen.requestId;
+        if (vanBanDen.requestType == 'DAT_HANG') return '/pdh?id=' +vanBanDen.requestId;
+        if (vanBanDen.requestType == 'PHUONG_AN') return '/pa?id=' +vanBanDen.requestId;
+        else return '#';
       }
     }
   }

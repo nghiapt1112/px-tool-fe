@@ -30,7 +30,7 @@
             :value="NDData.fullName"/>
         </div>
         <div class="vx-col w-1/2">
-          <label class="vs-input--label">Phòng ban</label>
+          <label class="vs-input--label">Chức vụ</label>
           <v-select
             size="small"
             label="name"
@@ -117,6 +117,7 @@
     },
     async mounted () {
           const { query: { id } } = this.$route;
+          this.isCreate = !id;
           this.userId = id;
           await this.ndGetLevel();
           await this.ndGetPhongBan();

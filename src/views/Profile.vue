@@ -22,10 +22,20 @@
           />
         </div>
       </div>
+      <div class="vx-row mb-6">
+        <div class="vx-col w-full">
+          <vs-input
+            class="w-1/2"
+            type="password"
+            label="Mật khẩu"
+            v-model="pwd"
+          />
+        </div>
+      </div>
       <div class="vx-row">
         <div class="vx-col w-full">
           <vs-button
-            @click="submitProfile"
+            @click="submitProfile()"
             class="mr-3 mb-2" v-show="!sizeLimit">Lưu
           </vs-button>
         </div>
@@ -43,7 +53,8 @@
         showError: false,
         fullName: null,
         imgBase64: null,
-        sizeLimit: false
+        sizeLimit: false,
+        pwd: null
       }
     },
     computed: {
@@ -78,8 +89,10 @@
           fullName: this.fullName,
           imgBase64: this.imgBase64,
           email: this.AppActiveUser.email,
-          userId: this.AppActiveUser.userId
+          userId: this.AppActiveUser.userId,
+          password: this.pwd
         }
+        console.log('pass', this.pwd);
         this.updateProfile(payload)
           .then(() => {
             this.$vs.notify({

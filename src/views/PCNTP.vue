@@ -241,8 +241,8 @@
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI GIAO VIỆC</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Quản Đốc</th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI GIAO VIỆC</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP.KCS</th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>
