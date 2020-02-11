@@ -7,7 +7,6 @@
           <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Loại</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Trạng thái</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Ngày gửi</th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
         </tr>
 
@@ -29,10 +28,6 @@
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <span>{{ tr.status }}</span>
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light">
-            <span>{{tr.ngayGui}}</span>
-          </td>
-
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-button class="mr-4" size="small" @click="onDetailClick(tr.requestId, tr.type)">Chi tiết</vs-button>
             <vs-button class="mr-4" size="small" color="danger" @click="openDeleteConfirm">Hủy</vs-button>
