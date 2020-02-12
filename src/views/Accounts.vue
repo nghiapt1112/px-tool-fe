@@ -1,6 +1,6 @@
 <template>
   <vx-card title="Danh sách người dùng">
-    <vs-button class="mb-4" @click="$router.push(`nd/new`)">Thêm mới</vs-button>
+    <vs-button class="mb-4" @click="ndResetData(); $router.push(`nd/new`)">Thêm mới</vs-button>
     <div class="cvct-table--container">
       <table class="works__table--content border-collapse">
         <tr>
@@ -73,7 +73,8 @@
     },
     methods: {
       ...mapActions([
-        'ndGetList'
+        'ndGetList',
+        'ndResetDatag'
       ]),
       onChangePage () {
         const params = {

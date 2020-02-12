@@ -592,6 +592,10 @@ const mutations = {
     state.nd.data = {};
   },
 
+  ND_RESET_DATA (state) {
+    state.nd.data = {};
+  },
+
   ND_GET_LEVEL (state) {
     state.nd.comboboxData.level = [];
   },
