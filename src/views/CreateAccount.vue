@@ -30,7 +30,7 @@
             :value="NDData.fullName"/>
         </div>
         <div class="vx-col w-1/2">
-          <label class="vs-input--label">Phòng ban</label>
+          <label class="vs-input--label">Chức vụ</label>
           <v-select
             size="small"
             label="name"
@@ -115,13 +115,14 @@
         'AppActiveUser'
       ]),
     },
-    mounted () {
-      const { query: { id } } = this.$route;
-      this.userId = id;
-      id && this.ndGetById(id);
-      this.ndGetLevel();
-      this.ndGetPhongBan();
-    },
+    async mounted () {
+          const { query: { id } } = this.$route;
+          this.isCreate = !id;
+          this.userId = id;
+          await this.ndGetLevel();
+          await this.ndGetPhongBan();
+          id && this.ndGetById(id);
+        },
     methods: {
       ...mapActions([
         'ndGetLevel',
@@ -163,7 +164,7 @@
             this.$vs.notify({
               color: 'success',
               title: 'Thêm Mới Người Dùng',
-              text: `Thêm Mới Người Dùng thành công.`
+              text: `Lưu thành công.`
             });
             this.$router.push(`/nd`);
           })
@@ -171,7 +172,7 @@
             this.$vs.notify({
               color: 'danger',
               title: 'Thêm Mới Người Dùng',
-              text: `Thêm Mới Người Dùng thất bại. ${e}`
+              text: `Lưu thất bại. ${e}`
             })
           })
       },
@@ -180,7 +181,7 @@
           type: 'confirm',
           color: 'danger',
           title: `Xác nhận xóa`,
-          text: 'Bạn có chắc muốn xóa người dùng này?',
+          text: 'Bạn có chắc muốn xóa ?',
           acceptText: 'Đồng ý',
           cancelText: 'Đóng',
           accept: this.acceptDelete

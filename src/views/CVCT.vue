@@ -28,7 +28,6 @@
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <span>{{ tr.status }}</span>
           </td>
-
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-button class="mr-4" size="small" @click="onDetailClick(tr.requestId, tr.type)">Chi tiết</vs-button>
             <vs-button class="mr-4" size="small" color="danger" @click="openDeleteConfirm">Hủy</vs-button>
@@ -110,6 +109,9 @@
           text: 'Bạn có chắc muốn xóa bản ghi này?',
           accept: this.acceptDelete
         })
+      },
+      formatDate(date){
+        return moment(date).format('MM/DD/YYYY')
       },
       acceptDelete () {
         this.$vs.notify({

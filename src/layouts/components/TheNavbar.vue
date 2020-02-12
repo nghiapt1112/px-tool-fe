@@ -91,7 +91,6 @@
             <div class="notification-top text-center p-5 bg-primary text-white">
               <h3 class="text-white">{{ UnreadNotifications.length }} Thông báo</h3>
             </div>
-
             <VuePerfectScrollbar ref="mainSidebarPs" class="scroll-area--nofications-dropdown p-0 mb-3"
                                  :settings="settings">
               <ul class="bordered-items">
@@ -155,7 +154,7 @@
                 <li class="flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white"
                     @click="logout">
                   <feather-icon icon="LogOutIcon" svgClasses="w-4 h-4"></feather-icon>
-                  <span class="ml-2">Logout</span></li>
+                  <span class="ml-2">Thoát</span></li>
               </ul>
             </vs-dropdown-menu>
           </vs-dropdown>

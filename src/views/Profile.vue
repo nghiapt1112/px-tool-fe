@@ -22,11 +22,21 @@
           />
         </div>
       </div>
+      <div class="vx-row mb-6">
+        <div class="vx-col w-full">
+          <vs-input
+            class="w-1/2"
+            type="password"
+            label="Mật khẩu"
+            v-model="pwd"
+          />
+        </div>
+      </div>
       <div class="vx-row">
         <div class="vx-col w-full">
           <vs-button
-            @click="submitProfile"
-            class="mr-3 mb-2">Lưu
+            @click="submitProfile()"
+            class="mr-3 mb-2" v-show="!sizeLimit">Lưu
           </vs-button>
         </div>
       </div>
@@ -42,7 +52,9 @@
       return {
         showError: false,
         fullName: null,
-        imgBase64: null
+        imgBase64: null,
+        sizeLimit: false,
+        pwd: null
       }
     },
     computed: {
@@ -58,6 +70,11 @@
       ]),
       selectFile (e) {
         const files = e.target.files;
+        this.sizeLimit = false;
+        if (files[0].size > 4194304) {// 4Mb
+          this.sizeLimit = true;
+          alert('Ảnh không được vượt quá 4Mb');
+        }
         if (files && files.length) {
           const reader = new FileReader();
           reader.readAsDataURL(files[0]);
@@ -69,11 +86,13 @@
       },
       submitProfile () {
         const payload = {
-          fullName: this.fullName || this.AppActiveUser.email,
-          imgBase64: this.imgBase64 || this.AppActiveUser.chuKy,
+          fullName: this.fullName,
+          imgBase64: this.imgBase64,
           email: this.AppActiveUser.email,
-          userId: this.AppActiveUser.userId
+          userId: this.AppActiveUser.userId,
+          password: this.pwd
         }
+        console.log('pass', this.pwd);
         this.updateProfile(payload)
           .then(() => {
             this.$vs.notify({

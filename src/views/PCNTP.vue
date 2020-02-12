@@ -42,7 +42,7 @@
             Số PA
           </th>
           <td colspan="6" class="p-2 border border-solid d-theme-border-grey-light">
-            <a class="link-download" target="_blank" :href="'/pa?id=' + PCNTPData.requestId">PA {{PCNTPData.soPa}}</a>
+            <a class="link-download" target="_blank" :href="'/pa?id=' + PCNTPData.paId">{{PCNTPData.soPa}}</a>
           </td>
         </tr>
         <tr>
@@ -241,8 +241,8 @@
         </tr>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI GIAO VIỆC</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Quản Đốc</th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">NGƯỜI GIAO VIỆC</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TP.KCS</th>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
           <td class="p-2 border border-solid d-theme-border-grey-light"></td>

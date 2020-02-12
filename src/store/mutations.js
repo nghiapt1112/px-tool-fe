@@ -120,12 +120,14 @@ const mutations = {
   },
 
   PROFILE_GET_USER_INFO_SUCCESS (state, payload) {
-    const { email, signImg, fullName, userId, type } = payload;
+    const { email, signImg, fullName, userId, type, phanXuong, level } = payload;
     state.AppActiveUser.name = fullName;
     state.AppActiveUser.email = email;
     state.AppActiveUser.chuKy = signImg;
     state.AppActiveUser.userId = userId;
     state.AppActiveUser.type = type;
+    state.AppActiveUser.phanXuong = phanXuong;
+    state.AppActiveUser.level = level;
     state.profile.error = null;
     state.profile.loading = false;
     state.profile.data = payload
