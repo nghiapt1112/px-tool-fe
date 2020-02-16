@@ -532,13 +532,10 @@
         })
       },
       disableFields(user, fieldName) {
-        if (this.isEmpty(fieldName)) {
-          return true;
-        }
         if (user.type == 'TP_VAT_TU' || user.type == 'NV_VAT_TU') {
-          if (fieldName == 'SO' || fieldName == 'MDSD' || fieldName == 'PPKP') {
-            return false;
-          }
+          return false;
+        }
+        if (this.isEmpty(fieldName)) {
           return true;
         }
         // phuong phap khac phuc
