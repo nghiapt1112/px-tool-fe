@@ -14,7 +14,7 @@
           <div class="vx-row mb-6">
             <div class="vx-col w-1/2">
               <label class="vs-input--label">Ngày tạo</label>
-              <datepicker placeholder="Select Date" input-class="input-date"
+              <datepicker placeholder="Ngày Tạo" input-class="input-date" :language="vi"
                           v-model="searchCondition.date"></datepicker>
             </div>
             <div class="vx-col w-1/2">
@@ -41,6 +41,7 @@
             <tr>
               <th class="p-2 border border-solid d-theme-border-grey-light">Số VB</th>
               <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
+              <th class="p-1 border border-solid d-theme-border-grey-light">Ngày tạo</th>
               <th class="p-2 border border-solid d-theme-border-grey-light">Chức năng</th>
             </tr>
 
@@ -52,7 +53,10 @@
               <td class="p-2 border border-solid d-theme-border-grey-light">
                 {{ tr.noiDung }}
               </td>
-              <td class="p-2 border border-solid d-theme-border-grey-light text-center">
+              <td class="p-2 border border-solid d-theme-border-grey-light">
+                {{ tr.ngayGui }}
+              </td>
+              <td class="p-2 border border-solid d-theme-border-grey-light">
                 <vs-button class="mr-4" size="small" @click="onDetailClick(tr.vbdId)">Chi tiết</vs-button>
                 <vs-button class="mr-4" size="small" type="border" @click="startPhanLoai(tr.vbdId)">Phân loại
                 </vs-button>
@@ -99,6 +103,7 @@
   import VBDThuMucFilters from './components/VBDThuMucFilters';
   import Datepicker from 'vuejs-datepicker';
   import vSelect from 'vue-select';
+  import {en, vi} from "vuejs-datepicker/dist/locale";
 
   export default {
     components: {
@@ -109,6 +114,8 @@
     },
     data () {
       return {
+        vi: vi,
+        en: en,
         searchCondition: {
           date: null,
           soVB: null,
@@ -172,6 +179,7 @@
       },
       onChangePage () {
         const { date } = this.searchCondition;
+        date.setHours(0,0,0,0);
         const params = {
           ...this.searchCondition,
           page: this.page,

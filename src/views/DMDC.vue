@@ -89,7 +89,7 @@
           </table>
         </div>
       </vs-tab>
-      <vs-tab label="Thư mục Văn Bản Đến">
+      <vs-tab label="Thư mục  Văn Bản Đến">
         <div class="cvct-table--container">
           <table class="works__table--content border-collapse">
             <tr>

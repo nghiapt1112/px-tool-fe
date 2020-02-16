@@ -286,11 +286,11 @@
         <tbody>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong1fullName}}</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong2fullName}}</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong3fullName}}</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong4fullName}}</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong5fullName}}</th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong1Alias}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong2Alias}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong3Alias}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong4Alias}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong5Alias}}</th>
         </tr>
         <tr class="row--chu-ky">
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
@@ -300,16 +300,19 @@
               icon="icon-check"
               class="input-inline"
               :disabled="PCNTPData.toTruong1Disable"
+              v-show="showFields(PCNTPData.toTruong1Id, 'CHU_KY')"
               :value="PCNTPData.toTruong1XacNhan"
               @input="changeData('toTruong1XacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PCNTPData.toTruong1XacNhan" class="chu-ky"
+                 v-show="showFields(PCNTPData.toTruong1Id, 'CHU_KY')"
                  :src="PCNTPData.toTruong1Disable ? PCNTPData.toTruong1SignImg : AppActiveUser.chuKy">
             <span v-if="PCNTPData.toTruong1XacNhan">{{PCNTPData.toTruong1Disable ? PCNTPData.toTruong1fullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PCNTPData.toTruong1Disable"
               v-if="!PCNTPData.toTruong1XacNhan"
+              v-show="showFields(PCNTPData.toTruong1Id, 'CHU_KY')"
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
@@ -321,17 +324,20 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              v-show="showFields(PCNTPData.toTruong2Id, 'CHU_KY')"
               :disabled="PCNTPData.toTruong2Disable"
               :value="PCNTPData.toTruong2XacNhan"
               @input="changeData('toTruong2XacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PCNTPData.toTruong2XacNhan" class="chu-ky"
+                 v-show="showFields(PCNTPData.toTruong2Id, 'CHU_KY')"
                  :src="PCNTPData.toTruong2Disable ? PCNTPData.toTruong2SignImg : AppActiveUser.chuKy">
             <span v-if="PCNTPData.toTruong2XacNhan">{{PCNTPData.toTruong2Disable ? PCNTPData.toTruong2fullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PCNTPData.toTruong2Disable"
               v-if="!PCNTPData.toTruong2XacNhan"
+              v-show="showFields(PCNTPData.toTruong2Id, 'CHU_KY')"
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
@@ -343,17 +349,20 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              v-show="showFields(PCNTPData.toTruong3Id, 'CHU_KY')"
               :disabled="PCNTPData.toTruong3Disable"
               :value="PCNTPData.toTruong3XacNhan"
               @input="changeData('toTruong3XacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PCNTPData.toTruong3XacNhan" class="chu-ky"
+                 v-show="showFields(PCNTPData.toTruong3Id, 'CHU_KY')"
                  :src="PCNTPData.toTruong3Disable ? PCNTPData.toTruong3SignImg : AppActiveUser.chuKy">
             <span v-if="PCNTPData.toTruong3XacNhan">{{PCNTPData.toTruong3Disable ? PCNTPData.toTruong3fullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PCNTPData.toTruong3Disable"
               v-if="!PCNTPData.toTruong3XacNhan"
+              v-show="showFields(PCNTPData.toTruong3Id, 'CHU_KY')"
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
@@ -365,17 +374,20 @@
               icon-pack="feather"
               icon="icon-check"
               class="input-inline"
+              v-show="showFields(PCNTPData.toTruong4Id, 'CHU_KY')"
               :disabled="PCNTPData.toTruong4Disable"
               :value="PCNTPData.toTruong4XacNhan"
               @input="changeData('toTruong4XacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PCNTPData.toTruong4XacNhan" class="chu-ky"
+                 v-show="showFields(PCNTPData.toTruong4Id, 'CHU_KY')"
                  :src="PCNTPData.toTruong4Disable ? PCNTPData.toTruong4SignImg : AppActiveUser.chuKy">
             <span v-if="PCNTPData.toTruong4XacNhan">{{PCNTPData.toTruong4Disable ? PCNTPData.toTruong4fullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PCNTPData.toTruong4Disable"
               v-if="!PCNTPData.toTruong4XacNhan"
+              v-show="showFields(PCNTPData.toTruong4Id, 'CHU_KY')"
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
@@ -388,16 +400,19 @@
               icon="icon-check"
               class="input-inline"
               :disabled="PCNTPData.toTruong5Disable"
+              v-show="showFields(PCNTPData.toTruong5Id, 'CHU_KY')"
               :value="PCNTPData.toTruong5XacNhan"
               @input="changeData('toTruong5XacNhan', $event); getNoiNhan()"
             >Đồng Ý
             </vs-checkbox>
             <img v-if="PCNTPData.toTruong5XacNhan" class="chu-ky"
+                 v-show="showFields(PCNTPData.toTruong5Id, 'CHU_KY')"
                  :src="PCNTPData.toTruong5Disable ? PCNTPData.toTruong5SignImg : AppActiveUser.chuKy">
             <span v-if="PCNTPData.toTruong5XacNhan">{{PCNTPData.toTruong5Disable ? PCNTPData.toTruong5fullName : AppActiveUser.name}}</span>
             <vs-textarea
               :disabled="PCNTPData.toTruong5Disable"
               v-if="!PCNTPData.toTruong5XacNhan"
+              v-show="showFields(PCNTPData.toTruong5Id, 'CHU_KY')"
               rows="4"
               class="mt-3"
               placeholder="Nhập ý kiến cho trường hợp Không nhất trí"
@@ -415,6 +430,7 @@
               selectedLabel="Đã chọn"
               selectLabel="Click để chọn"
               deselectLabel="Click để bỏ chọn"
+              :limitText="limitText"
               :max="5"
               :close-on-select="false"
               :preserve-search="true"
@@ -433,11 +449,11 @@
         </tbody>
       </table>
     </div>
-    <vs-button
-      class="mr-4 float-right mt-3"
-      color="danger"
-      icon-pack="feather"
-      icon="icon-trash"></vs-button>
+<!--    <vs-button-->
+<!--      class="mr-4 float-right mt-3"-->
+<!--      color="danger"-->
+<!--      icon-pack="feather"-->
+<!--      icon="icon-trash"></vs-button>-->
     <vs-button class="mr-4 mt-3" @click="onSubmit">Lưu</vs-button>
   </vx-card>
 </template>
@@ -511,6 +527,12 @@
         };
         this.pcntpGetNoiNhanById(params);
       },
+      showFields(userId, fieldName){
+        if (fieldName == 'CHU_KY' && userId) {
+          return true;
+        }
+        return false;
+      },
       resetData () {
         const data = {
           noiDungThucHiens: [],
@@ -573,6 +595,9 @@
           text: 'Xóa Phiếu Công Nhận Thành Phẩm thất bại.'
         })
       },
+      limitText(count){
+        return `Chỉ được chọn tối đa ${count} tổ trưởng`;
+      }
     }
   }
 </script>

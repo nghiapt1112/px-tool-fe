@@ -1,5 +1,20 @@
 <template>
   <vx-card title="Thống Kê Tiến Độ Sản Phẩm">
+    <div class="filter-container">
+      <div class="vx-row mb-4">
+        <div class="vx-col w-1/4">
+          <label class="filter-folder-area">Từ ngày</label>
+          <datepicker placeholder="Từ ngày" input-class="input-date" :language="vi"
+                      v-model="searchCondition.fromDate"></datepicker>
+        </div>
+        <div class="vx-col w-1/4">
+          <label class="filter-folder-area">Đến ngày</label>
+          <datepicker placeholder="Đến ngày" input-class="input-date" :language="vi"
+                      v-model="searchCondition.toDate"
+          ></datepicker>
+        </div>
+      </div>
+    </div>
     <div class="flex mb-4">
       <div class="w-3/4 mr-5 filter-folder-area">
         Sản phẩm:
@@ -10,11 +25,13 @@
             label="ten"
             :reduce="t => t.mdId"
             v-model="mdsd"
-            @input="getList()"
             :options="TKTDSPComboboxData.mdsd"></v-select>
           <div class="ml-4" style="width: 250px">Tiến độ: {{TKTDSPData.tienDo}}%</div>
         </div>
       </div>
+    </div>
+    <div class="flex w-1/2">
+      <vs-button class="mb-5" @click="search()">Tìm kiếm</vs-button>
     </div>
     <div class="table--container">
       <table class="invoice__table--content border-collapse">
@@ -125,13 +142,22 @@
 <script>
   import {mapActions, mapGetters} from 'vuex';
   import vSelect from 'vue-select'
+  import Datepicker from "vuejs-datepicker";
+  import {en, vi} from 'vuejs-datepicker/dist/locale'
 
   export default {
     components: {
       'v-select': vSelect,
+      Datepicker
     },
     data() {
       return {
+        vi: vi,
+        en: en,
+        searchCondition: {
+          fromDate: new Date(),
+          toDate: new Date()
+        },
         mdsd: null,
         showError: false,
         page: 1,
@@ -189,6 +215,24 @@
               })
             })
         }
+      },
+      search() {
+        if (!this.searchCondition.fromDate) {
+          this.searchCondition.fromDate = new Date();
+        }
+        if (!this.searchCondition.toDate) {
+          this.searchCondition.toDate = new Date();
+        }
+        this.searchCondition.fromDate.setHours(0,0,0,0);
+        this.searchCondition.toDate.setHours(23,59,59,0);
+        const params = {
+          page: this.page,
+          size: 30,
+          spId: this.mdsd,
+          fromDate: this.searchCondition.fromDate.getTime(),
+          toDate: this.searchCondition.toDate.getTime(),
+        };
+        this.tktdspGetList(params);
       }
     }
   }

@@ -66,7 +66,8 @@
     },
     methods: {
       ...mapActions([
-        'updateProfile'
+        'updateProfile',
+        'getUserProfile'
       ]),
       selectFile (e) {
         const files = e.target.files;
@@ -95,11 +96,16 @@
         console.log('pass', this.pwd);
         this.updateProfile(payload)
           .then(() => {
-            this.$vs.notify({
-              color: 'success',
-              title: 'Thông tin cá nhân',
-              text: `Cập nhật thành công.`
+            this.getUserProfile()
+            .then(() => {
+              // co lam gi o day khong anh
+              this.$vs.notify({
+                color: 'success',
+                title: 'Thông tin cá nhân',
+                text: `Cập nhật thành công.`
+              });
             });
+
           })
           .catch(e => {
             this.$vs.notify({

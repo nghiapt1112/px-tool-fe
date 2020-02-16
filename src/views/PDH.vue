@@ -347,12 +347,12 @@
         </tbody>
       </table>
     </div>
-    <vs-button
-      class="mr-4 float-right mt-3"
-      color="danger"
-      icon-pack="feather"
-      icon="icon-trash"
-      @click="openDeleteConfirm"></vs-button>
+<!--    <vs-button-->
+<!--      class="mr-4 float-right mt-3"-->
+<!--      color="danger"-->
+<!--      icon-pack="feather"-->
+<!--      icon="icon-trash"-->
+<!--      @click="openDeleteConfirm"></vs-button>-->
     <vs-button class="mr-4 mt-3" @click="onSubmit" v-show="permissionToSave(AppActiveUser)">Chuyển</vs-button>
   </vx-card>
 </template>
