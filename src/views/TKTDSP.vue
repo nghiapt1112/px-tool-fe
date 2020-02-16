@@ -155,7 +155,7 @@
         vi: vi,
         en: en,
         searchCondition: {
-          fromDate: new Date(),
+          fromDate: new Date(2020, 1, 1),
           toDate: new Date()
         },
         mdsd: null,

@@ -353,7 +353,7 @@
 <!--      icon-pack="feather"-->
 <!--      icon="icon-trash"-->
 <!--      @click="openDeleteConfirm"></vs-button>-->
-    <vs-button class="mr-4 mt-3" @click="onSubmit" v-show="permissionToSave(AppActiveUser)">Chuyển</vs-button>
+    <vs-button class="mr-4 mt-3" @click="onSubmit" v-show="permissionToSave(AppActiveUser, PDHData)">Chuyển</vs-button>
   </vx-card>
 </template>
 
@@ -550,7 +550,10 @@
         }
         return true;
       },
-      permissionToSave(user) {
+      permissionToSave(user, data) {
+        if (data.currentStatus == 'PHUONG_AN') {
+          return false;
+        }
         if (user.type == 'TP_VAT_TU'
           || user.type == 'NV_VAT_TU'
           || user.phanXuong == 'PHONG_KTHK'
@@ -562,7 +565,7 @@
       },
       isEmpty(str) {
         return str == undefined || str == '';
-      }
+      },
     }
   }
 </script>

@@ -365,7 +365,7 @@
 <!--      icon-pack="feather"-->
 <!--      icon="icon-trash"-->
 <!--      @click="openDeleteConfirm"></vs-button>-->
-    <vs-button class="mr-4 mt-3" @click="onSubmit">Chuyển</vs-button>
+    <vs-button class="mr-4 mt-3" @click="onSubmit" v-show="showFields(PKHData)">Chuyển</vs-button>
 
     <vs-popup class="holamundo" title="Có lỗi xảy ra" :active.sync="showError">
       <p class="text-danger">{{pkhError}}</p>
@@ -511,6 +511,12 @@
           accept: this.acceptDelete
         })
       },
+      showFields(data) {
+        if (data.currentStatus == 'DAT_HANG') {
+          return false;
+        }
+        return true;
+      }
     }
   }
 </script>

@@ -3,7 +3,7 @@
     <div class="cvct-table--container">
       <table class="works__table--content border-collapse">
         <tr>
-          <th class="p-2 border border-solid d-theme-border-grey-light">Mã</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light">Số Văn bản (Số phiếu)</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Nội dung</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Loại</th>
           <th class="p-2 border border-solid d-theme-border-grey-light">Trạng thái</th>
@@ -112,9 +112,6 @@
           text: 'Bạn có chắc muốn xóa bản ghi này?',
           accept: this.acceptDelete
         })
-      },
-      formatDate(date){
-        return moment(date).format('MM/DD/YYYY')
       },
       acceptDelete () {
         this.$vs.notify({

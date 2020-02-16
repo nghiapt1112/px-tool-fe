@@ -179,7 +179,9 @@
       },
       onChangePage () {
         const { date } = this.searchCondition;
-        date.setHours(0,0,0,0);
+        if (date) {
+          date.setHours(0,0,0,0);
+        }
         const params = {
           ...this.searchCondition,
           page: this.page,
