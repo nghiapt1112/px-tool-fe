@@ -512,7 +512,7 @@
           accept: this.acceptDelete
         })
       },
-      acceptDelete () {
+      acceptDelete() {
         const {query: {id}} = this.$route;
         this.deleteRequest(id)
           .then(() => {
@@ -540,7 +540,8 @@
           return false;
         } else {
           if ((user.type == 'TL_KY_THUAT' && user.level == 4)
-          || (user.type == 'GENERAL' && user.level == 3)) { // dang kiem hong thi dung user ms co quyen save
+            || (user.type == 'GENERAL' && user.level == 3)
+            || (user.type == 'GENERAL' && user.level == 5)) { // dang kiem hong thi dung user ms co quyen save
             return true;
           }
         }
