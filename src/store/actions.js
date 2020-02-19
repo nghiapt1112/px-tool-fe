@@ -847,6 +847,15 @@ const actions = {
   },
   dmsdUpdateEditMode ({ commit }, payload) {
     commit('DMSD_UPDATE_EDIT_MODE', payload)
+  },
+  deleteRequest({commit}, id) {
+    return new Promise((resolve, reject) => {
+      user.deleteRequest(id).then(res => {
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
   }
 }
 

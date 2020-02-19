@@ -171,7 +171,7 @@
             <vs-input
               size="small"
               class="inputx"
-              :disabled="disableFields(AppActiveUser)"
+              :disabled="disableFields(AppActiveUser, 'PHIEU_DAT_HANG')"
               :value="tr.soPhieuDatHang"
               @change="changeDetailItem(indextr, 'soPhieuDatHang', $event.target.value)"/>
           </td>
@@ -533,6 +533,9 @@
       },
       disableFields(user, fieldName) {
         if (user.type == 'TP_VAT_TU' || user.type == 'NV_VAT_TU') {
+          if (fieldName == 'PHIEU_DAT_HANG') {
+            return true;
+          }
           return false;
         }
         if (this.isEmpty(fieldName)) {
@@ -548,7 +551,7 @@
         return true;
       },
       permissionToSave(user, data) {
-        if (data.currentStatus == 'PHUONG_AN') {
+        if (data.currentStatus != 'DAT_HANG') {
           return false;
         }
         if (user.type == 'TP_VAT_TU'

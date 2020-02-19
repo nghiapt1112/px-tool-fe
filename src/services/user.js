@@ -39,3 +39,7 @@ export const create = (payload) => {
 export const deleteUser = (userId) => {
   return api.delete(`/users/${userId}`)
 }
+
+export const deleteRequest = (id) => {
+  return api.delete(`/req/${id}`)
+}

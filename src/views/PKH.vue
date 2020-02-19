@@ -359,13 +359,13 @@
         </tbody>
       </table>
     </div>
-<!--    <vs-button-->
-<!--      class="mr-4 float-right mt-3"-->
-<!--      color="danger"-->
-<!--      icon-pack="feather"-->
-<!--      icon="icon-trash"-->
-<!--      @click="openDeleteConfirm"></vs-button>-->
-    <vs-button class="mr-4 mt-3" @click="onSubmit" v-show="showFields(PKHData)">Chuyển</vs-button>
+    <vs-button
+      class="mr-4 float-right mt-3"
+      color="danger"
+      icon-pack="feather"
+      icon="icon-trash"
+      @click="openDeleteConfirm()"></vs-button>
+    <vs-button class="mr-4 mt-3" @click="onSubmit" v-show="showFields(PKHData, AppActiveUser)">Chuyển</vs-button>
 
     <vs-popup class="holamundo" title="Có lỗi xảy ra" :active.sync="showError">
       <p class="text-danger">{{pkhError}}</p>
@@ -424,6 +424,7 @@
         'commonDownloadFileByType',
         'pkhGetCusNoiNhan',
         'pkhGetNguoiThucHien',
+        'deleteRequest'
       ]),
       download() {
         this.commonDownloadFileByType({
@@ -511,11 +512,39 @@
           accept: this.acceptDelete
         })
       },
-      showFields(data) {
-        if (data.currentStatus == 'DAT_HANG') {
-          return false;
+      acceptDelete () {
+        const {query: {id}} = this.$route;
+        this.deleteRequest(id)
+          .then(() => {
+            this.$vs.notify({
+              color: 'success',
+              title: 'Xóa Kiểm hỏng',
+              text: `Xóa kiểm hỏng thành công.`
+            });
+            this.$router.push(`/nd`);
+          })
+          .catch((e) => {
+            this.$vs.notify({
+              color: 'danger',
+              title: 'Xóa Kiểm hỏng',
+              text: `Xóa Kiểm hỏng thất bại. ${e}`
+            })
+          })
+      },
+      showFields(data, user) {
+        const {query: {id}} = this.$route;
+        if (!id && (user.type == 'GENERAL' && user.level == 5)) { // user =  to_truong
+          return true;
         }
-        return true;
+        if (data.currentStatus != 'KIEM_HONG') { // da xong kiem hong
+          return false;
+        } else {
+          if ((user.type == 'TL_KY_THUAT' && user.level == 4)
+          || (user.type == 'GENERAL' && user.level == 3)) { // dang kiem hong thi dung user ms co quyen save
+            return true;
+          }
+        }
+        return false;
       }
     }
   }
