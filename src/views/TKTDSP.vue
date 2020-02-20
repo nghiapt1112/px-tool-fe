@@ -97,7 +97,7 @@
             {{ tr.ngayChuyenPhongVatTu }}
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <a class="link-download" target="_blank" :href="'/pdh?id=' + tr.detailId">{{ tr.soPhieuDatHang }}</a>
+            <a class="link-download" target="_blank" :href="'/pdh?id=' + tr.pdhId">{{ tr.soPhieuDatHang }}</a>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.ngayChuyenKT }}
