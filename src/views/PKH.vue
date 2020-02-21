@@ -424,7 +424,7 @@
         'commonDownloadFileByType',
         'pkhGetCusNoiNhan',
         'pkhGetNguoiThucHien',
-        'deleteRequest'
+        'deleteKH'
       ]),
       download() {
         this.commonDownloadFileByType({
@@ -514,14 +514,14 @@
       },
       acceptDelete() {
         const {query: {id}} = this.$route;
-        this.deleteRequest(id)
+        this.deleteKH(id)
           .then(() => {
             this.$vs.notify({
               color: 'success',
               title: 'Xóa Kiểm hỏng',
               text: `Xóa kiểm hỏng thành công.`
             });
-            this.$router.push(`/nd`);
+            this.$router.push(`/cvct`);
           })
           .catch((e) => {
             this.$vs.notify({

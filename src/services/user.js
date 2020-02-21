@@ -40,6 +40,18 @@ export const deleteUser = (userId) => {
   return api.delete(`/users/${userId}`)
 }
 
-export const deleteRequest = (id) => {
-  return api.delete(`/req/${id}`)
+export const deleteKH = (id) => {
+  return api.delete(`/req/kh/${id}`)
+}
+
+export const deleteDatHang = (id) => {
+  return api.delete(`/req/kh/${id}`)
+}
+
+export const deletePhuongAn = (id) => {
+  return api.delete(`/req/kh/${id}`)
+}
+
+export const deleteCNTP = (id) => {
+  return api.delete(`/req/kh/${id}`)
 }

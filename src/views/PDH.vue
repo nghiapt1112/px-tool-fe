@@ -427,13 +427,14 @@
           requestId,
           tpkthkXacNhan: tpKTHK,
           tpvatTuXacNhan: tpVatTu,
-          nguoiDatHangXacNhan: nguoiDatHang,
+          nguoiDatHangXacNhan: nguoiDatHang
         } = this.PDHData;
         const params = {
           requestId,
           tpKTHK,
           tpVatTu,
           nguoiDatHang,
+          type: 'DAT_HANG'
         };
         this.pdhGetNoiNhanById(params);
       },
@@ -551,6 +552,10 @@
         return true;
       },
       permissionToSave(user, data) {
+        const {query: {id}} = this.$route;
+        if (!id && (user.type == 'NV_VAT_TU')) { // chi nhan vien vat tu moi co quyen lap phieu.
+          return true;
+        }
         if (data.currentStatus != 'DAT_HANG') {
           return false;
         }
