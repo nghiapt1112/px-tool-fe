@@ -77,6 +77,7 @@
         </div>
         <div class="vx-col w-full">
           <a class="link-download" target="_blank"
+             v-show="VBDData.requestType != 'CONG_NHAN_THANH_PHAM'"
              :href="getDetailLink(VBDData)">Click để hiện thông tin chi tiết</a>
         </div>
       </div>
