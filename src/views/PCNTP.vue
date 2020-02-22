@@ -454,7 +454,7 @@
 <!--      color="danger"-->
 <!--      icon-pack="feather"-->
 <!--      icon="icon-trash"></vs-button>-->
-    <vs-button class="mr-4 mt-3" @click="onSubmit">Lưu</vs-button>
+    <vs-button class="mr-4 mt-3" @click="onSubmit" v-show="showFields()">Lưu</vs-button>
   </vx-card>
 </template>
 
@@ -528,6 +528,11 @@
         this.pcntpGetNoiNhanById(params);
       },
       showFields(userId, fieldName){
+        // save CNTP bắt buộc phải có id
+        const {query: {id}} = this.$route;
+        if (!id) {
+          return false;
+        }
         if (fieldName == 'CHU_KY' && userId) {
           return true;
         }
@@ -597,7 +602,7 @@
       },
       limitText(count){
         return `Chỉ được chọn tối đa ${count} tổ trưởng`;
-      }
+      },
     }
   }
 </script>

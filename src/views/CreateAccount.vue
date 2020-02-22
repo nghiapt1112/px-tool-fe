@@ -7,6 +7,7 @@
             class="w-full"
             label="Account"
             @change="changeData('email', $event.target.value)"
+            :disabled="true"
             :value="NDData.email"/>
         </div>
         <div class="vx-col w-1/2">
@@ -30,7 +31,7 @@
             :value="NDData.fullName"/>
         </div>
         <div class="vx-col w-1/2">
-          <label class="vs-input--label">Chức vụ</label>
+          <label class="vs-input--label">Phân quyền hệ thống</label>
           <v-select
             size="small"
             label="name"
@@ -49,6 +50,14 @@
             autocomplete="new-password"
             label="Mật khẩu"
             v-model="password"/>
+        </div>
+        <div class="vx-col w-1/2">
+          <vs-input
+            class="w-full"
+            type="text"
+            autocomplete="new-password"
+            label="Tên định danh chức vụ"
+            v-model="NDData.alias"/>
         </div>
       </div>
       <div class="vx-row mb-6">
@@ -83,8 +92,8 @@
       </div>
       <div class="vx-row">
         <div class="vx-col w-full">
-          <vs-button @click="onSubmit()" class="mr-3 mb-2">Lưu</vs-button>
-          <vs-button @click="openDeleteConfirm()" class="mr-3 mb-2" color="danger">Xóa</vs-button>
+          <vs-button @click="onSubmit()" v-show="showFields(NDData)" class="mr-3 mb-2">Lưu</vs-button>
+          <vs-button @click="openDeleteConfirm()" v-show="showFields(NDData)" class="mr-3 mb-2" color="danger">Xóa</vs-button>
         </div>
       </div>
     </vx-card>
@@ -105,7 +114,8 @@
         showError: false,
         isCreate: false,
         imgBase64: null,
-        password: null
+        password: null,
+        alias: null
       }
     },
     computed: {
@@ -205,6 +215,12 @@
             })
           })
       },
+      showFields(userDetail){
+        if (userDetail.email=='admin' || !userDetail.level || !userDetail.phanXuong) {
+          return false;
+        }
+        return true;
+      }
     }
   }
 </script>

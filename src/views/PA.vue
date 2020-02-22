@@ -872,6 +872,11 @@
         return true;
       },
       permissionToSave(user) {
+        // Tạo PA bắt buộc phải có id
+        const {query: {id}} = this.$route;
+        if (!id) {
+          return false;
+        }
         if (user.type == 'TL_KY_THUAT' || user.type == 'TRUONG_PHONG' || user.type == 'NV_VAT_TU' || user.type == 'TP_VAT_TU' || user.type == 'NV_DINH_MUC' || user.type == 'GENERAL') {
           return true;
         }
