@@ -14,6 +14,7 @@ const getters = {
   TKTDSPScreenData: (state) => state.tktdsp,
   TKTDSPData: (state) => state.tktdsp.data,
   TKTDSPComboboxData: (state) => state.tktdsp.comboboxData,
+  TKTDSPToTruongCbbData: (state) => state.userToTruong.comboboxData,
   // PKH
   PKHScreenData: (state) => state.pkh,
   PKHData: (state) => state.pkh.data,

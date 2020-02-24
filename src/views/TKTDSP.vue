@@ -30,6 +30,21 @@
         </div>
       </div>
     </div>
+    <div class="flex mb-4">
+      <div class="w-3/4 mr-5 filter-folder-area">
+        Tổ Trưởng:
+        <div style="display: flex; flex-direction: row; align-items: center">
+          <v-select
+            style="width: 100%"
+            size="small"
+            label="name"
+            :reduce="t => t.id"
+            v-model="toTruong"
+            :options="TKTDSPToTruongCbbData.users"></v-select>
+          <div class="ml-4" style="width: 250px"></div>
+        </div>
+      </div>
+    </div>
     <div class="flex w-1/2">
       <vs-button class="mb-5" @click="search()">Tìm kiếm</vs-button>
     </div>
@@ -40,11 +55,11 @@
           <th class="p-2 border border-solid d-theme-border-grey-light text-center"></th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">TT</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tên phụ kiện</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tên linh kiện, chi tiết kiểm hỏng
-          </th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tên linh kiện, chi tiết kiểm hỏng </th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Ký hiệu</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">SL</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Dạng hư hỏng</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Tổ kiểm hỏng</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Ngày kiểm hỏng</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Phương pháp khắc phục</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Ngày chuyển phòng vật tư</th>
@@ -54,7 +69,8 @@
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Ngày ra PA</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Ngày chuyển KH</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Ngày phê duyệt</th>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Ngày hoàn thành</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Số phiếu CNTP</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Ngày hoàn thành của tổ</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Xác nhận hoàn thành</th>
         </tr>
         </tbody>
@@ -88,6 +104,9 @@
             {{ tr.dangHuHong }}
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
+            {{tr.toTruongFullName}}
+          </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.ngayKiemHong }}
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
@@ -113,6 +132,9 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.ngayPheDuyet }}
+          </td>
+          <td class="p-2 border border-solid d-theme-border-grey-light">
+            <a class="link-download" target="_blank" :href="'/pcntp?id=' + tr.soCNTP" >{{ tr.soCNTP }}</a>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.ngayHoanThanh }}
@@ -159,6 +181,7 @@
           toDate: new Date()
         },
         mdsd: null,
+        toTruong: null,
         showError: false,
         page: 1,
         paIds: []
@@ -168,6 +191,7 @@
       ...mapGetters([
         'TKTDSPData',
         'TKTDSPComboboxData',
+        'TKTDSPToTruongCbbData',
         'AppActiveUser'
       ]),
       enableTaoPA: {
@@ -178,12 +202,14 @@
     },
     mounted() {
       this.tktdspGetListMDSD();
+      this.userGetToTruong();
     },
     methods: {
       ...mapActions([
         'tktdspGetListMDSD',
         'tktdspGetList',
-        'paGetPAIdByDetailsIds'
+        'paGetPAIdByDetailsIds',
+        'userGetToTruong'
       ]),
       permissionTaoPA(type) {
         return !(this.paIds.includes(true) && type == 'TL_KY_THUAT');
@@ -225,12 +251,14 @@
         }
         this.searchCondition.fromDate.setHours(0,0,0,0);
         this.searchCondition.toDate.setHours(23,59,59,0);
+        console.log(this.toTruong);
         const params = {
           page: this.page,
           size: 30,
           spId: this.mdsd,
           fromDate: this.searchCondition.fromDate.getTime(),
           toDate: this.searchCondition.toDate.getTime(),
+          toTruongId: this.toTruong
         };
         this.tktdspGetList(params);
       }
@@ -240,7 +268,7 @@
 
 <style lang="scss" scoped>
   .table--container {
-    font-size: .8em;
+    font-size: 1em;
     overflow: auto;
   }
 
@@ -252,28 +280,36 @@
         text-align: center;
       }
 
-      &:nth-child(1),
-      &:nth-child(2),
-      &:nth-child(6) {
-        width: 100px;
-      }
-
-      &:nth-child(8),
-      &:nth-child(10),
-      &:nth-child(11),
-      &:nth-child(12),
-      &:nth-child(13),
-      &:nth-child(14) {
-        min-width: 100px;
-        width: 100px;
-      }
-
       &:nth-child(3),
       &:nth-child(4),
-      &:nth-child(5),
       &:nth-child(7),
-      &:nth-child(9) {
-        min-width: 150px;
+      &:nth-child(8),
+      &:nth-child(10),
+      &:nth-child(12){
+        min-width: 200px;
+        width: 250px;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(5),
+      &:nth-child(6),
+      &:nth-child(9),
+      &:nth-child(11),
+      &:nth-child(13),
+      &:nth-child(15),
+      &:nth-child(16),
+      &:nth-child(17),
+      &:nth-child(19),
+      &:nth-child(20) {
+        width: 100px;
+      }
+
+      &:nth-child(14),
+      &:nth-child(18)
+      {
+        min-width: 200px;
+        width: 200px;
       }
     }
   }

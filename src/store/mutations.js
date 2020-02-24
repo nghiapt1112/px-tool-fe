@@ -194,13 +194,24 @@ const mutations = {
     state.tktdsp.error = null;
     state.tktdsp.loading = true;
   },
-
+  USER_TO_TRUONG_GET_LIST(state) {
+    state.userToTruong.error = null;
+    state.userToTruong.loading = true;
+  },
+  USER_TO_TRUONG_GET_LIST_SUCCESS(state, payload) {
+    state.userToTruong.error = null;
+    state.userToTruong.loading = false;
+    state.userToTruong.comboboxData.users = payload;
+  },
+  USER_TO_TRUONG_GET_LIST_FAILURE (state, e) {
+    state.userToTruong.error = e;
+    state.userToTruong.loading = false;
+  },
   TKTDSP_GET_LIST_SUCCESS (state, payload) {
     state.tktdsp.error = null;
     state.tktdsp.loading = false;
     state.tktdsp.data = payload
   },
-
   TKTDSP_GET_LIST_FAILURE (state, e) {
     state.tktdsp.error = e;
     state.tktdsp.loading = false;

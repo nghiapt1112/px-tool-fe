@@ -5,9 +5,8 @@
         <div class="vx-col w-1/2">
           <vs-input
             class="w-full"
-            label="Account"
+            label="Tên tài khoản đăng nhập"
             @change="changeData('email', $event.target.value)"
-            :disabled="true"
             :value="NDData.email"/>
         </div>
         <div class="vx-col w-1/2">

@@ -249,6 +249,19 @@ const actions = {
       })
     })
   },
+  userGetToTruong({commit}, payload) {
+    commit('USER_TO_TRUONG_GET_LIST');
+    return new Promise((resolve, reject) => {
+      user.getListToTruong(payload).then(res => {
+        const { data } = res;
+        commit('USER_TO_TRUONG_GET_LIST_SUCCESS', data)
+        resolve(res)
+      }).catch(e => {
+        commit('USER_TO_TRUONG_GET_LIST_FAILURE', e)
+        reject(e)
+      })
+    })
+  },
 
   // ////////////////////////////////////////////
   // PKH

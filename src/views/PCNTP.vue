@@ -449,18 +449,18 @@
         </tbody>
       </table>
     </div>
-<!--    <vs-button-->
-<!--      class="mr-4 float-right mt-3"-->
-<!--      color="danger"-->
-<!--      icon-pack="feather"-->
-<!--      icon="icon-trash"></vs-button>-->
-    <vs-button class="mr-4 mt-3" @click="onSubmit" v-show="showFields()">Lưu</vs-button>
+    <!--    <vs-button-->
+    <!--      class="mr-4 float-right mt-3"-->
+    <!--      color="danger"-->
+    <!--      icon-pack="feather"-->
+    <!--      icon="icon-trash"></vs-button>-->
+    <vs-button class="mr-4 mt-3" @click="onSubmit" v-show="showFields(-1, 'SAVE', AppActiveUser)">Lưu</vs-button>
   </vx-card>
 </template>
 
 <script>
   import vSelect from 'vue-select'
-  import { mapActions, mapGetters } from 'vuex';
+  import {mapActions, mapGetters} from 'vuex';
   import Multiselect from 'vue-multiselect';
 
   export default {
@@ -468,7 +468,7 @@
       'v-select': vSelect,
       Multiselect,
     },
-    data () {
+    data() {
       return {
         isNoiNhanShowDropdownList: false,
       }
@@ -480,8 +480,8 @@
         'AppActiveUser'
       ]),
     },
-    mounted () {
-      const { query: { id } } = this.$route;
+    mounted() {
+      const {query: {id}} = this.$route;
       id && this.pcntpGetById(id).then(() => {
         this.getNoiNhan();
       });
@@ -497,7 +497,7 @@
         'commonDownloadFileByType',
         'pcntpGetNguoiLam'
       ]),
-      download () {
+      download() {
         this.commonDownloadFileByType({
           requestId: this.PCNTPData.requestId,
           requestType: 'CONG_NHAN_THANH_PHAM'
@@ -510,7 +510,7 @@
             })
           })
       },
-      getNoiNhan () {
+      getNoiNhan() {
         const {
           requestId,
           nguoiGiaoViecXacNhan: nguoiGiaoViec,
@@ -527,47 +527,56 @@
         };
         this.pcntpGetNoiNhanById(params);
       },
-      showFields(userId, fieldName){
+      showFields(userId, fieldName, currentUser) {
         // save CNTP bắt buộc phải có id
         const {query: {id}} = this.$route;
         if (!id) {
           return false;
         }
-        if (fieldName == 'CHU_KY' && userId) {
+        // Only granted user have permission to save
+        if (fieldName == 'SAVE' && (
+          (currentUser.type == 'GENERAL' && currentUser.level == '3') // giam doc
+          || currentUser.type == 'TO_TRUONG'  // to truong
+          || currentUser.type == 'NV_KCS'  // NV_KCS
+          || currentUser.type == 'TP_KCS'  // TP.KCS
+        )) {
+          return true;
+        }
+        if (fieldName == 'CHU_KY' && userId) { // show field chu ky , neu da assign cho 1 to truong
           return true;
         }
         return false;
       },
-      resetData () {
+      resetData() {
         const data = {
           noiDungThucHiens: [],
         };
         this.pcntpUpdateData(data);
         return true;
       },
-      changeData (fieldName, value) {
+      changeData(fieldName, value) {
         const data = Object.assign({}, this.PCNTPData);
         data[fieldName] = value;
         this.pcntpUpdateData(data);
       },
-      changeDetailItem (index, fieldName, value) {
+      changeDetailItem(index, fieldName, value) {
         const item = Object.assign({}, this.PCNTPData.noiDungThucHiens[index]);
         const noiDungThucHien = Object.assign([], this.PCNTPData.noiDungThucHiens);
         item[fieldName] = value;
         noiDungThucHien[index] = item;
         this.changeData('noiDungThucHiens', noiDungThucHien);
       },
-      addDetail () {
+      addDetail() {
         const list = Object.assign([], this.PCNTPData.noiDungThucHiens);
         list.push({})
         this.changeData('noiDungThucHiens', list);
       },
-      deleteDetail (index) {
+      deleteDetail(index) {
         const list = Object.assign([], this.PCNTPData.noiDungThucHiens);
         list.splice(index, 1);
         this.changeData('noiDungThucHiens', list);
       },
-      onSubmit () {
+      onSubmit() {
         const data = Object.assign({}, this.PCNTPData);
         this.pcntpSaveData(data).then(() => {
           this.$vs.notify({
@@ -579,12 +588,13 @@
         }).catch((e) => {
           this.$vs.notify({
             color: 'danger',
+            time: '7000',
             title: 'Lưu Phiếu Công Nhận Thành Phẩm',
-            text: `Lưu Phiếu Công Nhận Thành Phẩm thất bại. ${e}`
+            text: `${e}`
           })
         })
       },
-      openDeleteConfirm () {
+      openDeleteConfirm() {
         this.$vs.dialog({
           type: 'confirm',
           color: 'danger',
@@ -593,14 +603,14 @@
           accept: this.acceptDelete
         })
       },
-      acceptDelete () {
+      acceptDelete() {
         this.$vs.notify({
           color: 'danger',
           title: 'Xóa Phiếu Công Nhận Thành Phẩm',
           text: 'Xóa Phiếu Công Nhận Thành Phẩm thất bại.'
         })
       },
-      limitText(count){
+      limitText(count) {
         return `Chỉ được chọn tối đa ${count} tổ trưởng`;
       },
     }

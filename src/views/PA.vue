@@ -30,7 +30,7 @@
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               style="width: 150px"
-              type="number"
+              type="number" min="0"
               size="small"
               class="inputx"
               @change="changeData('toSo', $event.target.value)"
@@ -59,7 +59,7 @@
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               style="width: 150px"
-              type="number"
+              type="number" min="0"
               size="small"
               class="inputx"
               @change="changeData('soTo', $event.target.value)"
@@ -196,7 +196,7 @@
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               style="width: 70px"
-              type="number"
+              type="number" min="0"
               size="small"
               class="inputx"
               :disabled="disabledFields(AppActiveUser, 'DMH')"
@@ -213,11 +213,11 @@
               @change="changeDingMucLaoDong(indextr, 'ghiChu', $event.target.value)"/>
           </td>
         </tr>
-        <tr>
+        <tr class="hover:bg-warning">
           <td colspan="11" class="p-2 border border-solid d-theme-border-grey-light">
             Tổng cộng
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning">
+          <td class="p-2 border border-solid d-theme-border-grey-light text-center h4">
             {{PAData.tongDMLDDM ? PAData.tongDMLDDM.toLocaleString() : 0}}
           </td>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -269,7 +269,7 @@
           <td class="p-2 border border-solid d-theme-border-grey-light text-center relative">
             {{indextr + 1}}
             <div
-              @click="deleteDinhMucVatTu(indextr)"
+              @click="deleteDinhMucVatTu(indextr, AppActiveUser)"
               class="custom-btn-delete bg-danger"
             >x
             </div>
@@ -306,7 +306,7 @@
               style="width: 50px"
               size="small"
               class="inputx"
-              type="number"
+              type="number" min = "0" value="0"
               :value="tr.dm1SP"
               :disabled="disabledFields(AppActiveUser, 'DMVT')"
               @change="changeDetailItem(indextr, 'dm1SP', $event.target.value)"/>
@@ -314,7 +314,7 @@
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
               style="width: 50px"
-              type="number"
+              type="number" min = "0" value="0"
               size="small"
               class="inputx"
               :disabled="disabledFields(AppActiveUser, 'DMVT')"
@@ -325,7 +325,7 @@
             <vs-input
               style="width: 50px"
               size="small"
-              type="number"
+              type="number" min = "0" value="0"
               class="inputx"
               :disabled="disabledFields(AppActiveUser, 'DMVT')"
               :value="tr.tongNhuCau"
@@ -333,7 +333,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
-              type="number"
+              type="number" min = "0" value="0"
               style="width: 100px"
               size="small"
               class="inputx"
@@ -343,7 +343,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
-              type="number"
+              type="number" min = "0" value="0"
               style="width: 100px"
               size="small"
               class="inputx"
@@ -356,7 +356,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
-              type="number"
+              type="number" min = "0" value="0"
               style="width: 100px"
               size="small"
               class="inputx"
@@ -366,7 +366,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             <vs-input
-              type="number"
+              type="number" min = "0" value="0"
               style="width: 100px"
               size="small"
               class="inputx"
@@ -396,25 +396,25 @@
             ></vs-button>
           </td>
         </tr>
-        <tr>
+        <tr class="hover:bg-warning">
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">Cộng</th>
           <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning">
+          <td class="p-2 border border-solid d-theme-border-grey-light text-center h4">
             {{PAData.tongDMVTKho ? PAData.tongDMVTKho.toLocaleString() : 0}}
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning">
+          <td class="p-2 border border-solid d-theme-border-grey-light text-center h4">
             {{PAData.tongDMVTMuaNgoai ? PAData.tongDMVTMuaNgoai.toLocaleString() : 0}}
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
         </tr>
-        <tr>
+        <tr class="hover:bg-warning">
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Tiền lương (tiền công)
           </th>
-          <td colspan="12" class="p-2 border border-solid d-theme-border-grey-light text-center bg-warning">
+          <td colspan="12" class="p-2 border border-solid d-theme-border-grey-light text-center h4 ">
             <vs-input
               type="number"
               :value="PAData.tienLuong"
@@ -424,7 +424,7 @@
           </td>
         </tr>
         <tr>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light">Nơi nhận</th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light hover:bg-warning">Nơi nhận</th>
           <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
             <multiselect
               class="multiselect"
@@ -443,7 +443,7 @@
               @input="changeData('cusReceivers', $event)"
               :taggable="true"></multiselect>
           </td>
-          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light">Đơn vị thực hiện</th>
+          <th colspan="3" class="p-2 border border-solid d-theme-border-grey-light hover:bg-warning">Các đơn vị thực hiện</th>
           <td colspan="4" class="p-2 border border-solid d-theme-border-grey-light">
             <multiselect
               class="multiselect"
@@ -789,8 +789,8 @@
         list.push({})
         this.changeData('dinhMucVatTus', list);
       },
-      deleteDinhMucVatTu(index) {
-        if (AppActiveUser.type == 'NV_DINH_MUC') {
+      deleteDinhMucVatTu(index, user) {
+        if (user.type == 'NV_DINH_MUC') {
           return;
         }
         const list = Object.assign([], this.PAData.dinhMucVatTus);
@@ -828,6 +828,7 @@
 
         }).catch((e) => {
           this.$vs.notify({
+            time: '7000',
             color: 'danger',
             title: 'Lưu Phương Án',
             text: `Lưu Phương Án thất bại. ${e}`

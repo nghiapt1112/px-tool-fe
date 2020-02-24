@@ -120,7 +120,6 @@
         <div class="the-navbar__user-meta flex items-center">
           <div class="text-right leading-tight hidden sm:block">
             <p class="font-semibold uppercase">{{ user_displayName }}</p>
-            <small>Available</small>
           </div>
           <vs-dropdown vs-custom-content vs-trigger-click class="cursor-pointer">
             <div class="con-img ml-3">

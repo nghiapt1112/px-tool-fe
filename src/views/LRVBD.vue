@@ -230,7 +230,7 @@
 
 <style lang="scss" scoped>
   .cvct-table--container {
-    font-size: .8em;
+    font-size: 1em;
     overflow: auto;
   }
 
@@ -243,6 +243,9 @@
       }
       &:nth-child(3) {
         width: 200px;
+      }
+      &:nth-child(4) {
+        width: 250px;
       }
     }
   }

@@ -410,7 +410,7 @@
       });
       !id && this.resetData() && this.getNoiNhan();
       this.pkhGetPhanXuong({requestId: id});
-      this.pkhGetCusNoiNhan({requestType: 'KIEM_HONG'});
+      this.pkhGetCusNoiNhan({requestType: 'KIEM_HONG', requestId: id});
       this.pkhGetNguoiThucHien({requestType: 'KIEM_HONG'});
     },
     methods: {

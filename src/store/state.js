@@ -330,7 +330,14 @@ const state = {
         mdsd: [],
         thuMuc: []
       }
-    }
+    },
+    userToTruong: {
+      comboboxData: {
+        users: []
+      },
+      error: null,
+      loading: false
+  }
   }
 ;
 

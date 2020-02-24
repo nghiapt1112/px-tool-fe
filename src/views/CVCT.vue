@@ -126,7 +126,7 @@
 
 <style lang="scss" scoped>
   .cvct-table--container {
-    font-size: .8em;
+    font-size: .9em;
     overflow: auto;
   }
 
