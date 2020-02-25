@@ -66,7 +66,7 @@
           </td>
           <td colspan="5" class="p-2 border border-solid d-theme-border-grey-light"></td>
         </tr>
-        F
+
         </tbody>
 
         <tbody>
