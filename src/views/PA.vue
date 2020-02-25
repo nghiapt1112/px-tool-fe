@@ -163,7 +163,7 @@
         </tr>
         </tbody>
         <tbody>
-        <tr
+        <tr class="hover:bg-primary"
           v-for="(tr, indextr) in PAData.dinhMucLaoDongs"
           :key="indextr"
         >
@@ -213,11 +213,12 @@
               @change="changeDingMucLaoDong(indextr, 'ghiChu', $event.target.value)"/>
           </td>
         </tr>
-        <tr class="hover:bg-warning">
-          <td colspan="11" class="p-2 border border-solid d-theme-border-grey-light">
+        <tr>
+          <td class="p-2 border border-solid d-theme-border-grey-light text-left"></td>
+          <td colspan="8" class="p-2 border border-solid d-theme-border-grey-light h4 text-left">
             Tổng cộng
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center h4">
+          <td colspan="3" class="p-2 border border-solid d-theme-border-grey-light text-left h4">
             {{PAData.tongDMLDDM ? PAData.tongDMLDDM.toLocaleString() : 0}}
           </td>
           <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light"></td>
@@ -396,26 +397,25 @@
             ></vs-button>
           </td>
         </tr>
-        <tr class="hover:bg-warning">
+        <tr>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
-          <th class="p-2 border border-solid d-theme-border-grey-light text-center">Cộng</th>
-          <td colspan="7" class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
+          <th colspan="8" class="p-2 border border-solid d-theme-border-grey-light text-left h4">Cộng</th>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center h4">
             {{PAData.tongDMVTKho ? PAData.tongDMVTKho.toLocaleString() : 0}}
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
+          <td colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center h4">
             {{PAData.tongDMVTMuaNgoai ? PAData.tongDMVTMuaNgoai.toLocaleString() : 0}}
           </td>
-          <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
+
         </tr>
         <tr class="hover:bg-warning">
           <td class="p-2 border border-solid d-theme-border-grey-light text-center"></td>
-          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">Tiền lương (tiền công)
+          <th colspan="8" class="p-2 border border-solid d-theme-border-grey-light text-left h4">Tiền lương (tiền công)
           </th>
           <td colspan="12" class="p-2 border border-solid d-theme-border-grey-light text-center h4 ">
             <vs-input
+              style="width: 100%"
               type="number"
               :value="PAData.tienLuong"
               :disabled="disabledFields(AppActiveUser, 'TL')"

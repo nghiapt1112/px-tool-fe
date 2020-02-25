@@ -286,6 +286,15 @@
         <tbody>
         <tr>
           <th class="p-2 border border-solid d-theme-border-grey-light"></th>
+          <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.ngayThangNamToTruong1 || ' Ngày ... tháng ... năm ...'}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light italic">{{PCNTPData.ngayThangNamToTruong2 || ' Ngày ... tháng ... năm ...'}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.ngayThangNamToTruong2 || ' Ngày ... tháng ... năm ...'}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.ngayThangNamToTruong3 || ' Ngày ... tháng ... năm ...'}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.ngayThangNamToTruong4 || ' Ngày ... tháng ... năm ...'}}</th>
+          <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.ngayThangNamToTruong5 || ' Ngày ... tháng ... năm ...'}}</th>
+        </tr>
+        <tr>
+          <th class="p-2 border border-solid d-theme-border-grey-light"></th>
           <th colspan="2" class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong1Alias}}</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong2Alias}}</th>
           <th class="p-2 border border-solid d-theme-border-grey-light text-center">{{PCNTPData.toTruong3Alias}}</th>

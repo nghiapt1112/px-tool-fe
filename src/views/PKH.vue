@@ -35,7 +35,7 @@
           <th class="p-2 border border-solid d-theme-border-grey-light">Tờ số:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-input
-              type="number"
+              type="number" min = "0"
               size="small"
               class="inputx"
               @change="changeData('toSo', $event.target.value)"
@@ -73,7 +73,7 @@
           <th class="p-2 border border-solid d-theme-border-grey-light">Số tờ:</th>
           <td class="p-2 border border-solid d-theme-border-grey-light text-center">
             <vs-input
-              type="number"
+              type="number" min = "0"
               size="small"
               class="inputx"
               @change="changeData('soTo', $event.target.value)"
@@ -161,7 +161,7 @@
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light text-right">
             <vs-input
-              type="number"
+              type="number" min = "0"
               size="small"
               class="inputx"
               style="width: 85px"
@@ -359,12 +359,12 @@
         </tbody>
       </table>
     </div>
-    <vs-button
-      class="mr-4 float-right mt-3"
-      color="danger"
-      icon-pack="feather"
-      icon="icon-trash"
-      @click="openDeleteConfirm()"></vs-button>
+<!--    <vs-button-->
+<!--      class="mr-4 float-right mt-3"-->
+<!--      color="danger"-->
+<!--      icon-pack="feather"-->
+<!--      icon="icon-trash"-->
+<!--      @click="openDeleteConfirm()"></vs-button>-->
     <vs-button class="mr-4 mt-3" @click="onSubmit" v-show="showFields(PKHData, AppActiveUser)">Chuyển</vs-button>
 
     <vs-popup class="holamundo" title="Có lỗi xảy ra" :active.sync="showError">
@@ -533,13 +533,18 @@
       },
       showFields(data, user) {
         const {query: {id}} = this.$route;
-        if (!id && (user.type == 'GENERAL' && user.level == 5)) { // user =  to_truong
+        if (!id
+          && (
+            (user.type == 'TO_TRUONG')  // user =  to_truong
+            || (user.type == 'GENERAL' && user.level == 5)) // user =  to_truong (source code cu)
+        ) {
           return true;
         }
         if (data.currentStatus != 'KIEM_HONG') { // da xong kiem hong
           return false;
         } else {
           if ((user.type == 'TL_KY_THUAT' && user.level == 4)
+            || (user.type == 'TO_TRUONG')
             || (user.type == 'GENERAL' && user.level == 3)
             || (user.type == 'GENERAL' && user.level == 5)) { // dang kiem hong thi dung user ms co quyen save
             return true;

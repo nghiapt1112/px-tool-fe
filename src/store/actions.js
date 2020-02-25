@@ -869,7 +869,26 @@ const actions = {
         reject(e)
       })
     })
-  }
+  },
+  exportDataThongKe ({ commit }, data) {
+    return new Promise((resolve, reject) => {
+      upload.exportDataThongKe(data).then(res => {
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
+
+  deleteData ({ commit }, data) {
+    return new Promise((resolve, reject) => {
+      upload.deleteData(data).then(res => {
+        resolve(res)
+      }).catch(e => {
+        reject(e)
+      })
+    })
+  },
 }
 
 export default actions

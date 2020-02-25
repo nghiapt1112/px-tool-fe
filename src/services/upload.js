@@ -34,3 +34,11 @@ export const downloadFileByType = (payload) => {
     responseType: 'blob',
   })
 }
+
+export const exportDataThongKe = (payload) => {
+  return api.get('/file/export', { params: payload })
+}
+
+export const deleteData = (payload) => {
+  return api.delete('/req/del/range', { params: payload })
+}

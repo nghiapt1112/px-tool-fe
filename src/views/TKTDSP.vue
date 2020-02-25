@@ -147,15 +147,24 @@
       </table>
     </div>
     <div class="vx-row no-gutter justify-state mt-5">
-      <div class="vx-col lg:w-1/2">
-        <vs-button :disabled="permissionTaoPA(AppActiveUser.type)" @click="onCreatePA">Tạo Phương Án</vs-button>
-      </div>
+      <div class="vx-col lg:w-1/2"></div>
       <div class="vx-col">
         <vs-pagination
           :total="TKTDSPData.total"
           @change="getList()"
           v-model="page"
         ></vs-pagination>
+      </div>
+    </div>
+    <div class="vx-row no-gutter">
+      <div class="vx-col lg:w-1/6">
+        <vs-button :disabled="permissionTaoPA(AppActiveUser.type)" @click="onCreatePA">Tạo Phương Án</vs-button>
+      </div>
+      <div class="vx-col lg:w-1/6">
+        <vs-button v-show="showFields(AppActiveUser, 'EXPORT_TK')" @click="onThongKe">Xuất file thống kê</vs-button>
+      </div>
+      <div class="vx-col lg:w-1/6 btn-error">
+        <vs-button v-show="showFields(AppActiveUser, 'DEL')" @click="onXoaData">Xóa dữ liệu</vs-button>
       </div>
     </div>
   </vx-card>
@@ -209,7 +218,9 @@
         'tktdspGetListMDSD',
         'tktdspGetList',
         'paGetPAIdByDetailsIds',
-        'userGetToTruong'
+        'userGetToTruong',
+        'exportDataThongKe',
+        'deleteData'
       ]),
       permissionTaoPA(type) {
         return !(this.paIds.includes(true) && type == 'TL_KY_THUAT');
@@ -261,6 +272,46 @@
           toTruongId: this.toTruong
         };
         this.tktdspGetList(params);
+      },
+      showFields(user, fieldName) {
+        if (user.type == 'ADMIN') {
+          return true;
+        }
+        return false;
+      },
+      onThongKe() {
+        if (!this.searchCondition.fromDate) {
+          this.searchCondition.fromDate = new Date();
+        }
+        if (!this.searchCondition.toDate) {
+          this.searchCondition.toDate = new Date();
+        }
+        this.searchCondition.fromDate.setHours(0,0,0,0);
+        this.searchCondition.toDate.setHours(23,59,59,0);
+        const params = {
+          fromDate: this.searchCondition.fromDate.getTime(),
+          toDate: this.searchCondition.toDate.getTime(),
+        };
+        console.log('thongke', params);
+        // this.tktdspGetList(params);
+        this.exportDataThongKe(params);
+      },
+      onXoaData() {
+        if (!this.searchCondition.fromDate) {
+          this.searchCondition.fromDate = new Date();
+        }
+        if (!this.searchCondition.toDate) {
+          this.searchCondition.toDate = new Date();
+        }
+        this.searchCondition.fromDate.setHours(0,0,0,0);
+        this.searchCondition.toDate.setHours(23,59,59,0);
+        const params = {
+          fromDate: this.searchCondition.fromDate.getTime(),
+          toDate: this.searchCondition.toDate.getTime(),
+        };
+        console.log('delete data', params);
+        // this.tktdspGetList(params);
+        this.deleteData(params);
       }
     }
   }
