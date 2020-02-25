@@ -878,7 +878,7 @@
         if (!id) {
           return false;
         }
-        if (user.type == 'TL_KY_THUAT' || user.type == 'TRUONG_PHONG' || user.type == 'NV_VAT_TU' || user.type == 'TP_VAT_TU' || user.type == 'NV_DINH_MUC' || user.type == 'GENERAL') {
+        if (user.type == 'TL_KY_THUAT' || user.type == 'TRUONG_PHONG' || user.type == 'NV_VAT_TU' || user.type == 'TP_VAT_TU' || user.type == 'NV_DINH_MUC' || user.type == 'GENERAL' || user.type='TP_KE_HOACH') {
           return true;
         }
         return false;
