@@ -172,7 +172,7 @@
           .then(() => {
             this.$vs.notify({
               color: 'success',
-              title: 'Thêm Mới Người Dùng',
+              title: 'Lưu Người Dùng',
               text: `Lưu thành công.`
             });
             this.$router.push(`/nd`);
@@ -180,7 +180,7 @@
           .catch((e) => {
             this.$vs.notify({
               color: 'danger',
-              title: 'Thêm Mới Người Dùng',
+              title: 'Lưu Người Dùng',
               text: `Lưu thất bại. ${e}`
             })
           })
