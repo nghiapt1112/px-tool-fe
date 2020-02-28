@@ -32,7 +32,7 @@
     </div>
     <div class="flex mb-4">
       <div class="w-3/4 mr-5 filter-folder-area">
-        Tổ Trưởng:
+        Tổ kiểm hỏng:
         <div style="display: flex; flex-direction: row; align-items: center">
           <v-select
             style="width: 100%"
