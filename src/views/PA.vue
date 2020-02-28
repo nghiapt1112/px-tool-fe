@@ -163,7 +163,7 @@
         </tr>
         </tbody>
         <tbody>
-        <tr class="hover:bg-primary"
+        <tr
           v-for="(tr, indextr) in PAData.dinhMucLaoDongs"
           :key="indextr"
         >

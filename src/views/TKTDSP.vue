@@ -333,6 +333,7 @@
 
       &:nth-child(3),
       &:nth-child(4),
+      &:nth-child(5),
       &:nth-child(7),
       &:nth-child(8),
       &:nth-child(10),
@@ -343,7 +344,6 @@
 
       &:nth-child(1),
       &:nth-child(2),
-      &:nth-child(5),
       &:nth-child(6),
       &:nth-child(9),
       &:nth-child(11),
