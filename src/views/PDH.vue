@@ -143,6 +143,7 @@
               style="width: 85px"
               size="small"
               class="inputx"
+              type="number" min="0"
               :disabled="disableFields(AppActiveUser)"
               :value="tr.sl"
               @change="changeDetailItem(indextr, 'sl', $event.target.value)"/>
