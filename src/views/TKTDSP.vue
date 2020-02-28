@@ -242,7 +242,9 @@
           this.paGetPAIdByDetailsIds({detailIds})
             .then(res => {
               const {data: {paId}} = res;
-              paId && this.$router.push(`/pa?id=${paId}`);
+              let routeData = this.$router.resolve({name: 'pa', query: {id: paId}});
+              window.open(routeData.href, '_blank');
+              location.reload();
             })
             .catch(e => {
               this.$vs.notify({
