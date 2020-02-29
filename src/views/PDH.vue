@@ -512,8 +512,9 @@
         }).catch((e) => {
           this.$vs.notify({
             color: 'danger',
+            time: '7000',
             title: 'Lưu Phiếu Đặt Hàng',
-            text: `Lưu Phiếu Đặt Hàng thất bại. ${e}`
+            text: `${e}`
           })
         })
       },

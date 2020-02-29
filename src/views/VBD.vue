@@ -77,7 +77,6 @@
         </div>
         <div class="vx-col w-full">
           <a class="link-download" target="_blank"
-             v-show="VBDData.requestType != 'CONG_NHAN_THANH_PHAM'"
              :href="getDetailLink(VBDData)">Click để hiện thông tin chi tiết</a>
         </div>
       </div>
@@ -211,6 +210,7 @@
         if (vanBanDen.requestType == 'KIEM_HONG') return '/pkh?id=' +vanBanDen.requestId;
         if (vanBanDen.requestType == 'DAT_HANG') return '/pdh?id=' +vanBanDen.requestId;
         if (vanBanDen.requestType == 'PHUONG_AN') return '/pa?id=' +vanBanDen.requestId;
+        if (vanBanDen.requestType == 'CONG_NHAN_THANH_PHAM') return '/pcntp?id=' +vanBanDen.requestId;
         else return '#';
       }
     }
