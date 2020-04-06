@@ -134,7 +134,7 @@
             {{ tr.ngayPheDuyet }}
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
-            <a class="link-download" target="_blank" :href="'/pcntp?id=' + tr.soCNTP" >{{ tr.soCNTP }}</a>
+            <a class="link-download" target="_blank" :href="'/pcntp?id=' + tr.cntpId" >{{ tr.soCNTP }}</a>
           </td>
           <td class="p-2 border border-solid d-theme-border-grey-light">
             {{ tr.ngayHoanThanh }}
